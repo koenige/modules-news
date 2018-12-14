@@ -1,0 +1,64 @@
+# contact module
+# Translations to German
+#
+# Part of »Zugzwang Project«
+# http://www.zugzwang.org/modules/news
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2014-2018 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: modules/news\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.6.4\n"
+"Language: de\n"
+
+#: custom/zzbrick_tables/articles.php
+msgid "News Articles"
+msgstr "Überblick"
+
+#: custom/zzbrick_tables/articles.php
+msgid "News"
+msgstr "Kurzmeldung"
+
+#: custom/zzbrick_tables/articles.php
+msgid "Articles"
+msgstr "Nachrichten"
+
+#: custom/zzbrick_tables/articles.php
+msgid "Article"
+msgstr "Nachricht"
+
+#: custom/zzbrick_tables/articles.php
+msgid "Authors"
+msgstr "Autoren"
+
+#: custom/zzbrick_tables/articles.php
+msgid "Short news, 140 characters max."
+msgstr "Kurznachricht, 140 Zeichen maximal"
+
+#: custom/zzbrick_tables/articles.php
+msgid "– none –"
+msgstr "– keine –"
+
+#: templates/articles.template.txt
+msgid "Sorry, currently we have no news."
+msgstr "Zur Zeit haben wir keine aktuellen Nachrichten."
+
+#: templates/articles.template.txt
+msgid "There are no news in this year."
+msgstr "Wir haben keine Nachrichten aus diesem Jahr."
+
+#: templates/articles.template.txt
+msgid "There are no news in this category."
+msgstr "Wir haben keine Nachrichten aus dieser Kategorie."
