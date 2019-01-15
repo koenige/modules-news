@@ -1,4 +1,4 @@
-# contact module
+# news module
 # Translations to German
 #
 # Part of »Zugzwang Project«
