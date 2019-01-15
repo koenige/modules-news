@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014, 2018 Gustaf Mossakowski
+ * @copyright Copyright © 2014, 2018-2019 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -47,6 +47,7 @@ $zz_sub['fields'][3]['sql_character_set'][2] = 'utf8';
 $zz_sub['fields'][3]['sql_character_set'][3] = 'latin1';
 $zz_sub['fields'][3]['search'] = 'CONCAT(/*_PREFIX_*/events.event, " (", 
 	DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%d.%m.%Y"), IFNULL(CONCAT(", ", place), ""), ")")';
+$zz_sub['fields'][3]['character_set'] = 'utf8';
 
 $zz_sub['sql'] = 'SELECT articles_events.*
 		, articles.title
