@@ -1,0 +1,17 @@
+# news module
+# Template for file links
+#
+# Part of »Zugzwang Project«
+# http://www.zugzwang.org/modules/news
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2014-2015, 2018-2019 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+<h2>%%% text Further Information %%%</h2>
+<ul>
+%%% loop start %%%
+<li>%%% item date wrap_date "%s: " %%% <a href="%%% setting files_path %%%/%%% item filename %%%.master.%%% item extension %%%">%%% item title %%%</a>
+ <small>(<abbr title="%%% item filetype_description %%%">%%% item filetype strtoupper %%%</abbr>, %%% item filesize wrap_bytes %%%)</small></li>
+%%% loop end %%%
+</ul>
