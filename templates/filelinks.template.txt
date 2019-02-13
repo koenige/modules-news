@@ -11,7 +11,7 @@
 <h2>%%% text Further Information %%%</h2>
 <ul>
 %%% loop start %%%
-<li>%%% item date wrap_date "%s: " %%% <a href="%%% setting files_path %%%/%%% item filename %%%.master.%%% item extension %%%">%%% item title %%%</a>
+<li>%%% item date wrap_date "%s: " %%% <a href="%%% setting files_path %%%/%%% item filename %%%.%%% item extension %%%?version=%%% item version %%%">%%% item title %%%</a>
  <small>(<abbr title="%%% item filetype_description %%%">%%% item filetype strtoupper %%%</abbr>, %%% item filesize wrap_bytes %%%)</small></li>
 %%% loop end %%%
 </ul>
