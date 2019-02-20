@@ -23,31 +23,39 @@ msgstr ""
 "X-Generator: Poedit 1.6.4\n"
 "Language: de\n"
 
-#: custom/zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php
 msgid "News Articles"
 msgstr "Überblick"
 
-#: custom/zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php
 msgid "News"
 msgstr "Kurzmeldung"
 
-#: custom/zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php
 msgid "Articles"
 msgstr "Nachrichten"
 
-#: custom/zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php
 msgid "Article"
 msgstr "Nachricht"
 
-#: custom/zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php
 msgid "Authors"
 msgstr "Autoren"
 
-#: custom/zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php
+msgid "Image"
+msgstr "Bild"
+
+#: zzbrick_tables/articles.php
+msgid "Year"
+msgstr "Jahr"
+
+#: zzbrick_tables/articles.php
 msgid "Short news, 140 characters max."
 msgstr "Kurznachricht, 140 Zeichen maximal"
 
-#: custom/zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php
 msgid "– none –"
 msgstr "– keine –"
 
