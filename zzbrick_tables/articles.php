@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2014-2015, 2017-2018 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2014-2015, 2017-2019 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -188,5 +188,11 @@ $zz['filter'][4]['type'] = 'list';
 $zz['filter'][4]['where'] = 'articles.published';
 $zz['filter'][4]['selection']['yes'] = wrap_text('yes');
 $zz['filter'][4]['selection']['no'] = wrap_text('no');
+
+$zz['set_redirect'][] = [
+	'old' => $zz_setting['news_url'].'/%s/',
+	'new' => $zz_setting['news_url'].'/%s/',
+	'field_name' => 'identifier'
+];
 
 $zz_conf['copy'] = true;
