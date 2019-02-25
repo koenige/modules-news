@@ -88,6 +88,14 @@ function mod_news_article($params) {
 		$page['link']['prev'][0]['title'] = $article['_prev_title'];
 	}
 	
+	$sql = 'SELECT category_id, category
+		FROM articles_categories
+		LEFT JOIN categories USING (category_id)
+		WHERE article_id = %d
+		ORDER BY articles_categories.sequence, path';
+	$sql = sprintf($sql, $article['article_id']);
+	$article['categories'] = wrap_db_fetch($sql, 'category_id');
+	
 	$page['title'] = $article['title'];
 	$tree = explode('/', $article['identifier']);
 	array_pop($tree);
