@@ -55,6 +55,7 @@ function mod_news_article($params) {
 	}
 	if (!empty($media['images'])) {
 		$first_img = key($media['images']);
+		$main_img = $media['images'][$first_img];
 	}
 	brick_request_links($article['article'], $media, 'sequence');
 
@@ -76,6 +77,16 @@ function mod_news_article($params) {
 		$url = str_repeat('../', $i);
 		$page['breadcrumbs'][] = '<a href="'.$url.'">'.$path.'</a>';
 		$i--;
+	}
+	$page['meta'] = [
+		0 => ['property' => 'og:url', 'content' => $zz_setting['host_base'].$zz_setting['request_uri']],
+		1 => ['property' => 'og:type', 'content' => 'article'],
+		2 => ['property' => 'og:title', 'content' => $article['title']],
+		3 => ['property' => 'og:description', 'content' => $article['abstract']]
+	];
+	if (!empty($main_img)) {
+		$page['meta'][] 
+			= ['property' => 'og:image', 'content' => $zz_setting['host_base'].'/files/'.$main_img['filename'].'.640.'.$main_img['extension'].'?v='.$main_img['version']];
 	}
 	$page['breadcrumbs'][] = $article['title'];
 	$page['text'] = wrap_template('article', $article);
