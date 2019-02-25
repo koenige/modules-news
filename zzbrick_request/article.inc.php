@@ -68,6 +68,25 @@ function mod_news_article($params) {
 			$article['newsgallery'] = wrap_template('newsgallery', $media['images']);
 		}
 	}
+
+	// prev next
+	if (file_exists($zz_setting['custom'].'/zzbrick_request_get/articles.inc.php')) {
+		require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
+		$articles = cms_get_articles();
+	} else {
+		require_once __DIR__.'/../zzbrick_request_get/articles.inc.php';
+		$articles = mod_news_get_articles();
+	}
+	$article += wrap_get_prevnext_flat($articles, $article['article_id'], false);
+
+	if (!empty($article['_next_identifier'])) {
+		$page['link']['next'][0]['href'] = '../../'.$article['_next_identifier'].'/';	
+		$page['link']['next'][0]['title'] = $article['_next_title'];
+	}
+	if (!empty($article['_prev_identifier'])) {
+		$page['link']['prev'][0]['href'] = '../../'.$article['_prev_identifier'].'/';	
+		$page['link']['prev'][0]['title'] = $article['_prev_title'];
+	}
 	
 	$page['title'] = $article['title'];
 	$tree = explode('/', $article['identifier']);
