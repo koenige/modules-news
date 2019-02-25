@@ -86,7 +86,7 @@ function mod_news_article($params) {
 	];
 	if (!empty($main_img)) {
 		$page['meta'][] 
-			= ['property' => 'og:image', 'content' => $zz_setting['host_base'].'/files/'.$main_img['filename'].'.640.'.$main_img['extension'].'?v='.$main_img['version']];
+			= ['property' => 'og:image', 'content' => $zz_setting['host_base'].$zz_setting['files_path'].'/'.$main_img['filename'].'.'.wrap_get_setting('news_og_image_size').'.'.$main_img['extension'].'?v='.$main_img['version']];
 	}
 	$page['breadcrumbs'][] = $article['title'];
 	$page['text'] = wrap_template('article', $article);
