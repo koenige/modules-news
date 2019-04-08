@@ -10,6 +10,6 @@
 #
 <p class="newsgallery js-gallery">
 %%% loop start %%%
-<a href="/files/%%% item filename %%%.800.%%% item thumb_extension %%%?v=%%% item version %%%" title="%%% item strip_tags %%%%%% item source strip_tags %%%" data-title="%%% item title %%%%%% item source wrap_html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%"><img src="/files/%%% item filename %%%.240.%%% item thumb_extension %%%?v=%%% item version %%%" alt="Bild %%% item title %%%"></a>
+<a href="%%% setting files_path %%%/%%% item filename %%%.800.%%% item thumb_extension %%%?v=%%% item version %%%" title="%%% item strip_tags %%%%%% item source strip_tags %%%" data-title="%%% item title %%%%%% item source wrap_html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.240.%%% item thumb_extension %%%?v=%%% item version %%%" alt="Bild %%% item title %%%"></a>
 %%% loop end %%%
 </p>
