@@ -14,6 +14,9 @@
 
 function mod_news_article($params) {
 	global $zz_setting;
+	if (count($params) === 1 AND is_numeric($params[0])) {
+		return brick_format('%%% request articles '.$params[0].' %%%');
+	}
 	if (count($params) !== 2) return false;
 
 	if ($zz_setting['local_access']) {
