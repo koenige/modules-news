@@ -59,6 +59,18 @@ msgstr "Kurznachricht, 140 Zeichen maximal"
 msgid "– none –"
 msgstr "– keine –"
 
+#: zzbrick_tables/articles-media.php
+msgid "Media in Articles"
+msgstr "Medien zu Artikeln"
+
+#: zzbrick_tables/articles-media.php
+msgid "No."
+msgstr "Nr."
+
+#: zzbrick_tables/articles-media.php
+msgid "Preview"
+msgstr "Vorschau"
+
 #: templates/articles.template.txt
 msgid "Sorry, currently we have no news."
 msgstr "Zur Zeit haben wir keine aktuellen Nachrichten."

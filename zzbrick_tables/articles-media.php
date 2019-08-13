@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010, 2013-2015, 2018 Gustaf Mossakowski
+ * @copyright Copyright © 2010, 2013-2015, 2018-2019 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -24,6 +24,7 @@ $zz_sub['fields'][4]['field_name'] = 'sequence';
 $zz_sub['fields'][4]['type'] = 'number';
 $zz_sub['fields'][4]['auto_value'] = 'increment';
 $zz_sub['fields'][4]['def_val_ignore'] = true;
+$zz_sub['fields'][4]['class'] = 'block480a';
 
 $zz_sub['fields'][2]['field_name'] = 'article_id';
 $zz_sub['fields'][2]['type'] = 'select';
@@ -32,6 +33,23 @@ $zz_sub['fields'][2]['sql'] = 'SELECT article_id, date, title
 	ORDER BY date, time, title';
 $zz_sub['fields'][2]['display_field'] = 'article';
 $zz_sub['fields'][2]['search'] = 'CONCAT(/*_PREFIX_*/articles.date, ": ", /*_PREFIX_*/articles.title)';
+$zz_sub['fields'][2]['class'] = 'block480a';
+
+$zz_sub['fields'][5]['title'] = 'Preview';
+$zz_sub['fields'][5]['field_name'] = 'image';
+$zz_sub['fields'][5]['type'] = 'image';
+$zz_sub['fields'][5]['class'] = 'preview';
+$zz_sub['fields'][5]['path'] = [
+	'root' => $zz_setting['media_folder'], 
+	'webroot' => $zz_setting['files_path'],
+	'string1' => '/',
+	'field1' => 'filename',
+	'string2' => '.',
+	'string3' => '80',
+	'string4' => '.',
+	'extension' => 'thumb_extension'
+];
+$zz_sub['fields'][5]['class'] = 'block480a';
 
 $zz_sub['fields'][3]['title'] = 'Medium';
 $zz_sub['fields'][3]['field_name'] = 'medium_id';
@@ -49,21 +67,8 @@ $zz_sub['fields'][3]['sql_character_set'][2] = 'utf8';
 $zz_sub['fields'][3]['display_field'] = 'image';
 $zz_sub['fields'][3]['group'] = 'folder';
 $zz_sub['fields'][3]['exclude_from_search'] = true;
-
-$zz_sub['fields'][5]['title'] = 'Preview';
-$zz_sub['fields'][5]['field_name'] = 'image';
-$zz_sub['fields'][5]['type'] = 'image';
-$zz_sub['fields'][5]['class'] = 'preview';
-$zz_sub['fields'][5]['path'] = [
-	'root' => $zz_setting['media_folder'], 
-	'webroot' => '/files',
-	'string1' => '/',
-	'field1' => 'filename',
-	'string2' => '.',
-	'string3' => '80',
-	'string4' => '.',
-	'extension' => 'thumb_extension'
-];
+$zz_sub['fields'][3]['character_set'] = 'utf8';
+$zz_sub['fields'][3]['class'] = 'block480';
 
 $zz_sub['fields'][20]['title'] = 'Updated';
 $zz_sub['fields'][20]['field_name'] = 'last_update';
