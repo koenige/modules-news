@@ -45,7 +45,7 @@ $zz_sub['fields'][5]['path'] = [
 	'string1' => '/',
 	'field1' => 'filename',
 	'string2' => '.',
-	'string3' => '80',
+	'string3' => $zz_setting['media_preview_size'],
 	'string4' => '.',
 	'extension' => 'thumb_extension'
 ];

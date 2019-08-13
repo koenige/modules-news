@@ -28,7 +28,7 @@ $zz['fields'][18]['path'] = [
 	'string1' => '/',
 	'field1' => 'filename',
 	'string2' => '.',
-	'string3' => '80',
+	'string3' => $zz_setting['media_preview_size'],
 	'string4' => '.',
 	'extension' => 'thumb_extension'
 ];
@@ -64,8 +64,7 @@ $zz['fields'][4]['format'] = 'markdown';
 $zz['fields'][4]['explanation'] = 'Short news, 140 characters max.';
 $zz['fields'][4]['hide_in_list'] = true;
 
-include __DIR__.'/articles-media.php';
-$zz['fields'][12] = $zz_sub;
+$zz['fields'][12] = zzform_include_table('articles-media');
 $zz['fields'][12]['title'] = 'Media';
 $zz['fields'][12]['type'] = 'subtable';
 $zz['fields'][12]['min_records'] = 1;
@@ -74,7 +73,6 @@ $zz['fields'][12]['hide_in_list'] = true;
 $zz['fields'][12]['form_display'] = 'lines';
 $zz['fields'][12]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
 $zz['fields'][12]['fields'][2]['type'] = 'foreign_key';
-unset($zz_sub);
 
 $zz['fields'][11]['title'] = 'Published?';
 $zz['fields'][11]['field_name'] = 'published';
@@ -82,8 +80,7 @@ $zz['fields'][11]['type'] = 'select';
 $zz['fields'][11]['enum'] = ['yes', 'no'];
 $zz['fields'][11]['default'] = 'yes';
 
-include __DIR__.'/articles-categories.php';
-$zz['fields'][13] = $zz_sub;
+$zz['fields'][13] = zzform_include_table('articles-categories');
 $zz['fields'][13]['title'] = 'Categories';
 $zz['fields'][13]['type'] = 'subtable';
 $zz['fields'][13]['min_records'] = 1;
@@ -92,7 +89,6 @@ $zz['fields'][13]['hide_in_list'] = true;
 $zz['fields'][13]['form_display'] = 'lines';
 $zz['fields'][13]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
 $zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
-unset($zz_sub);
 $zz['fields'][13]['separator'] = true;
 
 /*
@@ -115,9 +111,7 @@ $zz['fields'][6]['separator'] = true;
 
 $zz['fields'][23] = false;
 
-include __DIR__.'/articles-events.php';
-$zz['fields'][22] = $zz_sub;
-unset($zz_sub);
+$zz['fields'][22] = zzform_include_table('articles-events');
 $zz['fields'][22]['title'] = 'Events';
 $zz['fields'][22]['type'] = 'subtable';
 $zz['fields'][22]['min_records'] = 0;
