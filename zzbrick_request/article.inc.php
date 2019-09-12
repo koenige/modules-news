@@ -71,6 +71,7 @@ function mod_news_article($params) {
 			$article['newsgallery'] = wrap_template('newsgallery', $media['images']);
 		}
 	}
+	$article['videos'] = !empty($media['videos']) ? $media['videos'] : [];
 
 	// prev next
 	if (file_exists($zz_setting['custom'].'/zzbrick_request_get/articles.inc.php')) {
