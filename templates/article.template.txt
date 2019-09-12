@@ -1,0 +1,59 @@
+# Zugzwang Project
+# HTML template for article
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2014-2015, 2018-2019 Gustaf Mossakowski
+#
+# fields:
+# article_id, date, time, identifier, abstract, title, direct_link, article,
+# events { event_id, event, duration, time_begin, time_end, identifier },
+# links, topimage
+#
+<div class="js-gallery">
+<div class="newstop">
+<p class="date"><a href="../../">%%% text News %%%</a>, %%% loop categories %%% %%% item category %%% %%% loop end %%%<em>%%% item date wrap_date %%%</em></p>
+%%% condition if _next_identifier %%%
+<p class="next_news"><a href="../../%%% item _next_identifier %%%/" title="%%% text Next news: %%% %%% item _next_title %%%">→</a></p>
+%%% condition endif %%%
+%%% condition if _prev_identifier %%%
+<p class="prev_news"><a href="../../%%% item _prev_identifier %%%/" title="%%% text Previous news: %%% %%% item _prev_title %%%">←</a></p>
+%%% condition endif %%%
+</div>
+
+<div class="article">
+<h1>%%% item title %%%</h1>
+%%% condition if abstract %%%
+<div class='abstract'>
+%%% item abstract markdown %%%
+</div>
+%%% condition endif %%%
+
+%%% loop videos 1 %%%
+<video class="topvideo" width="%%% item width_px %%%" height="%%% item height_px %%%" controls preload="metadata"%%% condition if thumb_extension %%% poster="/files/%%% item filename %%%.960.%%% item thumb_extension %%%?v=%%% item version %%%"%%% condition endif %%%>
+  <source src="/files/%%% item filename %%%.%%% item extension %%%?v=%%% item version %%%" type="%%% item mime_content_type %%%/%%% item mime_subtype %%%">
+</video>
+%%% loop end %%%
+%%% item topimage "<div class='topimage'>%s</div>" %%%
+
+%%% item article markdown %%%
+
+%%% condition if direct_link %%%
+<p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
+%%% condition endif %%%
+
+%%% item links %%%
+
+%%% comment item newsgallery %%%
+</div>
+
+%%% condition if events %%%
+<h2>Termine</h2>
+<ul class="artikeltermine">
+%%% loop events %%%
+<li><span class="date">%%% item duration wrap_date %%%</span>%%% item time_begin " %s" %%%%%% item time_end "–%s" %%%
+%%% condition if time_begin | time_end %%% Uhr%%% condition endif %%%: <a href="../../termine/%%% item identifier %%%/">%%% item event %%%</a></li>
+%%% loop end %%%
+</ul>
+%%% condition endif %%%
+</div>
+<script src="%%% setting behaviour_path %%%/default/link-rel-nav.js"></script>
