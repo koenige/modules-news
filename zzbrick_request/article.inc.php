@@ -19,7 +19,7 @@ function mod_news_article($params) {
 	}
 	if (count($params) !== 2) return false;
 
-	if ($zz_setting['local_access']) {
+	if ($zz_setting['local_access'] OR !empty($_SESSION['logged_in'])) {
 		$published = '(articles.published = "yes" OR articles.published = "no")';
 	} else {
 		$published = 'articles.published = "yes"';
