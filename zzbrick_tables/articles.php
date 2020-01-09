@@ -115,6 +115,7 @@ $zz['fields'][22] = zzform_include_table('articles-events');
 $zz['fields'][22]['title'] = 'Events';
 $zz['fields'][22]['type'] = 'subtable';
 $zz['fields'][22]['min_records'] = 0;
+$zz['fields'][22]['max_records'] = 40;
 $zz['fields'][22]['hide_in_list'] = true;
 $zz['fields'][22]['form_display'] = 'lines';
 $zz['fields'][22]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
