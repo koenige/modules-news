@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2015, 2017-2019 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2015, 2017-2020 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -124,6 +124,7 @@ function mod_news_article($params) {
 		ORDER BY articles_categories.sequence, path';
 	$sql = sprintf($sql, $article['article_id']);
 	$article['categories'] = wrap_db_fetch($sql, 'category_id');
+	$article['categories'] = wrap_translate($article['categories'], 'categories');
 	
 	$page['title'] = $article['title'];
 	$tree = explode('/', $article['identifier']);
