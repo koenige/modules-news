@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2014-2015, 2017-2019 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2014-2015, 2017-2020 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -61,8 +61,14 @@ $zz['fields'][4]['field_name'] = 'abstract';
 $zz['fields'][4]['type'] = 'memo';
 $zz['fields'][4]['rows'] = 3;
 $zz['fields'][4]['format'] = 'markdown';
-$zz['fields'][4]['explanation'] = 'Short news, 140 characters max.';
+$zz['fields'][4]['explanation'] = 'Short news, not too long';
 $zz['fields'][4]['hide_in_list'] = true;
+
+$zz['fields'][5]['field_name'] = 'lead';
+$zz['fields'][5]['type'] = 'memo';
+$zz['fields'][5]['rows'] = 3;
+$zz['fields'][5]['format'] = 'markdown';
+$zz['fields'][5]['hide_in_list'] = true;
 
 $zz['fields'][12] = zzform_include_table('articles-media');
 $zz['fields'][12]['title'] = 'Media';
@@ -185,8 +191,8 @@ $zz['filter'][4]['selection']['yes'] = wrap_text('yes');
 $zz['filter'][4]['selection']['no'] = wrap_text('no');
 
 $zz['set_redirect'][] = [
-	'old' => $zz_setting['news_url'].'/%s/',
-	'new' => $zz_setting['news_url'].'/%s/',
+	'old' => wrap_get_setting('news_url').'/%s/',
+	'new' => wrap_get_setting('news_url').'/%s/',
 	'field_name' => 'identifier'
 ];
 
