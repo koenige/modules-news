@@ -2,7 +2,7 @@
 # HTML template for articles
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2016, 2018-2019 Gustaf Mossakowski
+# @copyright Copyright © 2014-2016, 2018-2020 Gustaf Mossakowski
 #
 # fields: article_id, identifier, date, time, abstract, filename, source,
 # thumb_extension, direct_link, project_id
@@ -24,7 +24,8 @@
 <p class="news-image %%% item orientation " %s" %%%"><a href="%%% setting base %%%%%% setting news_url %%%/%%% item identifier %%%/"><img src="%%% setting files_path %%%/%%% item filename %%%.240.%%% item thumb_extension %%%" alt="%%% item title %%%"></a></p>
 %%% loop end %%%
 
-<p><strong>
+%%% condition if category %%%<p class="news-category">%%% item category %%%</p>%%% condition endif %%%
+<p><strong class="news-title">
 <a href="%%% setting base %%%%%% setting news_url %%%/%%% item identifier %%%/">
 %%% item title %%%</a></strong> –&nbsp;<em>%%% item date wrap_date %%%</em></p>
 %%% item abstract markdown %%%
