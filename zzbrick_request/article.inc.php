@@ -37,6 +37,31 @@ function mod_news_article($params) {
 	if (!$article) return false;
 	$article = wrap_translate($article, 'articles');
 
+	// article in other languages?
+	$sql = 'SELECT language_id, iso_639_1, iso_639_1 AS language_base
+			, "%s" AS identifier
+			, IF("%s" = iso_639_1, 1, NULL) AS current
+		FROM _translations_varchar
+		JOIN _translationfields USING (translationfield_id)
+		LEFT JOIN languages USING (language_id)
+		WHERE db_name = (SELECT DATABASE())
+		AND table_name = "articles"
+		AND field_name = "title"
+		AND field_type = "varchar"
+		AND _translations_varchar.field_id = %d';
+	$sql = sprintf($sql
+		, $article['identifier']
+		, $zz_setting['lang']
+		, $article['article_id']
+	);
+	$article['languages'] = wrap_db_fetch($sql, 'language_id');
+	if ($article['languages'])
+		$article['languages'][] = [
+			'identifier' => $article['identifier'],
+			'iso_639_1' => $zz_setting['default_source_language'],
+			'current' => $zz_setting['default_source_language'] === $zz_setting['lang'] ? 1 : NULL
+		];
+
 	if (!empty($zz_setting['news_with_events'])) {
 		$sql = 'SELECT event_id, event
 				, CONCAT(date_begin, IFNULL(CONCAT("/", date_end), "")) AS duration
