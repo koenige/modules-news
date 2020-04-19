@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2019 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2020 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -18,10 +18,10 @@ function mod_news_articles($params, $settings) {
 	if (count($params) > 1) wrap_quit(404);
 
 	if (file_exists($zz_setting['custom'].'/zzbrick_request_get/articles.inc.php')) {
-		require $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
+		require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
 		$data = cms_get_articles($params, $settings);
 	} else {
-		require __DIR__.'/../zzbrick_request_get/articles.inc.php';
+		require_once __DIR__.'/../zzbrick_request_get/articles.inc.php';
 		$data = mod_news_get_articles($params, $settings);
 	}
 
