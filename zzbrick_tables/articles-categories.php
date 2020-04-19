@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2018-2019 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2018-2020 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -41,7 +41,7 @@ $zz_sub['fields'][3]['display_field'] = 'category';
 $zz_sub['fields'][3]['character_set'] = 'utf8';
 $zz_sub['fields'][3]['add_details'] = 'categories';
 $zz_sub['fields'][3]['show_hierarchy'] = 'main_category_id';
-$zz_sub['fields'][3]['show_hierarchy_subtree'] = $zz_setting['category']['news'];
+$zz_sub['fields'][3]['show_hierarchy_subtree'] = wrap_category_id('news');
 
 $zz_sub['fields'][20]['title'] = 'Updated';
 $zz_sub['fields'][20]['field_name'] = 'last_update';
