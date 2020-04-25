@@ -5,11 +5,11 @@
 # http://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2015, 2017, 2019 Gustaf Mossakowski
+# @copyright Copyright © 2014-2015, 2017, 2019-2020 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 <p class="newsgallery js-gallery">
 %%% loop start %%%
-<a href="%%% setting files_path %%%/%%% item filename %%%.800.%%% item thumb_extension %%%?v=%%% item version %%%" title="%%% item strip_tags %%%%%% item source strip_tags %%%" data-title="%%% item title %%%%%% item source wrap_html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.240.%%% item thumb_extension %%%?v=%%% item version %%%" alt="Bild %%% item title %%%"></a>
+<a href="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_big_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%" title="%%% item strip_tags %%%%%% item source strip_tags %%%" data-title="%%% item title %%%%%% item source wrap_html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.240.%%% item thumb_extension %%%?v=%%% item version %%%" alt="Bild %%% item title %%%"></a>
 %%% loop end %%%
 </p>

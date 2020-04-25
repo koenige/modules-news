@@ -10,3 +10,4 @@
  */
 
 /* 2020-04-18-1 */	ALTER TABLE `articles` ADD `lead` text COLLATE 'utf8mb4_unicode_ci' NULL AFTER `abstract`;
+/* 2020-04-25-1 */	INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_big_image_size', 800, 'size of big image linked to in gallery (only if bigger image is available)');
