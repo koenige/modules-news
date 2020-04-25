@@ -53,7 +53,7 @@ function mod_news_articles($params, $settings) {
 		}
 		$sql = 'SELECT category_id, category
 			FROM categories WHERE path = "%s/%s"';
-		$sql = sprintf($sql, $zz_setting['news_category_path'], wrap_db_escape($params[0]));
+		$sql = sprintf($sql, wrap_get_setting('news_category_path'), wrap_db_escape($params[0]));
 		$category = wrap_db_fetch($sql);
 		if ($category) {
 			if (empty($settings['hide_title'])) {
