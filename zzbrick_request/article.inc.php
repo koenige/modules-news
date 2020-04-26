@@ -139,7 +139,7 @@ function mod_news_article($params) {
 		0 => ['property' => 'og:url', 'content' => $zz_setting['host_base'].$zz_setting['request_uri']],
 		1 => ['property' => 'og:type', 'content' => 'article'],
 		2 => ['property' => 'og:title', 'content' => wrap_html_escape($article['title'])],
-		3 => ['property' => 'og:description', 'content' => wrap_html_escape($article['abstract'])]
+		3 => ['property' => 'og:description', 'content' => wrap_html_escape(trim(strip_tags(markdown($article['abstract']))))]
 	];
 	if (!empty($main_img)) {
 		$page['meta'][] 
