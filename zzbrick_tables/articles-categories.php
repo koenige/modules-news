@@ -39,7 +39,7 @@ $zz_sub['fields'][3]['sql'] = 'SELECT category_id, category, main_category_id
 	FROM /*_PREFIX_*/categories ORDER BY category';
 $zz_sub['fields'][3]['display_field'] = 'category';
 $zz_sub['fields'][3]['character_set'] = 'utf8';
-$zz_sub['fields'][3]['add_details'] = 'categories';
+$zz_sub['fields'][3]['add_details'] = sprintf('categories?filter[maincategory]=%d', wrap_category_id('news'));
 $zz_sub['fields'][3]['show_hierarchy'] = 'main_category_id';
 $zz_sub['fields'][3]['show_hierarchy_subtree'] = wrap_category_id('news');
 
