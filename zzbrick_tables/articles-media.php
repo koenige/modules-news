@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010, 2013-2015, 2018-2019 Gustaf Mossakowski
+ * @copyright Copyright © 2010, 2013-2015, 2018-2020 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -18,22 +18,6 @@ $zz_sub['table'] = '/*_PREFIX_*/articles_media';
 $zz_sub['fields'][1]['title'] = 'ID';
 $zz_sub['fields'][1]['field_name'] = 'article_medium_id';
 $zz_sub['fields'][1]['type'] = 'id';
-
-$zz_sub['fields'][4]['title'] = 'No.';
-$zz_sub['fields'][4]['field_name'] = 'sequence';
-$zz_sub['fields'][4]['type'] = 'number';
-$zz_sub['fields'][4]['auto_value'] = 'increment';
-$zz_sub['fields'][4]['def_val_ignore'] = true;
-$zz_sub['fields'][4]['class'] = 'block480a';
-
-$zz_sub['fields'][2]['field_name'] = 'article_id';
-$zz_sub['fields'][2]['type'] = 'select';
-$zz_sub['fields'][2]['sql'] = 'SELECT article_id, date, title
-	FROM /*_PREFIX_*/articles
-	ORDER BY date, time, title';
-$zz_sub['fields'][2]['display_field'] = 'article';
-$zz_sub['fields'][2]['search'] = 'CONCAT(/*_PREFIX_*/articles.date, ": ", /*_PREFIX_*/articles.title)';
-$zz_sub['fields'][2]['class'] = 'block480a';
 
 $zz_sub['fields'][5]['title'] = 'Preview';
 $zz_sub['fields'][5]['field_name'] = 'image';
@@ -50,6 +34,22 @@ $zz_sub['fields'][5]['path'] = [
 	'extension' => 'thumb_extension'
 ];
 $zz_sub['fields'][5]['class'] = 'block480a';
+
+$zz_sub['fields'][4]['title'] = 'No.';
+$zz_sub['fields'][4]['field_name'] = 'sequence';
+$zz_sub['fields'][4]['type'] = 'number';
+$zz_sub['fields'][4]['auto_value'] = 'increment';
+$zz_sub['fields'][4]['def_val_ignore'] = true;
+$zz_sub['fields'][4]['class'] = 'block480a';
+
+$zz_sub['fields'][2]['field_name'] = 'article_id';
+$zz_sub['fields'][2]['type'] = 'select';
+$zz_sub['fields'][2]['sql'] = 'SELECT article_id, date, title
+	FROM /*_PREFIX_*/articles
+	ORDER BY date, time, title';
+$zz_sub['fields'][2]['display_field'] = 'article';
+$zz_sub['fields'][2]['search'] = 'CONCAT(/*_PREFIX_*/articles.date, ": ", /*_PREFIX_*/articles.title)';
+$zz_sub['fields'][2]['class'] = 'block480a';
 
 $zz_sub['fields'][3]['title'] = 'Medium';
 $zz_sub['fields'][3]['field_name'] = 'medium_id';
