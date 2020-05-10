@@ -33,7 +33,7 @@ function mod_news_articles($params, $settings) {
 		if (!$data) {
 			$data['no_news_year'] = true;
 			// events?
-			if (!empty($zz_setting['news_with_events'])) {
+			if (!empty(wrap_get_setting('news_with_events'))) {
 				$sql = 'SELECT COUNT(event_id) FROM events WHERE YEAR(date_begin) = %d';
 				$sql = sprintf($sql, $params[0]);
 				$events = wrap_db_fetch($sql);

@@ -62,7 +62,7 @@ function mod_news_article($params) {
 			'current' => $zz_setting['default_source_language'] === $zz_setting['lang'] ? 1 : NULL
 		];
 
-	if (!empty($zz_setting['news_with_events'])) {
+	if (!empty(wrap_get_setting('news_with_events'))) {
 		$sql = 'SELECT event_id, event
 				, CONCAT(date_begin, IFNULL(CONCAT("/", date_end), "")) AS duration
 				, TIME_FORMAT(time_begin, "%%H.%%i") AS time_begin
