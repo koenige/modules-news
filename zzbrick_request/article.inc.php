@@ -26,7 +26,8 @@ function mod_news_article($params) {
 	}
 
 	$sql = 'SELECT article_id, articles.date, articles.time, articles.identifier
-			, articles.abstract, articles.title, direct_link, article
+			, IFNULL(articles.lead, articles.abstract) AS abstract
+			, articles.title, direct_link, article
 		FROM articles articles
 		WHERE %s
 		AND identifier = "%s"
