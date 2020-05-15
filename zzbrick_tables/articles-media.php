@@ -61,7 +61,7 @@ $zz_sub['fields'][3]['sql'] = sprintf('SELECT /*_PREFIX_*/media.medium_id, folde
 	LEFT JOIN /*_PREFIX_*/media folders
 		ON /*_PREFIX_*/media.main_medium_id = folders.medium_id
 	WHERE /*_PREFIX_*/media.filetype_id != %d
-	ORDER BY folders.title, /*_PREFIX_*/media.title', $zz_setting['filetype_ids']['folder']);
+	ORDER BY folders.title, /*_PREFIX_*/media.title', wrap_filetype_id('folder'));
 $zz_sub['fields'][3]['sql_character_set'][1] = 'utf8';
 $zz_sub['fields'][3]['sql_character_set'][2] = 'utf8';
 $zz_sub['fields'][3]['display_field'] = 'image';
