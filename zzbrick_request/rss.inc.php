@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2015-2019 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2015-2020 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -25,10 +25,10 @@ function mod_news_rss($parameter) {
 	if (!empty($parameter)) return false;
 
 	$settings = wrap_get_setting('rss*');
-	if (empty($settings['rss_copyright'])) $settings['rss_copyright'] = $zz_conf['project'];
-	if (empty($settings['rss_editor'])) $settings['rss_editor'] = $zz_conf['project'];
+	if (empty($settings['rss_copyright'])) $settings['rss_copyright'] = wrap_get_setting('project');
+	if (empty($settings['rss_editor'])) $settings['rss_editor'] = wrap_get_setting('project');
 	if (empty($settings['rss_editor_mail'])) $settings['rss_editor_mail'] = $zz_conf['error_mail_from'];
-	if (empty($settings['rss_webmaster'])) $settings['rss_webmaster'] = $zz_conf['project'];
+	if (empty($settings['rss_webmaster'])) $settings['rss_webmaster'] = wrap_get_setting('project');
 	if (empty($settings['rss_webmaster_mail'])) $settings['rss_webmaster_mail'] = $zz_conf['error_mail_from'];
 	
 	require_once $zz_setting['lib'].'/feedcreator/feedcreator.class.php';
@@ -37,7 +37,7 @@ function mod_news_rss($parameter) {
 	//define channel
 	$rss = new UniversalFeedCreator();
 	$rss->useCached();
-	$rss->title = $zz_conf['project'];
+	$rss->title = wrap_get_setting('project');
 	$rss->description = wrap_text($settings['rss_description']);
 	$rss->link = $zz_setting['host_base'].'/';
 	$rss->encoding = 'utf-8';
@@ -50,7 +50,7 @@ function mod_news_rss($parameter) {
 	$rss->descriptionHtmlSyndicated = true;
 
 	$image = new FeedImage();
-	$image->title = $zz_conf['project'];
+	$image->title = wrap_get_setting('project');
 	$image->width = 32;
 	$image->height = 32;
 	$image->url = $zz_setting['host_base'].'/favicon.png';
