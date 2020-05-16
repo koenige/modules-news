@@ -36,23 +36,23 @@ $zz_sub['fields'][3]['field_name'] = 'event_id';
 $zz_sub['fields'][3]['type'] = 'select';
 $zz_sub['fields'][3]['sql'] = 'SELECT event_id
 		, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%d.%m.%Y")
-		, IFNULL(CONCAT(", ", place), ""), ")") AS date
+		, ")") AS event
 		, CONCAT("[", event_id, "]") AS _id
 	FROM /*_PREFIX_*/events
 	WHERE ISNULL(main_event_id)
 	ORDER BY date_begin DESC';
-$zz_sub['fields'][3]['display_field'] = 'date';
+$zz_sub['fields'][3]['display_field'] = 'event';
 $zz_sub['fields'][3]['sql_character_set'][1] = 'utf8';
 $zz_sub['fields'][3]['sql_character_set'][2] = 'utf8';
 $zz_sub['fields'][3]['sql_character_set'][3] = 'latin1';
 $zz_sub['fields'][3]['search'] = 'CONCAT(/*_PREFIX_*/events.event, " (", 
-	DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%d.%m.%Y"), IFNULL(CONCAT(", ", place), ""), ")")';
+	DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%d.%m.%Y"), ")")';
 $zz_sub['fields'][3]['character_set'] = 'utf8';
 
 $zz_sub['sql'] = 'SELECT articles_events.*
 		, articles.title
 		, CONCAT(/*_PREFIX_*/events.event, " (", 
-	DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%d.%m.%Y"), IFNULL(CONCAT(", ", place), ""), ")") AS date
+	DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%d.%m.%Y"), ")") AS event
 	FROM articles_events
 	LEFT JOIN articles USING (article_id)
 	LEFT JOIN events USING (event_id)
