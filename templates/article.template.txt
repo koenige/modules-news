@@ -2,7 +2,7 @@
 # HTML template for article
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2015, 2018-2019 Gustaf Mossakowski
+# @copyright Copyright © 2014-2015, 2018-2020 Gustaf Mossakowski
 #
 # fields:
 # article_id, date, time, identifier, abstract, title, direct_link, article,
@@ -29,8 +29,8 @@
 %%% condition endif %%%
 
 %%% loop videos 1 %%%
-<video class="topvideo" width="%%% item width_px %%%" height="%%% item height_px %%%" controls preload="metadata"%%% condition if thumb_extension %%% poster="/files/%%% item filename %%%.960.%%% item thumb_extension %%%?v=%%% item version %%%"%%% condition endif %%%>
-  <source src="/files/%%% item filename %%%.%%% item extension %%%?v=%%% item version %%%" type="%%% item mime_content_type %%%/%%% item mime_subtype %%%">
+<video class="topvideo" width="%%% item width_px %%%" height="%%% item height_px %%%" controls preload="metadata"%%% condition if thumb_extension %%% poster="%%% setting files_path %%%/%%% item filename %%%.960.%%% item thumb_extension %%%?v=%%% item version %%%"%%% condition endif %%%>
+  <source src="%%% setting files_path %%%/%%% item filename %%%.%%% item extension %%%?v=%%% item version %%%" type="%%% item mime_content_type %%%/%%% item mime_subtype %%%">
 </video>
 %%% loop end %%%
 %%% item topimage "<div class='topimage'>%s</div>" %%%
