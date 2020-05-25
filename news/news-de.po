@@ -5,7 +5,7 @@
 # http://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2019 Gustaf Mossakowski
+# @copyright Copyright © 2014-2020 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 msgid ""
@@ -52,8 +52,8 @@ msgid "Year"
 msgstr "Jahr"
 
 #: zzbrick_tables/articles.php
-msgid "Short news, 140 characters max."
-msgstr "Kurznachricht, 140 Zeichen maximal"
+msgid "Short news, not too long"
+msgstr "Kurznachricht, nicht zu lang"
 
 #: zzbrick_tables/articles.php
 msgid "– none –"
