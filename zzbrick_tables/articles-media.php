@@ -37,7 +37,7 @@ $zz_sub['fields'][5]['class'] = 'block480a';
 
 $zz_sub['fields'][4]['title'] = 'No.';
 $zz_sub['fields'][4]['field_name'] = 'sequence';
-$zz_sub['fields'][4]['type'] = 'sequence';
+$zz_sub['fields'][4]['type'] = 'number';
 $zz_sub['fields'][4]['auto_value'] = 'increment';
 $zz_sub['fields'][4]['def_val_ignore'] = true;
 $zz_sub['fields'][4]['class'] = 'block480a';

@@ -79,6 +79,8 @@ $zz['fields'][12]['hide_in_list'] = true;
 $zz['fields'][12]['form_display'] = 'lines';
 $zz['fields'][12]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
 $zz['fields'][12]['fields'][2]['type'] = 'foreign_key';
+$zz['fields'][12]['fields'][4]['type'] = 'sequence';
+
 
 $zz['fields'][11]['title'] = 'Published?';
 $zz['fields'][11]['field_name'] = 'published';
