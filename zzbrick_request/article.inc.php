@@ -91,7 +91,9 @@ function mod_news_article($params) {
 	if (!empty($media['images'])) {
 		if (key($media['images']) === $first_img) {
 			// main image only if first image was not set manually
-			$article['topimage'] = wrap_template('topimage', array_shift($media['images']));
+			$topimage = array_shift($media['images']);
+			$topimage['path'] = $zz_setting['news_topimage_size'];
+			$article['topimage'] = wrap_template('image', $topimage);
 		}
 		if ($media['images']) {
 			$article['newsgallery'] = wrap_template('newsgallery', $media['images']);
