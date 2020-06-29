@@ -56,7 +56,7 @@ $zz['fields'][3]['link'] = [
 	'string2' => '/'
 ];
 $zz['fields'][3]['typo_cleanup'] = true;
-$zz['fields'][3]['replace_substrings'] = $zz_setting['replace_substrings'];
+$zz['fields'][3]['replace_substrings'] = wrap_get_setting('replace_substrings');
 
 $zz['fields'][4]['title'] = 'News';
 $zz['fields'][4]['field_name'] = 'abstract';
@@ -66,7 +66,7 @@ $zz['fields'][4]['format'] = 'markdown';
 $zz['fields'][4]['explanation'] = 'Short news, not too long';
 $zz['fields'][4]['hide_in_list'] = true;
 $zz['fields'][4]['typo_cleanup'] = true;
-$zz['fields'][4]['replace_substrings'] = $zz_setting['replace_substrings'];
+$zz['fields'][4]['replace_substrings'] = wrap_get_setting('replace_substrings');
 
 $zz['fields'][5]['field_name'] = 'lead';
 $zz['fields'][5]['type'] = 'memo';
@@ -74,7 +74,7 @@ $zz['fields'][5]['rows'] = 3;
 $zz['fields'][5]['format'] = 'markdown';
 $zz['fields'][5]['hide_in_list'] = true;
 $zz['fields'][5]['typo_cleanup'] = true;
-$zz['fields'][5]['replace_substrings'] = $zz_setting['replace_substrings'];
+$zz['fields'][5]['replace_substrings'] = wrap_get_setting('replace_substrings');
 
 $zz['fields'][12] = zzform_include_table('articles-media');
 $zz['fields'][12]['title'] = 'Media';
@@ -122,7 +122,7 @@ $zz['fields'][6]['rows'] = 20;
 $zz['fields'][6]['format'] = 'markdown';
 $zz['fields'][6]['separator'] = true;
 $zz['fields'][6]['typo_cleanup'] = true;
-$zz['fields'][6]['replace_substrings'] = $zz_setting['replace_substrings'];
+$zz['fields'][6]['replace_substrings'] = wrap_get_setting('replace_substrings');
 
 $zz['fields'][23] = false;
 
