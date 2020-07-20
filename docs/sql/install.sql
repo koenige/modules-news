@@ -11,7 +11,7 @@
 
 
 CREATE TABLE `articles` (
-  `article_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `article_id` int unsigned NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `time` time DEFAULT NULL,
   `date_to` date DEFAULT NULL,
@@ -29,38 +29,46 @@ CREATE TABLE `articles` (
 
 
 CREATE TABLE `articles_categories` (
-  `article_category_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `article_id` int(10) unsigned NOT NULL,
-  `category_id` int(10) unsigned NOT NULL,
-  `sequence` tinyint(4) NOT NULL,
+  `article_category_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `article_id` int unsigned NOT NULL,
+  `category_id` int unsigned NOT NULL,
+  `sequence` tinyint NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`article_category_id`),
   UNIQUE KEY `article` (`article_id`,`sequence`),
   UNIQUE KEY `category` (`category_id`,`article_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'articles_categories', 'article_category_id', 'article_id', 'delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'articles_categories', 'article_category_id', 'category_id', 'no-delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'articles_categories', 'article_category_id', 'type_category_id', 'no-delete');
 
 CREATE TABLE `articles_events` (
-  `article_event_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `article_id` int(10) unsigned NOT NULL,
-  `event_id` int(10) unsigned NOT NULL,
-  `sequence` tinyint(3) unsigned NOT NULL,
+  `article_event_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `article_id` int unsigned NOT NULL,
+  `event_id` int unsigned NOT NULL,
+  `sequence` tinyint unsigned NOT NULL,
   PRIMARY KEY (`article_event_id`),
   UNIQUE KEY `article_event` (`article_id`,`event_id`),
   KEY `event_id` (`event_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'articles_events', 'article_event_id', 'article_id', 'no-delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'events', 'event_id', (SELECT DATABASE()), 'articles_events', 'article_event_id', 'event_id', 'no-delete');
 
 CREATE TABLE `articles_media` (
-  `article_medium_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `article_id` int(10) unsigned NOT NULL,
-  `medium_id` int(10) unsigned NOT NULL,
-  `sequence` tinyint(4) NOT NULL,
+  `article_medium_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `article_id` int unsigned NOT NULL,
+  `medium_id` int unsigned NOT NULL,
+  `sequence` tinyint NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`article_medium_id`),
   UNIQUE KEY `article` (`article_id`,`sequence`),
   UNIQUE KEY `medium` (`medium_id`,`article_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'articles_media', 'article_medium_id', 'article_id', 'no-delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'media', 'medium_id', (SELECT DATABASE()), 'articles_media', 'article_medium_id', 'medium_id', 'no-delete');
 
 
 INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_big_image_size', 960, 'size of big image linked to in gallery (only if bigger image is available)');
