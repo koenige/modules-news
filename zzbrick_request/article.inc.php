@@ -120,14 +120,26 @@ function mod_news_article($params) {
 		$page['link']['prev'][0]['title'] = $article['_prev_title'];
 	}
 	
-	$sql = 'SELECT category_id, category
+	$sql = 'SELECT categories.category_id, categories.category
+			, types.category_id AS type_category_id
+			, types.category AS type
 		FROM articles_categories
 		LEFT JOIN categories USING (category_id)
+		LEFT JOIN categories types
+			ON types.category_id = articles_categories.type_category_id
 		WHERE article_id = %d
-		ORDER BY articles_categories.sequence, path';
+		ORDER BY articles_categories.sequence, categories.path';
 	$sql = sprintf($sql, $article['article_id']);
 	$article['categories'] = wrap_db_fetch($sql, 'category_id');
 	$article['categories'] = wrap_translate($article['categories'], 'categories');
+	// following translation probably never necessary, therefore inactive
+	// $article['categories'] = wrap_translate($article['categories'], ['type' => 'categories.category'], 'type_category_id');
+	foreach ($article['categories'] as $category_id => $category) {
+		if ($category['type_category_id'] === wrap_category_id('publications')) {
+			$article['publication'] = $category['category'];
+			unset($article['categories'][$category_id]);
+		}
+	}
 	
 	$page['title'] = $article['title'];
 	$tree = explode('/', $article['identifier']);

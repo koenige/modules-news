@@ -43,6 +43,14 @@ $zz_sub['fields'][3]['add_details'] = sprintf('categories?filter[maincategory]=%
 $zz_sub['fields'][3]['show_hierarchy'] = 'main_category_id';
 $zz_sub['fields'][3]['show_hierarchy_subtree'] = wrap_category_id('news');
 
+$zz_sub['fields'][5]['field_name'] = 'type_category_id';
+$zz_sub['fields'][5]['type'] = 'hidden';
+$zz_sub['fields'][5]['type_detail'] = 'select';
+$zz_sub['fields'][5]['value'] = wrap_category_id('news');
+$zz_sub['fields'][5]['hide_in_form'] = true;
+$zz_sub['fields'][5]['hide_in_list'] = true;
+$zz_sub['fields'][5]['exclude_from_search'] = true;
+
 $zz_sub['fields'][20]['title'] = 'Updated';
 $zz_sub['fields'][20]['field_name'] = 'last_update';
 $zz_sub['fields'][20]['type'] = 'timestamp';
@@ -50,7 +58,7 @@ $zz_sub['fields'][20]['hide_in_list'] = true;
 
 $zz_sub['sql'] = 'SELECT /*_PREFIX_*/articles_categories.*
 	, /*_PREFIX_*/articles.title
-	, category
+	, /*_PREFIX_*/categories.category
 	FROM /*_PREFIX_*/articles_categories
 	LEFT JOIN /*_PREFIX_*/articles USING (article_id)
 	LEFT JOIN /*_PREFIX_*/categories USING (category_id)

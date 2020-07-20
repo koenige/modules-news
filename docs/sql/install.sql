@@ -32,11 +32,13 @@ CREATE TABLE `articles_categories` (
   `article_category_id` int unsigned NOT NULL AUTO_INCREMENT,
   `article_id` int unsigned NOT NULL,
   `category_id` int unsigned NOT NULL,
+  `type_category_id` int unsigned NOT NULL,
   `sequence` tinyint NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`article_category_id`),
-  UNIQUE KEY `article` (`article_id`,`sequence`),
-  UNIQUE KEY `category` (`category_id`,`article_id`)
+  UNIQUE KEY `article` (`article_id`,`sequence`,`type_category_id`),
+  UNIQUE KEY `category` (`category_id`,`article_id`),
+  KEY `type` (`type_category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'articles_categories', 'article_category_id', 'article_id', 'delete');

@@ -100,6 +100,12 @@ $zz['fields'][13]['min_records'] = 1;
 $zz['fields'][13]['max_records'] = 20;
 $zz['fields'][13]['hide_in_list'] = true;
 $zz['fields'][13]['form_display'] = 'lines';
+if (wrap_category_id('publications')) {
+	$zz['fields'][13]['sql'] .= sprintf('
+		WHERE /*_PREFIX_*/articles_categories.type_category_id = %d'
+		, wrap_category_id('news')
+	);
+}
 $zz['fields'][13]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
 $zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
 $zz['fields'][13]['separator'] = true;
@@ -136,6 +142,31 @@ $zz['fields'][22]['form_display'] = 'lines';
 $zz['fields'][22]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
 $zz['fields'][22]['fields'][2]['type'] = 'foreign_key';
 
+if (wrap_category_id('publications')) {
+	$zz['fields'][14] = zzform_include_table('articles-categories');
+	$zz['fields'][14]['title'] = 'Publication';
+	$zz['fields'][14]['type'] = 'subtable';
+	$zz['fields'][14]['table_name'] = 'publications';
+	$zz['fields'][14]['min_records'] = 1;
+	$zz['fields'][14]['max_records'] = 1;
+	$zz['fields'][14]['hide_in_list'] = true;
+	$zz['fields'][14]['form_display'] = 'lines';
+	$zz['fields'][14]['fields'][2]['type'] = 'foreign_key';
+	unset($zz['fields'][14]['fields'][3]['add_details']);
+	$zz['fields'][14]['fields'][3]['type'] = 'write_once';
+	$zz['fields'][14]['fields'][3]['type_detail'] = 'select';
+	$zz['fields'][14]['fields'][3]['show_hierarchy_subtree'] = wrap_category_id('publications');
+	$zz['fields'][14]['sql'] .= sprintf('
+		WHERE /*_PREFIX_*/articles_categories.type_category_id = %d
+		ORDER BY /*_PREFIX_*/categories.category'
+		, wrap_category_id('publications')
+	);
+	$zz['fields'][14]['fields'][4]['type'] = 'hidden'; // sequence
+	$zz['fields'][14]['fields'][4]['value'] = 1;
+	$zz['fields'][14]['fields'][4]['hide_in_form'] = true;
+	$zz['fields'][14]['fields'][5]['value'] = wrap_category_id('publications');
+}
+
 $zz['fields'][9]['field_name'] = 'identifier';
 $zz['fields'][9]['type'] = 'identifier';
 $zz['fields'][9]['fields'] = ['date{0,4}', 'title', 'identifier'];
@@ -153,13 +184,12 @@ $zz['fields'][19]['exclude_from_search'] = true;
 $zz['fields'][19]['class'] = 'hidden';
 
 
-$zz['sql'] = 'SELECT DISTINCT /*_PREFIX_*/articles.*
+$zz['sql'] = sprintf('SELECT DISTINCT /*_PREFIX_*/articles.*
 	, IF(/*_PREFIX_*/articles.published = "yes", "Published Articles", "Unpublished Articles") AS article_type
-	, DATE_FORMAT(/*_PREFIX_*/articles.date, "%Y") AS year
+	, DATE_FORMAT(/*_PREFIX_*/articles.date, "%%Y") AS year
 	, filename
 	, t_mime.extension AS thumb_extension
 	FROM /*_PREFIX_*/articles
-	LEFT JOIN /*_PREFIX_*/articles_categories USING (article_id)
 	LEFT JOIN /*_PREFIX_*/articles_media
 		ON /*_PREFIX_*/articles_media.article_id = /*_PREFIX_*/articles.article_id
 		AND /*_PREFIX_*/articles_media.sequence = 1
@@ -168,7 +198,15 @@ $zz['sql'] = 'SELECT DISTINCT /*_PREFIX_*/articles.*
 		AND /*_PREFIX_*/media.published = "yes"
 	LEFT JOIN /*_PREFIX_*/filetypes AS t_mime
 		ON /*_PREFIX_*/media.thumb_filetype_id = t_mime.filetype_id
-';
+	LEFT JOIN /*_PREFIX_*/articles_categories articles_categories
+		ON articles_categories.article_id = /*_PREFIX_*/articles.article_id
+		AND articles_categories.type_category_id = %d
+', wrap_category_id('news'));
+if (wrap_category_id('publications')) {
+	$zz['sql'] .= sprintf('	LEFT JOIN /*_PREFIX_*/articles_categories publications
+		ON /*_PREFIX_*/articles.article_id = publications.article_id
+		AND /*_PREFIX_*/publications.type_category_id = %d', wrap_category_id('publications'));
+}
 $zz['sqlorder'] = ' ORDER BY date DESC, time DESC, identifier DESC';
 
 $zz['filter'][1]['sql'] = 'SELECT DISTINCT YEAR(date) AS year_idf
@@ -180,16 +218,20 @@ $zz['filter'][1]['identifier'] = 'year';
 $zz['filter'][1]['type'] = 'list';
 $zz['filter'][1]['where'] = 'YEAR(/*_PREFIX_*/articles.date)';
 
+$zz['filter'][5] = false;
+
 $zz['filter'][2]['sql'] = sprintf('SELECT DISTINCT category_id
 		, category
 	FROM articles_categories
 	LEFT JOIN categories USING (category_id)
-	UNION SELECT "NULL" AS category_id, "%s" AS category
-	ORDER BY category', wrap_text('– none –'));
+	WHERE type_category_id = %d
+	ORDER BY category'
+	, wrap_category_id('news')
+);
 $zz['filter'][2]['title'] = wrap_text('Category');
 $zz['filter'][2]['identifier'] = 'category';
 $zz['filter'][2]['type'] = 'list';
-$zz['filter'][2]['where'] = '/*_PREFIX_*/articles_categories.category_id';
+$zz['filter'][2]['where'] = 'articles_categories.category_id';
 
 $zz['filter'][4]['title'] = wrap_text('Published');
 $zz['filter'][4]['identifier'] = 'published';
@@ -203,5 +245,27 @@ $zz['set_redirect'][] = [
 	'new' => wrap_get_setting('news_url').'/%s/',
 	'field_name' => 'identifier'
 ];
+
+if (wrap_category_id('publications')) {
+	$sql = 'SELECT category_id as value, category as type, "publications.category_id" AS field_name
+		FROM /*_PREFIX_*/categories
+		WHERE main_category_id = %d
+		ORDER BY sequence, category';
+	$sql = sprintf($sql, wrap_category_id('publications'));
+	$zz['add'] = wrap_db_fetch($sql, 'category_id', 'numeric');
+
+	$zz['filter'][5]['title'] = wrap_text('Publication');
+	$zz['filter'][5]['identifier'] = 'publication';
+	$zz['filter'][5]['type'] = 'list';
+	$zz['filter'][5]['where'] = 'publications.category_id';
+	$zz['filter'][5]['sql'] = sprintf('SELECT DISTINCT category_id
+			, category
+		FROM articles_categories
+		LEFT JOIN categories USING (category_id)
+		WHERE type_category_id = %d
+		ORDER BY category'
+		, wrap_category_id('publications')
+	);
+}
 
 $zz_conf['copy'] = true;

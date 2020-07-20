@@ -20,3 +20,7 @@
 /* 2020-05-27-6 */	ALTER TABLE `comments` ADD INDEX `main_comment_id` (`main_comment_id`), ADD INDEX `article_id` (`article_id`);
 /* 2020-05-27-7 */	INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'comments', 'comment_id', (SELECT DATABASE()), 'comments', 'comment_id', 'main_comment_id', 'no-delete');
 /* 2020-05-27-8 */	INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'comments', 'comment_id', 'article_id', 'no-delete');
+/* 2020-07-20-1 */	ALTER TABLE `articles_categories` ADD `type_category_id` int unsigned NOT NULL AFTER `category_id`;
+/* 2020-07-20-2 */	ALTER TABLE `articles_categories` ADD UNIQUE `article` (`article_id`, `sequence`, `type_category_id`), ADD INDEX `type` (`type_category_id`), DROP INDEX `article`;
+/* 2020-07-20-3 */	INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'articles_categories', 'article_category_id', 'type_category_id', 'no-delete');
+/* 2020-07-20-4 */	UPDATE articles_categories SET type_category_id = (SELECT category_id FROM categories WHERE (path = 'news' OR parameters LIKE '%&alias=news%'));
