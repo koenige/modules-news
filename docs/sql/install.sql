@@ -77,3 +77,33 @@ INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES (
 INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_topimage_image_size', 480, 'size of image used as the main image for a news item');
 INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_with_events', 0, 'link news with events? (events module required)');
 INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_url', '', 'base URL prepended to all news articles');
+
+
+CREATE TABLE `comments_activities` (
+  `comment_activity_id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `comment_id` int unsigned NOT NULL,
+  `activity_id` int unsigned NOT NULL
+) ENGINE='MyISAM';
+
+ALTER TABLE `comments_activities`
+ADD INDEX `comment_id_activity_id` (`comment_id`, `activity_id`),
+ADD INDEX `activity_id` (`activity_id`);
+
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ("chesstech", "comments", "comment_id", "chesstech", "comments_activities", "comment_activity_id", "comment_id", "delete");
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ("chesstech", "activities", "activity_id", "chesstech", "comments_activities", "comment_activity_id", "activity_id", "no-delete");
+
+
+CREATE TABLE `comments` (
+  `comment_id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `main_comment_id` int unsigned NOT NULL,
+  `article_id` int unsigned NOT NULL,
+  `comment` text NOT NULL,
+  `published` enum('yes','no') NOT NULL DEFAULT 'no'
+) ENGINE='MyISAM';
+
+ALTER TABLE `comments`
+ADD INDEX `main_comment_id` (`main_comment_id`),
+ADD INDEX `article_id` (`article_id`);
+
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ("chesstech", "comments", "comment_id", "chesstech", "comments", "comment_id", "main_comment_id", "no-delete");
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ("chesstech", "articles", "article_id", "chesstech", "comments", "comment_id", "article_id", "no-delete");
