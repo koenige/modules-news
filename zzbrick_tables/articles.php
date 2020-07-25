@@ -287,8 +287,6 @@ if (wrap_category_id('publications')) {
 		FROM /*_PREFIX_*/categories publication_categories
 		WHERE category_id = ';
 	$zz['conditions'][2]['add']['key_field_name'] = 'publications.category_id';
-
-	$zz_conf['debug'] = true;
 }
 
 $zz_conf['copy'] = true;
