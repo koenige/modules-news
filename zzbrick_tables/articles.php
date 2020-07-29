@@ -109,6 +109,7 @@ if (wrap_category_id('publications')) {
 }
 $zz['fields'][13]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
 $zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
+$zz['fields'][13]['fields'][4]['type'] = 'sequence';
 $zz['fields'][13]['separator'] = true;
 
 /*
