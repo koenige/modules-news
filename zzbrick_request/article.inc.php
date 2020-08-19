@@ -123,6 +123,8 @@ function mod_news_article($params) {
 	$sql = 'SELECT categories.category_id, categories.category
 			, types.category_id AS type_category_id
 			, types.category AS type
+			, SUBSTRING_INDEX(categories.path, "/", -1) AS path
+			, categories.parameters
 		FROM articles_categories
 		LEFT JOIN categories USING (category_id)
 		LEFT JOIN categories types
@@ -138,6 +140,10 @@ function mod_news_article($params) {
 		if (wrap_get_setting('news_publications')
 			AND $category['type_category_id'] === wrap_category_id('publications')) {
 			$article['publication'] = $category['category'];
+			parse_str($category['parameters'], $parameters);
+			foreach ($parameters as $key => $value) {
+				$article['setting_'.$key] = $value;
+			}
 			unset($article['categories'][$category_id]);
 		}
 	}
