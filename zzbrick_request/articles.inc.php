@@ -25,10 +25,13 @@ function mod_news_articles($params, $settings) {
 		$data = mod_news_get_articles($params, $settings);
 	}
 
+	$title_prefix = wrap_text('News Articles');
+	if (!empty($settings['title_prefix'])) $title_prefix = $settings['title_prefix'];
+
 	if ($params AND is_numeric($params[0])) {
 		// overview year
 		if (empty($settings['hide_title'])) {
-			$page['title'] = wrap_text('News Articles').' '.$params[0];
+			$page['title'] = $title_prefix.' '.$params[0];
 		}
 		if (!$data) {
 			$data['no_news_year'] = true;
@@ -57,12 +60,12 @@ function mod_news_articles($params, $settings) {
 		$category = wrap_db_fetch($sql);
 		if ($category) {
 			if (empty($settings['hide_title'])) {
-				$page['title'] = wrap_text('News Articles').' '.$category['category'];
+				$page['title'] = $title_prefix.' '.$category['category'];
 			}
 			$page['breadcrumbs'][] = $category['category'];
 		} else {
 			if (empty($settings['hide_title'])) {
-				$page['title'] = wrap_text('News Articles').' '.wrap_text('unknown');
+				$page['title'] = $title_prefix.' '.wrap_text('unknown');
 			}
 		}
 	} else {
@@ -74,6 +77,10 @@ function mod_news_articles($params, $settings) {
 			$data['no_news_current'] = true;
 		}
 	}
+	
+	if (!empty($settings['hide_categories']))
+		foreach ($data as $id => $line)
+			unset($data[$id]['category']);
 
 	if (!empty($page['title'])) $data['h1'] = $page['title'];
 	$page['text'] = wrap_template('articles', $data);
