@@ -169,5 +169,7 @@ function mod_news_article($params) {
 	}
 	$page['breadcrumbs'][] = $article['title'];
 	$page['text'] = wrap_template('article', $article);
+	if (in_array('magnificpopup', $zz_setting['modules']))
+		$page['extra']['magnific_popup'] = true;
 	return $page;
 }
