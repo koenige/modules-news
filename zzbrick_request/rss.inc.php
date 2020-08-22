@@ -115,7 +115,9 @@ function mod_news_brick2rss_format($text, $id = false) {
 		unset($formatted);
 	}
 	// set relative links to absolute links, we are not on a webpage anymore
-	$text = str_replace(' src="/', ' src="'.$zz_setting['host_base'].'/', $text);
+	$text = preg_replace_callback('/srcset=["\'](.+?)["\']/', 'mod_news_brick2rss_links', $text);
+	$text = preg_replace_callback('/src=["\'](.+?)["\']/', 'mod_news_brick2rss_links', $text);
+	$text = preg_replace_callback('/href=["\'](.+?)["\']/', 'mod_news_brick2rss_links', $text);
 	// remove headings, looks better without them
 	$headings = ['h1', 'h2', 'h3', 'h4'];
 	foreach ($headings as $h) {
@@ -126,4 +128,23 @@ function mod_news_brick2rss_format($text, $id = false) {
 	if (!empty($zz_setting['brick_fulltextformat']))
 		$text = $zz_setting['brick_fulltextformat']($text);
 	return $text;
+}
+
+/**
+ * replace relative links with links with host name
+ *
+ * @param array
+ * @return string
+ */
+function mod_news_brick2rss_links($text) {
+	global $zz_setting;
+
+	$links = explode(', ', $text[1]);
+	foreach ($links as $index => $link) {
+		if (substr($link, 0, 1) !== '/') continue;
+		$links[$index] = $zz_setting['host_base'].$link;
+	}
+	$links = implode(', ', $links);
+	$string = str_replace($text[1], $links, $text[0]);
+	return $string;
 }
