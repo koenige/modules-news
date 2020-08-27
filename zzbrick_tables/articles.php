@@ -47,6 +47,8 @@ $zz['fields'][32]['prefix'] = ' at ';
 $zz['fields'][32]['unit'] = 'h';
 $zz['fields'][32]['dont_copy'] = true;
 
+$zz['fields'][33] = []; // date_to
+
 $zz['fields'][3]['title'] = 'Title';
 $zz['fields'][3]['field_name'] = 'title';
 $zz['fields'][3]['type'] = 'text';
