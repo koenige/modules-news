@@ -52,6 +52,18 @@ msgid "Year"
 msgstr "Jahr"
 
 #: zzbrick_tables/articles.php
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: zzbrick_tables/articles.php
+msgid "Identifier"
+msgstr "Kennung"
+
+#: zzbrick_tables/articles.php
+msgid "Show until"
+msgstr "Zeige bis"
+
+#: zzbrick_tables/articles.php
 msgid "Short news, not too long"
 msgstr "Kurznachricht, nicht zu lang"
 
