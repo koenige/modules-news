@@ -167,6 +167,13 @@ function mod_news_article($params) {
 		$page['meta'][] 
 			= ['property' => 'og:image', 'content' => $zz_setting['host_base'].$zz_setting['files_path'].'/'.$main_img['filename'].'.'.wrap_get_setting('news_og_image_size').'.'.$main_img['thumb_extension'].'?v='.$main_img['version']];
 	}
+	if (empty($article['wrap_source_language'])) {
+		// no translation
+		if (!empty($zz_setting['default_source_language']))
+			if ($zz_setting['default_source_language'] !== $zz_setting['lang']) {
+				$page['meta'][] = ['name' => 'robots', 'content' => 'noindex'];
+			}
+	}
 	$page['breadcrumbs'][] = $article['title'];
 	$page['text'] = wrap_template('article', $article);
 	if (in_array('magnificpopup', $zz_setting['modules']))
