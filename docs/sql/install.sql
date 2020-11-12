@@ -17,13 +17,14 @@ CREATE TABLE `articles` (
   `date_to` date DEFAULT NULL,
   `title` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `abstract` text COLLATE utf8mb4_unicode_ci,
+  `lead` text COLLATE utf8mb4_unicode_ci,
   `direct_link` varchar(128) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL,
   `article` mediumtext COLLATE utf8mb4_unicode_ci,
   `identifier` varchar(64) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `published` enum('yes','no') CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT 'yes',
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`article_id`),
-  UNIQUE `identifier` (`identifier`),
+  UNIQUE KEY `identifier` (`identifier`),
   KEY `published` (`published`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
