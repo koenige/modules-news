@@ -33,7 +33,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 
 	$sql = 'SELECT article_id
 			, articles.date, articles.time, articles.identifier
-			, articles.abstract, articles.title
+			, articles.abstract, articles.lead, articles.title
 			, direct_link
 			, article
 			, DATE_FORMAT(articles.last_update, "%%a, %%d %%b %%Y %%H:%%i:%%s") AS pubDate
