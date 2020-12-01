@@ -58,17 +58,20 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 
 	// categories
 	$sql = 'SELECT article_category_id, article_id, category_id, category
+			, REPLACE(SUBSTRING_INDEX(path, "/", -1), "-", "_") AS path_fragment
 		FROM articles_categories
 		LEFT JOIN categories USING (category_id)
-		WHERE article_id = %d
+		WHERE article_id IN (%s)
+		AND type_category_id = %d
 		ORDER by categories.sequence, category';
-	$sql = sprintf($sql, implode(',', $ids));
+	$sql = sprintf($sql, implode(',', $ids), wrap_category_id('news'));
 	$categorydata = wrap_db_fetch($sql, 'article_category_id');
 	foreach ($langs as $lang) {
 		$categories[$lang] = wrap_translate($categorydata, 'categories', 'category_id', true, $lang);
 	}
 	foreach ($categories as $lang => $categories_per_lang) {
 		foreach ($categories_per_lang as $article_category_id => $category) {
+			$articles[$lang][$category['article_id']][$category['path_fragment']] = true;
 			$articles[$lang][$category['article_id']]['categories'][$article_category_id] = $category; 
 		}
 	}
