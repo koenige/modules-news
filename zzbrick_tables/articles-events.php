@@ -34,13 +34,13 @@ $zz_sub['fields'][4]['def_val_ignore'] = true;
 
 $zz_sub['fields'][3]['field_name'] = 'event_id';
 $zz_sub['fields'][3]['type'] = 'select';
-$zz_sub['fields'][3]['sql'] = 'SELECT event_id
-		, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%d.%m.%Y")
+$zz_sub['fields'][3]['sql'] = sprintf('SELECT event_id
+		, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%%d.%%m.%%Y")
 		, ")") AS event
 		, CONCAT("[", event_id, "]") AS _id
 	FROM /*_PREFIX_*/events
-	WHERE ISNULL(main_event_id)
-	ORDER BY date_begin DESC';
+	WHERE /*_PREFIX_*/events.event_category_id = %d
+	ORDER BY date_begin DESC', wrap_category_id('event/event'));
 $zz_sub['fields'][3]['display_field'] = 'event';
 $zz_sub['fields'][3]['sql_character_set'][1] = 'utf8';
 $zz_sub['fields'][3]['sql_character_set'][2] = 'utf8';
