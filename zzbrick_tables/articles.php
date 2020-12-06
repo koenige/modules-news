@@ -103,7 +103,7 @@ $zz['fields'][13]['min_records'] = 1;
 $zz['fields'][13]['max_records'] = 20;
 $zz['fields'][13]['hide_in_list'] = true;
 $zz['fields'][13]['form_display'] = 'lines';
-if (wrap_get_setting('news_publications') AND wrap_category_id('publications')) {
+if (wrap_category_id('publications', 'check')) {
 	$zz['fields'][13]['sql'] .= sprintf('
 		WHERE /*_PREFIX_*/articles_categories.type_category_id = %d'
 		, wrap_category_id('news')
@@ -150,7 +150,7 @@ if (in_array('events', $zz_setting['modules'])) {
 	$zz['fields'][22]['fields'][4]['type'] = 'sequence';
 }
 
-if (wrap_get_setting('news_publications') AND wrap_category_id('publications')) {
+if (wrap_category_id('publications', 'check')) {
 	$zz['fields'][14] = zzform_include_table('articles-categories');
 	$zz['fields'][14]['title'] = 'Publication';
 	$zz['fields'][14]['type'] = 'subtable';
@@ -211,7 +211,7 @@ $zz['sql'] = sprintf('SELECT DISTINCT /*_PREFIX_*/articles.*
 		ON articles_categories.article_id = /*_PREFIX_*/articles.article_id
 		AND articles_categories.type_category_id = %d
 ', wrap_category_id('news'));
-if (wrap_get_setting('news_publications') AND wrap_category_id('publications')) {
+if (wrap_category_id('publications', 'check')) {
 	$zz['sql'] .= sprintf('
 		LEFT JOIN /*_PREFIX_*/articles_categories publications
 			ON /*_PREFIX_*/articles.article_id = publications.article_id
@@ -259,7 +259,7 @@ $zz['set_redirect'][] = [
 	'field_name' => 'identifier'
 ];
 
-if (wrap_get_setting('news_publications') AND wrap_category_id('publications')) {
+if (wrap_category_id('publications', 'check')) {
 	$sql = 'SELECT category_id as value, category as type, "publications.category_id" AS field_name
 		FROM /*_PREFIX_*/categories
 		WHERE main_category_id = %d

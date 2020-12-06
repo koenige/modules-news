@@ -137,7 +137,7 @@ function mod_news_article($params) {
 	// following translation probably never necessary, therefore inactive
 	// $article['categories'] = wrap_translate($article['categories'], ['type' => 'categories.category'], 'type_category_id');
 	foreach ($article['categories'] as $category_id => $category) {
-		if (wrap_get_setting('news_publications')
+		if (wrap_category_id('publications', 'check')
 			AND $category['type_category_id'] === wrap_category_id('publications')) {
 			$article['publication'] = $category['category'];
 			parse_str($category['parameters'], $parameters);
