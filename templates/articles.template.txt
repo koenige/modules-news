@@ -14,7 +14,7 @@
 <p>%%% text There are no news in this category. %%%</p>
 
 %%% condition elseif no_news_current %%%
-<p>%%% text Sorry, currently we have no news. %%%</p>
+<p class="news-none">%%% text Sorry, currently we have no news. %%%</p>
 %%% condition else %%%
 
 <ul class="news">
