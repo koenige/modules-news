@@ -25,4 +25,4 @@
 /* 2020-07-20-3 */	INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'articles_categories', 'article_category_id', 'type_category_id', 'no-delete');
 /* 2020-07-20-4 */	UPDATE articles_categories SET type_category_id = (SELECT category_id FROM categories WHERE (path = 'news' OR parameters LIKE '%&alias=news%'));
 /* 2020-11-12-1 */	ALTER TABLE `articles` ADD UNIQUE `identifier` (`identifier`);
-/* 2020-12-06-1 */	DELETE FROM `settings` WHERE setting_key = "news_publications";
+/* 2020-12-06-1 */	DELETE FROM `_settings` WHERE setting_key = "news_publications";
