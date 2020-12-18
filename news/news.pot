@@ -1,0 +1,100 @@
+# news module
+# Translations template
+#
+# Part of »Zugzwang Project«
+# http://www.zugzwang.org/modules/news
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2020 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: modules/news\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.6.4\n"
+"Language: de\n"
+
+#: zzbrick_tables/articles.php
+msgid "News Articles"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "News"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Articles"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Article"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Authors"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Image"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Year"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Published"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Identifier"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Show until"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Short news, not too long"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "– none –"
+msgstr ""
+
+#: zzbrick_tables/articles-media.php
+msgid "Media in Articles"
+msgstr ""
+
+#: zzbrick_tables/articles-media.php
+msgid "No."
+msgstr ""
+
+#: zzbrick_tables/articles-media.php
+msgid "Preview"
+msgstr ""
+
+#: templates/articles.template.txt
+msgid "Sorry, currently we have no news."
+msgstr ""
+
+#: templates/articles.template.txt
+msgid "There are no news in this year."
+msgstr ""
+
+#: templates/articles.template.txt
+msgid "There are no news in this category."
+msgstr ""
+
+#: templates/filelinks.template.txt
+msgid "Further Information"
+msgstr ""
