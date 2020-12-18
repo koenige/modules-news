@@ -26,8 +26,14 @@
 
 %%% condition if category %%%<p class="news-category">%%% item category %%%</p>%%% condition endif %%%
 <p><strong class="news-title">
+%%% condition unless setting news_no_article_page %%%
 <a href="%%% setting base %%%%%% setting news_url %%%/%%% item identifier %%%/">
-%%% item title %%%</a></strong> –&nbsp;<em>%%% item date wrap_date %%%</em></p>
+%%% condition endif %%%
+%%% item title %%%
+%%% condition unless setting news_no_article_page %%%
+</a>
+%%% condition endif %%%
+</strong> –&nbsp;<em>%%% item date wrap_date %%%</em></p>
 %%% item abstract markdown %%%
 %%% condition if direct_link %%%
 <p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
