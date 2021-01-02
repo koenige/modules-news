@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2015-2020 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2015-2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -103,7 +103,7 @@ function mod_news_rss($parameter) {
  * @global array $zz_setting;
  * @return string $text
  */
-function mod_news_brick2rss_format($text, $id = false) {
+function mf_news_brick2rss_format($text, $id = false) {
 	global $zz_setting;
 
 	if ($id) {
@@ -115,9 +115,9 @@ function mod_news_brick2rss_format($text, $id = false) {
 		unset($formatted);
 	}
 	// set relative links to absolute links, we are not on a webpage anymore
-	$text = preg_replace_callback('/srcset=["\'](.+?)["\']/', 'mod_news_brick2rss_links', $text);
-	$text = preg_replace_callback('/src=["\'](.+?)["\']/', 'mod_news_brick2rss_links', $text);
-	$text = preg_replace_callback('/href=["\'](.+?)["\']/', 'mod_news_brick2rss_links', $text);
+	$text = preg_replace_callback('/srcset=["\'](.+?)["\']/', 'mf_news_brick2rss_links', $text);
+	$text = preg_replace_callback('/src=["\'](.+?)["\']/', 'mf_news_brick2rss_links', $text);
+	$text = preg_replace_callback('/href=["\'](.+?)["\']/', 'mf_news_brick2rss_links', $text);
 	// remove headings, looks better without them
 	$headings = ['h1', 'h2', 'h3', 'h4'];
 	foreach ($headings as $h) {
@@ -136,7 +136,7 @@ function mod_news_brick2rss_format($text, $id = false) {
  * @param array
  * @return string
  */
-function mod_news_brick2rss_links($text) {
+function mf_news_brick2rss_links($text) {
 	global $zz_setting;
 
 	$links = explode(', ', $text[1]);
