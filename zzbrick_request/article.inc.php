@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2015, 2017-2020 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2015, 2017-2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -91,9 +91,8 @@ function mod_news_article($params) {
 	if (!empty($media['images'])) {
 		if (key($media['images']) === $first_img) {
 			// main image only if first image was not set manually
-			$topimage = array_shift($media['images']);
-			$topimage['path'] = $zz_setting['news_topimage_size'];
-			$article['topimage'] = wrap_template('image', $topimage);
+			$media['images'][$first_img]['path'] = $zz_setting['news_topimage_size'];
+			$article['topimage'] = brick_request_link($media, ['image', $main_img['sequence']], 'sequence');
 		}
 		if ($media['images']) {
 			$article['newsgallery'] = wrap_template('newsgallery', $media['images']);
