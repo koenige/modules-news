@@ -5,7 +5,7 @@
  * http://www.zugzwang.org/modules/default
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2018-2020 Gustaf Mossakowski
+ * @copyright Copyright © 2018-2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -15,7 +15,7 @@ CREATE TABLE `articles` (
   `date` date NOT NULL,
   `time` time DEFAULT NULL,
   `date_to` date DEFAULT NULL,
-  `title` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `abstract` text COLLATE utf8mb4_unicode_ci,
   `lead` text COLLATE utf8mb4_unicode_ci,
   `direct_link` varchar(128) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL,
