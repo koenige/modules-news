@@ -26,4 +26,4 @@
 /* 2020-07-20-4 */	UPDATE articles_categories SET type_category_id = (SELECT category_id FROM categories WHERE (path = 'news' OR parameters LIKE '%&alias=news%'));
 /* 2020-11-12-1 */	ALTER TABLE `articles` ADD UNIQUE `identifier` (`identifier`);
 /* 2020-12-06-1 */	DELETE FROM `_settings` WHERE setting_key = "news_publications";
-/* 2020-01-26-1 */	ALTER TABLE `articles` CHANGE `title` `title` varchar(128) COLLATE 'utf8mb4_unicode_ci' NOT NULL AFTER `date_to`;
+/* 2021-01-26-1 */	ALTER TABLE `articles` CHANGE `title` `title` varchar(128) COLLATE 'utf8mb4_unicode_ci' NOT NULL AFTER `date_to`;
