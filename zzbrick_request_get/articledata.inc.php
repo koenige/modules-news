@@ -52,6 +52,9 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 	foreach ($langs as $lang) {
 		$articles[$lang] = wrap_translate($articledata, 'articles', '', true, $lang);
 		$articles[$lang] = wrap_translate($articles[$lang], 'categories', 'event_id', true, $lang);
+		foreach (array_keys($articles[$lang]) as $article_id) {
+			$articles[$lang][$article_id][$lang] = true;
+		}
 	}
 
 	// media
