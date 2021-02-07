@@ -27,3 +27,4 @@
 /* 2020-11-12-1 */	ALTER TABLE `articles` ADD UNIQUE `identifier` (`identifier`);
 /* 2020-12-06-1 */	DELETE FROM `_settings` WHERE setting_key = "news_publications";
 /* 2021-01-26-1 */	ALTER TABLE `articles` CHANGE `title` `title` varchar(128) COLLATE 'utf8mb4_unicode_ci' NOT NULL AFTER `date_to`;
+/* 2021-02-07-1 */	ALTER TABLE `articles_media` ADD INDEX `article` (`article_id`, `sequence`), DROP INDEX `article`;

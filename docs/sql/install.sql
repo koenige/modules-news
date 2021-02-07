@@ -66,8 +66,8 @@ CREATE TABLE `articles_media` (
   `sequence` tinyint NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`article_medium_id`),
-  UNIQUE KEY `article` (`article_id`,`sequence`),
-  UNIQUE KEY `medium` (`medium_id`,`article_id`)
+  UNIQUE KEY `medium` (`medium_id`,`article_id`),
+  KEY `article` (`article_id`,`sequence`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'articles_media', 'article_medium_id', 'article_id', 'no-delete');
