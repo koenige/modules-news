@@ -8,7 +8,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -29,7 +29,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 	require_once $zz_setting['core'].'/data.inc.php';
 
 	$ids = wrap_data_ids($data, $id_field_name);
-	$langs = wrap_data_langs($data, $id_field_name);
+	$langs = wrap_data_langs($data, $lang_field_name);
 
 	$sql = 'SELECT article_id
 			, articles.date, articles.time, articles.identifier
@@ -39,6 +39,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			, DATE_FORMAT(articles.last_update, "%%a, %%d %%b %%Y %%H:%%i:%%s") AS pubDate
 			, CONCAT("%s/", identifier, "/") AS guid
 			, CONCAT("%s/", identifier, "/") AS link
+			, IF (published = "yes", 1, NULL) AS published
 		FROM articles
 		WHERE articles.article_id IN (%s)
 		ORDER BY FIELD(articles.article_id, %s)';
@@ -64,7 +65,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			LEFT JOIN categories USING (category_id)
 			WHERE article_id IN (%s)
 			AND type_category_id = %d
-			ORDER by categories.sequence, category';
+			ORDER by articles_categories.sequence, categories.sequence, category';
 		$sql = sprintf($sql, implode(',', $ids), wrap_category_id('news'));
 		$categorydata = wrap_db_fetch($sql, 'article_category_id');
 		foreach ($langs as $lang) {
