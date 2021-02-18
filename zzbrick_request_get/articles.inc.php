@@ -8,7 +8,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -52,7 +52,7 @@ function mod_news_get_articles($params, $settings = []) {
 	$sql = 'SELECT articles.article_id
 		FROM articles
 		%s
-		WHERE (ISNULL(date_to) OR date_to >= CURDATE())
+		WHERE date <= CURDATE() AND (ISNULL(date_to) OR date_to >= CURDATE())
 		%s
 		ORDER BY date DESC, time DESC, identifier DESC
 		%s
