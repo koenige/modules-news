@@ -92,8 +92,8 @@ ALTER TABLE `comments_activities`
 ADD INDEX `comment_id_activity_id` (`comment_id`, `activity_id`),
 ADD INDEX `activity_id` (`activity_id`);
 
-INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ("chesstech", "comments", "comment_id", "chesstech", "comments_activities", "comment_activity_id", "comment_id", "delete");
-INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ("chesstech", "activities", "activity_id", "chesstech", "comments_activities", "comment_activity_id", "activity_id", "no-delete");
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'comments', 'comment_id', (SELECT DATABASE()), 'comments_activities', 'comment_activity_id', 'comment_id', 'delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'activities', 'activity_id', (SELECT DATABASE()), 'comments_activities', 'comment_activity_id', 'activity_id', 'no-delete');
 
 
 CREATE TABLE `comments` (
@@ -108,5 +108,5 @@ ALTER TABLE `comments`
 ADD INDEX `main_comment_id` (`main_comment_id`),
 ADD INDEX `article_id` (`article_id`);
 
-INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ("chesstech", "comments", "comment_id", "chesstech", "comments", "comment_id", "main_comment_id", "no-delete");
-INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ("chesstech", "articles", "article_id", "chesstech", "comments", "comment_id", "article_id", "no-delete");
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'comments', 'comment_id', (SELECT DATABASE()), 'comments', 'comment_id', 'main_comment_id', 'no-delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'comments', 'comment_id', 'article_id', 'no-delete');
