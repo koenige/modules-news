@@ -24,7 +24,11 @@
 <p class="news-image %%% item orientation " %s" %%%"><a href="%%% setting base %%%%%% setting news_url %%%/%%% item identifier %%%/"><img src="%%% setting files_path %%%/%%% item filename %%%.240.%%% item thumb_extension %%%" alt="%%% item title %%%"></a></p>
 %%% loop end %%%
 
-%%% condition if category %%%<p class="news-category">%%% item category %%%</p>%%% condition endif %%%
+%%% condition if categories %%%
+<p class="news-category">
+%%% loop categories %%%%%% item category %%%%%% loopposition first|middle " / "%%%%%% loop end %%%
+</p>
+%%% condition endif %%%
 <p><strong class="news-title">
 %%% condition unless setting news_no_article_page %%%
 <a href="%%% setting base %%%%%% setting news_url %%%/%%% item identifier %%%/">
