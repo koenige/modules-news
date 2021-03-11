@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2020 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -80,7 +80,7 @@ function mod_news_articles($params, $settings) {
 	
 	if (!empty($settings['hide_categories']))
 		foreach ($data as $id => $line)
-			unset($data[$id]['category']);
+			unset($data[$id]['categories']);
 
 	if (!empty($page['title'])) $data['h1'] = $page['title'];
 	$page['text'] = wrap_template('articles', $data);
