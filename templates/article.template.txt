@@ -9,9 +9,9 @@
 # events { event_id, event, duration, time_begin, time_end, identifier },
 # links, topimage
 #
-<div class="article js-gallery">
+<div class="article js-gallery" itemscope itemtype="https://schema.org/Article">
 <div class="newstop">
-<p class="date"><a href="../../">%%% text News %%%</a>, %%% loop categories %%% %%% item category %%% %%% loop end %%%<em>%%% item date wrap_date %%%</em></p>
+<p class="date" itemprop="datePublished"><a href="../../">%%% text News %%%</a>, %%% loop categories %%% %%% item category %%% %%% loop end %%%<em>%%% item date wrap_date %%%</em></p>
 %%% condition if _next_identifier %%%
 <p class="next_news"><a href="../../%%% item _next_identifier %%%/" title="%%% text Next news: %%% %%% item _next_title %%%">→</a></p>
 %%% condition endif %%%
@@ -22,9 +22,9 @@
 
 <article>
 <div class="article">
-<h1>%%% item title %%%</h1>
+<h1 itemprop="headline">%%% item title %%%</h1>
 %%% condition if abstract %%%
-<div class='abstract'>
+<div class="abstract" itemprop="abstract">
 %%% item abstract markdown %%%
 </div>
 %%% condition endif %%%
@@ -36,9 +36,11 @@
 %%% loop end %%%
 %%% item topimage "<div class='topimage'>%s</div>" %%%
 
+%%% condition if article %%%
 <div class='articletext'>
 %%% item article markdown %%%
 </div>
+%%% condition endif %%%
 
 %%% condition if direct_link %%%
 <p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
