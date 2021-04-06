@@ -2,7 +2,7 @@
 # HTML template for articles
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2016, 2018-2020 Gustaf Mossakowski
+# @copyright Copyright © 2014-2016, 2018-2021 Gustaf Mossakowski
 #
 # fields: article_id, identifier, date, time, abstract, filename, source,
 # thumb_extension, direct_link, project_id
@@ -12,6 +12,9 @@
 
 %%% condition elseif no_news_category %%%
 <p>%%% text There are no news in this category. %%%</p>
+
+%%% condition elseif category_not_found %%%
+<p>%%% text This news category does not exist. %%%</p>
 
 %%% condition elseif no_news_current %%%
 <p class="news-none">%%% text Sorry, currently we have no news. %%%</p>

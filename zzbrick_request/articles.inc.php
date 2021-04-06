@@ -54,20 +54,21 @@ function mod_news_articles($params, $settings) {
 			$data['no_news_category'] = true;
 			$page['status'] = 404;
 		}
+		$type = !empty($settings['type']) ? $settings['type'] : 'news';
 		$sql = 'SELECT category_id, category
 			FROM categories WHERE path = "%s/%s"';
-		$sql = sprintf($sql, wrap_get_setting('news_category_path'), wrap_db_escape($params[0]));
+		$sql = sprintf($sql, wrap_get_setting($type.'_category_path'), wrap_db_escape($params[0]));
 		$category = wrap_db_fetch($sql);
-		if ($category) {
-			if (empty($settings['hide_title'])) {
-				$page['title'] = $title_prefix.' '.$category['category'];
-			}
-			$page['breadcrumbs'][] = $category['category'];
-		} else {
-			if (empty($settings['hide_title'])) {
-				$page['title'] = $title_prefix.' '.wrap_text('unknown');
-			}
+		if (!$category) {
+			$data['category_not_found'] = true;
+			$page['breadcrumbs'][] = wrap_text('Not Found');
+			$page['text'] = wrap_template('articles', $data);
+			return $page;
 		}
+		if (empty($settings['hide_title'])) {
+			$page['title'] = $title_prefix.' '.$category['category'];
+		}
+		$page['breadcrumbs'][] = $category['category'];
 	} else {
 		// individual view, e. g. homepage
 		if (empty($settings['hide_title'])) {
