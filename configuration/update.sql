@@ -1,8 +1,9 @@
 /**
- * Zugzwang Project
- * SQL updates for news module
+ * news module
+ * SQL updates
  *
- * http://www.zugzwang.org/modules/default
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/default
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2020-2021 Gustaf Mossakowski
@@ -28,3 +29,5 @@
 /* 2020-12-06-1 */	DELETE FROM `_settings` WHERE setting_key = "news_publications";
 /* 2021-01-26-1 */	ALTER TABLE `articles` CHANGE `title` `title` varchar(128) COLLATE 'utf8mb4_unicode_ci' NOT NULL AFTER `date_to`;
 /* 2021-02-07-1 */	ALTER TABLE `articles_media` ADD INDEX `article` (`article_id`, `sequence`), DROP INDEX `article`;
+/* 2021-02-10-1 */	ALTER TABLE `comments` CHANGE `comment` `comment` text COLLATE 'utf8mb4_unicode_ci' NOT NULL AFTER `article_id`, CHANGE `published` `published` enum('yes','no') COLLATE 'latin1_general_ci' NOT NULL DEFAULT 'no' AFTER `comment`, COLLATE 'utf8mb4_unicode_ci';
+/* 2021-02-10-2 */	ALTER TABLE `comments_activities` COLLATE 'utf8mb4_unicode_ci';

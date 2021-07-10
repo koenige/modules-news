@@ -1,8 +1,9 @@
 /**
- * Zugzwang Project
- * SQL for installation of news module
+ * news module
+ * SQL for installation
  *
- * http://www.zugzwang.org/modules/default
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/default
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2018-2021 Gustaf Mossakowski
@@ -82,31 +83,30 @@ INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES (
 INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_url', '', 'base URL prepended to all news articles');
 
 
-CREATE TABLE `comments_activities` (
-  `comment_activity_id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `comment_id` int unsigned NOT NULL,
-  `activity_id` int unsigned NOT NULL
-) ENGINE='MyISAM';
+CREATE TABLE `comments` (
+  `comment_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `main_comment_id` int unsigned NOT NULL,
+  `article_id` int unsigned NOT NULL,
+  `comment` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `published` enum('yes','no') CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT 'no',
+  PRIMARY KEY (`comment_id`),
+  KEY `main_comment_id` (`main_comment_id`),
+  KEY `article_id` (`article_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-ALTER TABLE `comments_activities`
-ADD INDEX `comment_id_activity_id` (`comment_id`, `activity_id`),
-ADD INDEX `activity_id` (`activity_id`);
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'comments', 'comment_id', (SELECT DATABASE()), 'comments', 'comment_id', 'main_comment_id', 'no-delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'comments', 'comment_id', 'article_id', 'no-delete');
+
+
+CREATE TABLE `comments_activities` (
+  `comment_activity_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `comment_id` int unsigned NOT NULL,
+  `activity_id` int unsigned NOT NULL,
+  PRIMARY KEY (`comment_activity_id`),
+  KEY `comment_id_activity_id` (`comment_id`,`activity_id`),
+  KEY `activity_id` (`activity_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'comments', 'comment_id', (SELECT DATABASE()), 'comments_activities', 'comment_activity_id', 'comment_id', 'delete');
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'activities', 'activity_id', (SELECT DATABASE()), 'comments_activities', 'comment_activity_id', 'activity_id', 'no-delete');
 
-
-CREATE TABLE `comments` (
-  `comment_id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `main_comment_id` int unsigned NOT NULL,
-  `article_id` int unsigned NOT NULL,
-  `comment` text NOT NULL,
-  `published` enum('yes','no') NOT NULL DEFAULT 'no'
-) ENGINE='MyISAM';
-
-ALTER TABLE `comments`
-ADD INDEX `main_comment_id` (`main_comment_id`),
-ADD INDEX `article_id` (`article_id`);
-
-INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'comments', 'comment_id', (SELECT DATABASE()), 'comments', 'comment_id', 'main_comment_id', 'no-delete');
-INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'comments', 'comment_id', 'article_id', 'no-delete');
