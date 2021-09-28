@@ -1,13 +1,14 @@
 <?php 
 
 /**
- * Zugzwang Project
+ * news module
  * Table for news articles
  *
- * http://www.zugzwang.org/modules/news
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2014-2015, 2017-2020 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2014-2015, 2017-2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -33,12 +34,14 @@ $zz['fields'][18]['path'] = [
 	'extension' => 'thumb_extension'
 ];
 $zz['fields'][18]['hide_in_form'] = true;
+$zz['fields'][18]['class'] = 'hidden480';
 
 $zz['fields'][2]['field_name'] = 'date';
 $zz['fields'][2]['type'] = 'date';
 $zz['fields'][2]['default'] = date('d.m.Y', time());
 $zz['fields'][2]['append_next'] = true;
 $zz['fields'][2]['dont_copy'] = true;
+$zz['fields'][2]['class'] = 'block640';
 
 $zz['fields'][32]['field_name'] = 'time';
 $zz['fields'][32]['type'] = 'time';
@@ -46,6 +49,7 @@ $zz['fields'][32]['default'] = date('H:i', time());
 $zz['fields'][32]['prefix'] = ' at ';
 $zz['fields'][32]['unit'] = 'h';
 $zz['fields'][32]['dont_copy'] = true;
+$zz['fields'][32]['class'] = 'block640';
 
 $zz['fields'][33] = []; // date_to
 
@@ -59,6 +63,8 @@ $zz['fields'][3]['link'] = [
 ];
 $zz['fields'][3]['typo_cleanup'] = true;
 $zz['fields'][3]['replace_substrings'] = wrap_get_setting('replace_substrings');
+$zz['fields'][3]['if'][3]['list_prefix'] = '<del>';
+$zz['fields'][3]['if'][3]['list_suffix'] = '</del>';
 
 $zz['fields'][4]['title'] = 'News';
 $zz['fields'][4]['field_name'] = 'abstract';
@@ -95,6 +101,7 @@ $zz['fields'][11]['field_name'] = 'published';
 $zz['fields'][11]['type'] = 'select';
 $zz['fields'][11]['enum'] = ['yes', 'no'];
 $zz['fields'][11]['default'] = 'yes';
+$zz['fields'][11]['class'] = 'hidden640';
 
 if (wrap_category_id('news', 'check')) {
 	$zz['fields'][13] = zzform_include_table('articles-categories');
@@ -302,5 +309,8 @@ if (wrap_category_id('publications', 'check')) {
 		WHERE category_id = ';
 	$zz['conditions'][2]['add']['key_field_name'] = 'publications.category_id';
 }
+
+$zz['conditions'][3]['scope'] = 'record';
+$zz['conditions'][3]['where'] = '/*_PREFIX_*/articles.published = "no"';
 
 $zz_conf['copy'] = true;
