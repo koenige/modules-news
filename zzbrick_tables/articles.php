@@ -146,11 +146,27 @@ $zz['fields'][6]['if'][1] = false;
 
 $zz['fields'][23] = false;
 
+if (in_array('contacts', $zz_setting['modules'])) {
+	$zz['fields'][24] = zzform_include_table('articles-contacts');
+	$zz['fields'][24]['title'] = 'Authors';
+	$zz['fields'][24]['type'] = 'subtable';
+	$zz['fields'][24]['min_records'] = 1;
+	$zz['fields'][24]['max_records'] = 10;
+	$zz['fields'][24]['hide_in_list'] = true;
+	$zz['fields'][24]['form_display'] = 'lines';
+	$zz['fields'][24]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
+	$zz['fields'][24]['fields'][2]['type'] = 'foreign_key';
+	$zz['fields'][24]['fields'][4]['type'] = 'hidden';
+	$zz['fields'][24]['fields'][4]['hide_in_form'] = true;
+	$zz['fields'][24]['fields'][4]['value'] = wrap_category_id('roles/author');
+	$zz['fields'][24]['fields'][5]['type'] = 'sequence';
+}
+
 if (in_array('events', $zz_setting['modules'])) {
 	$zz['fields'][22] = zzform_include_table('articles-events');
 	$zz['fields'][22]['title'] = 'Events';
 	$zz['fields'][22]['type'] = 'subtable';
-	$zz['fields'][22]['min_records'] = 0;
+	$zz['fields'][22]['min_records'] = 1;
 	$zz['fields'][22]['max_records'] = 40;
 	$zz['fields'][22]['hide_in_list'] = true;
 	$zz['fields'][22]['form_display'] = 'lines';
