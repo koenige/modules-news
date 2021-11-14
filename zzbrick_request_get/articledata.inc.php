@@ -5,7 +5,7 @@
  * get article data per ID
  *
  * Part of »Zugzwang Project«
- * http://www.zugzwang.org/modules/news
+ * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2020-2021 Gustaf Mossakowski
@@ -78,6 +78,28 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			foreach ($categories_per_lang as $article_category_id => $category) {
 				$articles[$lang][$category['article_id']][$category['path_fragment']] = true;
 				$articles[$lang][$category['article_id']]['categories'][$article_category_id] = $category; 
+			}
+		}
+	}
+
+	// contacts
+	if (in_array('contacts', $zz_setting['modules'])) {
+		$sql = 'SELECT article_contact_id, article_id, contact_id, contact
+				, SUBSTRING_INDEX(categories.path, "/", -1) AS role
+			FROM articles_contacts
+			LEFT JOIN contacts USING (contact_id)
+			LEFT JOIN categories
+				ON articles_contacts.role_category_id = categories.category_id
+			WHERE article_id IN (%s)
+			ORDER BY articles_contacts.sequence, contacts.identifier';
+		$sql = sprintf($sql, implode(',', $ids));
+		$contactdata = wrap_db_fetch($sql, 'article_contact_id');
+		foreach ($langs as $lang) {
+			$contacts[$lang] = wrap_translate($contactdata, 'contacts', 'contact_id', true, $lang);
+		}
+		foreach ($contacts as $lang => $contacts_per_lang) {
+			foreach ($contacts_per_lang as $article_contact_id => $contact) {
+				$articles[$lang][$contact['article_id']][$contact['role']][$contact['article_contact_id']] = $contact;
 			}
 		}
 	}

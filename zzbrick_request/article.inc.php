@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Zugzwang Project
+ * news module
  * Output single article
  *
- * http://www.zugzwang.org/modules/news
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2014-2015, 2017-2021 Gustaf Mossakowski
@@ -25,19 +26,26 @@ function mod_news_article($params) {
 		$published = 'articles.published = "yes"';
 	}
 
-	$sql = 'SELECT article_id, articles.date, articles.time, articles.identifier
-			, IFNULL(articles.lead, articles.abstract) AS abstract
-			, articles.title, direct_link, article
-		FROM articles articles
+	$sql = 'SELECT article_id
+		FROM articles
 		WHERE %s
 		AND identifier = "%s"
 		ORDER BY date DESC, time DESC, identifier DESC
 	';
 	$sql = sprintf($sql, $published, wrap_db_escape(implode('/', $params)));
-	$article = wrap_db_fetch($sql);
-	if (!$article) return false;
-	$article = wrap_translate($article, 'articles');
-
+	$article_id = wrap_db_fetch($sql, '', 'single value');
+	if (!$article_id) return false;
+	
+	if (file_exists($zz_setting['custom'].'/zzbrick_request_get/articles.inc.php')) {
+		require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
+		$articles = cms_get_articles();
+	} else {
+		require_once __DIR__.'/../zzbrick_request_get/articles.inc.php';
+		$articles = mod_news_get_articles();
+	}
+	if (empty($articles[$article_id])) return false;
+	$article = $articles[$article_id];
+	
 	// article in other languages?
 	$sql = 'SELECT language_id, iso_639_1, iso_639_1 AS language_base
 			, "%s" AS identifier
@@ -101,13 +109,6 @@ function mod_news_article($params) {
 	$article['videos'] = !empty($media['videos']) ? $media['videos'] : [];
 
 	// prev next
-	if (file_exists($zz_setting['custom'].'/zzbrick_request_get/articles.inc.php')) {
-		require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
-		$articles = cms_get_articles();
-	} else {
-		require_once __DIR__.'/../zzbrick_request_get/articles.inc.php';
-		$articles = mod_news_get_articles();
-	}
 	$article += wrap_get_prevnext_flat($articles, $article['article_id'], false);
 
 	if (!empty($article['_next_identifier'])) {
