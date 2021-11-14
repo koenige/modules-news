@@ -32,7 +32,7 @@ function mod_news_get_articles($params, $settings = []) {
 
 	$where = [];
 	$limit = '';
-	if ($zz_setting['local_access']) {
+	if ($zz_setting['local_access'] OR !empty($_SESSION['logged_in'])) {
 		$where[] = '(articles.published = "yes" OR articles.published = "no")';
 	} else {
 		$where[] = 'articles.published = "yes"';
