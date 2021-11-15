@@ -1,10 +1,11 @@
 <?php 
 
 /**
- * Zugzwang Project
+ * news module
  * Table with comments as activities
  *
- * http://www.zugzwang.org/modules/news
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2020 Gustaf Mossakowski
