@@ -5,7 +5,7 @@
  * get article data
  *
  * Part of »Zugzwang Project«
- * http://www.zugzwang.org/modules/news
+ * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2020-2021 Gustaf Mossakowski
