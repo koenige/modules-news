@@ -39,6 +39,7 @@ $zz['fields'][3]['sql'] = 'SELECT contact_id, contact
 	FROM /*_PREFIX_*/contacts ORDER BY identifier';
 $zz['fields'][3]['display_field'] = 'contact';
 $zz['fields'][3]['character_set'] = 'utf8';
+$zz['fields'][3]['add_details'] = 'contacts';
 
 $zz['fields'][4]['title'] = 'Category';
 $zz['fields'][4]['field_name'] = 'role_category_id';
@@ -50,6 +51,7 @@ $zz['fields'][4]['character_set'] = 'utf8';
 $zz['fields'][4]['add_details'] = sprintf('categories?filter[maincategory]=%d', wrap_category_id('roles'));
 $zz['fields'][4]['show_hierarchy'] = 'main_category_id';
 $zz['fields'][4]['show_hierarchy_subtree'] = wrap_category_id('roles');
+$zz['fields'][4]['def_val_ignore'] = true;
 
 $zz['fields'][20]['field_name'] = 'last_update';
 $zz['fields'][20]['type'] = 'timestamp';
