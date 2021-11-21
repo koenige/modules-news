@@ -83,6 +83,10 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
+#: templates/article.template.txt
+msgid "by"
+msgstr ""
+
 #: templates/articles.template.txt
 msgid "Sorry, currently we have no news."
 msgstr ""
