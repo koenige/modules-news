@@ -80,7 +80,15 @@ function mod_news_rss($parameter) {
 		if (!empty($line['pubDate']))
 	    	$item->date = strtotime($line['pubDate']);
 	    if (!empty($line['author'])) {
-	    	$item->author = sprintf('%s (%s)', $settings['rss_editor_mail'], $line['author']);
+	    	if (is_array($line['author'])) {
+	    		$authors = [];
+	    		foreach ($line['author'] as $author) {
+			    	$authors[] = sprintf('%s (%s)', $settings['rss_editor_mail'], $author['contact']);
+	    		}
+	    		$item->author = implode(', ', $authors);
+	    	} else {
+		    	$item->author = sprintf('%s (%s)', $settings['rss_editor_mail'], $line['author']);
+		    }
 	    }
 		$rss->addItem($item);
 	}
