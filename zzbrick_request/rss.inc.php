@@ -83,9 +83,9 @@ function mod_news_rss($parameter) {
 	    	if (is_array($line['author'])) {
 	    		$authors = [];
 	    		foreach ($line['author'] as $author) {
-			    	$authors[] = sprintf('%s (%s)', $settings['rss_editor_mail'], $author['contact']);
+			    	$authors[] = $author['contact'];
 	    		}
-	    		$item->author = implode(', ', $authors);
+	    		$item->author = sprintf('%s (%s)', $settings['rss_editor_mail'], implode(', ', $authors));
 	    	} else {
 		    	$item->author = sprintf('%s (%s)', $settings['rss_editor_mail'], $line['author']);
 		    }
