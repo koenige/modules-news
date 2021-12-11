@@ -62,6 +62,7 @@ $zz['fields'][3]['link'] = [
 	'string2' => '/'
 ];
 $zz['fields'][3]['typo_cleanup'] = true;
+$zz['fields'][3]['typo_remove_double_spaces'] = true;
 $zz['fields'][3]['replace_substrings'] = wrap_get_setting('replace_substrings');
 $zz['fields'][3]['if'][3]['list_prefix'] = '<del>';
 $zz['fields'][3]['if'][3]['list_suffix'] = '</del>';
