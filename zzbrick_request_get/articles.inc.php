@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2021 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2022 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -24,14 +24,10 @@ function mod_news_get_articles($params, $settings = []) {
 	global $zz_setting;
 	if (count($params) > 1) return false;
 
-	if (wrap_category_id('news', 'check')) {
-		$news_category_id = wrap_category_id('news');
-	} else {
-		$news_category_id = false;
-	}
+	$news_category_id = wrap_category_id('news', 'check') ? wrap_category_id('news') : false;
+	$limit = '';
 
 	$where = [];
-	$limit = '';
 	if ($zz_setting['local_access'] OR !empty($_SESSION['logged_in'])) {
 		$where[] = '(articles.published = "yes" OR articles.published = "no")';
 	} else {
