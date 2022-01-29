@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2021 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2022 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -37,6 +37,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			, direct_link
 			, article
 			, DATE_FORMAT(articles.last_update, "%%a, %%d %%b %%Y %%H:%%i:%%s") AS pubDate
+			, DATE_FORMAT(articles.last_update, "%%Y-%%m-%%dT%%H:%%i:%%s") AS modified
 			, CONCAT("%s/", identifier, "/") AS guid
 			, CONCAT("%s/", identifier, "/") AS link
 			, IF (published = "yes", 1, NULL) AS published
