@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2015, 2017-2021 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2015, 2017-2022 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -157,15 +157,29 @@ function mod_news_article($params) {
 		$page['breadcrumbs'][] = '<a href="'.$url.'">'.$path.'</a>';
 		$i--;
 	}
-	$page['meta'] = [
-		0 => ['property' => 'og:url', 'content' => $zz_setting['host_base'].$zz_setting['request_uri']],
-		1 => ['property' => 'og:type', 'content' => 'article'],
-		2 => ['property' => 'og:title', 'content' => wrap_html_escape(strip_tags($article['title']))],
-		3 => ['property' => 'og:description', 'content' => wrap_html_escape(trim(strip_tags(markdown($article['abstract']))))]
+	$page['opengraph'] = [
+		'og:type' => 'article',
+		'og:title' => wrap_html_escape(strip_tags($article['title'])),
+		'og:description' => wrap_html_escape(trim(strip_tags(markdown($article['abstract'])))),
+		'article:published_time' => $article['date'].($article['time'] ? 'T'.$article['time'] : ''),
+		'article:modified_time' => $article['modified']
 	];
+	if (!empty($article['author'])) {
+		$page['opengraph']['article:author'] = [];
+		foreach ($article['author'] as $author)
+			$page['opengraph']['article:author'][] = $author['contact'];
+	}
+	if (!empty($article['publication'])) {
+		$page['opengraph']['article:section'] = $article['publication'];
+	}
+	if (!empty($article['categories'])) {
+		$page['opengraph']['article:tags'] = [];
+		foreach ($article['categories'] as $category)
+			$page['opengraph']['article:tags'][] = $category['category'];
+	}
 	if (!empty($main_img)) {
-		$page['meta'][] 
-			= ['property' => 'og:image', 'content' => $zz_setting['host_base'].$zz_setting['files_path'].'/'.$main_img['filename'].'.'.wrap_get_setting('news_og_image_size').'.'.$main_img['thumb_extension'].'?v='.$main_img['version']];
+		$page['opengraph']['og:image']
+			= $zz_setting['host_base'].$zz_setting['files_path'].'/'.$main_img['filename'].'.'.wrap_get_setting('news_og_image_size').'.'.$main_img['thumb_extension'].'?v='.$main_img['version'];
 	}
 	if (empty($article['wrap_source_language'])) {
 		// no translation
