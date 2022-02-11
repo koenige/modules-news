@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2014-2015, 2017-2021 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2014-2015, 2017-2022 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -145,7 +145,7 @@ $zz['fields'][6]['typo_cleanup'] = true;
 $zz['fields'][6]['replace_substrings'] = wrap_get_setting('replace_substrings');
 $zz['fields'][6]['if'][1] = false;
 
-$zz['fields'][23] = false;
+$zz['fields'][23] = [];
 
 if (in_array('contacts', $zz_setting['modules'])) {
 	$zz['fields'][24] = zzform_include_table('articles-contacts');
