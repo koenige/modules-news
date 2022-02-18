@@ -140,9 +140,11 @@ function mod_news_article($params) {
 		if (wrap_category_id('publications', 'check')
 			AND $category['type_category_id'] === wrap_category_id('publications')) {
 			$article['publication'] = $category['category'];
-			parse_str($category['parameters'], $parameters);
-			foreach ($parameters as $key => $value) {
-				$article['setting_'.$key] = $value;
+			if ($category['parameters']) {
+				parse_str($category['parameters'], $parameters);
+				foreach ($parameters as $key => $value) {
+					$article['setting_'.$key] = $value;
+				}
 			}
 			unset($article['categories'][$category_id]);
 		}
