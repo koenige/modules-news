@@ -28,10 +28,11 @@ function mod_news_get_articles($params, $settings = []) {
 	$limit = '';
 
 	$where = [];
-	if ($zz_setting['local_access'] OR !empty($_SESSION['logged_in'])) {
+	if (!empty($_SESSION['logged_in'])) {
 		$where[] = '(articles.published = "yes" OR articles.published = "no")';
 	} else {
 		$where[] = 'articles.published = "yes"';
+		$where[] = 'date <= CURDATE() AND (ISNULL(date_to) OR date_to >= CURDATE())';
 	}
 	
 	if ($news_category_id) {
@@ -48,14 +49,13 @@ function mod_news_get_articles($params, $settings = []) {
 	$sql = 'SELECT articles.article_id
 		FROM articles
 		%s
-		WHERE date <= CURDATE() AND (ISNULL(date_to) OR date_to >= CURDATE())
 		%s
 		ORDER BY date DESC, time DESC, identifier DESC
 		%s
 	';
 	$sql = sprintf($sql
 		, $join
-		, ($where ? ' AND '.implode(' AND ', $where) : '')
+		, ($where ? ' WHERE '.implode(' AND ', $where) : '')
 		, $limit
 	);
 	$ids = wrap_db_fetch($sql, 'article_id');
