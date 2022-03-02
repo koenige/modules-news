@@ -261,7 +261,7 @@ $zz['filter'][1]['identifier'] = 'year';
 $zz['filter'][1]['type'] = 'list';
 $zz['filter'][1]['where'] = 'YEAR(/*_PREFIX_*/articles.date)';
 
-$zz['filter'][5] = false;
+$zz['filter'][5] = [];
 
 if (wrap_category_id('news', 'check')) {
 	$zz['filter'][2]['sql'] = sprintf('SELECT DISTINCT category_id
