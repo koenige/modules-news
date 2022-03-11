@@ -35,6 +35,7 @@ $zz['fields'][18]['path'] = [
 ];
 $zz['fields'][18]['hide_in_form'] = true;
 $zz['fields'][18]['class'] = 'hidden480';
+$zz['fields'][18]['hide_in_list_if_empty'] = true;
 
 $zz['fields'][2]['field_name'] = 'date';
 $zz['fields'][2]['type'] = 'date';
@@ -50,6 +51,7 @@ $zz['fields'][32]['prefix'] = ' at ';
 $zz['fields'][32]['unit'] = 'h';
 $zz['fields'][32]['dont_copy'] = true;
 $zz['fields'][32]['class'] = 'block640';
+$zz['fields'][32]['hide_in_list_if_empty'] = true;
 
 $zz['fields'][33] = []; // date_to
 
@@ -103,6 +105,7 @@ $zz['fields'][11]['type'] = 'select';
 $zz['fields'][11]['enum'] = ['yes', 'no'];
 $zz['fields'][11]['default'] = 'yes';
 $zz['fields'][11]['class'] = 'hidden640';
+$zz['fields'][11]['hide_in_list'] = true;
 
 if (wrap_category_id('news', 'check')) {
 	$zz['fields'][13] = zzform_include_table('articles-categories');
@@ -122,6 +125,7 @@ if (wrap_category_id('news', 'check')) {
 	$zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][13]['fields'][4]['type'] = 'sequence';
 	$zz['fields'][13]['separator'] = true;
+	$zz['fields'][13]['if'][4] = [];
 }
 
 /*
@@ -325,6 +329,13 @@ if (wrap_category_id('publications', 'check')) {
 		FROM /*_PREFIX_*/categories publication_categories
 		WHERE category_id = ';
 	$zz['conditions'][2]['add']['key_field_name'] = 'publications.category_id';
+
+	$zz['conditions'][4]['scope'] = 'record';
+	$zz['conditions'][4]['where'] = 'publication_categories.parameters LIKE "%&categories=0%"';
+	$zz['conditions'][4]['add']['sql'] = 'SELECT category_id
+		FROM /*_PREFIX_*/categories publication_categories
+		WHERE category_id = ';
+	$zz['conditions'][4]['add']['key_field_name'] = 'publications.category_id';
 }
 
 $zz['conditions'][3]['scope'] = 'record';
