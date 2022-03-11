@@ -75,6 +75,14 @@ msgstr ""
 msgid "– none –"
 msgstr ""
 
+#: zzbrick_tables/articles-articles.php
+msgid "Linked Articles"
+msgstr ""
+
+#: zzbrick_tables/articles-articles.php
+msgid "Main Article"
+msgstr ""
+
 #: zzbrick_tables/articles-media.php
 msgid "Media in Articles"
 msgstr ""
