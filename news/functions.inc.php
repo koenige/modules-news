@@ -29,6 +29,7 @@ function mf_news_prev_next($article) {
 				ON articles_categories.article_id = articles.article_id
 				AND articles_categories.type_category_id = %d
 			WHERE articles_categories.category_id = %d
+			AND published = "yes"
 			ORDER BY identifier DESC';
 		$sql = sprintf($sql
 			, wrap_category_id('publications')
@@ -37,6 +38,7 @@ function mf_news_prev_next($article) {
 	} else {
 		$sql = 'SELECT articles.article_id, title, identifier
 			FROM articles
+			WHERE published = "yes"
 			ORDER BY identifier DESC';
 	}
 	$articles = wrap_db_fetch($sql, 'article_id');
