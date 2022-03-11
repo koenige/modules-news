@@ -62,7 +62,12 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 	$articles = wrap_data_media($articles, $ids, $langs, 'articles', 'article');
 
 	// categories
-	if (wrap_category_id('news', 'check')) {
+	$article_categories = [
+		'news' => 'categories',
+		'publications' => 'publications'
+	];
+	foreach ($article_categories as $category => $path) {
+		if (!wrap_category_id($category, 'check')) continue;
 		$sql = 'SELECT article_category_id, article_id, category_id, category
 				, REPLACE(SUBSTRING_INDEX(path, "/", -1), "-", "_") AS path_fragment
 			FROM articles_categories
@@ -70,15 +75,15 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			WHERE article_id IN (%s)
 			AND type_category_id = %d
 			ORDER by articles_categories.sequence, categories.sequence, category';
-		$sql = sprintf($sql, implode(',', $ids), wrap_category_id('news'));
+		$sql = sprintf($sql, implode(',', $ids), wrap_category_id($category));
 		$categorydata = wrap_db_fetch($sql, 'article_category_id');
 		foreach ($langs as $lang) {
-			$categories[$lang] = wrap_translate($categorydata, 'categories', 'category_id', true, $lang);
+			$categories[$lang] = wrap_translate($categorydata, $path, 'category_id', true, $lang);
 		}
 		foreach ($categories as $lang => $categories_per_lang) {
 			foreach ($categories_per_lang as $article_category_id => $category) {
 				$articles[$lang][$category['article_id']][$category['path_fragment']] = true;
-				$articles[$lang][$category['article_id']]['categories'][$article_category_id] = $category; 
+				$articles[$lang][$category['article_id']][$path][$article_category_id] = $category; 
 			}
 		}
 	}
