@@ -83,6 +83,14 @@ msgstr ""
 msgid "Newsletter Lead"
 msgstr ""
 
+#: zzbrick_tables/articles.php
+msgid "Organisations"
+msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Publication"
+msgstr ""
+
 #: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
 msgstr ""

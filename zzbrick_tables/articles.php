@@ -156,19 +156,27 @@ $zz['fields'][6]['if'][1] = false;
 $zz['fields'][23] = [];
 
 if (in_array('contacts', $zz_setting['modules'])) {
-	$zz['fields'][24] = zzform_include_table('articles-contacts');
-	$zz['fields'][24]['title'] = 'Authors';
-	$zz['fields'][24]['type'] = 'subtable';
-	$zz['fields'][24]['min_records'] = 1;
-	$zz['fields'][24]['max_records'] = 10;
-	$zz['fields'][24]['hide_in_list'] = true;
-	$zz['fields'][24]['form_display'] = 'lines';
-	$zz['fields'][24]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
-	$zz['fields'][24]['fields'][2]['type'] = 'foreign_key';
-	$zz['fields'][24]['fields'][4]['type'] = 'hidden';
-	$zz['fields'][24]['fields'][4]['hide_in_form'] = true;
-	$zz['fields'][24]['fields'][4]['value'] = wrap_category_id('roles/author');
-	$zz['fields'][24]['fields'][5]['type'] = 'sequence';
+	$keys = ['author' => 'Authors', 'description' => 'Organisations'];
+	$i = 40;
+	foreach ($keys as $key => $title) {
+		if (!wrap_category_id('roles/'.$key, 'check')) continue;
+		$zz['fields'][$i] = zzform_include_table('articles-contacts');
+		$zz['fields'][$i]['table_name'] = 'articles_contacts_'.$key;
+		$zz['fields'][$i]['title'] = $title;
+		$zz['fields'][$i]['type'] = 'subtable';
+		$zz['fields'][$i]['min_records'] = 1;
+		$zz['fields'][$i]['max_records'] = 10;
+		$zz['fields'][$i]['hide_in_list'] = true;
+		$zz['fields'][$i]['form_display'] = 'lines';
+		$zz['fields'][$i]['sql'] .= sprintf(' WHERE role_category_id = %d
+			ORDER BY /*_PREFIX_*/articles.date DESC, sequence', wrap_category_id('roles/'.$key));
+		$zz['fields'][$i]['fields'][2]['type'] = 'foreign_key';
+		$zz['fields'][$i]['fields'][4]['type'] = 'hidden';
+		$zz['fields'][$i]['fields'][4]['hide_in_form'] = true;
+		$zz['fields'][$i]['fields'][4]['value'] = wrap_category_id('roles/'.$key);
+		$zz['fields'][$i]['fields'][5]['type'] = 'sequence';
+		$i++;
+	}
 }
 
 if (in_array('events', $zz_setting['modules'])) {

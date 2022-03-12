@@ -83,6 +83,14 @@ msgstr "Aufmacher"
 msgid "Newsletter Lead"
 msgstr "Newsletter Aufmacher"
 
+#: zzbrick_tables/articles.php
+msgid "Organisations"
+msgstr "Organisationen"
+
+#: zzbrick_tables/articles.php
+msgid "Publication"
+msgstr "Publikation"
+
 #: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
 msgstr "Verknüpfte Artikel"
