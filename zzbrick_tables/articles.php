@@ -69,7 +69,8 @@ $zz['fields'][3]['replace_substrings'] = wrap_get_setting('replace_substrings');
 $zz['fields'][3]['if'][3]['list_prefix'] = '<del>';
 $zz['fields'][3]['if'][3]['list_suffix'] = '</del>';
 
-$zz['fields'][4]['title'] = 'News';
+$zz['fields'][4]['title'] = 'Lead';
+$zz['fields'][4]['if'][1]['title'] = 'News';
 $zz['fields'][4]['field_name'] = 'abstract';
 $zz['fields'][4]['type'] = 'memo';
 $zz['fields'][4]['rows'] = 3;
@@ -79,14 +80,17 @@ $zz['fields'][4]['hide_in_list'] = true;
 $zz['fields'][4]['typo_cleanup'] = true;
 $zz['fields'][4]['replace_substrings'] = wrap_get_setting('replace_substrings');
 
-$zz['fields'][5]['field_name'] = 'lead';
-$zz['fields'][5]['type'] = 'memo';
-$zz['fields'][5]['rows'] = 3;
-$zz['fields'][5]['format'] = 'markdown';
-$zz['fields'][5]['hide_in_list'] = true;
-$zz['fields'][5]['typo_cleanup'] = true;
-$zz['fields'][5]['replace_substrings'] = wrap_get_setting('replace_substrings');
-$zz['fields'][5]['if'][2] = false;
+if (in_array('newsletters', $zz_setting['modules'])) {
+	$zz['fields'][5]['title'] = 'Newsletter Lead';
+	$zz['fields'][5]['field_name'] = 'newsletter_lead';
+	$zz['fields'][5]['type'] = 'memo';
+	$zz['fields'][5]['rows'] = 3;
+	$zz['fields'][5]['format'] = 'markdown';
+	$zz['fields'][5]['hide_in_list'] = true;
+	$zz['fields'][5]['typo_cleanup'] = true;
+	$zz['fields'][5]['replace_substrings'] = wrap_get_setting('replace_substrings');
+	$zz['fields'][5]['if'][2] = false;
+}
 
 $zz['fields'][12] = zzform_include_table('articles-media');
 $zz['fields'][12]['title'] = 'Media';

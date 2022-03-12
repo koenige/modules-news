@@ -75,6 +75,14 @@ msgstr "Kurznachricht, nicht zu lang"
 msgid "– none –"
 msgstr "– keine –"
 
+#: zzbrick_tables/articles.php
+msgid "Lead"
+msgstr "Aufmacher"
+
+#: zzbrick_tables/articles.php
+msgid "Newsletter Lead"
+msgstr "Newsletter Aufmacher"
+
 #: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
 msgstr "Verknüpfte Artikel"
@@ -82,6 +90,10 @@ msgstr "Verknüpfte Artikel"
 #: zzbrick_tables/articles-articles.php
 msgid "Main Article"
 msgstr "Hauptartikel"
+
+#: zzbrick_tables/articles-categories.php
+msgid "Categories"
+msgstr "Kategorien"
 
 #: zzbrick_tables/articles-media.php
 msgid "Media in Articles"

@@ -18,7 +18,6 @@ CREATE TABLE `articles` (
   `date_to` date DEFAULT NULL,
   `title` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `abstract` text COLLATE utf8mb4_unicode_ci,
-  `lead` text COLLATE utf8mb4_unicode_ci,
   `direct_link` varchar(128) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL,
   `article` mediumtext COLLATE utf8mb4_unicode_ci,
   `identifier` varchar(64) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
@@ -147,3 +146,6 @@ CREATE TABLE `comments_activities` (
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'comments', 'comment_id', (SELECT DATABASE()), 'comments_activities', 'comment_activity_id', 'comment_id', 'delete');
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'activities', 'activity_id', (SELECT DATABASE()), 'comments_activities', 'comment_activity_id', 'activity_id', 'no-delete');
 
+
+-- query SHOW TABLES LIKE 'newsletters' --
+ALTER TABLE `articles` ADD `newsletter_lead` text COLLATE 'utf8mb4_unicode_ci' NULL AFTER `abstract`;

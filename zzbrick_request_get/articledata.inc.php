@@ -18,7 +18,7 @@
  * existing data is appended to article data
  *
  * @param array $data
- * @param array $settings
+ * @param array $settings (optional)
  * @param string $id_field_name (optional, if key does not equal event_id)
  * @param string $lang_field_name (optional, if not current language shall be used)
  * @return array
@@ -33,7 +33,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 
 	$sql = 'SELECT article_id
 			, articles.date, articles.time, articles.identifier
-			, articles.abstract, articles.lead, articles.title
+			, articles.abstract, articles.title
 			, direct_link
 			, article
 			, DATE_FORMAT(articles.last_update, "%%a, %%d %%b %%Y %%H:%%i:%%s") AS pubDate
@@ -41,12 +41,14 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			, CONCAT("%s/", identifier, "/") AS guid
 			, CONCAT("%s/", identifier, "/") AS link
 			, IF (published = "yes", 1, NULL) AS published
+			%s
 		FROM articles
 		WHERE articles.article_id IN (%s)
 		ORDER BY FIELD(articles.article_id, %s)';
 	$sql = sprintf($sql
 		, wrap_get_setting('news_url')
 		, wrap_get_setting('news_url')
+		, !empty($settings['extra_fields']) ? ','.implode(',', $settings['extra_fields']) : ''
 		, implode(',', $ids), implode(',', $ids)
 	);
 	$articledata = wrap_db_fetch($sql, 'article_id');
