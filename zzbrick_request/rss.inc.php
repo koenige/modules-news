@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2015-2021 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2015-2022 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -61,6 +61,8 @@ function mod_news_rss($parameter) {
 	$settings['rss'] = true;
 	require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
 	$data = cms_get_articles($parameter, $settings);
+	if (!empty($settings['rss_fulltext']))
+		$data = mod_news_rss_fulltext($data);
 
 	// RSS schreiben
 	foreach ($data as $line) {
@@ -156,4 +158,26 @@ function mf_news_brick2rss_links($text) {
 	$links = implode(', ', $links);
 	$string = str_replace($text[1], $links, $text[0]);
 	return $string;
+}
+
+/**
+ * output full text per event/article in RSS, formatted as on webpage
+ *
+ * @param array $articles
+ * @return array
+ */
+function mod_news_rss_fulltext($articles) {
+	global $zz_setting;
+	foreach ($articles as $id => $article) {
+		if (isset($article['duration'])) {
+			$description = brick_format('%%% request event '.str_replace('/', ' ', $article['identifier']));
+		} else {
+			$description = brick_format('%%% request article '.str_replace('/', ' ', $article['identifier']));
+			preg_match('~</header>(.+)</article>~s', $description['text'], $matches);
+			if ($matches)
+				$description['text'] = $matches[1];
+		}
+		$articles[$id]['text'] = mf_news_brick2rss_format($description['text']);
+	}
+	return $articles;
 }
