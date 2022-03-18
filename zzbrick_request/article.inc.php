@@ -20,29 +20,21 @@ function mod_news_article($params) {
 	}
 	if (count($params) !== 2) return false;
 
-	if ($zz_setting['local_access'] OR !empty($_SESSION['logged_in'])) {
-		$published = '(articles.published = "yes" OR articles.published = "no")';
-	} else {
-		$published = 'articles.published = "yes"';
+	$where[] = sprintf('identifier = "%s"', wrap_db_escape(implode('/', $params)));
+	if (!$zz_setting['local_access'] OR empty($_SESSION['logged_in'])) {
+		$where[] = 'articles.published = "yes"';
 	}
 
 	$sql = 'SELECT article_id
 		FROM articles
 		WHERE %s
-		AND identifier = "%s"
-		ORDER BY date DESC, time DESC, identifier DESC
-	';
-	$sql = sprintf($sql, $published, wrap_db_escape(implode('/', $params)));
+		ORDER BY date DESC, time DESC, identifier DESC';
+	$sql = sprintf($sql, implode(' AND ', $where));
 	$article_id = wrap_db_fetch($sql, '', 'single value');
 	if (!$article_id) return false;
-	
-	if (file_exists($zz_setting['custom'].'/zzbrick_request_get/articles.inc.php')) {
-		require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
-		$articles = cms_get_articles();
-	} else {
-		require_once __DIR__.'/../zzbrick_request_get/articles.inc.php';
-		$articles = mod_news_get_articles();
-	}
+
+	require_once __DIR__.'/../zzbrick_request_get/articles.inc.php';
+	$articles = mod_news_get_articles();
 	if (empty($articles[$article_id])) return false;
 	$article = $articles[$article_id];
 	
@@ -179,9 +171,8 @@ function mod_news_article($params) {
 		foreach ($article['categories'] as $category)
 			$page['opengraph']['article:tags'][] = $category['category'];
 	}
-	if (!empty($main_img)) {
-		$page['opengraph']['og:image']
-			= $zz_setting['host_base'].$zz_setting['files_path'].'/'.$main_img['filename'].'.'.wrap_get_setting('news_og_image_size').'.'.$main_img['thumb_extension'].'?v='.$main_img['version'];
+	if (!empty($main_img) AND function_exists('mf_media_opengraph_image')) {
+		$page['opengraph'] += mf_media_opengraph_image($main_img, wrap_get_setting('news_og_image_size'));
 	}
 	if (empty($article['wrap_source_language'])) {
 		// no translation
