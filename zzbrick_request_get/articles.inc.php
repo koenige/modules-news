@@ -20,7 +20,7 @@
  * @param array $settings
  * @return array
  */
-function mod_news_get_articles($params, $settings = []) {
+function mod_news_get_articles($params = [], $settings = []) {
 	global $zz_setting;
 	if (count($params) > 1) return false;
 
