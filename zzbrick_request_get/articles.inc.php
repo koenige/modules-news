@@ -55,7 +55,7 @@ function mod_news_get_articles($params = [], $settings = []) {
 	';
 	$sql = sprintf($sql
 		, $join
-		, ($where ? ' WHERE '.implode(' AND ', $where) : '')
+		, $where ? 'WHERE '.implode(' AND ', $where) : ''
 		, $limit
 	);
 	$ids = wrap_db_fetch($sql, 'article_id');
