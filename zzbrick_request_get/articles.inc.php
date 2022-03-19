@@ -62,12 +62,5 @@ function mod_news_get_articles($params = [], $settings = []) {
 
 	require_once $zz_setting['modules_dir'].'/news/zzbrick_request_get/articledata.inc.php';
 	$articles = mod_news_get_articledata($ids);
-
-	$i = 0;
-	foreach (array_keys($articles) as $id) {
-		$i++;
-		$articles[$id]['article_no'] = $i;
-	}
-
 	return $articles;
 }

@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2016, 2018-2021 Gustaf Mossakowski
+# @copyright Copyright © 2014-2016, 2018-2022 Gustaf Mossakowski
 #
 # fields: article_id, identifier, date, time, abstract, filename, source,
 # thumb_extension, direct_link, project_id
@@ -25,7 +25,7 @@
 
 <ul class="news">
 %%% loop start %%%
-<li class="article_%%% item article_no %%%">
+<li class="article_%%% loopposition counter %%%">
 %%% loop images 1 %%%
 <p class="news-image %%% item orientation " %s" %%%"><a href="%%% setting base %%%%%% setting news_url %%%/%%% item identifier %%%/"><img src="%%% setting files_path %%%/%%% item filename %%%.240.%%% item thumb_extension %%%" alt="%%% item title %%%"></a></p>
 %%% loop end %%%
