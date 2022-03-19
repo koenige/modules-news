@@ -16,15 +16,7 @@
 function mod_news_articles($params, $settings) {
 	global $zz_setting;
 
-	if (count($params) > 1) wrap_quit(404);
-
-	if (file_exists($zz_setting['custom'].'/zzbrick_request_get/articles.inc.php')) {
-		require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
-		$data = cms_get_articles($params, $settings);
-	} else {
-		require_once __DIR__.'/../zzbrick_request_get/articles.inc.php';
-		$data = mod_news_get_articles($params, $settings);
-	}
+	$data = brick_request_data('articles', $params, $settings);
 	if (!empty($settings['events_in_news']) AND in_array('events', $zz_setting['modules'])) {
 		wrap_include_files('events/news', 'events');
 		$events = mf_events_in_news();
@@ -36,17 +28,17 @@ function mod_news_articles($params, $settings) {
 	$title_prefix = wrap_text('News Articles');
 	if (!empty($settings['title_prefix'])) $title_prefix = $settings['title_prefix'];
 
-	if ($params AND is_numeric($params[0])) {
+	if ($params AND is_numeric(end($params))) {
 		// overview year
 		if (empty($settings['hide_title'])) {
-			$page['title'] = $title_prefix.' '.$params[0];
+			$page['title'] = $title_prefix.' '.end($params);
 		}
 		if (!$data) {
 			$data['no_news_year'] = true;
 			// events?
 			if (!empty(wrap_get_setting('news_with_events'))) {
 				$sql = 'SELECT COUNT(event_id) FROM events WHERE YEAR(date_begin) = %d';
-				$sql = sprintf($sql, $params[0]);
+				$sql = sprintf($sql, end($params));
 				$events = wrap_db_fetch($sql);
 			} else {
 				$events = [];
