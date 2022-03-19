@@ -31,7 +31,10 @@ function mod_news_rss($parameter) {
 	if (empty($settings['rss_editor_mail'])) $settings['rss_editor_mail'] = $zz_conf['error_mail_from'];
 	if (empty($settings['rss_webmaster'])) $settings['rss_webmaster'] = wrap_get_setting('project');
 	if (empty($settings['rss_webmaster_mail'])) $settings['rss_webmaster_mail'] = $zz_conf['error_mail_from'];
-	
+	if (!empty($settings['rss_entries'])) {
+		$settings['last'] = $settings['rss_entries'];
+	}
+
 	require_once $zz_setting['lib'].'/feedcreator/feedcreator.class.php';
 	wrap_db_query('SET NAMES utf8');		// XML in utf8
 
