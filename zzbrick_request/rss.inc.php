@@ -64,6 +64,11 @@ function mod_news_rss($parameter) {
 	$settings['rss'] = true;
 	require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
 	$data = cms_get_articles($parameter, $settings);
+	if (in_array('events', $zz_setting['modules'])) {
+		$files = wrap_include_files('events/news', 'events');
+		$events = mf_events_in_news('rss');
+		$data = mf_events_in_news_sort($data, $events);
+	}
 	if (!empty($settings['rss_fulltext']))
 		$data = mod_news_rss_fulltext($data);
 
