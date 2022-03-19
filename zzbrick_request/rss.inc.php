@@ -19,11 +19,11 @@
  * @todo LastBuildDate gibt immer aktuelles Datum aus, daher kein Caching
  * möglich
  */
-function mod_news_rss($parameter) {
+function mod_news_rss($params) {
 	global $zz_setting;
 	global $zz_conf;
 	// Parameter: keine erlaubt
-	if (!empty($parameter)) return false;
+	if (!empty($params)) return false;
 
 	$settings = wrap_get_setting('rss*');
 	if (empty($settings['rss_copyright'])) $settings['rss_copyright'] = wrap_get_setting('project');
@@ -34,6 +34,7 @@ function mod_news_rss($parameter) {
 	if (!empty($settings['rss_entries'])) {
 		$settings['last'] = $settings['rss_entries'];
 	}
+	$settings['rss'] = true;
 
 	require_once $zz_setting['lib'].'/feedcreator/feedcreator.class.php';
 	wrap_db_query('SET NAMES utf8');		// XML in utf8
@@ -61,9 +62,7 @@ function mod_news_rss($parameter) {
 	$image->link = $zz_setting['host_base'].'/';
 	$rss->image = $image;
 
-	$settings['rss'] = true;
-	require_once $zz_setting['custom'].'/zzbrick_request_get/articles.inc.php';
-	$data = cms_get_articles($parameter, $settings);
+	$data = brick_request_data('articles', [], $settings);
 	if (in_array('events', $zz_setting['modules'])) {
 		wrap_include_files('events/news', 'events');
 		$events = mf_events_in_news('rss');
