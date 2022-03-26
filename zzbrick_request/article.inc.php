@@ -21,7 +21,7 @@ function mod_news_article($params) {
 	if (count($params) !== 2) return false;
 
 	$where[] = sprintf('identifier = "%s"', wrap_db_escape(implode('/', $params)));
-	if (!$zz_setting['local_access'] OR empty($_SESSION['logged_in'])) {
+	if (empty($_SESSION['logged_in'])) {
 		$where[] = 'articles.published = "yes"';
 	}
 
