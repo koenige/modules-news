@@ -33,6 +33,9 @@ function mod_news_get_articles($params = [], $settings = []) {
 		}
 		$news_categories_ids[] = $category_id; 
 	}
+	
+	// titles
+	$titles = [];
 
 	// conditions
 	$where = [];
@@ -56,15 +59,18 @@ function mod_news_get_articles($params = [], $settings = []) {
 				LEFT JOIN categories USING (category_id)
 			', wrap_category_id($path));
 			$where[] = sprintf('articles_categories.category_id = %d', $category_id);
+			$titles['category'] = $path.'/'.$param;
 			$param = array_shift($params); // allow another parameter
 			break;
 		}
 		if (is_numeric($param)) {
 			$where[] = sprintf('YEAR(date) = %d', $param);
+			$titles['year'] = $param;
 			$param = array_shift($params); // allow another parameter
 		}
 		if (is_numeric($param)) {
 			$where[] = sprintf('MONTH(date) = %d', $param);
+			$titles['month'] = $param;
 			$param = array_shift($params); // allow another parameter
 		}
 		if ($params) return false; // wrong parameter count, illegal parameters
@@ -100,5 +106,7 @@ function mod_news_get_articles($params = [], $settings = []) {
 
 	require_once $zz_setting['modules_dir'].'/news/zzbrick_request_get/articledata.inc.php';
 	$articles = mod_news_get_articledata($ids);
+	$articles['count'] = count($articles);
+	$articles['titles'] = $titles;
 	return $articles;
 }
