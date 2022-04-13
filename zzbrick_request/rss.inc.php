@@ -72,7 +72,8 @@ function mod_news_rss($params) {
 		$data = mod_news_rss_fulltext($data);
 
 	// RSS schreiben
-	foreach ($data as $line) {
+	foreach ($data as $index => $line) {
+		if (!is_int($index)) continue;
 		//channel items/entries
 		$item = new FeedItem();
 		// HTML Entities aus Titel entfernen, ist kein character data
@@ -176,6 +177,7 @@ function mf_news_brick2rss_links($text) {
 function mod_news_rss_fulltext($articles) {
 	global $zz_setting;
 	foreach ($articles as $id => $article) {
+		if (!is_int($id)) continue;
 		if (isset($article['duration'])) {
 			$description = brick_format('%%% request event '.str_replace('/', ' ', $article['identifier']));
 		} else {
