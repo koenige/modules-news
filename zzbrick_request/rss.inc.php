@@ -63,7 +63,7 @@ function mod_news_rss($params) {
 	$rss->image = $image;
 
 	$data = brick_request_data('articles', [], $settings);
-	if (in_array('events', $zz_setting['modules'])) {
+	if (in_array('events', $zz_setting['modules']) AND wrap_get_setting('rss_with_events')) {
 		wrap_include_files('events/news', 'events');
 		$events = mf_events_in_news('rss');
 		$data = mf_events_in_news_sort($data, $events);
