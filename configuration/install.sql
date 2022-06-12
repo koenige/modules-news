@@ -35,7 +35,7 @@ CREATE TABLE `articles_articles` (
   `main_article_id` int unsigned NOT NULL,
   `relation_category_id` int unsigned NOT NULL,
   `sequence` tinyint unsigned NOT NULL DEFAULT '1',
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
   PRIMARY KEY (`article_article_id`),
   UNIQUE KEY `article_id` (`article_id`,`main_article_id`),
   KEY `main_article_id` (`main_article_id`),
