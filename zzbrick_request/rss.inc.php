@@ -24,16 +24,8 @@ function mod_news_rss($params) {
 	global $zz_conf;
 	// Parameter: keine erlaubt
 	if (!empty($params)) return false;
-
-	$settings = wrap_get_setting('rss*');
-	if (empty($settings['rss_copyright'])) $settings['rss_copyright'] = wrap_get_setting('project');
-	if (empty($settings['rss_editor'])) $settings['rss_editor'] = wrap_get_setting('project');
-	if (empty($settings['rss_editor_mail'])) $settings['rss_editor_mail'] = $zz_conf['error_mail_from'];
-	if (empty($settings['rss_webmaster'])) $settings['rss_webmaster'] = wrap_get_setting('project');
-	if (empty($settings['rss_webmaster_mail'])) $settings['rss_webmaster_mail'] = $zz_conf['error_mail_from'];
-	if (!empty($settings['rss_entries'])) {
-		$settings['last'] = $settings['rss_entries'];
-	}
+	
+	$settings['last'] = wrap_get_setting('rss_entries');
 	$settings['rss'] = true;
 
 	require_once $zz_setting['lib'].'/feedcreator/feedcreator.class.php';
@@ -43,13 +35,13 @@ function mod_news_rss($params) {
 	$rss = new UniversalFeedCreator();
 	$rss->useCached();
 	$rss->title = wrap_get_setting('project');
-	$rss->description = wrap_text($settings['rss_description']);
+	$rss->description = wrap_text(wrap_get_setting('rss_description'));
 	$rss->link = $zz_setting['host_base'].'/';
 	$rss->encoding = 'utf-8';
 	$rss->language = $zz_setting['lang'];
-	$rss->copyright = 'Copyright '.date('Y').' '.$settings['rss_copyright'];
-	$rss->editor = sprintf('%s (%s)', $settings['rss_editor_mail'], $settings['rss_editor']);
-	$rss->webmaster = sprintf('%s (%s)', $settings['rss_webmaster_mail'], $settings['rss_webmaster']);
+	$rss->copyright = 'Copyright '.date('Y').' '.wrap_get_setting('rss_copyright');
+	$rss->editor = sprintf('%s (%s)', wrap_get_setting('rss_editor_mail'), wrap_get_setting('rss_editor'));
+	$rss->webmaster = sprintf('%s (%s)', wrap_get_setting('rss_webmaster_mail'), wrap_get_setting('rss_webmaster'));
 	$rss->ttl = 60;
 	$rss->syndicationURL = $zz_setting['host_base'].$zz_setting['request_uri'];
 	$rss->descriptionHtmlSyndicated = true;
@@ -68,7 +60,7 @@ function mod_news_rss($params) {
 		$events = mf_events_in_news('rss');
 		$data = mf_events_in_news_sort($data, $events);
 	}
-	if (!empty($settings['rss_fulltext']))
+	if (wrap_get_setting('rss_fulltext'))
 		$data = mod_news_rss_fulltext($data);
 
 	// RSS schreiben
@@ -95,9 +87,9 @@ function mod_news_rss($params) {
 	    		foreach ($line['author'] as $author) {
 			    	$authors[] = $author['contact'];
 	    		}
-	    		$item->author = sprintf('%s (%s)', $settings['rss_editor_mail'], implode(', ', $authors));
+	    		$item->author = sprintf('%s (%s)', wrap_get_setting('rss_editor_mail'), implode(', ', $authors));
 	    	} else {
-		    	$item->author = sprintf('%s (%s)', $settings['rss_editor_mail'], $line['author']);
+		    	$item->author = sprintf('%s (%s)', wrap_get_setting('rss_editor_mail'), $line['author']);
 		    }
 	    }
 		$rss->addItem($item);
