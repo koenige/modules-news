@@ -33,8 +33,7 @@ function mod_news_article($params) {
 	$article_id = wrap_db_fetch($sql, '', 'single value');
 	if (!$article_id) return false;
 
-	require_once __DIR__.'/../zzbrick_request_get/articles.inc.php';
-	$articles = mod_news_get_articles();
+	$articles = brick_request_data('articles');
 	if (empty($articles[$article_id])) return false;
 	$article = $articles[$article_id];
 	
