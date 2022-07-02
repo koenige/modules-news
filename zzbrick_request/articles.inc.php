@@ -67,6 +67,9 @@ function mod_news_articles($params, $settings) {
 		if (!$params)
 			$data['no_news_current'] = true;
 		$page['status'] = 404;
+	} else {
+		// set 200 explicitly, if in conjunction with other request script that throws 404
+		$page['status'] = 200;
 	}
 
 	if (!empty($settings['hide_categories']))
