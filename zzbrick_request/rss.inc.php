@@ -21,7 +21,6 @@
  */
 function mod_news_rss($params) {
 	global $zz_setting;
-	global $zz_conf;
 	// Parameter: keine erlaubt
 	if (!empty($params)) return false;
 	
@@ -101,7 +100,7 @@ function mod_news_rss($params) {
 	$rss->outputFeed('RSS2.0');
 	$page['text'] = ob_get_clean();
 	$page['content_type'] = 'xml';
-	$zz_conf['character_set'] = 'utf-8';
+	$zz_setting['character_set'] = 'utf-8';
 	return $page;
 }
 
