@@ -20,6 +20,19 @@ function mf_news_search($q) {
 	foreach ($q as $string) {
 		$where[] = sprintf($where_sql, $string, $string, $string);
 	}
+
+	$data['news'] = [];
+	$sql = 'SELECT category_id, category
+			, SUBSTRING_INDEX(path, "/", -1) AS path
+		FROM categories
+		LEFT JOIN articles_categories USING (category_id)
+		WHERE articles_categories.type_category_id = %d';
+	$sql = sprintf($sql, wrap_category_id('publications'));
+	$publications = wrap_db_fetch($sql, 'category_id');
+	foreach ($publications as $publication) {
+		$data['news'][$publication['path']]['publication'] = $publication['category'];
+	}
+
 	$sql = 'SELECT articles.article_id, date, title, abstract, identifier
 				, category AS publication
 				, SUBSTRING_INDEX(path, "/", -1) AS path
@@ -38,10 +51,9 @@ function mf_news_search($q) {
 	$articles = wrap_db_fetch($sql, 'article_id');
 	$articles = mf_news_media($articles);
 	foreach ($articles as $article_id => $article) {
-		$data[$article['path']]['publication'] = $article['publication'];
-		$data[$article['path']]['articles'][$article_id] = $article;
+		$data['news'][$article['path']]['articles'][$article_id] = $article;
 	}
-	$data = array_values($data);
+	$data['news'] = array_values($data['news']);
 	return $data;
 }
 

@@ -7,7 +7,7 @@
 # @author Gustaf Mossakowski <gustaf@koenige.org>
 # @copyright Copyright © 2020, 2022 Gustaf Mossakowski
 #
-%%% loop start %%%
+%%% loop news %%%
 <h3>%%% item publication %%%</h3>
 
 %%% condition if articles %%%
