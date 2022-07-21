@@ -30,17 +30,18 @@ function mf_news_search($q) {
 		LEFT JOIN categories USING (category_id)
 		WHERE %s
 		AND published = "yes"
-		ORDER BY date DESC, time DESC, title';
+		ORDER BY categories.sequence, date DESC, time DESC, title';
 	$sql = sprintf($sql
 		, wrap_category_id('publications')
 		, implode(' AND ', $where)
 	);
 	$articles = wrap_db_fetch($sql, 'article_id');
 	$articles = mf_news_media($articles);
-	$data = [];
-	foreach ($articles as $article_id => $article)
-		$data[$article['path']][$article_id] = $article;
-
+	foreach ($articles as $article_id => $article) {
+		$data[$article['path']]['publication'] = $article['publication'];
+		$data[$article['path']]['articles'][$article_id] = $article;
+	}
+	$data = array_values($data);
 	return $data;
 }
 

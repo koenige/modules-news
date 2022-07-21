@@ -27,6 +27,10 @@ msgstr ""
 msgid "Overview"
 msgstr "Übersicht"
 
+#: templates/search-news.template.txt
+msgid "No articles were found matching your search."
+msgstr "Es wurden keine Artikel gefunden, die Ihrer Suche entsprechen."
+
 #: zzbrick_tables/articles.php
 msgid "News Articles"
 msgstr "Überblick"
