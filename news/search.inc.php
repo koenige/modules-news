@@ -37,6 +37,7 @@ function mf_news_search($q) {
 	);
 	$articles = wrap_db_fetch($sql, 'article_id');
 	$articles = mf_news_media($articles);
+	$data = [];
 	foreach ($articles as $article_id => $article)
 		$data[$article['path']][$article_id] = $article;
 
