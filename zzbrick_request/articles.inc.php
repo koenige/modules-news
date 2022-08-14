@@ -73,8 +73,10 @@ function mod_news_articles($params, $settings) {
 	}
 
 	if (!empty($settings['hide_categories']))
-		foreach ($data as $id => $line)
+		foreach (array_keys($data) as $id) {
+			if (!is_numeric($id)) continue;
 			unset($data[$id]['categories']);
+		}
 
 	if (!empty($page['title'])) $data['h1'] = $page['title'];
 	$page['text'] = wrap_template('articles', $data);
