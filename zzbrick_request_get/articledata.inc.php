@@ -38,20 +38,20 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			, article
 			, DATE_FORMAT(articles.last_update, "%%a, %%d %%b %%Y %%H:%%i:%%s") AS pubDate
 			, DATE_FORMAT(articles.last_update, "%%Y-%%m-%%dT%%H:%%i:%%s") AS modified
-			, CONCAT("%s/", identifier, "/") AS guid
-			, CONCAT("%s/", identifier, "/") AS link
 			, IF (published = "yes", 1, NULL) AS published
 			%s
 		FROM articles
 		WHERE articles.article_id IN (%s)
 		ORDER BY FIELD(articles.article_id, %s)';
 	$sql = sprintf($sql
-		, wrap_get_setting('news_url')
-		, wrap_get_setting('news_url')
 		, !empty($settings['extra_fields']) ? ','.implode(',', $settings['extra_fields']) : ''
 		, implode(',', $ids), implode(',', $ids)
 	);
 	$articledata = wrap_db_fetch($sql, 'article_id');
+	foreach ($articledata as $article_id => $article) {
+		$articledata[$article_id]['guid'] = 
+		$articledata[$article_id]['link'] = wrap_path('news_article', $article['identifier']);
+	}
 	foreach ($langs as $lang) {
 		$articles[$lang] = wrap_translate($articledata, 'articles', '', true, $lang);
 		$articles[$lang] = wrap_translate($articles[$lang], 'categories', 'event_id', true, $lang);

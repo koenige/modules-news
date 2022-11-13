@@ -27,7 +27,7 @@
 %%% loop start %%%
 <li class="article_%%% loopposition counter %%%">
 %%% loop images 1 %%%
-<p class="news-image %%% item orientation " %s" %%%"><a href="%%% setting base %%%%%% setting news_url %%%/%%% item identifier %%%/"><img src="%%% setting files_path %%%/%%% item filename %%%.240.%%% item thumb_extension %%%" alt="%%% item title %%%"></a></p>
+<p class="news-image %%% item orientation " %s" %%%"><a href="%%% item link %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.240.%%% item thumb_extension %%%" alt="%%% item title %%%"></a></p>
 %%% loop end %%%
 
 %%% condition if categories %%%
@@ -37,7 +37,7 @@
 %%% condition endif %%%
 <p><strong class="news-title">
 %%% condition unless setting news_no_article_page %%%
-<a href="%%% setting base %%%%%% setting news_url %%%/%%% item identifier %%%/">
+<a href="%%% item link %%%">
 %%% condition endif %%%
 %%% item title %%%
 %%% condition unless setting news_no_article_page %%%

@@ -90,7 +90,7 @@ function mod_news_article($params) {
 	if (!empty($media['images'])) {
 		if (key($media['images']) === $first_img) {
 			// main image only if first image was not set manually
-			$media['images'][$first_img]['path'] = $zz_setting['news_topimage_size'];
+			$media['images'][$first_img]['path'] = wrap_get_setting('news_topimage_size');
 			$article['topimage'] = brick_request_link($media, ['image', $main_img['sequence']], 'sequence');
 		}
 		if ($media['images']) {
@@ -103,11 +103,11 @@ function mod_news_article($params) {
 	$article += wrap_get_prevnext_flat($articles, $article['article_id'], false);
 
 	if (!empty($article['_next_identifier'])) {
-		$page['link']['next'][0]['href'] = '../../'.$article['_next_identifier'].'/';	
+		$page['link']['next'][0]['href'] = wrap_path('news_article', $article['_next_identifier']);	
 		$page['link']['next'][0]['title'] = $article['_next_title'];
 	}
 	if (!empty($article['_prev_identifier'])) {
-		$page['link']['prev'][0]['href'] = '../../'.$article['_prev_identifier'].'/';	
+		$page['link']['prev'][0]['href'] = wrap_path('news_article', $article['_prev_identifier']);	
 		$page['link']['prev'][0]['title'] = $article['_prev_title'];
 	}
 	
@@ -140,6 +140,8 @@ function mod_news_article($params) {
 			unset($article['categories'][$category_id]);
 		}
 	}
+	
+	$article['overview_link'] = wrap_path('news_articles');
 	
 	$page['title'] = $article['title'];
 	$tree = explode('/', $article['identifier']);
