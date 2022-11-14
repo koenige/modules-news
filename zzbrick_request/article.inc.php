@@ -18,7 +18,7 @@ function mod_news_article($params) {
 	if (count($params) === 1 AND is_numeric($params[0])) {
 		return brick_format('%%% request articles '.$params[0].' %%%');
 	}
-	if (count($params) !== 2) return false;
+	if (count($params) > 2) return false;
 
 	$where[] = sprintf('identifier = "%s"', wrap_db_escape(implode('/', $params)));
 	if (empty($_SESSION['logged_in'])) {
