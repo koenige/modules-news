@@ -12,7 +12,8 @@
 # events { event_id, event, duration, time_begin, time_end, identifier },
 # links, topimage
 #
-<div class="article js-gallery" itemscope itemtype="https://schema.org/Article">
+<div class="%%% setting news_article_class %%%" itemscope itemtype="https://schema.org/Article">
+%%% condition if setting news_top %%%
 <div class="newstop">
 <p class="date" itemprop="datePublished"><a href="%%% item overview_link %%%">%%% text News %%%</a>, %%% loop categories %%% %%% item category %%% %%% loop end %%%<em>%%% item date wrap_date %%%</em></p>
 %%% condition if _next_identifier %%%
@@ -22,6 +23,7 @@
 <p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous news: %%% %%% item _prev_title wrap_html_escape %%%">←</a></p>
 %%% condition endif %%%
 </div>
+%%% condition endif %%%
 
 <article>
 <div class="article">
