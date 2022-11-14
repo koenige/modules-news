@@ -88,7 +88,7 @@ function mod_news_article($params) {
 	brick_request_links($article['article'], $media, 'sequence');
 
 	if (!empty($media['images'])) {
-		if (key($media['images']) === $first_img) {
+		if (key($media['images']) === $first_img AND wrap_get_setting('news_topimage')) {
 			// main image only if first image was not set manually
 			$media['images'][$first_img]['path'] = wrap_get_setting('news_topimage_size');
 			$article['topimage'] = brick_request_link($media, ['image', $main_img['sequence']], 'sequence');

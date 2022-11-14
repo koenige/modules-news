@@ -37,7 +37,9 @@
   <source src="%%% setting files_path %%%/%%% item filename %%%.%%% item extension %%%?v=%%% item version %%%" type="%%% item mime_content_type %%%/%%% item mime_subtype %%%">
 </video>
 %%% loop end %%%
+%%% condition if setting news_topimage %%%
 %%% item topimage "<div class='topimage'>%s</div>" %%%
+%%% condition endif %%%
 
 %%% condition if article %%%
 <div class='articletext'>
@@ -51,7 +53,9 @@
 
 %%% item links %%%
 
-%%% comment item newsgallery %%%
+%%% condition if setting news_gallery %%%
+%%% item newsgallery %%%
+%%% condition endif %%%
 </div>
 
 %%% condition if events %%%
