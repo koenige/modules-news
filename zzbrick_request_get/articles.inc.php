@@ -51,17 +51,23 @@ function mod_news_get_articles($params = [], $settings = []) {
 		$param = array_shift($params);
 		
 		// check: is it a category?
-		foreach ($news_categories as $index => $path) {
-			if (!$category_id = wrap_category_id(sprintf('%s/%s', $path, $param), 'check')) continue;
-			$join[] = sprintf(' LEFT JOIN articles_categories
-				ON articles.article_id = articles_categories.article_id
-				AND articles_categories.type_category_id = %d
-				LEFT JOIN categories USING (category_id)
-			', wrap_category_id($path));
-			$where[] = sprintf('articles_categories.category_id = %d', $category_id);
-			$titles['category'] = $path.'/'.$param;
-			$param = array_shift($params); // allow another parameter
-			break;
+		$i = 0;
+		while (!is_numeric($param)) {
+			$i++;
+			if ($i > 2) break;
+			foreach ($news_categories as $index => $path) {
+				if (!$category_id = wrap_category_id(sprintf('%s/%s', $path, $param), 'check')) continue;
+				$join[] = sprintf(' LEFT JOIN articles_categories ac_%s
+					ON articles.article_id = ac_%s.article_id
+					AND ac_%s.type_category_id = %d
+					LEFT JOIN categories categories_%s
+						ON categories_%s.category_id = ac_%s.category_id
+				', $path, $path, $path, wrap_category_id($path), $path, $path, $path);
+				$where[] = sprintf('ac_%s.category_id = %d', $path, $category_id);
+				$titles['category'] = $path.'/'.$param;
+				$param = array_shift($params); // allow another parameter
+				break;
+			}
 		}
 		if (is_numeric($param)) {
 			$where[] = sprintf('YEAR(date) = %d', $param);
