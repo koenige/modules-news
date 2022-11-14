@@ -29,13 +29,13 @@
 %%% loop images 1 %%%
 <p class="news-image %%% item orientation " %s" %%%"><a href="%%% item link %%%" title="%%% item main_title %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%"%%% condition if setting news_overview_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% condition endif %%% alt="%%% item title %%%"></a></p>
 %%% loop end %%%
-<div class="teaser_text">
+<div class="news-text">
 %%% condition if categories %%%
 <p class="news-category">
 %%% loop categories %%%%%% item category %%%%%% loopposition first|middle " / "%%%%%% loop end %%%
 </p>
 %%% condition endif %%%
-<p><strong class="news-title">
+<p class="news-title"><strong>
 %%% condition unless setting news_no_article_page %%%
 <a href="%%% item link %%%">
 %%% condition endif %%%
@@ -43,7 +43,7 @@
 %%% condition unless setting news_no_article_page %%%
 </a>
 %%% condition endif %%%
-</strong> –&nbsp;<em>%%% item date wrap_date %%%</em></p>
+</strong><span class="news-date"> –&nbsp;<em>%%% item date wrap_date %%%</em></span></p>
 %%% item abstract markdown %%%
 %%% condition if direct_link %%%
 <p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
