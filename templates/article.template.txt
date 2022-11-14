@@ -16,10 +16,10 @@
 <div class="newstop">
 <p class="date" itemprop="datePublished"><a href="%%% item overview_link %%%">%%% text News %%%</a>, %%% loop categories %%% %%% item category %%% %%% loop end %%%<em>%%% item date wrap_date %%%</em></p>
 %%% condition if _next_identifier %%%
-<p class="next_news"><a href="%%% item _next_link %%%" title="%%% text Next news: %%% %%% item _next_title %%%">→</a></p>
+<p class="next_news"><a href="%%% item _next_link %%%" title="%%% text Next news: %%% %%% item _next_title wrap_html_escape %%%">→</a></p>
 %%% condition endif %%%
 %%% condition if _prev_identifier %%%
-<p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous news: %%% %%% item _prev_title %%%">←</a></p>
+<p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous news: %%% %%% item _prev_title wrap_html_escape %%%">←</a></p>
 %%% condition endif %%%
 </div>
 
