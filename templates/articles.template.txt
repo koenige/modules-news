@@ -29,6 +29,9 @@
 %%% loop images_overview 1 %%%
 <p class="news-image %%% item orientation " %s" %%%"><a href="%%% item link %%%" title="%%% item main__title %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%"%%% condition if setting news_overview_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% condition endif %%% alt="%%% item title %%%"></a></p>
 %%% loop end %%%
+%%% condition if setting news_link_full_text %%%
+<a href="%%% item link %%%" title="%%% item title %%%">
+%%% condition endif %%%
 <div class="news-text">
 %%% condition if categories %%%
 <p class="news-category">
@@ -37,14 +40,21 @@
 %%% condition endif %%%
 <p class="news-title"><strong>
 %%% condition unless setting news_no_article_page %%%
+%%% condition unless setting news_link_full_text %%%
 <a href="%%% item link %%%" title="%%% item title %%%">
+%%% condition endif %%%
 %%% condition endif %%%
 %%% item title %%%
 %%% condition unless setting news_no_article_page %%%
+%%% condition unless setting news_link_full_text %%%
 </a>
+%%% condition endif %%%
 %%% condition endif %%%
 </strong><span class="news-date"> –&nbsp;<em>%%% item date wrap_date %%%</em></span></p>
 %%% item abstract markdown %%%
+%%% condition if setting news_link_full_text %%%
+</a>
+%%% condition endif %%%
 %%% condition if direct_link %%%
 <p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
 %%% condition endif %%%
