@@ -3,7 +3,7 @@
  * SQL updates
  *
  * Part of »Zugzwang Project«
- * https://www.zugzwang.org/modules/default
+ * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2020-2022 Gustaf Mossakowski
@@ -40,3 +40,5 @@
 /* 2022-03-11-3 */	INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'articles_articles', 'article_article_id', 'relation_category_id', 'no-delete');
 /* 2022-03-12-1 */	ALTER TABLE `articles` DROP `lead`;
 /* 2022-06-12-1 */	ALTER TABLE `articles_articles` CHANGE `last_update` `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `sequence`;
+/* 2022-11-14-1 */	ALTER TABLE `articles_media` ADD `overview_medium` enum('yes','no') NOT NULL DEFAULT 'no' AFTER `sequence`;
+/* 2022-11-14-2 */	ALTER TABLE `articles_media` ADD INDEX `overview_medium` (`overview_medium`);

@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010, 2013-2015, 2018-2020 Gustaf Mossakowski
+ * @copyright Copyright © 2010, 2013-2015, 2018-2020, 2022 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -70,6 +70,16 @@ $zz['fields'][3]['group'] = 'folder';
 $zz['fields'][3]['exclude_from_search'] = true;
 $zz['fields'][3]['character_set'] = 'utf8';
 $zz['fields'][3]['class'] = 'block480';
+
+if (wrap_get_setting('news_overview_medium')) {
+	$zz['fields'][6]['title'] = 'Overview?';
+	$zz['fields'][6]['field_name'] = 'overview_medium';
+	$zz['fields'][6]['type'] = 'select';
+	$zz['fields'][6]['enum'] = ['yes', 'no'];
+	$zz['fields'][6]['default'] = 'no';
+	$zz['fields'][6]['def_val_ignore'] = true;
+	$zz['fields'][6]['class'] = 'block480a';
+}
 
 $zz['fields'][20]['title'] = 'Updated';
 $zz['fields'][20]['field_name'] = 'last_update';

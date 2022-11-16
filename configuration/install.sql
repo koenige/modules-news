@@ -3,7 +3,7 @@
  * SQL for installation
  *
  * Part of »Zugzwang Project«
- * https://www.zugzwang.org/modules/default
+ * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2018-2022 Gustaf Mossakowski
@@ -101,10 +101,12 @@ CREATE TABLE `articles_media` (
   `article_id` int unsigned NOT NULL,
   `medium_id` int unsigned NOT NULL,
   `sequence` tinyint NOT NULL,
+  `overview_medium` enum('yes','no') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`article_medium_id`),
   UNIQUE KEY `medium` (`medium_id`,`article_id`),
-  KEY `article` (`article_id`,`sequence`)
+  KEY `article` (`article_id`,`sequence`),
+  KEY `overview_medium` (`overview_medium`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'articles_media', 'article_medium_id', 'article_id', 'no-delete');
