@@ -52,6 +52,9 @@
 %%% condition endif %%%
 </strong><span class="news-date"> –&nbsp;<em>%%% item date wrap_date %%%</em></span></p>
 %%% item abstract markdown %%%
+%%% condition if setting news_overview_full_text %%%
+%%% item article markdown %%%
+%%% condition endif %%%
 %%% condition if setting news_link_full_text %%%
 </a>
 %%% condition endif %%%
