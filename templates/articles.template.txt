@@ -27,7 +27,7 @@
 %%% loop start %%%
 <li class="article_%%% loopposition counter %%%">
 %%% loop images_overview 1 %%%
-<p class="news-image %%% item orientation " %s" %%%"><a href="%%% item link %%%" title="%%% item main_title %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%"%%% condition if setting news_overview_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% condition endif %%% alt="%%% item title %%%"></a></p>
+<p class="news-image %%% item orientation " %s" %%%"><a href="%%% item link %%%" title="%%% item main__title %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%"%%% condition if setting news_overview_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% condition endif %%% alt="%%% item title %%%"></a></p>
 %%% loop end %%%
 <div class="news-text">
 %%% condition if categories %%%
@@ -37,7 +37,7 @@
 %%% condition endif %%%
 <p class="news-title"><strong>
 %%% condition unless setting news_no_article_page %%%
-<a href="%%% item link %%%">
+<a href="%%% item link %%%" title="%%% item title %%%">
 %%% condition endif %%%
 %%% item title %%%
 %%% condition unless setting news_no_article_page %%%
