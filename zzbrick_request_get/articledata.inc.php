@@ -76,6 +76,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			LEFT JOIN categories USING (category_id)
 			WHERE article_id IN (%s)
 			AND type_category_id = %d
+			AND (ISNULL(parameters) OR parameters NOT LIKE "%%&hidden=1%%")
 			ORDER by articles_categories.sequence, categories.sequence, category';
 		$sql = sprintf($sql, implode(',', $ids), wrap_category_id($category));
 		$categorydata = wrap_db_fetch($sql, 'article_category_id');
