@@ -23,6 +23,8 @@
 <p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous news: %%% %%% item _prev_title wrap_html_escape %%%">←</a></p>
 %%% condition endif %%%
 </div>
+%%% condition elseif setting news_top_date %%%
+<p class="date" itemprop="datePublished"><em>%%% item date wrap_date %%%</em></p>
 %%% condition endif %%%
 
 <article>
