@@ -79,6 +79,6 @@ function mod_news_articles($params, $settings) {
 		}
 
 	if (!empty($page['title'])) $data['h1'] = $page['title'];
-	$page['text'] = wrap_template('articles', $data);
+	$page['text'] = wrap_template($settings['template'] ?? 'articles', $data);
 	return $page;
 }
