@@ -243,7 +243,9 @@ $zz['sql'] = 'SELECT DISTINCT /*_PREFIX_*/articles.*
 	FROM /*_PREFIX_*/articles
 	LEFT JOIN /*_PREFIX_*/articles_media
 		ON /*_PREFIX_*/articles_media.article_id = /*_PREFIX_*/articles.article_id
-		AND /*_PREFIX_*/articles_media.sequence = 1
+		AND IF((SELECT COUNT(*) FROM /*_PREFIX_*/articles_media am
+			WHERE am.article_id = /*_PREFIX_*/articles.article_id
+		    AND overview_medium = "yes"), /*_PREFIX_*/articles_media.overview_medium = "yes", /*_PREFIX_*/articles_media.sequence = 1)
 	LEFT JOIN /*_PREFIX_*/media
 		ON /*_PREFIX_*/articles_media.medium_id = /*_PREFIX_*/media.medium_id
 		AND /*_PREFIX_*/media.published = "yes"
