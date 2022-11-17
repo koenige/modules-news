@@ -103,11 +103,13 @@ function mod_news_article($params) {
 	$article += wrap_get_prevnext_flat($articles, $article['article_id'], false);
 
 	if (!empty($article['_next_identifier'])) {
-		$page['link']['next'][0]['href'] = wrap_path('news_article', $article['_next_identifier']);	
+		$page['link']['next'][0]['href'] = wrap_path('news_article['.$article['path'].']', $article['_next_identifier'])
+			?? wrap_path('news_article', $article['_next_identifier']);
 		$page['link']['next'][0]['title'] = $article['_next_title'];
 	}
 	if (!empty($article['_prev_identifier'])) {
-		$page['link']['prev'][0]['href'] = wrap_path('news_article', $article['_prev_identifier']);	
+		$page['link']['prev'][0]['href'] = wrap_path('news_article['.$article['path'].']', $article['_prev_identifier'])
+			?? wrap_path('news_article', $article['_prev_identifier']);
 		$page['link']['prev'][0]['title'] = $article['_prev_title'];
 	}
 	

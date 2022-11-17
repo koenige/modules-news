@@ -90,6 +90,16 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			}
 		}
 	}
+	foreach ($articles as $lang => $articles_per_lang) {
+		foreach ($articles_per_lang as $article_id => $article) {
+			$publication = reset($article['publications']);
+			$link = wrap_path('news_article['.$publication['path_fragment'].']', $article['identifier'], false);
+			if ($link) {
+				$articles[$lang][$article_id]['guid'] = 
+				$articles[$lang][$article_id]['link'] = $link;
+			}
+		}
+	}
 
 	// contacts
 	if (in_array('contacts', $zz_setting['modules'])) {
