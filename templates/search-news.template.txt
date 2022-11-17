@@ -13,7 +13,7 @@
 %%% condition if articles %%%
 <ul>
 %%% loop articles %%%
-<li>%%% condition if images %%%<a href="%%% setting news_url %%%/%%% item identifier %%%/"><img src="%%% setting files_path %%%/%%% loop images 1 %%%%%% item filename %%%.%%% setting search_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%%%% loop end %%%"></a>%%% condition else %%%<span class="no-img"></span>%%% condition endif %%% %%% item date wrap_date %%%<br><a href="%%% setting news_url %%%/%%% item identifier %%%/">%%% item title %%%</a></li>
+<li>%%% condition if images %%%<a href="%%% item link %%%"><img src="%%% setting files_path %%%/%%% loop images 1 %%%%%% item filename %%%.%%% setting search_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%%%% loop end %%%"></a>%%% condition else %%%<span class="no-img"></span>%%% condition endif %%% %%% item date wrap_date %%%<br><a href="%%% item link %%%">%%% item title %%%</a></li>
 %%% loop end %%%
 </ul>
 %%% condition else %%%

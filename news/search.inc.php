@@ -51,6 +51,8 @@ function mf_news_search($q) {
 	$articles = wrap_db_fetch($sql, 'article_id');
 	$articles = mf_news_media($articles);
 	foreach ($articles as $article_id => $article) {
+		$article['link'] = wrap_path('news_article['.$article['path'].']', $article['identifier'])
+			?? wrap_path('news_article', $article['identifier']);
 		$data['news'][$article['path']]['articles'][$article_id] = $article;
 	}
 	$data['news'] = array_values($data['news']);
