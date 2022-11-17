@@ -17,7 +17,7 @@
 %%% loop end %%%
 </ul>
 %%% condition else %%%
-<p>%%% text No articles were found matching your search. %%%</p>
+<p>%%% text No posts were found matching your search. %%%</p>
 
 %%% condition endif %%%
 %%% loop end %%%

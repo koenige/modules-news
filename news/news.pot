@@ -28,7 +28,7 @@ msgid "Overview"
 msgstr ""
 
 #: templates/search-news.template.txt
-msgid "No articles were found matching your search."
+msgid "No posts were found matching your search."
 msgstr ""
 
 #: zzbrick_tables/articles.php
