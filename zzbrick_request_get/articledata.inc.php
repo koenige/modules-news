@@ -92,6 +92,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 	}
 	foreach ($articles as $lang => $articles_per_lang) {
 		foreach ($articles_per_lang as $article_id => $article) {
+			if (empty($article['publications'])) continue;
 			$publication = reset($article['publications']);
 			$link = wrap_path('news_article['.$publication['path_fragment'].']', $article['identifier'], false);
 			if ($link) {
