@@ -228,6 +228,7 @@ if (wrap_category_id('publications', 'check')) {
 $zz['fields'][9]['field_name'] = 'identifier';
 $zz['fields'][9]['type'] = 'identifier';
 $zz['fields'][9]['fields'] = ['date{0,4}', 'title', 'identifier'];
+$zz['fields'][9]['if'][5]['fields'] = ['title', 'identifier'];
 $zz['fields'][9]['conf_identifier']['exists'] = '-';
 $zz['fields'][9]['conf_identifier']['concat'] = '/';
 $zz['fields'][9]['hide_in_list'] = true;
@@ -274,7 +275,10 @@ if (wrap_category_id('publications', 'check')) {
 		LEFT JOIN /*_PREFIX_*/categories publication_categories
 			ON publication_categories.category_id = publications.category_id
 	', wrap_category_id('publications'));
-	$zz['sql'] = wrap_edit_sql($zz['sql'], 'SELECT', 'SUBSTRING_INDEX(publication_categories.path, "/", -1) AS publication_path');
+	$zz['sql'] = wrap_edit_sql($zz['sql']
+		, 'SELECT'
+		, 'SUBSTRING_INDEX(publication_categories.path, "/", -1) AS publication_path'
+	);
 }
 $zz['sqlorder'] = ' ORDER BY date DESC, time DESC, identifier DESC';
 
@@ -358,6 +362,13 @@ if (wrap_category_id('publications', 'check')) {
 		FROM /*_PREFIX_*/categories publication_categories
 		WHERE category_id = ';
 	$zz['conditions'][4]['add']['key_field_name'] = 'publications.category_id';
+
+	$zz['conditions'][5]['scope'] = 'record';
+	$zz['conditions'][5]['where'] = 'publication_categories.parameters LIKE "%&identifier_without_year=1%"';
+	$zz['conditions'][5]['add']['sql'] = 'SELECT category_id
+		FROM /*_PREFIX_*/categories publication_categories
+		WHERE category_id = ';
+	$zz['conditions'][5]['add']['key_field_name'] = 'publications.category_id';
 }
 
 $zz['conditions'][3]['scope'] = 'record';
