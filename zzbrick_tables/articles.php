@@ -58,11 +58,18 @@ $zz['fields'][33] = []; // date_to
 $zz['fields'][3]['title'] = 'Title';
 $zz['fields'][3]['field_name'] = 'title';
 $zz['fields'][3]['type'] = 'text';
-$zz['fields'][3]['link'] = [
-	'string1' => '/',
-	'field1' => 'identifier',
-	'string2' => '/'
-];
+if (is_array(wrap_get_setting('news_article_path'))) {
+	$zz['fields'][3]['link'] = [
+		'area' => 'news_article[%s]',
+		'area_fields' => ['publication_path'],
+		'fields' => ['identifier']
+	];
+} else {
+	$zz['fields'][3]['link'] = [
+		'area' => 'news_article',
+		'fields' => ['identifier']
+	];
+}
 $zz['fields'][3]['typo_cleanup'] = true;
 $zz['fields'][3]['typo_remove_double_spaces'] = true;
 $zz['fields'][3]['replace_substrings'] = wrap_get_setting('replace_substrings');
@@ -267,6 +274,7 @@ if (wrap_category_id('publications', 'check')) {
 		LEFT JOIN /*_PREFIX_*/categories publication_categories
 			ON publication_categories.category_id = publications.category_id
 	', wrap_category_id('publications'));
+	$zz['sql'] = wrap_edit_sql($zz['sql'], 'SELECT', 'SUBSTRING_INDEX(publication_categories.path, "/", -1) AS publication_path');
 }
 $zz['sqlorder'] = ' ORDER BY date DESC, time DESC, identifier DESC';
 
