@@ -113,14 +113,6 @@ INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'media', 'medium_id', (SELECT DATABASE()), 'articles_media', 'article_medium_id', 'medium_id', 'no-delete');
 
 
-INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_big_image_size', 960, 'size of big image linked to in gallery (only if bigger image is available)');
-INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_category_path', 'news', 'identifier of `news` category');
-INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_og_image_size', 480, 'size of image for OpenGraph (Facebook, Twitter, etc.)');
-INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_topimage_image_size', 480, 'size of image used as the main image for a news item');
-INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_with_events', 'false', 'link news with events? (events module required)');
-INSERT INTO `_settings` (`setting_key`, `setting_value`, `explanation`) VALUES ('news_url', '', 'base URL prepended to all news articles');
-
-
 CREATE TABLE `comments` (
   `comment_id` int unsigned NOT NULL AUTO_INCREMENT,
   `main_comment_id` int unsigned NOT NULL,

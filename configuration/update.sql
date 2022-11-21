@@ -42,3 +42,4 @@
 /* 2022-06-12-1 */	ALTER TABLE `articles_articles` CHANGE `last_update` `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `sequence`;
 /* 2022-11-14-1 */	ALTER TABLE `articles_media` ADD `overview_medium` enum('yes','no') NOT NULL DEFAULT 'no' AFTER `sequence`;
 /* 2022-11-14-2 */	ALTER TABLE `articles_media` ADD INDEX `overview_medium` (`overview_medium`);
+/* 2022-11-21-1 */	DELETE FROM `_settings` WHERE `setting_key` = 'news_url';
