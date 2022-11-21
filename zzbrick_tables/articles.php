@@ -316,8 +316,8 @@ $zz['filter'][4]['selection']['yes'] = wrap_text('yes');
 $zz['filter'][4]['selection']['no'] = wrap_text('no');
 
 $zz['set_redirect'][] = [
-	'old' => wrap_get_setting('news_url').'/%s/',
-	'new' => wrap_get_setting('news_url').'/%s/',
+	'old' => $zz['fields'][3]['link'],
+	'new' => $zz['fields'][3]['link'],
 	'field_name' => 'identifier'
 ];
 
