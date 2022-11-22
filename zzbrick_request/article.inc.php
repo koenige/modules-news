@@ -25,17 +25,26 @@ function mod_news_article($params) {
 		$where[] = 'articles.published = "yes"';
 	}
 
-	$sql = 'SELECT article_id
+	$sql = 'SELECT articles.article_id
+			, SUBSTRING_INDEX(categories.path, "/", -1) AS publication_path
 		FROM articles
+		LEFT JOIN articles_categories
+			ON articles_categories.article_id = articles.article_id
+			AND articles_categories.type_category_id = %d
+		LEFT JOIN categories USING (category_id)
 		WHERE %s
 		ORDER BY date DESC, time DESC, identifier DESC';
-	$sql = sprintf($sql, implode(' AND ', $where));
-	$article_id = wrap_db_fetch($sql, '', 'single value');
-	if (!$article_id) return false;
+	$sql = sprintf($sql
+		, wrap_category_id('publications')
+		, implode(' AND ', $where)
+	);
+	$article = wrap_db_fetch($sql);
+	if (!$article) return false;
 
-	$articles = brick_request_data('articles');
-	if (empty($articles[$article_id])) return false;
-	$article = $articles[$article_id];
+	$filter = $article['publication_path'] ? [$article['publication_path']] : [];
+	$articles = brick_request_data('articles', $filter);
+	if (empty($articles[$article['article_id']])) return false;
+	$article = $articles[$article['article_id']];
 	
 	// article in other languages?
 	$sql = 'SELECT language_id, iso_639_1, iso_639_1 AS language_base
@@ -101,14 +110,20 @@ function mod_news_article($params) {
 
 	// prev next
 	$article += wrap_get_prevnext_flat($articles, $article['article_id'], false);
+	if (!empty($article['publications'])) {
+		$publication_path = reset($article['publications']);
+		$publication_path = $publication_path['path_fragment'];
+	} else {
+		$publication_path = '';
+	}
 
 	if (!empty($article['_next_identifier'])) {
-		$page['link']['next'][0]['href'] = wrap_path('news_article['.$article['path'].']', $article['_next_identifier'])
+		$page['link']['next'][0]['href'] = wrap_path('news_article['.$publication_path.']', $article['_next_identifier'])
 			?? wrap_path('news_article', $article['_next_identifier']);
 		$page['link']['next'][0]['title'] = $article['_next_title'];
 	}
 	if (!empty($article['_prev_identifier'])) {
-		$page['link']['prev'][0]['href'] = wrap_path('news_article['.$article['path'].']', $article['_prev_identifier'])
+		$page['link']['prev'][0]['href'] = wrap_path('news_article['.$publication_path.']', $article['_prev_identifier'])
 			?? wrap_path('news_article', $article['_prev_identifier']);
 		$page['link']['prev'][0]['title'] = $article['_prev_title'];
 	}
