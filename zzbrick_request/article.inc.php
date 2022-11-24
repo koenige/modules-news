@@ -203,5 +203,7 @@ function mod_news_article($params) {
 	$page['text'] = wrap_template('article', $article);
 	if (in_array('magnificpopup', $zz_setting['modules']) AND !empty($article['images']))
 		$page['extra']['magnific_popup'] = true;
+	if (!$article['published'])
+		$page['extra']['body_attributes'] = ' class="unpublished"';
 	return $page;
 }
