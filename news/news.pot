@@ -95,6 +95,10 @@ msgstr ""
 msgid "Publication"
 msgstr ""
 
+#: zzbrick_tables/articles.php
+msgid "Subtitle"
+msgstr ""
+
 #: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
 msgstr ""

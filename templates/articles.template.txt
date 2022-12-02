@@ -38,6 +38,11 @@
 %%% loop categories %%%%%% item category %%%%%% loopposition first|middle " / "%%%%%% loop end %%%
 </p>
 %%% condition endif %%%
+%%% condition if subtitle %%%
+%%% condition if setting news_subtitle_above %%%
+<p class="news-overtitle">%%% item subtitle %%%</h2>
+%%% condition endif %%%
+%%% condition endif %%%
 <p class="news-title"><strong>
 %%% condition unless setting news_no_article_page %%%
 %%% condition unless setting news_link_full_text %%%
@@ -51,6 +56,11 @@
 %%% condition endif %%%
 %%% condition endif %%%
 </strong><span class="news-date"> –&nbsp;<em>%%% item date wrap_date %%%</em></span></p>
+%%% condition if subtitle %%%
+%%% condition unless setting news_subtitle_above %%%
+<p class="news-subtitle">%%% item subtitle %%%</p>
+%%% condition endif %%%
+%%% condition endif %%%
 %%% item abstract markdown %%%
 %%% condition if setting news_overview_full_text %%%
 %%% item article markdown %%%

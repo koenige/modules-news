@@ -29,7 +29,17 @@
 
 <article>
 <div class="article">
+%%% condition if subtitle %%%
+%%% condition if setting news_subtitle_above %%%
+<p class="news-overtitle"><strong>%%% item subtitle %%%</strong></p>
+%%% condition endif %%%
+%%% condition endif %%%
 <h1 itemprop="headline">%%% item title %%%</h1>
+%%% condition if subtitle %%%
+%%% condition unless setting news_subtitle_above %%%
+<p class="news-subtitle"><strong>%%% item subtitle %%%</strong></p>
+%%% condition endif %%%
+%%% condition endif %%%
 %%% condition if abstract %%%
 <div class="abstract" itemprop="abstract">
 %%% item abstract markdown %%%

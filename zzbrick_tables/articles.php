@@ -76,6 +76,14 @@ $zz['fields'][3]['replace_substrings'] = wrap_get_setting('replace_substrings');
 $zz['fields'][3]['if'][3]['list_prefix'] = '<del>';
 $zz['fields'][3]['if'][3]['list_suffix'] = '</del>';
 
+if (wrap_get_setting('news_subtitle')) {
+	$zz['fields'][17]['title'] = 'Subtitle';
+	$zz['fields'][17]['field_name'] = 'subtitle';
+	$zz['fields'][17]['hide_in_list'] = true;
+	$zz['fields'][17]['typo_cleanup'] = true;
+	$zz['fields'][17]['replace_substrings'] = wrap_get_setting('replace_substrings');
+}
+
 $zz['fields'][4]['title'] = 'Lead';
 $zz['fields'][4]['if'][1]['title'] = 'News';
 $zz['fields'][4]['field_name'] = 'abstract';
@@ -233,9 +241,9 @@ $zz['fields'][9]['conf_identifier']['exists'] = '-';
 $zz['fields'][9]['conf_identifier']['concat'] = '/';
 $zz['fields'][9]['hide_in_list'] = true;
 
-$zz['fields'][20]['field_name'] = 'last_update';
-$zz['fields'][20]['type'] = 'timestamp';
-$zz['fields'][20]['hide_in_list'] = true;
+$zz['fields'][99]['field_name'] = 'last_update';
+$zz['fields'][99]['type'] = 'timestamp';
+$zz['fields'][99]['hide_in_list'] = true;
 
 $zz['fields'][19]['field_name'] = 'article_type';
 $zz['fields'][19]['type'] = 'display';
