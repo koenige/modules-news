@@ -11,16 +11,16 @@
 # thumb_extension, direct_link, project_id
 #
 %%% condition if no_news_year %%%
-<p>%%% text There are no news in this year. %%%</p>
+<p>%%% text There are no posts in this year. %%%</p>
 
 %%% condition elseif no_news_category %%%
-<p>%%% text There are no news in this category. %%%</p>
+<p>%%% text There are no posts in this category. %%%</p>
 
 %%% condition elseif category_not_found %%%
-<p>%%% text This news category does not exist. %%%</p>
+<p>%%% text This post category does not exist. %%%</p>
 
 %%% condition elseif no_news_current %%%
-<p class="news-none">%%% text Sorry, currently we have no news. %%%</p>
+<p class="news-none">%%% text Sorry, currently we have no posts. %%%</p>
 %%% condition else %%%
 
 <ul class="%%% setting news_articles_class %%%">

@@ -128,20 +128,20 @@ msgid "by"
 msgstr "von"
 
 #: templates/articles.template.txt
-msgid "Sorry, currently we have no news."
-msgstr "Zur Zeit haben wir keine aktuellen Nachrichten."
+msgid "Sorry, currently we have no posts."
+msgstr "Zur Zeit haben wir keine aktuellen Beiträge."
 
 #: templates/articles.template.txt
-msgid "There are no news in this year."
-msgstr "Wir haben keine Nachrichten aus diesem Jahr."
+msgid "There are no posts in this year."
+msgstr "Wir haben keine Beiträge aus diesem Jahr."
 
 #: templates/articles.template.txt
-msgid "There are no news in this category."
-msgstr "Wir haben keine Nachrichten aus dieser Kategorie."
+msgid "There are no posts in this category."
+msgstr "Wir haben keine Beiträge in dieser Kategorie."
 
 #: templates/articles.template.txt
-msgid "This news category does not exist."
-msgstr "Diese Nachrichtenkategorie existiert nicht."
+msgid "This post category does not exist."
+msgstr "Diese Beitragskategorie existiert nicht."
 
 #: templates/filelinks.template.txt
 msgid "Further Information"

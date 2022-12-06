@@ -128,19 +128,19 @@ msgid "by"
 msgstr ""
 
 #: templates/articles.template.txt
-msgid "Sorry, currently we have no news."
+msgid "Sorry, currently we have no posts."
 msgstr ""
 
 #: templates/articles.template.txt
-msgid "There are no news in this year."
+msgid "There are no posts in this year."
 msgstr ""
 
 #: templates/articles.template.txt
-msgid "There are no news in this category."
+msgid "There are no posts in this category."
 msgstr ""
 
 #: templates/articles.template.txt
-msgid "This news category does not exist."
+msgid "This post category does not exist."
 msgstr ""
 
 #: templates/filelinks.template.txt
