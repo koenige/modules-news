@@ -127,6 +127,14 @@ msgstr "Vorschau"
 msgid "by"
 msgstr "von"
 
+#: templates/article.template.txt
+msgid "Previous post:"
+msgstr "Vorheriger Beitrag:"
+
+#: templates/article.template.txt
+msgid "Next post:"
+msgstr "Nächster Beitrag:"
+
 #: templates/articles.template.txt
 msgid "Sorry, currently we have no posts."
 msgstr "Zur Zeit haben wir keine aktuellen Beiträge."

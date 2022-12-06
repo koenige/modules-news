@@ -7,20 +7,21 @@
 # @author Gustaf Mossakowski <gustaf@koenige.org>
 # @copyright Copyright © 2014-2015, 2018-2022 Gustaf Mossakowski
 #
-# fields:
-# article_id, date, time, identifier, abstract, title, direct_link, article,
-# events { event_id, event, duration, time_begin, time_end, identifier },
-# links, topimage
-#
 <div class="%%% setting news_article_class %%%" itemscope itemtype="https://schema.org/Article">
 %%% condition if setting news_top %%%
 <div class="newstop">
-<p class="date" itemprop="datePublished"><a href="%%% item overview_link %%%">%%% text News %%%</a>, %%% loop categories %%% %%% item category %%% %%% loop end %%%<em>%%% item date wrap_date %%%</em></p>
+<p class="date" itemprop="datePublished">
+%%% condition if overview_link %%%<a href="%%% item overview_link %%%">%%% text News %%%</a>, %%% condition endif %%%
+%%% loop categories %%% <span class="%%% item path %%%">%%% item category %%%</span> %%% loop end %%%
+%%% condition if setting news_top_date %%%
+<em>%%% item date wrap_date %%%</em>
+%%% condition endif %%%
+</p>
 %%% condition if _next_identifier %%%
-<p class="next_news"><a href="%%% item _next_link %%%" title="%%% text Next news: %%% %%% item _next_title wrap_html_escape %%%">→</a></p>
+<p class="next_news"><a href="%%% item _next_link %%%" title="%%% text Next post: %%% %%% item _next_title wrap_html_escape %%%">→</a></p>
 %%% condition endif %%%
 %%% condition if _prev_identifier %%%
-<p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous news: %%% %%% item _prev_title wrap_html_escape %%%">←</a></p>
+<p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous post: %%% %%% item _prev_title wrap_html_escape %%%">←</a></p>
 %%% condition endif %%%
 </div>
 %%% condition elseif setting news_top_date %%%
@@ -84,6 +85,7 @@
 </article>
 </div>
 
+%%% condition if setting news_sharelinks %%%
 <div class="share">
 <h2>%%% text Share article %%%</h2>
 <ul>
@@ -92,5 +94,6 @@
 <li><a href="mailto:?&amp;subject=%%% item title rawurlencode %%%&amp;body=%%% item abstract rawurlencode %%%%0A%0A%%% text Read on: %%%%0A%%% setting protocol %%%%3A//%%% setting hostname %%%%%% setting base %%%/%%% item identifier %%%/%3Futm_source=%%% setting utm_source %%%%26utm_medium=email%26utm_campaign=share">%%% text E-Mail %%%</a></li>
 </ul>
 </div>
+%%% condition endif %%%
 
 <script src="%%% setting behaviour_path %%%/default/link-rel-nav.js"></script>

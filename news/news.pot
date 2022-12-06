@@ -127,6 +127,14 @@ msgstr ""
 msgid "by"
 msgstr ""
 
+#: templates/article.template.txt
+msgid "Previous post:"
+msgstr ""
+
+#: templates/article.template.txt
+msgid "Next post:"
+msgstr ""
+
 #: templates/articles.template.txt
 msgid "Sorry, currently we have no posts."
 msgstr ""
