@@ -40,6 +40,10 @@ msgid "News"
 msgstr "Kurzmeldung"
 
 #: zzbrick_tables/articles.php
+msgid "Post"
+msgstr "Beitrag"
+
+#: zzbrick_tables/articles.php
 msgid "Articles"
 msgstr "Nachrichten"
 

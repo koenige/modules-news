@@ -82,10 +82,11 @@ if (wrap_get_setting('news_subtitle')) {
 	$zz['fields'][17]['hide_in_list'] = true;
 	$zz['fields'][17]['typo_cleanup'] = true;
 	$zz['fields'][17]['replace_substrings'] = wrap_get_setting('replace_substrings');
+	$zz['fields'][17]['if'][6] = [];
 }
 
 $zz['fields'][4]['title'] = 'Lead';
-$zz['fields'][4]['if'][1]['title'] = 'News';
+$zz['fields'][4]['if'][1]['title'] = 'Post';
 $zz['fields'][4]['field_name'] = 'abstract';
 $zz['fields'][4]['type'] = 'memo';
 $zz['fields'][4]['rows'] = 3;
@@ -104,7 +105,7 @@ if (in_array('newsletters', $zz_setting['modules'])) {
 	$zz['fields'][5]['hide_in_list'] = true;
 	$zz['fields'][5]['typo_cleanup'] = true;
 	$zz['fields'][5]['replace_substrings'] = wrap_get_setting('replace_substrings');
-	$zz['fields'][5]['if'][2] = false;
+	$zz['fields'][5]['if'][2] = [];
 }
 
 $zz['fields'][12] = zzform_include_table('articles-media');
@@ -117,6 +118,7 @@ $zz['fields'][12]['form_display'] = 'lines';
 $zz['fields'][12]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
 $zz['fields'][12]['fields'][2]['type'] = 'foreign_key';
 $zz['fields'][12]['fields'][4]['type'] = 'sequence';
+$zz['fields'][12]['if'][7] = [];
 
 $zz['fields'][11]['title'] = 'Published?';
 $zz['fields'][11]['field_name'] = 'published';
@@ -166,7 +168,7 @@ $zz['fields'][6]['format'] = 'markdown';
 $zz['fields'][6]['separator'] = true;
 $zz['fields'][6]['typo_cleanup'] = true;
 $zz['fields'][6]['replace_substrings'] = wrap_get_setting('replace_substrings');
-$zz['fields'][6]['if'][1] = false;
+$zz['fields'][6]['if'][1] = [];
 
 $zz['fields'][23] = [];
 
@@ -377,6 +379,20 @@ if (wrap_category_id('publications', 'check')) {
 		FROM /*_PREFIX_*/categories publication_categories
 		WHERE category_id = ';
 	$zz['conditions'][5]['add']['key_field_name'] = 'publications.category_id';
+
+	$zz['conditions'][6]['scope'] = 'record';
+	$zz['conditions'][6]['where'] = 'publication_categories.parameters LIKE "%&subtitle=0%"';
+	$zz['conditions'][6]['add']['sql'] = 'SELECT category_id
+		FROM /*_PREFIX_*/categories publication_categories
+		WHERE category_id = ';
+	$zz['conditions'][6]['add']['key_field_name'] = 'publications.category_id';
+
+	$zz['conditions'][7]['scope'] = 'record';
+	$zz['conditions'][7]['where'] = 'publication_categories.parameters LIKE "%&media=0%"';
+	$zz['conditions'][7]['add']['sql'] = 'SELECT category_id
+		FROM /*_PREFIX_*/categories publication_categories
+		WHERE category_id = ';
+	$zz['conditions'][7]['add']['key_field_name'] = 'publications.category_id';
 }
 
 $zz['conditions'][3]['scope'] = 'record';
