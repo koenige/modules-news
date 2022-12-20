@@ -25,103 +25,103 @@ msgstr ""
 
 #: news/functions.inc.php
 msgid "Overview"
-msgstr "﻿Загальний огляд"
+msgstr "Загальний огляд"
 
 #: templates/search-news.template.txt
 msgid "No posts were found matching your search."
-msgstr "﻿За вашим запитом новин не знайдено."
+msgstr "За вашим запитом новин не знайдено."
 
 #: zzbrick_tables/articles.php
 msgid "News Articles"
-msgstr "﻿Новини статті"
+msgstr "Новини статті"
 
 #: zzbrick_tables/articles.php
 msgid "News"
-msgstr "﻿Новини"
+msgstr "Новини"
 
 #: zzbrick_tables/articles.php
 msgid "Post"
-msgstr "﻿Запис"
+msgstr "Запис"
 
 #: zzbrick_tables/articles.php
 msgid "Articles"
-msgstr "﻿Статті"
+msgstr "Статті"
 
 #: zzbrick_tables/articles.php
 msgid "Article"
-msgstr "﻿стаття"
+msgstr "стаття"
 
 #: zzbrick_tables/articles.php
 msgid "Authors"
-msgstr "﻿Автори"
+msgstr "Автори"
 
 #: zzbrick_tables/articles.php
 msgid "Image"
-msgstr "﻿Зображення"
+msgstr "Зображення"
 
 #: zzbrick_tables/articles.php
 msgid "Year"
-msgstr "﻿Рік"
+msgstr "Рік"
 
 #: zzbrick_tables/articles.php
 msgid "Published"
-msgstr "﻿Опубліковано"
+msgstr "Опубліковано"
 
 #: zzbrick_tables/articles.php
 msgid "Identifier"
-msgstr "﻿Ідентифікатор"
+msgstr "Ідентифікатор"
 
 #: zzbrick_tables/articles.php
 msgid "Show until"
-msgstr "﻿Показати до"
+msgstr "Показати до"
 
 #: zzbrick_tables/articles.php
 msgid "Short news, not too long"
-msgstr "﻿Короткі новини, не надто довгі"
+msgstr "Короткі новини, не надто довгі"
 
 #: zzbrick_tables/articles.php
 msgid "– none –"
-msgstr "﻿– жодної –"
+msgstr "– жодної –"
 
 #: zzbrick_tables/articles.php
 msgid "Lead"
-msgstr "﻿Свинець"
+msgstr "Свинець"
 
 #: zzbrick_tables/articles.php
 msgid "Newsletter Lead"
-msgstr "﻿Ведучий розсилки"
+msgstr "Ведучий розсилки"
 
 #: zzbrick_tables/articles.php
 msgid "Organisations"
-msgstr "﻿Організація"
+msgstr "Організація"
 
 #: zzbrick_tables/articles.php
 msgid "Publication"
-msgstr "﻿Публікування"
+msgstr "Публікування"
 
 #: zzbrick_tables/articles.php
 msgid "Subtitle"
-msgstr "﻿Підзаголовок"
+msgstr "Підзаголовок"
 
 #: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
-msgstr "﻿Пов 'язані статті"
+msgstr "Пов 'язані статті"
 
 #: zzbrick_tables/articles-articles.php
 msgid "Main Article"
-msgstr "﻿Основна стаття"
+msgstr "Основна стаття"
 
 #: zzbrick_tables/articles-categories.php
 msgid "Categories"
-msgstr "﻿Категорії"
+msgstr "Категорії"
 
 #: zzbrick_tables/articles-media.php
 msgid "Media in Articles"
-msgstr "﻿Медіа в статтях"
+msgstr "Медіа в статтях"
 
 #: zzbrick_tables/articles-media.php
 msgid "No."
-msgstr "﻿№"
+msgstr "№"
 
 #: zzbrick_tables/articles-media.php
 msgid "Preview"
@@ -129,32 +129,32 @@ msgstr "Попередній перегляд"
 
 #: templates/article.template.txt
 msgid "by"
-msgstr "﻿від"
+msgstr "від"
 
 #: templates/article.template.txt
 msgid "Previous post:"
-msgstr "﻿Попередня публікація:"
+msgstr "Попередня публікація:"
 
 #: templates/article.template.txt
 msgid "Next post:"
-msgstr "﻿Наступна публікація :"
+msgstr "Наступна публікація :"
 
 #: templates/articles.template.txt
 msgid "Sorry, currently we have no posts."
-msgstr "﻿На жаль, оголошень не знайдено."
+msgstr "На жаль, оголошень не знайдено."
 
 #: templates/articles.template.txt
 msgid "There are no posts in this year."
-msgstr "﻿В цієї категорії немає записів."
+msgstr "В цієї категорії немає записів."
 
 #: templates/articles.template.txt
 msgid "There are no posts in this category."
-msgstr "﻿В цієї категорії немає записів."
+msgstr "В цієї категорії немає записів."
 
 #: templates/articles.template.txt
 msgid "This post category does not exist."
-msgstr "﻿Ця категорія публікації не існує."
+msgstr "Ця категорія публікації не існує."
 
 #: templates/filelinks.template.txt
 msgid "Further Information"
-msgstr "﻿Додаткова інформація"
+msgstr "Додаткова інформація"

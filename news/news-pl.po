@@ -26,11 +26,11 @@ msgstr ""
 
 #: news/functions.inc.php
 msgid "Overview"
-msgstr "﻿Przegląd"
+msgstr "Przegląd"
 
 #: templates/search-news.template.txt
 msgid "No posts were found matching your search."
-msgstr "﻿Nie znaleziono postów spełniających Twoje kryteria"
+msgstr "Nie znaleziono postów spełniających Twoje kryteria"
 
 #: zzbrick_tables/articles.php
 msgid "News Articles"
@@ -98,23 +98,23 @@ msgstr "Organizacje"
 
 #: zzbrick_tables/articles.php
 msgid "Publication"
-msgstr "﻿Publikacje"
+msgstr "Publikacje"
 
 #: zzbrick_tables/articles.php
 msgid "Subtitle"
-msgstr "﻿Podtytuł"
+msgstr "Podtytuł"
 
 #: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
-msgstr "﻿Powiązane artykuły"
+msgstr "Powiązane artykuły"
 
 #: zzbrick_tables/articles-articles.php
 msgid "Main Article"
-msgstr "﻿Artykuł główny"
+msgstr "Artykuł główny"
 
 #: zzbrick_tables/articles-categories.php
 msgid "Categories"
-msgstr "﻿Kategorie"
+msgstr "Kategorie"
 
 #: zzbrick_tables/articles-media.php
 msgid "Media in Articles"
@@ -130,15 +130,15 @@ msgstr "Podgląd"
 
 #: templates/article.template.txt
 msgid "by"
-msgstr "﻿od"
+msgstr "od"
 
 #: templates/article.template.txt
 msgid "Previous post:"
-msgstr "﻿Poprzedni wpis:"
+msgstr "Poprzedni wpis:"
 
 #: templates/article.template.txt
 msgid "Next post:"
-msgstr "﻿Następny wpis:"
+msgstr "Następny wpis:"
 
 #: templates/articles.template.txt
 msgid "Sorry, currently we have no posts."

@@ -25,63 +25,63 @@ msgstr ""
 
 #: news/functions.inc.php
 msgid "Overview"
-msgstr "﻿Přehled"
+msgstr "Přehled"
 
 #: templates/search-news.template.txt
 msgid "No posts were found matching your search."
-msgstr "﻿Nebyly nalezeny žádné příspěvky odpovídající vašim vyhledávacím kritériím."
+msgstr "Nebyly nalezeny žádné příspěvky odpovídající vašim vyhledávacím kritériím."
 
 #: zzbrick_tables/articles.php
 msgid "News Articles"
-msgstr "﻿Novinky"
+msgstr "Novinky"
 
 #: zzbrick_tables/articles.php
 msgid "News"
-msgstr "﻿Zprávy"
+msgstr "Zprávy"
 
 #: zzbrick_tables/articles.php
 msgid "Post"
-msgstr "﻿Příspěvek"
+msgstr "Příspěvek"
 
 #: zzbrick_tables/articles.php
 msgid "Articles"
-msgstr "﻿Články"
+msgstr "Články"
 
 #: zzbrick_tables/articles.php
 msgid "Article"
-msgstr "﻿Článek"
+msgstr "Článek"
 
 #: zzbrick_tables/articles.php
 msgid "Authors"
-msgstr "﻿Autoři"
+msgstr "Autoři"
 
 #: zzbrick_tables/articles.php
 msgid "Image"
-msgstr "﻿Obrázek"
+msgstr "Obrázek"
 
 #: zzbrick_tables/articles.php
 msgid "Year"
-msgstr "﻿Rok"
+msgstr "Rok"
 
 #: zzbrick_tables/articles.php
 msgid "Published"
-msgstr "﻿Publikované"
+msgstr "Publikované"
 
 #: zzbrick_tables/articles.php
 msgid "Identifier"
-msgstr "﻿Identifikátor"
+msgstr "Identifikátor"
 
 #: zzbrick_tables/articles.php
 msgid "Show until"
-msgstr "﻿Zobrazit do"
+msgstr "Zobrazit do"
 
 #: zzbrick_tables/articles.php
 msgid "Short news, not too long"
-msgstr "﻿Krátké zprávy, ne příliš dlouho"
+msgstr "Krátké zprávy, ne příliš dlouho"
 
 #: zzbrick_tables/articles.php
 msgid "– none –"
-msgstr "﻿– žádný –"
+msgstr "– žádný –"
 
 #: zzbrick_tables/articles.php
 msgid "Lead"
@@ -93,68 +93,68 @@ msgstr ""
 
 #: zzbrick_tables/articles.php
 msgid "Organisations"
-msgstr "﻿Organizace"
+msgstr "Organizace"
 
 #: zzbrick_tables/articles.php
 msgid "Publication"
-msgstr "﻿Zveřejnění"
+msgstr "Zveřejnění"
 
 #: zzbrick_tables/articles.php
 msgid "Subtitle"
-msgstr "﻿Titulky"
+msgstr "Titulky"
 
 #: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
-msgstr "﻿Propojené články:"
+msgstr "Propojené články:"
 
 #: zzbrick_tables/articles-articles.php
 msgid "Main Article"
-msgstr "﻿Hlavní článek"
+msgstr "Hlavní článek"
 
 #: zzbrick_tables/articles-categories.php
 msgid "Categories"
-msgstr "﻿Rubriky"
+msgstr "Rubriky"
 
 #: zzbrick_tables/articles-media.php
 msgid "Media in Articles"
-msgstr "﻿Média v článcích"
+msgstr "Média v článcích"
 
 #: zzbrick_tables/articles-media.php
 msgid "No."
-msgstr "﻿Číslo."
+msgstr "Číslo."
 
 #: zzbrick_tables/articles-media.php
 msgid "Preview"
-msgstr "﻿Náhled"
+msgstr "Náhled"
 
 #: templates/article.template.txt
 msgid "by"
-msgstr "﻿od"
+msgstr "od"
 
 #: templates/article.template.txt
 msgid "Previous post:"
-msgstr "﻿Předchozí příspěvek:"
+msgstr "Předchozí příspěvek:"
 
 #: templates/article.template.txt
 msgid "Next post:"
-msgstr "﻿Následující příspěvek:"
+msgstr "Následující příspěvek:"
 
 #: templates/articles.template.txt
 msgid "Sorry, currently we have no posts."
-msgstr "﻿Omlouváme se, v současné době nemáme žádné příspěvky."
+msgstr "Omlouváme se, v současné době nemáme žádné příspěvky."
 
 #: templates/articles.template.txt
 msgid "There are no posts in this year."
-msgstr "﻿V tomto roce nejsou žádné příspěvky."
+msgstr "V tomto roce nejsou žádné příspěvky."
 
 #: templates/articles.template.txt
 msgid "There are no posts in this category."
-msgstr "﻿V této kategorii nejsou žádné příspěvky."
+msgstr "V této kategorii nejsou žádné příspěvky."
 
 #: templates/articles.template.txt
 msgid "This post category does not exist."
-msgstr "﻿Kategorie tohoto příspěvku neexistuje."
+msgstr "Kategorie tohoto příspěvku neexistuje."
 
 #: templates/filelinks.template.txt
 msgid "Further Information"
-msgstr "﻿Další informace"
+msgstr "Další informace"
