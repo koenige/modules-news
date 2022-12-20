@@ -1,88 +1,87 @@
 # news module
-# Translations to Polish
+# Translations template
 #
 # Part of »Zugzwang Project«
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2020-2021 Gustaf Mossakowski
+# @copyright Copyright © 2020-2022 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: modules/news\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
 "Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
 "Language-Team: \n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"PO-Revision-Date: \n"
 "X-Generator: Poedit 1.7.1\n"
+"Language: cs\n"
 
 #: news/functions.inc.php
 msgid "Overview"
-msgstr "﻿Przegląd"
+msgstr "﻿Přehled"
 
 #: templates/search-news.template.txt
 msgid "No posts were found matching your search."
-msgstr "﻿Nie znaleziono postów spełniających Twoje kryteria"
+msgstr "﻿Nebyly nalezeny žádné příspěvky odpovídající vašim vyhledávacím kritériím."
 
 #: zzbrick_tables/articles.php
 msgid "News Articles"
-msgstr "Przegląd"
+msgstr "﻿Novinky"
 
 #: zzbrick_tables/articles.php
 msgid "News"
-msgstr "Wiadomość"
+msgstr "﻿Zprávy"
 
 #: zzbrick_tables/articles.php
 msgid "Post"
-msgstr "Post"
+msgstr "﻿Příspěvek"
 
 #: zzbrick_tables/articles.php
 msgid "Articles"
-msgstr "Artykuły"
+msgstr "﻿Články"
 
 #: zzbrick_tables/articles.php
 msgid "Article"
-msgstr "Artykuł"
+msgstr "﻿Článek"
 
 #: zzbrick_tables/articles.php
 msgid "Authors"
-msgstr "Autorzy"
+msgstr "﻿Autoři"
 
 #: zzbrick_tables/articles.php
 msgid "Image"
-msgstr "Obraz"
+msgstr "﻿Obrázek"
 
 #: zzbrick_tables/articles.php
 msgid "Year"
-msgstr "Rok"
+msgstr "﻿Rok"
 
 #: zzbrick_tables/articles.php
 msgid "Published"
-msgstr "Opublikowany"
+msgstr "﻿Publikované"
 
 #: zzbrick_tables/articles.php
 msgid "Identifier"
-msgstr "Identyfikator"
+msgstr "﻿Identifikátor"
 
 #: zzbrick_tables/articles.php
 msgid "Show until"
-msgstr "Pokaż do"
+msgstr "﻿Zobrazit do"
 
 #: zzbrick_tables/articles.php
 msgid "Short news, not too long"
-msgstr "Krótkie wiadomości, niezbyt długie"
+msgstr "﻿Krátké zprávy, ne příliš dlouho"
 
 #: zzbrick_tables/articles.php
 msgid "– none –"
-msgstr "– Żadna –"
+msgstr "﻿– žádný –"
 
 #: zzbrick_tables/articles.php
 msgid "Lead"
@@ -94,39 +93,39 @@ msgstr ""
 
 #: zzbrick_tables/articles.php
 msgid "Organisations"
-msgstr "Organizacje"
+msgstr "﻿Organizace"
 
 #: zzbrick_tables/articles.php
 msgid "Publication"
-msgstr "﻿Publikacje"
+msgstr "﻿Zveřejnění"
 
 #: zzbrick_tables/articles.php
 msgid "Subtitle"
-msgstr "﻿Podtytuł"
+msgstr "﻿Titulky"
 
 #: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
-msgstr "﻿Powiązane artykuły"
+msgstr "﻿Propojené články:"
 
 #: zzbrick_tables/articles-articles.php
 msgid "Main Article"
-msgstr "﻿Artykuł główny"
+msgstr "﻿Hlavní článek"
 
 #: zzbrick_tables/articles-categories.php
 msgid "Categories"
-msgstr "﻿Kategorie"
+msgstr "﻿Rubriky"
 
 #: zzbrick_tables/articles-media.php
 msgid "Media in Articles"
-msgstr "Media w artykułach"
+msgstr "﻿Média v článcích"
 
 #: zzbrick_tables/articles-media.php
 msgid "No."
-msgstr "Nr"
+msgstr "﻿Číslo."
 
 #: zzbrick_tables/articles-media.php
 msgid "Preview"
-msgstr "Podgląd"
+msgstr "﻿Náhled"
 
 #: templates/article.template.txt
 msgid "by"
@@ -134,28 +133,28 @@ msgstr "﻿od"
 
 #: templates/article.template.txt
 msgid "Previous post:"
-msgstr "﻿Poprzedni wpis:"
+msgstr "﻿Předchozí příspěvek:"
 
 #: templates/article.template.txt
 msgid "Next post:"
-msgstr "﻿Następny wpis:"
+msgstr "﻿Následující příspěvek:"
 
 #: templates/articles.template.txt
 msgid "Sorry, currently we have no posts."
-msgstr "Przepraszamy, obecnie nie mamy żadnych wiadomości."
+msgstr "﻿Omlouváme se, v současné době nemáme žádné příspěvky."
 
 #: templates/articles.template.txt
 msgid "There are no posts in this year."
-msgstr "Nie ma żadnych wiadomości."
+msgstr "﻿V tomto roce nejsou žádné příspěvky."
 
 #: templates/articles.template.txt
 msgid "There are no posts in this category."
-msgstr "Nie ma żadnych artykułów w tej kategorii."
+msgstr "﻿V této kategorii nejsou žádné příspěvky."
 
 #: templates/articles.template.txt
 msgid "This post category does not exist."
-msgstr "Ta kategoria nie istnieje."
+msgstr "﻿Kategorie tohoto příspěvku neexistuje."
 
 #: templates/filelinks.template.txt
 msgid "Further Information"
-msgstr "Informacje dodatkowe"
+msgstr "﻿Další informace"
