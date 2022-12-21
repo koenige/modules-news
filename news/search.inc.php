@@ -32,6 +32,7 @@ function mf_news_search($q) {
 	$publications = wrap_translate($publications, 'categories');
 	foreach ($publications as $publication) {
 		$data['news'][$publication['path']]['publication'] = $publication['category'];
+		$data['news'][$publication['path']]['publication_path'] = $publication['path'];
 	}
 
 	$sql = 'SELECT articles.article_id, date, title, abstract, identifier
