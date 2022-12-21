@@ -29,6 +29,7 @@ function mf_news_search($q) {
 		WHERE articles_categories.type_category_id = %d';
 	$sql = sprintf($sql, wrap_category_id('publications'));
 	$publications = wrap_db_fetch($sql, 'category_id');
+	$publications = wrap_translate($publications, 'categories');
 	foreach ($publications as $publication) {
 		$data['news'][$publication['path']]['publication'] = $publication['category'];
 	}
