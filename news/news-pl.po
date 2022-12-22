@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2020-2021 Gustaf Mossakowski
+# @copyright Copyright © 2020-2022 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 msgid ""
@@ -30,15 +30,15 @@ msgstr "Przegląd"
 
 #: templates/search-news.template.txt
 msgid "No posts were found matching your search."
-msgstr "Nie znaleziono postów spełniających Twoje kryteria"
+msgstr "Nie znaleziono postów spełniających kryteria wyszukiwania."
 
 #: zzbrick_tables/articles.php
 msgid "News Articles"
-msgstr "Przegląd"
+msgstr "Artykuły z nowinami"
 
 #: zzbrick_tables/articles.php
 msgid "News"
-msgstr "Wiadomość"
+msgstr "Nowina"
 
 #: zzbrick_tables/articles.php
 msgid "Post"
@@ -86,11 +86,11 @@ msgstr "– Żadna –"
 
 #: zzbrick_tables/articles.php
 msgid "Lead"
-msgstr ""
+msgstr "Lead"
 
 #: zzbrick_tables/articles.php
 msgid "Newsletter Lead"
-msgstr ""
+msgstr "Lead newslettera"
 
 #: zzbrick_tables/articles.php
 msgid "Organisations"
@@ -122,7 +122,7 @@ msgstr "Media w artykułach"
 
 #: zzbrick_tables/articles-media.php
 msgid "No."
-msgstr "Nr"
+msgstr "nr"
 
 #: zzbrick_tables/articles-media.php
 msgid "Preview"
@@ -130,7 +130,7 @@ msgstr "Podgląd"
 
 #: templates/article.template.txt
 msgid "by"
-msgstr "od"
+msgstr "&nbsp;"
 
 #: templates/article.template.txt
 msgid "Previous post:"
