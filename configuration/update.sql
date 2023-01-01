@@ -44,3 +44,5 @@
 /* 2022-11-14-2 */	ALTER TABLE `articles_media` ADD INDEX `overview_medium` (`overview_medium`);
 /* 2022-11-21-1 */	DELETE FROM `_settings` WHERE `setting_key` = 'news_url';
 /* 2022-12-02-1 */	ALTER TABLE `articles` ADD `subtitle` varchar(128) COLLATE 'utf8mb4_unicode_ci' NULL AFTER `title`;
+/* 2023-01-01-1 */	DELETE FROM `_settings` WHERE `setting_key` = 'news_category_path';
+/* 2023-01-01-2 */	DELETE FROM `_settings` WHERE `setting_key` = 'publications_category_path';
