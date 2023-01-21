@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2015-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2015-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -110,15 +110,12 @@ function mod_news_rss($params) {
  *
  * @param string $text
  * @param int $id
- * @global array $zz_setting;
  * @return string $text
  */
 function mf_news_brick2rss_format($text, $id = false) {
-	global $zz_setting;
-
 	if ($id) {
 		// format text with brick_format
-		$formatted = brick_format($text, $id, $zz_setting);
+		$formatted = brick_format($text, $id);
 		// check if we have some text
 		if (!$formatted['text']) return false;
 		$text = $formatted['text'];
@@ -135,8 +132,8 @@ function mf_news_brick2rss_format($text, $id = false) {
 		$text = str_replace('</'.$h.'>', '</strong></p>', $text);
 	}
 	// format with fulltext function
-	if (!empty($zz_setting['brick_fulltextformat']))
-		$text = $zz_setting['brick_fulltextformat']($text);
+	if ($format = wrap_get_setting('brick_fulltextformat'))
+		$text = $format($text);
 	return $text;
 }
 
@@ -166,7 +163,6 @@ function mf_news_brick2rss_links($text) {
  * @return array
  */
 function mod_news_rss_fulltext($articles) {
-	global $zz_setting;
 	foreach ($articles as $id => $article) {
 		if (!is_int($id)) continue;
 		if (isset($article['duration'])) {
