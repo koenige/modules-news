@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -66,6 +66,13 @@ function mod_news_get_articles($params = [], $settings = []) {
 				$where[] = sprintf('ac_%s.category_id = %d', $path, $category_id);
 				$titles['category'] = $path.'/'.$param;
 				$param = array_shift($params); // allow another parameter
+				
+				$sql = 'SELECT parameters
+					FROM /*_PREFIX_*/categories
+					WHERE category_id = %d';
+				$sql = sprintf($sql, $category_id);
+				$news_category_parameters = wrap_db_fetch($sql, '', 'single value');
+				wrap_module_parameters('news', $news_category_parameters);
 				break;
 			}
 		}
