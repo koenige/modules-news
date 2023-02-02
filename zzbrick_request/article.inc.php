@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2015, 2017-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2015, 2017-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -132,7 +132,6 @@ function mod_news_article($params) {
 			, types.category_id AS type_category_id
 			, types.category AS type
 			, SUBSTRING_INDEX(categories.path, "/", -1) AS path
-			, categories.parameters
 		FROM articles_categories
 		LEFT JOIN categories USING (category_id)
 		LEFT JOIN categories types
@@ -148,12 +147,6 @@ function mod_news_article($params) {
 		if (wrap_category_id('publications', 'check')
 			AND $category['type_category_id'] === wrap_category_id('publications')) {
 			$article['publication'] = $category['category'];
-			if ($category['parameters']) {
-				parse_str($category['parameters'], $parameters);
-				foreach ($parameters as $key => $value) {
-					$article['setting_'.$key] = $value;
-				}
-			}
 			unset($article['categories'][$category_id]);
 		}
 	}
