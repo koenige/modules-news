@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2022 Gustaf Mossakowski
+# @copyright Copyright © 2014-2023 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 msgid ""
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: news/functions.inc.php
 msgid "Overview"
@@ -154,6 +154,10 @@ msgstr "Wir haben keine Beiträge in dieser Kategorie."
 #: templates/articles.template.txt
 msgid "This post category does not exist."
 msgstr "Diese Beitragskategorie existiert nicht."
+
+#: templates/articles.template.txt
+msgid "Read more …"
+msgstr "Mehr lesen …"
 
 #: templates/filelinks.template.txt
 msgid "Further Information"

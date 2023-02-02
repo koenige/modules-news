@@ -71,6 +71,9 @@
 %%% condition if direct_link %%%
 <p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
 %%% condition endif %%%
+%%% condition if setting news_read_more_link %%%
+<p><a href="%%% item link %%%">%%% text Read more … %%%</a></p>
+%%% condition endif %%%
 </div>
 </li>
 %%% loop end %%%
