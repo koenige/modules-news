@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2014-2015, 2017-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2014-2015, 2017-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -147,6 +147,8 @@ if (wrap_category_id('news', 'check')) {
 	$zz['fields'][13]['fields'][4]['type'] = 'sequence';
 	$zz['fields'][13]['separator'] = true;
 	$zz['fields'][13]['if'][4] = [];
+	if (!empty($brick['local_settings']['news_category_required']))
+		$zz['fields'][13]['min_records_required'] = 1;
 }
 
 /*
@@ -332,11 +334,23 @@ $zz['set_redirect'][] = [
 ];
 
 if (wrap_category_id('publications', 'check')) {
+	$hide_category_ids = [];
+	if (!empty($brick['local_settings']['news_hide_publication_categories'])) {
+		foreach ($brick['local_settings']['news_hide_publication_categories'] as $path)
+			$hide_category_ids[] = wrap_category_id($path);
+		$zz['sql'] = wrap_edit_sql($zz['sql']
+			, 'WHERE', sprintf('publications.category_id NOT IN (%s)', implode(',', $hide_category_ids)));
+	}
+	
 	$sql = 'SELECT category_id as value, category as type, "publications.category_id" AS field_name
 		FROM /*_PREFIX_*/categories
 		WHERE main_category_id = %d
+		AND category_id NOT in (%s)
 		ORDER BY sequence, category';
-	$sql = sprintf($sql, wrap_category_id('publications'));
+	$sql = sprintf($sql
+		, wrap_category_id('publications')
+		, $hide_category_ids ? implode(',', $hide_category_ids) : 0
+	);
 	$zz['add'] = wrap_db_fetch($sql, 'category_id', 'numeric');
 
 	$zz['filter'][5]['title'] = wrap_text('Publication');
@@ -348,8 +362,10 @@ if (wrap_category_id('publications', 'check')) {
 		FROM articles_categories
 		LEFT JOIN categories USING (category_id)
 		WHERE type_category_id = %d
+		AND category_id NOT IN (%s)
 		ORDER BY category'
 		, wrap_category_id('publications')
+		, $hide_category_ids ? implode(',', $hide_category_ids) : 0
 	);
 
 	$zz['conditions'][1]['scope'] = 'record';
