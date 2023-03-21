@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -25,8 +25,7 @@
  */
 function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $lang_field_name = '') {
 	if (!$data) return $data;
-	global $zz_setting;
-	require_once $zz_setting['core'].'/data.inc.php';
+	require_once wrap_setting('core').'/data.inc.php';
 
 	$ids = wrap_data_ids($data, $id_field_name);
 	$langs = wrap_data_langs($data, $lang_field_name);
@@ -103,7 +102,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 	}
 
 	// contacts
-	if (in_array('contacts', $zz_setting['modules'])) {
+	if (in_array('contacts', wrap_setting('modules'))) {
 		$sql = 'SELECT article_contact_id, article_id, contact_id, contact
 				, SUBSTRING_INDEX(categories.path, "/", -1) AS role
 			FROM articles_contacts

@@ -24,12 +24,12 @@ $zz['fields'][18]['title'] = 'Image';
 $zz['fields'][18]['field_name'] = '';
 $zz['fields'][18]['type'] = 'image';
 $zz['fields'][18]['path'] = [
-	'root' => $zz_setting['media_folder'], 
-	'webroot' => $zz_setting['files_path'],
+	'root' => wrap_setting('media_folder'), 
+	'webroot' => wrap_setting('files_path'),
 	'string1' => '/',
 	'field1' => 'filename',
 	'string2' => '.',
-	'string3' => wrap_get_setting('media_preview_size'),
+	'string3' => wrap_setting('media_preview_size'),
 	'string4' => '.',
 	'extension' => 'thumb_extension'
 ];
@@ -58,7 +58,7 @@ $zz['fields'][33] = []; // date_to
 $zz['fields'][3]['title'] = 'Title';
 $zz['fields'][3]['field_name'] = 'title';
 $zz['fields'][3]['type'] = 'text';
-if (is_array(wrap_get_setting('news_article_path'))) {
+if (is_array(wrap_setting('news_article_path'))) {
 	$zz['fields'][3]['link'] = [
 		'area' => 'news_article[%s]',
 		'area_fields' => ['publication_path'],
@@ -72,16 +72,16 @@ if (is_array(wrap_get_setting('news_article_path'))) {
 }
 $zz['fields'][3]['typo_cleanup'] = true;
 $zz['fields'][3]['typo_remove_double_spaces'] = true;
-$zz['fields'][3]['replace_substrings'] = wrap_get_setting('replace_substrings');
+$zz['fields'][3]['replace_substrings'] = wrap_setting('replace_substrings');
 $zz['fields'][3]['if'][3]['list_prefix'] = '<del>';
 $zz['fields'][3]['if'][3]['list_suffix'] = '</del>';
 
-if (wrap_get_setting('news_subtitle')) {
+if (wrap_setting('news_subtitle')) {
 	$zz['fields'][17]['title'] = 'Subtitle';
 	$zz['fields'][17]['field_name'] = 'subtitle';
 	$zz['fields'][17]['hide_in_list'] = true;
 	$zz['fields'][17]['typo_cleanup'] = true;
-	$zz['fields'][17]['replace_substrings'] = wrap_get_setting('replace_substrings');
+	$zz['fields'][17]['replace_substrings'] = wrap_setting('replace_substrings');
 	$zz['fields'][17]['if'][6] = [];
 }
 
@@ -94,9 +94,9 @@ $zz['fields'][4]['format'] = 'markdown';
 $zz['fields'][4]['explanation'] = 'Short news, not too long';
 $zz['fields'][4]['hide_in_list'] = true;
 $zz['fields'][4]['typo_cleanup'] = true;
-$zz['fields'][4]['replace_substrings'] = wrap_get_setting('replace_substrings');
+$zz['fields'][4]['replace_substrings'] = wrap_setting('replace_substrings');
 
-if (in_array('newsletters', $zz_setting['modules'])) {
+if (in_array('newsletters', wrap_setting('modules'))) {
 	$zz['fields'][5]['title'] = 'Newsletter Lead';
 	$zz['fields'][5]['field_name'] = 'newsletter_lead';
 	$zz['fields'][5]['type'] = 'memo';
@@ -104,7 +104,7 @@ if (in_array('newsletters', $zz_setting['modules'])) {
 	$zz['fields'][5]['format'] = 'markdown';
 	$zz['fields'][5]['hide_in_list'] = true;
 	$zz['fields'][5]['typo_cleanup'] = true;
-	$zz['fields'][5]['replace_substrings'] = wrap_get_setting('replace_substrings');
+	$zz['fields'][5]['replace_substrings'] = wrap_setting('replace_substrings');
 	$zz['fields'][5]['if'][2] = [];
 }
 
@@ -169,12 +169,12 @@ $zz['fields'][6]['rows'] = 20;
 $zz['fields'][6]['format'] = 'markdown';
 $zz['fields'][6]['separator'] = true;
 $zz['fields'][6]['typo_cleanup'] = true;
-$zz['fields'][6]['replace_substrings'] = wrap_get_setting('replace_substrings');
+$zz['fields'][6]['replace_substrings'] = wrap_setting('replace_substrings');
 $zz['fields'][6]['if'][1] = [];
 
 $zz['fields'][23] = [];
 
-if (in_array('contacts', $zz_setting['modules'])) {
+if (in_array('contacts', wrap_setting('modules'))) {
 	$keys = ['author' => 'Authors', 'description' => 'Organisations'];
 	$i = 40;
 	foreach ($keys as $key => $title) {
@@ -198,7 +198,7 @@ if (in_array('contacts', $zz_setting['modules'])) {
 	}
 }
 
-if (in_array('events', $zz_setting['modules'])) {
+if (in_array('events', wrap_setting('modules'))) {
 	$zz['fields'][22] = zzform_include_table('articles-events');
 	$zz['fields'][22]['title'] = 'Events';
 	$zz['fields'][22]['type'] = 'subtable';

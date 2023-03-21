@@ -21,8 +21,6 @@
  * @return array
  */
 function mod_news_get_articles($params = [], $settings = []) {
-	global $zz_setting;
-
 	// news categories
 	$news_categories = ['publications', 'news'];
 	$news_categories_ids = [];
@@ -117,7 +115,7 @@ function mod_news_get_articles($params = [], $settings = []) {
 	);
 	$ids = wrap_db_fetch($sql, 'article_id');
 
-	require_once $zz_setting['modules_dir'].'/news/zzbrick_request_get/articledata.inc.php';
+	require_once wrap_setting('modules_dir').'/news/zzbrick_request_get/articledata.inc.php';
 	$articles = mod_news_get_articledata($ids);
 	$articles['count'] = count($articles);
 	$articles['titles'] = $titles;

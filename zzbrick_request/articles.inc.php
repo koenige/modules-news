@@ -8,16 +8,14 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
 
 function mod_news_articles($params, $settings) {
-	global $zz_setting;
-
 	$data = brick_request_data('articles', $params, $settings);
-	if (!empty($settings['events_in_news']) AND in_array('events', $zz_setting['modules'])) {
+	if (!empty($settings['events_in_news']) AND in_array('events', wrap_setting('modules'))) {
 		wrap_include_files('events/news', 'events');
 		$events = mf_events_in_news();
 		// show at least one date if there is one

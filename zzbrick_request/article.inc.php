@@ -14,7 +14,6 @@
 
 
 function mod_news_article($params) {
-	global $zz_setting;
 	if (count($params) === 1 AND is_numeric($params[0])) {
 		return brick_format('%%% request articles '.$params[0].' %%%');
 	}
@@ -60,18 +59,18 @@ function mod_news_article($params) {
 		AND _translations_varchar.field_id = %d';
 	$sql = sprintf($sql
 		, $article['identifier']
-		, $zz_setting['lang']
+		, wrap_setting('lang')
 		, $article['article_id']
 	);
 	$article['languages'] = wrap_db_fetch($sql, 'language_id');
 	if ($article['languages'])
 		$article['languages'][] = [
 			'identifier' => $article['identifier'],
-			'iso_639_1' => $zz_setting['default_source_language'],
-			'current' => $zz_setting['default_source_language'] === $zz_setting['lang'] ? 1 : NULL
+			'iso_639_1' => wrap_setting('default_source_language'),
+			'current' => wrap_setting('default_source_language') === wrap_setting('lang') ? 1 : NULL
 		];
 
-	if (!empty(wrap_get_setting('news_with_events'))) {
+	if (!empty(wrap_setting('news_with_events'))) {
 		$sql = 'SELECT event_id, event
 				, CONCAT(date_begin, IFNULL(CONCAT("/", date_end), "")) AS duration
 				, TIME_FORMAT(time_begin, "%%H.%%i") AS time_begin
@@ -97,9 +96,9 @@ function mod_news_article($params) {
 	brick_request_links($article['article'], $media, 'sequence');
 
 	if (!empty($media['images'])) {
-		if (key($media['images']) === $first_img AND wrap_get_setting('news_topimage')) {
+		if (key($media['images']) === $first_img AND wrap_setting('news_topimage')) {
 			// main image only if first image was not set manually
-			$media['images'][$first_img]['path'] = wrap_get_setting('news_topimage_size');
+			$media['images'][$first_img]['path'] = wrap_setting('news_topimage_size');
 			$article['topimage'] = brick_request_link($media, ['image', $main_img['sequence']], 'sequence');
 		}
 		if ($media['images']) {
@@ -183,18 +182,18 @@ function mod_news_article($params) {
 			$page['opengraph']['article:tags'][] = $category['category'];
 	}
 	if (!empty($main_img) AND function_exists('mf_media_opengraph_image')) {
-		$page['opengraph'] += mf_media_opengraph_image($main_img, wrap_get_setting('news_og_image_size'));
+		$page['opengraph'] += mf_media_opengraph_image($main_img, wrap_setting('news_og_image_size'));
 	}
 	if (empty($article['wrap_source_language'])) {
 		// no translation
-		if (!empty($zz_setting['default_source_language']))
-			if ($zz_setting['default_source_language'] !== $zz_setting['lang']) {
+		if (wrap_setting('default_source_language'))
+			if (wrap_setting('default_source_language') !== wrap_setting('lang')) {
 				$page['meta'][] = ['name' => 'robots', 'content' => 'noindex'];
 			}
 	}
 	$page['breadcrumbs'][] = $article['title'];
 	$page['text'] = wrap_template('article', $article);
-	if (in_array('magnificpopup', $zz_setting['modules']) AND !empty($article['images']))
+	if (in_array('magnificpopup', wrap_setting('modules')) AND !empty($article['images']))
 		$page['extra']['magnific_popup'] = true;
 	if (!$article['published'])
 		$page['extra']['body_attributes'] = ' class="unpublished"';

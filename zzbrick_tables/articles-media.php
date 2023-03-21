@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010, 2013-2015, 2018-2020, 2022 Gustaf Mossakowski
+ * @copyright Copyright © 2010, 2013-2015, 2018-2020, 2022-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -25,12 +25,12 @@ $zz['fields'][5]['field_name'] = 'image';
 $zz['fields'][5]['type'] = 'image';
 $zz['fields'][5]['class'] = 'preview';
 $zz['fields'][5]['path'] = [
-	'root' => $zz_setting['media_folder'], 
-	'webroot' => $zz_setting['files_path'],
+	'root' => wrap_setting('media_folder'), 
+	'webroot' => wrap_setting('files_path'),
 	'string1' => '/',
 	'field1' => 'filename',
 	'string2' => '.',
-	'string3' => wrap_get_setting('media_preview_size'),
+	'string3' => wrap_setting('media_preview_size'),
 	'string4' => '.',
 	'extension' => 'thumb_extension'
 ];
@@ -71,7 +71,7 @@ $zz['fields'][3]['exclude_from_search'] = true;
 $zz['fields'][3]['character_set'] = 'utf8';
 $zz['fields'][3]['class'] = 'block480';
 
-if (wrap_get_setting('news_overview_medium')) {
+if (wrap_setting('news_overview_medium')) {
 	$zz['fields'][6]['title'] = 'Overview?';
 	$zz['fields'][6]['field_name'] = 'overview_medium';
 	$zz['fields'][6]['type'] = 'select';
