@@ -108,7 +108,7 @@ if (in_array('newsletters', wrap_setting('modules'))) {
 	$zz['fields'][5]['if'][2] = [];
 }
 
-$zz['fields'][12] = zzform_include_table('articles-media');
+$zz['fields'][12] = zzform_include('articles-media');
 $zz['fields'][12]['title'] = 'Media';
 $zz['fields'][12]['type'] = 'subtable';
 $zz['fields'][12]['min_records'] = 1;
@@ -129,7 +129,7 @@ $zz['fields'][11]['class'] = 'hidden640';
 $zz['fields'][11]['hide_in_list'] = true;
 
 if (wrap_category_id('news', 'check')) {
-	$zz['fields'][13] = zzform_include_table('articles-categories');
+	$zz['fields'][13] = zzform_include('articles-categories');
 	$zz['fields'][13]['title'] = 'Categories';
 	$zz['fields'][13]['type'] = 'subtable';
 	$zz['fields'][13]['min_records'] = 1;
@@ -179,7 +179,7 @@ if (in_array('contacts', wrap_setting('modules'))) {
 	$i = 40;
 	foreach ($keys as $key => $title) {
 		if (!wrap_category_id('roles/'.$key, 'check')) continue;
-		$zz['fields'][$i] = zzform_include_table('articles-contacts');
+		$zz['fields'][$i] = zzform_include('articles-contacts');
 		$zz['fields'][$i]['table_name'] = 'articles_contacts_'.$key;
 		$zz['fields'][$i]['title'] = $title;
 		$zz['fields'][$i]['type'] = 'subtable';
@@ -199,7 +199,7 @@ if (in_array('contacts', wrap_setting('modules'))) {
 }
 
 if (in_array('events', wrap_setting('modules'))) {
-	$zz['fields'][22] = zzform_include_table('articles-events');
+	$zz['fields'][22] = zzform_include('articles-events');
 	$zz['fields'][22]['title'] = 'Events';
 	$zz['fields'][22]['type'] = 'subtable';
 	$zz['fields'][22]['min_records'] = 1;
@@ -212,7 +212,7 @@ if (in_array('events', wrap_setting('modules'))) {
 }
 
 if (wrap_category_id('publications', 'check')) {
-	$zz['fields'][14] = zzform_include_table('articles-categories');
+	$zz['fields'][14] = zzform_include('articles-categories');
 	$zz['fields'][14]['title'] = 'Publication';
 	$zz['fields'][14]['type'] = 'subtable';
 	$zz['fields'][14]['table_name'] = 'publications';
