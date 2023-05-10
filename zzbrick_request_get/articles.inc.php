@@ -115,7 +115,7 @@ function mod_news_get_articles($params = [], $settings = []) {
 	);
 	$ids = wrap_db_fetch($sql, 'article_id');
 
-	require_once wrap_setting('modules_dir').'/news/zzbrick_request_get/articledata.inc.php';
+	wrap_include_files('zzbrick_request_get/articledata', 'news');
 	$articles = mod_news_get_articledata($ids);
 	$articles['count'] = count($articles);
 	$articles['titles'] = $titles;
