@@ -13,4 +13,4 @@
  */
 
 
-$zz_conf['nice_tablename']['articles_media'] = 'Media in Articles';
+wrap_setting('zzform_nice_tablename[articles_media]', 'Media in Articles');
