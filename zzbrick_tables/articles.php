@@ -414,4 +414,4 @@ if (wrap_category_id('publications', 'check')) {
 $zz['conditions'][3]['scope'] = 'record';
 $zz['conditions'][3]['where'] = '/*_PREFIX_*/articles.published = "no"';
 
-$zz_conf['copy'] = true;
+$zz['record']['copy'] = true;
