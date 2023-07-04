@@ -50,7 +50,7 @@ function mod_news_articles($params, $settings) {
 		default:
 			break;
 		}
-		$page['breadcrumbs'][] = $title;
+		$page['breadcrumbs'][]['title'] = $title;
 		if (empty($settings['hide_title'])) {
 			$page['title'][] = $title;
 		}

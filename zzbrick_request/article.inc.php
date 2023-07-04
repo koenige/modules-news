@@ -191,7 +191,7 @@ function mod_news_article($params) {
 				$page['meta'][] = ['name' => 'robots', 'content' => 'noindex'];
 			}
 	}
-	$page['breadcrumbs'][] = $article['title'];
+	$page['breadcrumbs'][]['title'] = $article['title'];
 	$page['text'] = wrap_template('article', $article);
 	if (in_array('magnificpopup', wrap_setting('modules')) AND !empty($article['images']))
 		$page['extra']['magnific_popup'] = true;
