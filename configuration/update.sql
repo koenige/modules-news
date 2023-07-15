@@ -46,7 +46,7 @@
 /* 2022-12-02-1 */	ALTER TABLE `articles` ADD `subtitle` varchar(128) COLLATE 'utf8mb4_unicode_ci' NULL AFTER `title`;
 /* 2023-01-01-1 */	DELETE FROM `_settings` WHERE `setting_key` = 'news_category_path';
 /* 2023-01-01-2 */	DELETE FROM `_settings` WHERE `setting_key` = 'publications_category_path';
-/* 2023-07-15-1 */	DROP TABLE `comments_activities`;
-/* 2023-07-15-2 */	DELETE FROM `_relations` WHERE detail_table = 'comments_activities';
 /* 2023-07-15-1 */	DROP TABLE `comments`;
 /* 2023-07-15-2 */	DELETE FROM `_relations` WHERE detail_table = 'comments';
+/* 2023-07-15-3 */	DROP TABLE `comments_activities`;
+/* 2023-07-15-4 */	DELETE FROM `_relations` WHERE detail_table = 'comments_activities';
