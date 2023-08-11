@@ -31,6 +31,10 @@ msgstr "Übersicht"
 msgid "No posts were found matching your search."
 msgstr "Es wurden keine Beiträge gefunden, die Ihrer Suche entsprechen."
 
+#: templates/article.template.txt
+msgid "Share article"
+msgstr "Artikel teilen"
+
 #: zzbrick_tables/articles.php
 msgid "News Articles"
 msgstr "Überblick"

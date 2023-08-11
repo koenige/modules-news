@@ -31,6 +31,10 @@ msgstr ""
 msgid "No posts were found matching your search."
 msgstr ""
 
+#: templates/article.template.txt
+msgid "Share article"
+msgstr ""
+
 #: zzbrick_tables/articles.php
 msgid "News Articles"
 msgstr ""
