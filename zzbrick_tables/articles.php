@@ -241,8 +241,8 @@ $zz['fields'][9]['field_name'] = 'identifier';
 $zz['fields'][9]['type'] = 'identifier';
 $zz['fields'][9]['fields'] = ['date{0,4}', 'title', 'identifier'];
 $zz['fields'][9]['if'][5]['fields'] = ['title', 'identifier'];
-$zz['fields'][9]['conf_identifier']['exists'] = '-';
-$zz['fields'][9]['conf_identifier']['concat'] = '/';
+$zz['fields'][9]['identifier']['exists'] = '-';
+$zz['fields'][9]['identifier']['concat'] = '/';
 $zz['fields'][9]['hide_in_list'] = true;
 
 $zz['fields'][99]['field_name'] = 'last_update';
