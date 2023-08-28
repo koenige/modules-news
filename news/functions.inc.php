@@ -47,26 +47,29 @@ function mf_news_prev_next($article) {
 }
 
 /**
- * set $page['link'] for article
+ * set $page['link'] for single item
  *
- * @param array $article
+ * @param array $data (_next_identifier, _next_title, _prev_identifier, _prev_title,
+ *		_main_identifier or identifier, _main_title)
+ * @param string $path
+ * @param string $path_overview
  * @return array
  */
-function mf_news_page_link($article) {
+function wrap_page_links($data, $path, $path_overview) {
 	$link = [];
-	if (!empty($article['_next_identifier'])) {
-		$link['next'][0]['href'] = sprintf('/%s/', $article['_next_identifier']);	
-		$link['next'][0]['title'] = $article['_next_title'];
+	if (!empty($data['_next_identifier'])) {
+		$link['next'][0]['href'] = wrap_path($path, $data['_next_identifier']);	
+		$link['next'][0]['title'] = $data['_next_title'];
 	} else {
-		$link['next'][0]['href'] = sprintf('/%s/', dirname($article['identifier']));
-		$link['next'][0]['title'] = wrap_text('Overview');
+		$link['next'][0]['href'] = wrap_path($path_overview, $data['_main_identifier'] ?? dirname($data['identifier']));
+		$link['next'][0]['title'] = $data['_main_title'] ?? wrap_text('Overview');
 	}
-	if (!empty($article['_prev_identifier'])) {
-		$link['prev'][0]['href'] = sprintf('/%s/', $article['_prev_identifier']);	
-		$link['prev'][0]['title'] = $article['_prev_title'];
+	if (!empty($data['_prev_identifier'])) {
+		$link['prev'][0]['href'] = wrap_path($path, $data['_prev_identifier']);	
+		$link['prev'][0]['title'] = $data['_prev_title'];
 	} else {
-		$link['prev'][0]['href'] = sprintf('/%s/', dirname($article['identifier']));
-		$link['prev'][0]['title'] = wrap_text('Overview');
+		$link['prev'][0]['href'] = wrap_path($path_overview, $data['_main_identifier'] ?? dirname($data['identifier']));
+		$link['prev'][0]['title'] = $data['_main_title'] ?? wrap_text('Overview');
 	}
 	return $link;
 }
