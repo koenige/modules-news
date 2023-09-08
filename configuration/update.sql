@@ -50,3 +50,4 @@
 /* 2023-07-15-2 */	DELETE FROM `_relations` WHERE detail_table = 'comments';
 /* 2023-07-15-3 */	DROP TABLE `comments_activities`;
 /* 2023-07-15-4 */	DELETE FROM `_relations` WHERE detail_table = 'comments_activities';
+/* 2023-09-08-1 */	ALTER TABLE `articles_categories` ADD `property` varchar(255) NULL AFTER `category_id`, CHANGE `sequence` `sequence` tinyint unsigned NULL AFTER `type_category_id`;

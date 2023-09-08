@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2018-2020 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2018-2020, 2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -20,7 +20,6 @@ $zz['fields'][1]['title'] = 'ID';
 $zz['fields'][1]['field_name'] = 'article_category_id';
 $zz['fields'][1]['type'] = 'id';
 
-$zz['fields'][2]['title'] = 'Article';
 $zz['fields'][2]['field_name'] = 'article_id';
 $zz['fields'][2]['type'] = 'select';
 $zz['fields'][2]['sql'] = 'SELECT article_id, date, title
@@ -33,7 +32,6 @@ $zz['fields'][4]['type'] = 'number';
 $zz['fields'][4]['auto_value'] = 'increment';
 $zz['fields'][4]['def_val_ignore'] = true;
 
-$zz['fields'][3]['title'] = 'Category';
 $zz['fields'][3]['field_name'] = 'category_id';
 $zz['fields'][3]['type'] = 'select';
 $zz['fields'][3]['sql'] = 'SELECT category_id, category, main_category_id
@@ -52,10 +50,14 @@ $zz['fields'][5]['hide_in_form'] = true;
 $zz['fields'][5]['hide_in_list'] = true;
 $zz['fields'][5]['exclude_from_search'] = true;
 
-$zz['fields'][20]['title'] = 'Updated';
-$zz['fields'][20]['field_name'] = 'last_update';
-$zz['fields'][20]['type'] = 'timestamp';
-$zz['fields'][20]['hide_in_list'] = true;
+if (wrap_setting('news_category_properties')) {
+	$zz['fields'][6]['field_name'] = 'property';
+	$zz['fields'][6]['typo_cleanup'] = true;
+}
+
+$zz['fields'][99]['field_name'] = 'last_update';
+$zz['fields'][99]['type'] = 'timestamp';
+$zz['fields'][99]['hide_in_list'] = true;
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/articles_categories.*
 	, /*_PREFIX_*/articles.title
