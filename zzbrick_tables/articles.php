@@ -85,6 +85,8 @@ if (wrap_setting('news_subtitle')) {
 	$zz['fields'][17]['if'][6] = [];
 }
 
+$zz['fields'][16] = []; // short title
+
 $zz['fields'][4]['title'] = 'Lead';
 $zz['fields'][4]['if'][1]['title'] = 'Post';
 $zz['fields'][4]['field_name'] = 'abstract';
@@ -175,6 +177,7 @@ $zz['fields'][6]['if'][1] = [];
 $zz['fields'][23] = [];
 
 if (in_array('contacts', wrap_setting('modules'))) {
+	// @todo read via categories
 	$keys = ['author' => 'Authors', 'description' => 'Organisations'];
 	$i = 40;
 	foreach ($keys as $key => $title) {
@@ -184,7 +187,7 @@ if (in_array('contacts', wrap_setting('modules'))) {
 		$zz['fields'][$i]['title'] = $title;
 		$zz['fields'][$i]['type'] = 'subtable';
 		$zz['fields'][$i]['min_records'] = 1;
-		$zz['fields'][$i]['max_records'] = 10;
+		$zz['fields'][$i]['max_records'] = 10; // @todo read via categories
 		$zz['fields'][$i]['hide_in_list'] = true;
 		$zz['fields'][$i]['form_display'] = 'lines';
 		$zz['fields'][$i]['sql'] .= sprintf(' WHERE role_category_id = %d
@@ -236,6 +239,8 @@ if (wrap_category_id('publications', 'check')) {
 	$zz['fields'][14]['fields'][4]['hide_in_form'] = true;
 	$zz['fields'][14]['fields'][5]['value'] = wrap_category_id('publications');
 }
+
+$zz['fields'][15] = []; // publication issue
 
 $zz['fields'][9]['field_name'] = 'identifier';
 $zz['fields'][9]['type'] = 'identifier';
