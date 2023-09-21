@@ -196,6 +196,6 @@ function mod_news_article($params) {
 	if (in_array('magnificpopup', wrap_setting('modules')) AND !empty($article['images']))
 		$page['extra']['magnific_popup'] = true;
 	if (!$article['published'])
-		$page['extra']['body_attributes'] = ' class="unpublished"';
+		$page['extra']['class'] = 'unpublished';
 	return $page;
 }
