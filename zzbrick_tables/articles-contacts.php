@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2021 Gustaf Mossakowski
+ * @copyright Copyright © 2021, 2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -20,7 +20,6 @@ $zz['fields'][1]['title'] = 'ID';
 $zz['fields'][1]['field_name'] = 'article_contact_id';
 $zz['fields'][1]['type'] = 'id';
 
-$zz['fields'][2]['title'] = 'Article';
 $zz['fields'][2]['field_name'] = 'article_id';
 $zz['fields'][2]['type'] = 'select';
 $zz['fields'][2]['sql'] = 'SELECT article_id, date, title
@@ -36,9 +35,9 @@ $zz['fields'][5]['def_val_ignore'] = true;
 $zz['fields'][3]['field_name'] = 'contact_id';
 $zz['fields'][3]['type'] = 'select';
 $zz['fields'][3]['sql'] = 'SELECT contact_id, contact
-	FROM /*_PREFIX_*/contacts ORDER BY identifier';
+	FROM /*_PREFIX_*/contacts
+	ORDER BY identifier';
 $zz['fields'][3]['display_field'] = 'contact';
-$zz['fields'][3]['character_set'] = 'utf8';
 $zz['fields'][3]['add_details'] = 'contacts';
 
 $zz['fields'][4]['title'] = 'Category';
@@ -53,9 +52,15 @@ $zz['fields'][4]['show_hierarchy'] = 'main_category_id';
 $zz['fields'][4]['show_hierarchy_subtree'] = wrap_category_id('roles');
 $zz['fields'][4]['def_val_ignore'] = true;
 
-$zz['fields'][20]['field_name'] = 'last_update';
-$zz['fields'][20]['type'] = 'timestamp';
-$zz['fields'][20]['hide_in_list'] = true;
+$zz['fields'][6]['field_name'] = 'role';
+$zz['fields'][6]['type'] = 'text';
+$zz['fields'][6]['size'] = 18;
+$zz['fields'][6]['hide_in_list_if_empty'] = true;
+$zz['fields'][6]['hide_in_form'] = true;
+
+$zz['fields'][99]['field_name'] = 'last_update';
+$zz['fields'][99]['type'] = 'timestamp';
+$zz['fields'][99]['hide_in_list'] = true;
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/articles_contacts.*
 		, /*_PREFIX_*/articles.title
