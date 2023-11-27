@@ -31,7 +31,13 @@ $zz['fields'][18]['path'] = [
 	'string2' => '.',
 	'string3' => wrap_setting('media_preview_size'),
 	'string4' => '.',
-	'extension' => 'thumb_extension'
+	'extension' => 'thumb_extension',
+	'webstring1' => '?v=',
+	'webfield1' => 'version'
+];
+$zz['fields'][18]['path']['extension_missing'] = [
+	'string3' => wrap_setting('media_original_filename_extension'),
+	'extension' => 'extension'
 ];
 $zz['fields'][18]['hide_in_form'] = true;
 $zz['fields'][18]['class'] = 'hidden480';
@@ -250,8 +256,10 @@ $zz['fields'][19]['class'] = 'hidden';
 $zz['sql'] = 'SELECT DISTINCT /*_PREFIX_*/articles.*
 		, IF(/*_PREFIX_*/articles.published = "yes", "Published Articles", "Unpublished Articles") AS article_type
 		, DATE_FORMAT(/*_PREFIX_*/articles.date, "%Y") AS year
-		, filename
+		, /*_PREFIX_*/media.filename
+		, /*_PREFIX_*/media.version
 		, t_mime.extension AS thumb_extension
+		, o_mime.extension
 	FROM /*_PREFIX_*/articles
 	LEFT JOIN /*_PREFIX_*/articles_media
 		ON /*_PREFIX_*/articles_media.article_id = /*_PREFIX_*/articles.article_id
@@ -261,6 +269,7 @@ $zz['sql'] = 'SELECT DISTINCT /*_PREFIX_*/articles.*
 	LEFT JOIN /*_PREFIX_*/media
 		ON /*_PREFIX_*/articles_media.medium_id = /*_PREFIX_*/media.medium_id
 		AND /*_PREFIX_*/media.published = "yes"
+	LEFT JOIN /*_PREFIX_*/filetypes o_mime USING (filetype_id)
 	LEFT JOIN /*_PREFIX_*/filetypes AS t_mime
 		ON /*_PREFIX_*/media.thumb_filetype_id = t_mime.filetype_id
 ';

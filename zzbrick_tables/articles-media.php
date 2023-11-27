@@ -32,7 +32,13 @@ $zz['fields'][5]['path'] = [
 	'string2' => '.',
 	'string3' => wrap_setting('media_preview_size'),
 	'string4' => '.',
-	'extension' => 'thumb_extension'
+	'extension' => 'thumb_extension',
+	'webstring1' => '?v=',
+	'webfield1' => 'version'
+];
+$zz['fields'][5]['path']['extension_missing'] = [
+	'string3' => wrap_setting('media_original_filename_extension'),
+	'extension' => 'extension'
 ];
 $zz['fields'][5]['class'] = 'block480a';
 
@@ -90,7 +96,9 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/articles_media.*
 	, CONCAT(/*_PREFIX_*/articles.date, ": ", /*_PREFIX_*/articles.title) AS article
 	, CONCAT("[", /*_PREFIX_*/media.medium_id, "] ", /*_PREFIX_*/media.title) AS image
 	, /*_PREFIX_*/media.filename
+	, /*_PREFIX_*/media.version
 	, t_mime.extension AS thumb_extension
+	, o_mime.extension AS extension
 	FROM /*_PREFIX_*/articles_media
 	LEFT JOIN /*_PREFIX_*/articles USING (article_id)
 	LEFT JOIN /*_PREFIX_*/media USING (medium_id)
