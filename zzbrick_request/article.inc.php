@@ -191,6 +191,9 @@ function mod_news_article($params) {
 				$page['meta'][] = ['name' => 'robots', 'content' => 'noindex'];
 			}
 	}
+	if (!empty($article['menu_hierarchy']))
+		$page['extra']['menu_hierarchy'] = wrap_menu_hierarchy('news_articles', $article['menu_hierarchy']);
+
 	$page['breadcrumbs'][]['title'] = $article['title'];
 	$page['text'] = wrap_template('article', $article);
 	if (in_array('magnificpopup', wrap_setting('modules')) AND !empty($article['images']))

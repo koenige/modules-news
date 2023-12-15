@@ -71,6 +71,7 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 		if (!wrap_category_id($category, 'check')) continue;
 		$sql = 'SELECT article_category_id, article_id, category_id, category
 				, REPLACE(SUBSTRING_INDEX(path, "/", -1), "-", "_") AS path_fragment
+				, path, parameters
 			FROM articles_categories
 			LEFT JOIN categories USING (category_id)
 			WHERE article_id IN (%s)
@@ -85,6 +86,10 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 		foreach ($categories as $lang => $categories_per_lang) {
 			foreach ($categories_per_lang as $article_category_id => $category) {
 				$articles[$lang][$category['article_id']][$category['path_fragment']] = true;
+				if ($category['parameters']) {
+					parse_str($category['parameters'], $category['parameters']);
+					$articles[$lang][$category['article_id']]['menu_hierarchy'][] = mf_default_categories_menu_hierarchy($category['parameters'], $category['path']);
+				}
 				$articles[$lang][$category['article_id']][$path][$article_category_id] = $category; 
 			}
 		}
