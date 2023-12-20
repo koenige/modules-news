@@ -163,6 +163,6 @@ msgstr ""
 msgid "Read more …"
 msgstr ""
 
-#: templates/filelinks.template.txt
+#: templates/article.template.txt
 msgid "Further Information"
 msgstr ""

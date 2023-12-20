@@ -163,6 +163,6 @@ msgstr "Diese Beitragskategorie existiert nicht."
 msgid "Read more …"
 msgstr "Mehr lesen …"
 
-#: templates/filelinks.template.txt
+#: templates/article.template.txt
 msgid "Further Information"
 msgstr "Weitere Informationen"

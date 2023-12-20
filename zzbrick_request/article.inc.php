@@ -86,9 +86,8 @@ function mod_news_article($params) {
 	}
 
 	$media = wrap_get_media($article['article_id'], 'articles', 'article');
-	if (!empty($media['links'])) {
-		$article['links'] = wrap_template('filelinks', $media['links']);
-	}
+	if (!empty($media['links']))
+		$article['links'] = wrap_template('docs', $media['links']);
 	if (!empty($media['images'])) {
 		$first_img = key($media['images']);
 		$main_img = $media['images'][$first_img];

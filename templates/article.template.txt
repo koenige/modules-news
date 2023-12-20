@@ -66,7 +66,10 @@
 <p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
 %%% condition endif %%%
 
+%%% condition if links %%%
+<h2>%%% text Further Information %%%</h2>
 %%% item links %%%
+%%% condition endif %%%
 
 %%% condition if setting news_gallery %%%
 %%% item newsgallery %%%
