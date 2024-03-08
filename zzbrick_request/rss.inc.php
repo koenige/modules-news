@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2015-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2015-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -27,7 +27,7 @@ function mod_news_rss($params) {
 	$settings['rss'] = true;
 
 	require_once wrap_setting('lib').'/feedcreator/feedcreator.class.php';
-	wrap_db_query('SET NAMES utf8');		// XML in utf8
+	wrap_db_charset('utf8');		// XML in utf8
 
 	//define channel
 	$rss = new UniversalFeedCreator();
