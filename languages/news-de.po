@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: news/functions.inc.php
 msgid "Overview"
@@ -34,6 +34,10 @@ msgstr "Es wurden keine Beiträge gefunden, die Ihrer Suche entsprechen."
 #: templates/article.template.txt
 msgid "Share article"
 msgstr "Artikel teilen"
+
+#: templates/article.template.txt
+msgid "Read on:"
+msgstr "Mehr lesen:"
 
 #: zzbrick_tables/articles.php
 msgid "News Articles"

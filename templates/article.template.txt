@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2015, 2018-2022 Gustaf Mossakowski
+# @copyright Copyright © 2014-2015, 2018-2022, 2024 Gustaf Mossakowski
 #
 <div class="%%% setting news_article_class %%%" itemscope itemtype="https://schema.org/Article">
 %%% condition if setting news_top %%%
@@ -57,7 +57,7 @@
 %%% condition endif %%%
 
 %%% condition if article %%%
-<div class='articletext'>
+<div class="articletext">
 %%% item article markdown %%%
 </div>
 %%% condition endif %%%
@@ -81,7 +81,7 @@
 <ul class="article_events">
 %%% loop events %%%
 <li><span class="date">%%% item duration wrap_date %%%</span>%%% item time_begin " %s" %%%%%% item time_end "–%s" %%%
-%%% condition if time_begin | time_end %%% %%% text h %%%%%% condition endif %%%: <a href="%%% setting events_path %%%/%%% item identifier %%%/">%%% item event %%%</a></li>
+%%% condition if time_begin | time_end %%% %%% text h %%%%%% condition endif %%%: <a href="%%% path events_event identifier %%%">%%% item event %%%</a></li>
 %%% loop end %%%
 </ul>
 %%% condition endif %%%
