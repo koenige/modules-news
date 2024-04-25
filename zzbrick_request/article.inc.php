@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2015, 2017-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2015, 2017-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -19,26 +19,23 @@ function mod_news_article($params) {
 	}
 	if (count($params) > 2) return false;
 
-	$where[] = sprintf('identifier = "%s"', wrap_db_escape(implode('/', $params)));
-	if (empty($_SESSION['logged_in'])) {
-		$where[] = 'articles.published = "yes"';
-	}
-
 	$sql = 'SELECT articles.article_id
 			, SUBSTRING_INDEX(categories.path, "/", -1) AS publication_path
+			, IF(articles.published = "yes", 1, NULL) AS published
 		FROM articles
 		LEFT JOIN articles_categories
 			ON articles_categories.article_id = articles.article_id
 			AND articles_categories.type_category_id = %d
 		LEFT JOIN categories USING (category_id)
-		WHERE %s
+		WHERE identifier = "%s"
 		ORDER BY date DESC, time DESC, identifier DESC';
 	$sql = sprintf($sql
 		, wrap_category_id('publications')
-		, implode(' AND ', $where)
+		, wrap_db_escape(implode('/', $params))
 	);
 	$article = wrap_db_fetch($sql);
 	if (!$article) return false;
+	if (empty($_SESSION['logged_in']) AND !$article['published']) wrap_quit(410);
 
 	$filter = $article['publication_path'] ? [$article['publication_path']] : [];
 	$articles = brick_request_data('articles', $filter);
