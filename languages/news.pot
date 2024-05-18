@@ -39,6 +39,10 @@ msgstr ""
 msgid "Read on:"
 msgstr ""
 
+#: zzbrick_request/article.inc.php
+msgid "This post is no longer published."
+msgstr ""
+
 #: zzbrick_tables/articles.php
 msgid "News Articles"
 msgstr ""

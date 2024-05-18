@@ -25,17 +25,17 @@ function mod_news_article($params) {
 		FROM articles
 		LEFT JOIN articles_categories
 			ON articles_categories.article_id = articles.article_id
-			AND articles_categories.type_category_id = %d
+			AND articles_categories.type_category_id = /*_ID categories publications _*/
 		LEFT JOIN categories USING (category_id)
 		WHERE identifier = "%s"
 		ORDER BY date DESC, time DESC, identifier DESC';
 	$sql = sprintf($sql
-		, wrap_category_id('publications')
 		, wrap_db_escape(implode('/', $params))
 	);
 	$article = wrap_db_fetch($sql);
 	if (!$article) return false;
-	if (empty($_SESSION['logged_in']) AND !$article['published']) wrap_quit(410);
+	if (empty($_SESSION['logged_in']) AND !$article['published'])
+		wrap_quit(410, wrap_text('This post is no longer published.'));
 
 	$filter = $article['publication_path'] ? [$article['publication_path']] : [];
 	$articles = brick_request_data('articles', $filter);
