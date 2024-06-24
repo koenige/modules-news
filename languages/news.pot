@@ -20,8 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "PO-Revision-Date: \n"
-"X-Generator: Poedit 1.6.4\n"
-"Language: de\n"
+"Language: en\n"
 
 #: configuration/access.cfg
 msgid "show news article"
@@ -33,6 +32,158 @@ msgstr ""
 
 #: configuration/access.cfg
 msgid "show book presentation"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "path to webpage of an article"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "class for article"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "path to webpage of article list"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "class for articles"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "size of big image linked to in gallery (only if bigger image is available)"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "path to book presentations on website"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "show a link to news categories above article"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "use field news_categories.property to set values for categories"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "show further images as gallery below article"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "default image size for news gallery"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "default image size for news gallery (x2)"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "link full text to article page, not only title and image"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "default image size for news overview"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "default image size for news overview (x2)"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "simple news overview, no links to article pages"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "size in px of image for OpenGraph (Facebook, Twitter)"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "show full text in overview of articles"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "allow to select a different medium than the first in sequence as overview medium for an article"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "show “read more”-link below articles"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "show abstract/lead of news in search results"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "show share links below single article"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "use subtitles for articles (field articles.subtitle)"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "display subtitle above headline"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "display top navigation line above news"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "display date above news if news_top is false"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "show top image in news"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "size in px of default top image above article"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "show links to connected events below news (events module required)"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "replace (case sensitive) substrings with other strings, e. g. for common misspellings"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "copyright holder in RSS feed"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "description of the RSS feed"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "name of editor in RSS feed"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "e-mail address of editor in RSS feed"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "number of entries in the RSS feed"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "format description text of RSS entries (articles and events) as if it were an article on webpage"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "name of webmaster in RSS feed"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "e-mail address of webmaster in RSS feed"
+msgstr ""
+
+#: configuration/settings.cfg
+msgid "include events in RSS feed"
 msgstr ""
 
 #: news/functions.inc.php
