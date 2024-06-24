@@ -23,12 +23,20 @@ msgstr ""
 "X-Generator: Poedit 1.6.4\n"
 "Language: de\n"
 
-#: news/functions.inc.php
-msgid "Overview"
+#: configuration/access.cfg
+msgid "show news article"
 msgstr ""
 
-#: templates/search-news.template.txt
-msgid "No posts were found matching your search."
+#: configuration/access.cfg
+msgid "show news articles (overview)"
+msgstr ""
+
+#: configuration/access.cfg
+msgid "show book presentation"
+msgstr ""
+
+#: news/functions.inc.php
+msgid "Overview"
 msgstr ""
 
 #: templates/article.template.txt
@@ -37,6 +45,46 @@ msgstr ""
 
 #: templates/article.template.txt
 msgid "Read on:"
+msgstr ""
+
+#: templates/article.template.txt
+msgid "by"
+msgstr ""
+
+#: templates/article.template.txt
+msgid "Previous post:"
+msgstr ""
+
+#: templates/article.template.txt
+msgid "Next post:"
+msgstr ""
+
+#: templates/article.template.txt
+msgid "Further Information"
+msgstr ""
+
+#: templates/articles.template.txt
+msgid "Sorry, currently we have no posts."
+msgstr ""
+
+#: templates/articles.template.txt
+msgid "There are no posts in this year."
+msgstr ""
+
+#: templates/articles.template.txt
+msgid "There are no posts in this category."
+msgstr ""
+
+#: templates/articles.template.txt
+msgid "This post category does not exist."
+msgstr ""
+
+#: templates/articles.template.txt
+msgid "Read more …"
+msgstr ""
+
+#: templates/search-news.template.txt
+msgid "No posts were found matching your search."
 msgstr ""
 
 #: zzbrick_request/article.inc.php
@@ -137,40 +185,4 @@ msgstr ""
 
 #: zzbrick_tables/articles-media.php
 msgid "Preview"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "by"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "Previous post:"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "Next post:"
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "Sorry, currently we have no posts."
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "There are no posts in this year."
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "There are no posts in this category."
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "This post category does not exist."
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "Read more …"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "Further Information"
 msgstr ""
