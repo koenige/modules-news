@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2021, 2023 Gustaf Mossakowski
+ * @copyright Copyright © 2021, 2023-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -34,7 +34,7 @@ $zz['fields'][5]['def_val_ignore'] = true;
 
 $zz['fields'][3]['field_name'] = 'contact_id';
 $zz['fields'][3]['type'] = 'select';
-$zz['fields'][3]['sql'] = 'SELECT contact_id, contact
+$zz['fields'][3]['sql'] = 'SELECT contact_id, contact, identifier
 	FROM /*_PREFIX_*/contacts
 	ORDER BY identifier';
 $zz['fields'][3]['display_field'] = 'contact';
@@ -62,6 +62,7 @@ $zz['fields'][99]['field_name'] = 'last_update';
 $zz['fields'][99]['type'] = 'timestamp';
 $zz['fields'][99]['hide_in_list'] = true;
 
+
 $zz['sql'] = 'SELECT /*_PREFIX_*/articles_contacts.*
 		, /*_PREFIX_*/articles.title
 		, /*_PREFIX_*/contacts.contact
@@ -73,3 +74,19 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/articles_contacts.*
 		ON /*_PREFIX_*/categories.category_id = /*_PREFIX_*/articles_contacts.role_category_id
 ';
 $zz['sqlorder'] = ' ORDER BY category, date DESC';
+
+
+$zz['subselect']['sql'] = 'SELECT /*_PREFIX_*/articles.article_id
+		, contact
+		, contacts.identifier
+	FROM /*_PREFIX_*/articles
+	LEFT JOIN /*_PREFIX_*/articles_contacts USING (article_id)
+	LEFT JOIN /*_PREFIX_*/contacts USING (contact_id)
+	LEFT JOIN /*_PREFIX_*/persons USING (contact_id)
+	ORDER BY last_name, first_name, contact';
+$zz['subselect']['sql_ignore'][] = 'identifier';
+$zz['subselect']['concat_rows'] = ', ';
+$zz['unless']['export_mode']['subselect']['field_link'][0] = [
+	'area' => 'contacts_profile[person]',
+	'fields' => ['identifier']
+];
