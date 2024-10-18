@@ -154,7 +154,7 @@ function mod_news_article($params) {
 	$i = count($tree);
 	foreach ($tree as $path) {
 		$url = str_repeat('../', $i);
-		$page['breadcrumbs'][] = '<a href="'.$url.'">'.$path.'</a>';
+		$page['breadcrumbs'][] = ['title' => $path, 'url_path' => $url];
 		$i--;
 	}
 	$page['opengraph'] = [
