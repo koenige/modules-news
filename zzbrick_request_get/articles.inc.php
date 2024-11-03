@@ -70,7 +70,7 @@ function mod_news_get_articles($params = [], $settings = []) {
 					WHERE category_id = %d';
 				$sql = sprintf($sql, $category_id);
 				$news_category_parameters = wrap_db_fetch($sql, '', 'single value');
-				wrap_module_parameters('news', $news_category_parameters);
+				wrap_match_module_parameters('news', $news_category_parameters);
 				break;
 			}
 		}
