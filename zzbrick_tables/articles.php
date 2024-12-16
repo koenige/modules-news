@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2014-2015, 2017-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2014-2015, 2017-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -307,14 +307,12 @@ $zz['filter'][1]['where'] = 'YEAR(/*_PREFIX_*/articles.date)';
 $zz['filter'][5] = [];
 
 if (wrap_category_id('news', 'check')) {
-	$zz['filter'][2]['sql'] = sprintf('SELECT DISTINCT category_id
+	$zz['filter'][2]['sql'] = 'SELECT DISTINCT category_id
 			, category
 		FROM articles_categories
 		LEFT JOIN categories USING (category_id)
-		WHERE type_category_id = %d
-		ORDER BY category'
-		, wrap_category_id('news')
-	);
+		WHERE type_category_id = /*_ID categories news _*/
+		ORDER BY category';
 	$zz['filter'][2]['title'] = wrap_text('Category');
 	$zz['filter'][2]['identifier'] = 'category';
 	$zz['filter'][2]['type'] = 'list';
@@ -362,10 +360,9 @@ if (wrap_category_id('publications', 'check')) {
 			, category
 		FROM articles_categories
 		LEFT JOIN categories USING (category_id)
-		WHERE type_category_id = %d
+		WHERE type_category_id = /*_ID categories publications_*/
 		AND category_id NOT IN (%s)
 		ORDER BY category'
-		, wrap_category_id('publications')
 		, $hide_category_ids ? implode(',', $hide_category_ids) : 0
 	);
 

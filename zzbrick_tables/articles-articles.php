@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2022 Gustaf Mossakowski
+ * @copyright Copyright © 2022, 2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -43,14 +43,11 @@ $zz['fields'][2]['select_empty_no_add'] = true;
 
 $zz['fields'][4]['title'] = 'Relation';
 $zz['fields'][4]['field_name'] = 'relation_category_id';
-$zz['fields'][4]['key_field_name'] = 'category_id';
 $zz['fields'][4]['type'] = 'select';
 $zz['fields'][4]['type_detail'] = 'select';
-$zz['fields'][4]['sql'] = sprintf('SELECT category_id, category
+$zz['fields'][4]['sql'] = 'SELECT category_id, category
 	FROM /*_PREFIX_*/categories
-	WHERE main_category_id = %d',
-	wrap_category_id('relation')
-);
+	WHERE main_category_id = /*_ID categories relation _*/';
 $zz['fields'][4]['sql_translate'] = ['category_id' => 'categories'];
 $zz['fields'][4]['display_field'] = 'category';
 $zz['fields'][4]['character_set'] = 'utf8';
@@ -60,7 +57,6 @@ $zz['fields'][4]['if']['where']['hide_in_list'] = true;
 
 $zz['fields'][3]['title'] = 'Main Article';
 $zz['fields'][3]['field_name'] = 'main_article_id';
-$zz['fields'][3]['key_field_name'] = 'article_id';
 $zz['fields'][3]['type'] = 'select';
 $zz['fields'][3]['type_detail'] = 'select';
 $zz['fields'][3]['sql'] = 'SELECT article_id, title, identifier
