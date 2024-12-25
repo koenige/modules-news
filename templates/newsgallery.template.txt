@@ -5,11 +5,11 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2015, 2017, 2019-2020, 2022 Gustaf Mossakowski
+# @copyright Copyright © 2014-2015, 2017, 2019-2020, 2022, 2024 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 <p class="newsgallery js-gallery">
 %%% loop start %%%
-<a href="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_big_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%" title="%%% item strip_tags %%%%%% item source strip_tags %%%" data-title="%%% item title %%%%%% item source wrap_html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%"%%% condition if setting news_gallery_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% condition endif %%% alt="Bild %%% item title %%%"></a>
+<a href="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_big_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%" title="%%% item strip_tags %%%%%% item source strip_tags %%%" data-title="%%% item title %%%%%% item source wrap_html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%"%%% if setting news_gallery_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% endif %%% alt="Bild %%% item title %%%"></a>
 %%% loop end %%%
 </p>

@@ -5,77 +5,77 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2016, 2018-2022 Gustaf Mossakowski
+# @copyright Copyright © 2014-2016, 2018-2022, 2024 Gustaf Mossakowski
 #
 # fields: article_id, identifier, date, time, abstract, filename, source,
 # thumb_extension, direct_link, project_id
 #
-%%% condition if no_news_year %%%
+%%% if no_news_year %%%
 <p>%%% text There are no posts in this year. %%%</p>
 
-%%% condition elseif no_news_category %%%
+%%% elseif no_news_category %%%
 <p>%%% text There are no posts in this category. %%%</p>
 
-%%% condition elseif category_not_found %%%
+%%% elseif category_not_found %%%
 <p>%%% text This post category does not exist. %%%</p>
 
-%%% condition elseif no_news_current %%%
+%%% elseif no_news_current %%%
 <p class="news-none">%%% text Sorry, currently we have no posts. %%%</p>
-%%% condition else %%%
+%%% else %%%
 
 <ul class="%%% setting news_articles_class %%%">
 %%% loop start %%%
-<li class="article_%%% loopposition counter %%% article_item%%% condition unless published %%% unpublished%%% condition endif %%%" id="news_%%% item identifier %%%">
+<li class="article_%%% loopposition counter %%% article_item%%% unless published %%% unpublished%%% endif %%%" id="news_%%% item identifier %%%">
 %%% loop images_overview 1 %%%
-<p class="news-image %%% item orientation " %s" %%%"><a href="%%% item link %%%" title="%%% item main__title %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%"%%% condition if setting news_overview_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% condition endif %%% alt="%%% item title %%%"></a></p>
+<p class="news-image %%% item orientation " %s" %%%"><a href="%%% item link %%%" title="%%% item main__title %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%"%%% if setting news_overview_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% endif %%% alt="%%% item title %%%"></a></p>
 %%% loop end %%%
-%%% condition if setting news_link_full_text %%%
+%%% if setting news_link_full_text %%%
 <a href="%%% item link %%%" title="%%% item title %%%">
-%%% condition endif %%%
+%%% endif %%%
 <div class="news-text">
-%%% condition if categories %%%
+%%% if categories %%%
 <p class="news-category">
 %%% loop categories %%%%%% item category %%%%%% loopposition first|middle " / "%%%%%% loop end %%%
 </p>
-%%% condition endif %%%
-%%% condition if subtitle %%%
-%%% condition if setting news_subtitle_above %%%
+%%% endif %%%
+%%% if subtitle %%%
+%%% if setting news_subtitle_above %%%
 <p class="news-overtitle">%%% item subtitle %%%</h2>
-%%% condition endif %%%
-%%% condition endif %%%
+%%% endif %%%
+%%% endif %%%
 <p class="news-title"><strong>
-%%% condition unless setting news_no_article_page %%%
-%%% condition unless setting news_link_full_text %%%
+%%% unless setting news_no_article_page %%%
+%%% unless setting news_link_full_text %%%
 <a href="%%% item link %%%" title="%%% item title %%%">
-%%% condition endif %%%
-%%% condition endif %%%
+%%% endif %%%
+%%% endif %%%
 %%% item title %%%
-%%% condition unless setting news_no_article_page %%%
-%%% condition unless setting news_link_full_text %%%
+%%% unless setting news_no_article_page %%%
+%%% unless setting news_link_full_text %%%
 </a>
-%%% condition endif %%%
-%%% condition endif %%%
+%%% endif %%%
+%%% endif %%%
 </strong><span class="news-date"> –&nbsp;<em>%%% item date wrap_date %%%</em></span></p>
-%%% condition if subtitle %%%
-%%% condition unless setting news_subtitle_above %%%
+%%% if subtitle %%%
+%%% unless setting news_subtitle_above %%%
 <p class="news-subtitle">%%% item subtitle %%%</p>
-%%% condition endif %%%
-%%% condition endif %%%
+%%% endif %%%
+%%% endif %%%
 %%% item abstract markdown %%%
-%%% condition if setting news_overview_full_text %%%
+%%% if setting news_overview_full_text %%%
 %%% item article markdown %%%
-%%% condition endif %%%
-%%% condition if setting news_link_full_text %%%
+%%% endif %%%
+%%% if setting news_link_full_text %%%
 </a>
-%%% condition endif %%%
-%%% condition if direct_link %%%
+%%% endif %%%
+%%% if direct_link %%%
 <p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
-%%% condition endif %%%
-%%% condition if setting news_read_more_link %%%
+%%% endif %%%
+%%% if setting news_read_more_link %%%
 <p><a href="%%% item link %%%">%%% text Read more … %%%</a></p>
-%%% condition endif %%%
+%%% endif %%%
 </div>
 </li>
 %%% loop end %%%
 </ul>
-%%% condition endif %%%
+%%% endif %%%

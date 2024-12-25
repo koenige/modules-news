@@ -8,87 +8,87 @@
 # @copyright Copyright © 2014-2015, 2018-2022, 2024 Gustaf Mossakowski
 #
 <div class="%%% setting news_article_class %%%" itemscope itemtype="https://schema.org/Article">
-%%% condition if setting news_top %%%
+%%% if setting news_top %%%
 <div class="newstop">
 <p class="date" itemprop="datePublished">
-%%% condition if overview_link %%%<a href="%%% item overview_link %%%">%%% text News %%%</a>, %%% condition endif %%%
+%%% if overview_link %%%<a href="%%% item overview_link %%%">%%% text News %%%</a>, %%% endif %%%
 %%% loop categories %%% <span class="%%% item path %%%">%%% item category %%%</span> %%% loop end %%%
-%%% condition if setting news_top_date %%%
+%%% if setting news_top_date %%%
 <em>%%% item date wrap_date %%%</em>
-%%% condition endif %%%
+%%% endif %%%
 </p>
-%%% condition if _next_identifier %%%
+%%% if _next_identifier %%%
 <p class="next_news"><a href="%%% item _next_link %%%" title="%%% text Next post: %%% %%% item _next_title wrap_html_escape %%%">→</a></p>
-%%% condition endif %%%
-%%% condition if _prev_identifier %%%
+%%% endif %%%
+%%% if _prev_identifier %%%
 <p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous post: %%% %%% item _prev_title wrap_html_escape %%%">←</a></p>
-%%% condition endif %%%
+%%% endif %%%
 </div>
-%%% condition elseif setting news_top_date %%%
+%%% elseif setting news_top_date %%%
 <p class="date" itemprop="datePublished"><em>%%% item date wrap_date %%%</em></p>
-%%% condition endif %%%
+%%% endif %%%
 
 <article>
 <div class="article">
-%%% condition if subtitle %%%
-%%% condition if setting news_subtitle_above %%%
+%%% if subtitle %%%
+%%% if setting news_subtitle_above %%%
 <p class="news-overtitle"><strong>%%% item subtitle %%%</strong></p>
-%%% condition endif %%%
-%%% condition endif %%%
+%%% endif %%%
+%%% endif %%%
 <h1 itemprop="headline">%%% item title %%%</h1>
-%%% condition if subtitle %%%
-%%% condition unless setting news_subtitle_above %%%
+%%% if subtitle %%%
+%%% unless setting news_subtitle_above %%%
 <p class="news-subtitle"><strong>%%% item subtitle %%%</strong></p>
-%%% condition endif %%%
-%%% condition endif %%%
-%%% condition if abstract %%%
+%%% endif %%%
+%%% endif %%%
+%%% if abstract %%%
 <div class="abstract" itemprop="abstract">
 %%% item abstract markdown %%%
 </div>
-%%% condition endif %%%
+%%% endif %%%
 
 %%% loop videos 1 %%%
-<video class="topvideo" width="%%% item width_px %%%" height="%%% item height_px %%%" controls preload="metadata"%%% condition if thumb_extension %%% poster="%%% setting files_path %%%/%%% item filename %%%.960.%%% item thumb_extension %%%?v=%%% item version %%%"%%% condition endif %%%>
+<video class="topvideo" width="%%% item width_px %%%" height="%%% item height_px %%%" controls preload="metadata"%%% if thumb_extension %%% poster="%%% setting files_path %%%/%%% item filename %%%.960.%%% item thumb_extension %%%?v=%%% item version %%%"%%% endif %%%>
   <source src="%%% setting files_path %%%/%%% item filename %%%.%%% item extension %%%?v=%%% item version %%%" type="%%% item mime_content_type %%%/%%% item mime_subtype %%%">
 </video>
 %%% loop end %%%
-%%% condition if setting news_topimage %%%
+%%% if setting news_topimage %%%
 %%% item topimage "<div class='topimage'>%s</div>" %%%
-%%% condition endif %%%
+%%% endif %%%
 
-%%% condition if article %%%
+%%% if article %%%
 <div class="articletext">
 %%% item article markdown %%%
 </div>
-%%% condition endif %%%
+%%% endif %%%
 
-%%% condition if direct_link %%%
+%%% if direct_link %%%
 <p><a href="%%% item direct_link %%%">%%% item direct_link %%%</a></p>
-%%% condition endif %%%
+%%% endif %%%
 
-%%% condition if links %%%
+%%% if links %%%
 <h2>%%% text Further Information %%%</h2>
 %%% item links %%%
-%%% condition endif %%%
+%%% endif %%%
 
-%%% condition if setting news_gallery %%%
+%%% if setting news_gallery %%%
 %%% item newsgallery %%%
-%%% condition endif %%%
+%%% endif %%%
 </div>
 
-%%% condition if events %%%
+%%% if events %%%
 <h2>%%% text Events %%%</h2>
 <ul class="article_events">
 %%% loop events %%%
 <li><span class="date">%%% item duration wrap_date %%%</span>%%% item time_begin " %s" %%%%%% item time_end "–%s" %%%
-%%% condition if time_begin | time_end %%% %%% text h %%%%%% condition endif %%%: <a href="%%% path events_event identifier %%%">%%% item event %%%</a></li>
+%%% if time_begin | time_end %%% %%% text h %%%%%% endif %%%: <a href="%%% path events_event identifier %%%">%%% item event %%%</a></li>
 %%% loop end %%%
 </ul>
-%%% condition endif %%%
+%%% endif %%%
 </article>
 </div>
 
-%%% condition if setting news_sharelinks %%%
+%%% if setting news_sharelinks %%%
 <div class="share">
 <h2>%%% text Share article %%%</h2>
 <ul>
@@ -97,6 +97,6 @@
 <li><a href="mailto:?&amp;subject=%%% item title rawurlencode %%%&amp;body=%%% item abstract rawurlencode %%%%0A%0A%%% text Read on: %%%%0A%%% setting protocol %%%%3A//%%% setting hostname %%%%%% setting base %%%/%%% item identifier %%%/%3Futm_source=%%% setting utm_source %%%%26utm_medium=email%26utm_campaign=share">%%% text E-Mail %%%</a></li>
 </ul>
 </div>
-%%% condition endif %%%
+%%% endif %%%
 
 <script src="%%% setting behaviour_path %%%/default/link-rel-nav.js"></script>
