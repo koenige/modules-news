@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2022-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2022-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -27,14 +27,11 @@ function mf_news_prev_next($article) {
 			FROM articles
 			LEFT JOIN articles_categories
 				ON articles_categories.article_id = articles.article_id
-				AND articles_categories.type_category_id = %d
+				AND articles_categories.type_category_id = /*_ID categories publications _*/
 			WHERE articles_categories.category_id = %d
 			AND published = "yes"
 			ORDER BY identifier DESC';
-		$sql = sprintf($sql
-			, wrap_category_id('publications')
-			, $publication_id
-		);
+		$sql = sprintf($sql, $publication_id);
 	} else {
 		$sql = 'SELECT articles.article_id, title, identifier
 			FROM articles

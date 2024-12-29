@@ -75,10 +75,10 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 			FROM articles_categories
 			LEFT JOIN categories USING (category_id)
 			WHERE article_id IN (%s)
-			AND type_category_id = %d
+			AND type_category_id = /*_ID categories %s _*/
 			AND (ISNULL(parameters) OR parameters NOT LIKE "%%&hidden=1%%")
 			ORDER by articles_categories.sequence, categories.sequence, category';
-		$sql = sprintf($sql, implode(',', $ids), wrap_category_id($category));
+		$sql = sprintf($sql, implode(',', $ids), $category);
 		$categorydata = wrap_db_fetch($sql, 'article_category_id');
 		foreach ($langs as $lang) {
 			$categories[$lang] = wrap_translate($categorydata, $path, 'category_id', true, $lang);

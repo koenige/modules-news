@@ -45,7 +45,7 @@ function mod_news_article($params) {
 	// article in other languages?
 	$sql = 'SELECT language_id, iso_639_1, iso_639_1 AS language_base
 			, "%s" AS identifier
-			, IF("%s" = iso_639_1, 1, NULL) AS current
+			, IF("/*_SETTING lang _*/" = iso_639_1, 1, NULL) AS current
 		FROM _translations_varchar
 		JOIN _translationfields USING (translationfield_id)
 		LEFT JOIN languages USING (language_id)
@@ -56,7 +56,6 @@ function mod_news_article($params) {
 		AND _translations_varchar.field_id = %d';
 	$sql = sprintf($sql
 		, $article['identifier']
-		, wrap_setting('lang')
 		, $article['article_id']
 	);
 	$article['languages'] = wrap_db_fetch($sql, 'language_id');
