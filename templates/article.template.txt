@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2015, 2018-2022, 2024 Gustaf Mossakowski
+# @copyright Copyright © 2014-2015, 2018-2022, 2024-2025 Gustaf Mossakowski
 #
 <div class="%%% setting news_article_class %%%" itemscope itemtype="https://schema.org/Article">
 %%% if setting news_top %%%
@@ -47,6 +47,13 @@
 </div>
 %%% endif %%%
 
+%%% if author %%%
+%%% switch news_author_display %%%
+%%% case above %%%
+<p class="author"><em> – %%% text by %%% %%% loop author %%%%%% loopposition middle ", " %%%%%% loopposition last " & " %%%%%% item contact %%%%%% loop end %%%</em></p>
+%%% switch end %%%
+%%% endif %%%
+
 %%% loop videos 1 %%%
 <video class="topvideo" width="%%% item width_px %%%" height="%%% item height_px %%%" controls preload="metadata"%%% if thumb_extension %%% poster="%%% setting files_path %%%/%%% item filename %%%.960.%%% item thumb_extension %%%?v=%%% item version %%%"%%% endif %%%>
   <source src="%%% setting files_path %%%/%%% item filename %%%.%%% item extension %%%?v=%%% item version %%%" type="%%% item mime_content_type %%%/%%% item mime_subtype %%%">
@@ -60,6 +67,13 @@
 <div class="articletext">
 %%% item article markdown %%%
 </div>
+%%% endif %%%
+
+%%% if author %%%
+%%% switch news_author_display %%%
+%%% case below %%%
+<p class="author"><em>%%% text by %%% %%% loop author %%%%%% loopposition middle ", " %%%%%% loopposition last " & " %%%%%% item contact %%%%%% loop end %%%</em></p>
+%%% switch end %%%
 %%% endif %%%
 
 %%% if direct_link %%%

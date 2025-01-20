@@ -109,7 +109,11 @@ function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $l
 	// contacts
 	if (in_array('contacts', wrap_setting('modules'))) {
 		$sql = 'SELECT article_contact_id, article_id, contact_id, contact
-				, SUBSTRING_INDEX(categories.path, "/", -1) AS role
+				, IF(categories.parameters LIKE "%%&alias=roles/%%",
+					SUBSTRING_INDEX(SUBSTRING_INDEX(categories.parameters, "&alias=roles/", -1), "&", 1),
+					SUBSTRING_INDEX(categories.path, "/", -1)
+				) AS role
+				, categories.parameters
 			FROM articles_contacts
 			LEFT JOIN contacts USING (contact_id)
 			LEFT JOIN categories
