@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2025 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -39,8 +39,8 @@ function mod_news_articles($params, $settings) {
 		$has[$area] = true;
 		switch ($area) {
 		case 'category':
-			$sql = 'SELECT category FROM categories WHERE category_id = %d';
-			$sql = sprintf($sql, wrap_category_id($title));
+			$sql = 'SELECT category FROM categories WHERE category_id = /*_ID categories %s _*/';
+			$sql = sprintf($sql, $title);
 			$title = wrap_db_fetch($sql, '', 'single value');
 			break;
 		case 'year':

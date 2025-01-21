@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2025 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -57,10 +57,10 @@ function mod_news_get_articles($params = [], $settings = []) {
 				if (!$category_id = wrap_category_id(sprintf('%s/%s', $path, $param), 'check')) continue;
 				$join[] = sprintf(' LEFT JOIN articles_categories ac_%s
 					ON articles.article_id = ac_%s.article_id
-					AND ac_%s.type_category_id = %d
+					AND ac_%s.type_category_id = /*_ID categories %s _*/
 					LEFT JOIN categories categories_%s
 						ON categories_%s.category_id = ac_%s.category_id
-				', $path, $path, $path, wrap_category_id($path), $path, $path, $path);
+				', $path, $path, $path, $path, $path, $path, $path);
 				$where[] = sprintf('ac_%s.category_id = %d', $path, $category_id);
 				$titles['category'] = $path.'/'.$param;
 				$param = array_shift($params); // allow another parameter
