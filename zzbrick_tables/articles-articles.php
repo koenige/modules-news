@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2022, 2024 Gustaf Mossakowski
+ * @copyright Copyright © 2022, 2024-2025 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -83,16 +83,6 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/articles_articles.*
 	LEFT JOIN /*_PREFIX_*/articles USING (article_id)
 	LEFT JOIN /*_PREFIX_*/articles main_articles
 		ON /*_PREFIX_*/articles_articles.main_article_id = main_articles.article_id
-	LEFT JOIN /*_PREFIX_*/categories
-		ON /*_PREFIX_*/categories.category_id = /*_PREFIX_*/articles_articles.relation_category_id
-';
-$zz['sql_association'] = 'SELECT /*_PREFIX_*/articles_articles.*
-		, main_articles.title AS main_article, /*_PREFIX_*/articles.title
-		, /*_PREFIX_*/categories.category
-	FROM /*_PREFIX_*/articles_articles
-	LEFT JOIN /*_PREFIX_*/articles main_articles USING (article_id)
-	LEFT JOIN /*_PREFIX_*/articles 
-		ON /*_PREFIX_*/articles_articles.main_article = articles.article_id
 	LEFT JOIN /*_PREFIX_*/categories
 		ON /*_PREFIX_*/categories.category_id = /*_PREFIX_*/articles_articles.relation_category_id
 ';
