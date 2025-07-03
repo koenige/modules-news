@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2015-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2015-2025 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -74,7 +74,11 @@ function mod_news_rss($params) {
 			$line['guid'] = wrap_setting('host_base').wrap_setting('base').$line['guid'];
 		$item->link = $line['link'];
 		$item->guid = $line['guid'];
-		$item->description = markdown($line['text']);
+		if (wrap_setting('rss_fulltext')) {
+			$item->description = markdown($line['text']);
+		} else {
+			$item->description = markdown($line['article']);
+		}
 		$item->descriptionHtmlSyndicated = true;
 		$item->source = wrap_setting('host_base');
 		if (!empty($line['pubDate']))
