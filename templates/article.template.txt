@@ -106,9 +106,9 @@
 <div class="share">
 <h2>%%% text Share article %%%</h2>
 <ul>
-<li><a href="https://www.facebook.com/sharer/sharer.php?u=%%% setting protocol %%%%3A//%%% setting hostname %%%%%% setting base %%%/%%% item identifier %%%/%3Futm_source%3Dfacebook%26utm_medium%3Dsocial%26utm_campaign%3Dshare">%%% text Facebook %%%</a></li>
-<li><a href="https://twitter.com/intent/tweet?text=%%% item abstract rawurlencode %%%&url=%%% setting protocol %%%%3A//%%% setting hostname %%%%%% setting base %%%/%%% item identifier %%%/%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dshare">%%% text Twitter %%%</a></li>
-<li><a href="mailto:?&amp;subject=%%% item title rawurlencode %%%&amp;body=%%% item abstract rawurlencode %%%%0A%0A%%% text Read on: %%%%0A%%% setting protocol %%%%3A//%%% setting hostname %%%%%% setting base %%%/%%% item identifier %%%/%3Futm_source=%%% setting utm_source %%%%26utm_medium=email%26utm_campaign=share">%%% text E-Mail %%%</a></li>
+<li><a href="https://www.facebook.com/sharer/sharer.php?u=%%% setting protocol %%%%3A//%%% setting hostname %%%%%% setting base %%%%%% path news_article identifier %%%%3Futm_source%3Dfacebook%26utm_medium%3Dsocial%26utm_campaign%3Dshare">%%% text Facebook %%%</a></li>
+<li><a href="https://x.com/intent/post?text=%%% item abstract rawurlencode %%%&url=%%% setting protocol %%%%3A//%%% setting hostname %%%%%% setting base %%%%%% path news_article identifier %%%%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dshare">%%% text Twitter %%%</a></li>
+<li><a href="mailto:?&amp;subject=%%% item title rawurlencode %%%&amp;body=%%% item abstract rawurlencode %%%%0A%0A%%% text Read on: %%%%0A%%% setting protocol %%%%3A//%%% setting hostname %%%%%% setting base %%%%%% path news_article identifier %%%%3Futm_source=%%% setting utm_source %%%%26utm_medium=email%26utm_campaign=share">%%% text E-Mail %%%</a></li>
 </ul>
 </div>
 %%% endif %%%
