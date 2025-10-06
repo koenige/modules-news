@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2025 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -19,13 +19,13 @@
  *
  * @param array $data
  * @param array $settings (optional)
- * @param string $id_field_name (optional, if key does not equal event_id)
- * @param string $lang_field_name (optional, if not current language shall be used)
  * @return array
  */
-function mod_news_get_articledata($data, $settings = [], $id_field_name = '', $lang_field_name = '') {
+function mf_news_articles_data($data, $settings = []) {
 	if (!$data) return $data;
-	wrap_include('data', 'zzwrap');
+	
+	$id_field_name = $settings['id_field_name'] ?? NULL; // (optional, if key does not equal article_id)
+	$id_field_name = $settings['lang_field_name '] ?? NULL; // (optional, if not current language shall be used)
 
 	$ids = wrap_data_ids($data, $id_field_name);
 	$langs = wrap_data_langs($data, $lang_field_name);

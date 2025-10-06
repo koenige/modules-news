@@ -113,10 +113,10 @@ function mod_news_get_articles($params = [], $settings = []) {
 		, $where ? 'WHERE '.implode(' AND ', $where) : ''
 		, !empty($settings['last']) ? sprintf('LIMIT 0, %d', $settings['last']) : ''
 	);
-	$ids = wrap_db_fetch($sql, 'article_id');
+	$articles = wrap_db_fetch($sql, 'article_id');
 
-	wrap_include('zzbrick_request_get/articledata', 'news');
-	$articles = mod_news_get_articledata($ids);
+	wrap_include('data', 'zzwrap');
+	$articles = wrap_data('articles', $articles);
 	$articles['count'] = count($articles);
 	$articles['titles'] = $titles;
 	return $articles;
