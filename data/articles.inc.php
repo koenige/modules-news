@@ -17,19 +17,12 @@
  * get article data per ID, pre-sorted
  * existing data is appended to article data
  *
- * @param array $data
+ * @param array $ids
+ * @param array $langs
  * @param array $settings (optional)
  * @return array
  */
-function mf_news_articles_data($data, $settings = []) {
-	if (!$data) return $data;
-	
-	$id_field_name = $settings['id_field_name'] ?? NULL; // (optional, if key does not equal article_id)
-	$id_field_name = $settings['lang_field_name '] ?? NULL; // (optional, if not current language shall be used)
-
-	$ids = wrap_data_ids($data, $id_field_name);
-	$langs = wrap_data_langs($data, $lang_field_name);
-
+function mf_news_articles_data($ids, $langs, $settings = []) {
 	$sql = 'SELECT article_id
 			, articles.date, articles.time, articles.identifier
 			, articles.abstract, articles.title, articles.subtitle
@@ -132,6 +125,5 @@ function mf_news_articles_data($data, $settings = []) {
 		}
 	}
 
-	$data = wrap_data_merge($data, $articles, $id_field_name, $lang_field_name);
-	return $data;
+	return [$articles];
 }	
