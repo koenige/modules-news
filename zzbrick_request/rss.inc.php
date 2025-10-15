@@ -14,15 +14,11 @@
 
 
 /**
- * Gibt RSS-Feed aus
+ * output RSS feed with news articles and events
  *
- * @todo LastBuildDate gibt immer aktuelles Datum aus, daher kein Caching
- * möglich
+ * @todo LastBuildDate always return current date, so caching is impossible
  */
-function mod_news_rss($params) {
-	// Parameter: keine erlaubt
-	if (!empty($params)) return false;
-	
+function mod_news_rss() {
 	$settings['last'] = wrap_setting('rss_entries');
 	$settings['rss'] = true;
 
@@ -61,12 +57,12 @@ function mod_news_rss($params) {
 	if (wrap_setting('rss_fulltext'))
 		$data = mod_news_rss_fulltext($data);
 
-	// RSS schreiben
+	// write RSS
 	foreach ($data as $index => $line) {
 		if (!is_int($index)) continue;
 		//channel items/entries
 		$item = new FeedItem();
-		// HTML Entities aus Titel entfernen, ist kein character data
+		// remove HTML entities from title, no character data there
 		$item->title = html_entity_decode($line['title'], ENT_QUOTES, 'UTF-8');
 		if (substr($line['link'], 0, 1) === '/')
 			$line['link'] = wrap_setting('host_base').wrap_setting('base').$line['link'];
@@ -160,21 +156,24 @@ function mf_news_brick2rss_links($text) {
 /**
  * output full text per event/article in RSS, formatted as on webpage
  *
- * @param array $articles
+ * @param array $posts
  * @return array
  */
-function mod_news_rss_fulltext($articles) {
-	foreach ($articles as $id => $article) {
+function mod_news_rss_fulltext($posts) {
+	wrap_setting('news_sharelinks', false);
+
+	foreach ($posts as $id => $post) {
 		if (!is_int($id)) continue;
-		if (isset($article['duration'])) {
-			$description = brick_format('%%% request event '.str_replace('/', ' ', $article['identifier']));
+		if (isset($post['duration'])) {
+			$description = brick(['request event', ...explode('/', $post['identifier'])]);
 		} else {
-			$description = brick_format('%%% request article '.str_replace('/', ' ', $article['identifier']));
-			preg_match('~</header>(.+)</article>~s', $description['text'], $matches);
+			$description = brick(['request article', ...explode('/', $post['identifier'])]);
+			preg_match('~</header>(.+)</article>~s', $description, $matches);
 			if ($matches)
-				$description['text'] = $matches[1];
+				$description = $matches[1];
 		}
-		$articles[$id]['text'] = mf_news_brick2rss_format($description['text']);
+		if ($description)
+			$posts[$id]['text'] = mf_news_brick2rss_format($description);
 	}
-	return $articles;
+	return $posts;
 }
