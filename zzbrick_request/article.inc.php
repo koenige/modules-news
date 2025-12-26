@@ -34,7 +34,7 @@ function mod_news_article($params) {
 	);
 	$article = wrap_db_fetch($sql);
 	if (!$article) return false;
-	if (empty($_SESSION['logged_in']) AND !$article['published'])
+	if (!wrap_access('news_preview') AND !$article['published'])
 		wrap_quit(410, wrap_text('This post is no longer published.'));
 
 	$filter = $article['publication_path'] ? [$article['publication_path']] : [];

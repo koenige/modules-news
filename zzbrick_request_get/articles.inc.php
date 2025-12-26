@@ -41,7 +41,7 @@ function mod_news_get_articles($params = [], $settings = []) {
 	if (!empty($settings['months'])) {
 		$where[] = sprintf('DATEDIFF(CURDATE(), date) < %d * 30', $settings['months']);
 	}
-	if (empty($_SESSION['logged_in'])) {
+	if (!wrap_access('news_preview')) {
 		$where[] = 'articles.published = "yes"';
 		$where[] = 'date <= CURDATE() AND (ISNULL(date_to) OR date_to >= CURDATE())';
 	}
