@@ -53,7 +53,7 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 	}
 
 	// media
-	$articles = wrap_data_media($articles, $ids, $langs, 'articles', 'article');
+	$articles = wrap_data_media($articles, $ids, $langs, 'articles');
 
 	// categories
 	$article_categories = [
