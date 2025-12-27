@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020, 2022-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2020, 2022-2025 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -60,7 +60,7 @@ function mf_news_search($q) {
 
 function mf_news_media($articles) {
 	if (!$articles) return [];
-	$media = wrap_get_media(array_keys($articles), 'articles', 'article');
+	$media = wrap_media(array_keys($articles), 'articles');
 	foreach ($media as $id => $files) {
 		$articles[$id] += $files;
 	}

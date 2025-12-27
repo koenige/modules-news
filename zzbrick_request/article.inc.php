@@ -81,7 +81,7 @@ function mod_news_article($params) {
 		$article['events'] = wrap_db_fetch($sql, 'event_id');
 	}
 
-	$media = wrap_get_media($article['article_id'], 'articles', 'article');
+	$media = wrap_media($article['article_id'], 'articles');
 	if (!empty($media['links']))
 		$article['links'] = wrap_template('docs', $media['links']);
 	if (!empty($media['images'])) {
