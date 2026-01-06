@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2015, 2017-2025 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2015, 2017-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -17,7 +17,8 @@ function mod_news_article($params) {
 	if (count($params) === 1 AND is_numeric($params[0])) {
 		return brick_format('%%% request articles '.$params[0].' %%%');
 	}
-	if (count($params) > 2) return false;
+	// allow year/month/article etc.
+	if (count($params) > 3) return false;
 
 	$sql = 'SELECT articles.article_id
 			, SUBSTRING_INDEX(categories.path, "/", -1) AS publication_path
