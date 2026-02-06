@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2020, 2022, 2024 Gustaf Mossakowski
+# @copyright Copyright © 2020, 2022, 2024, 2026 Gustaf Mossakowski
 #
 %%% loop news %%%
 <h3>%%% item publication %%%</h3>
@@ -13,7 +13,7 @@
 %%% if articles %%%
 <ul class="news-search-%%% item publication_path %%%">
 %%% loop articles %%%
-<li>%%% if images %%%<a href="%%% item link %%%"><img src="%%% setting files_path %%%/%%% loop images 1 %%%%%% item filename %%%.%%% setting search_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%%%% loop end %%%"></a>%%% else %%%<span class="no-img"></span>%%% endif %%%%%% if setting news_top_date %%% %%% item date wrap_date %%%<br>%%% endif %%%%%% if link %%%<a href="%%% item link %%%">%%% endif %%%<span class="news-search-title">%%% item title %%%</span>%%% if link %%%</a>%%% endif %%%%%% if setting news_search_show_abstract %%%<div class="news-abstract">%%% item abstract markdown %%%</div>%%% endif %%%</li>
+<li>%%% if images %%%<a href="%%% item link %%%"><img src="%%% setting files_path %%%/%%% loop images 1 %%%%%% item filename %%%.%%% setting search_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%%%% loop end %%%"></a>%%% else %%%<span class="no-img"></span>%%% endif %%%%%% if setting news_top_date %%% %%% item date format=date %%%<br>%%% endif %%%%%% if link %%%<a href="%%% item link %%%">%%% endif %%%<span class="news-search-title">%%% item title %%%</span>%%% if link %%%</a>%%% endif %%%%%% if setting news_search_show_abstract %%%<div class="news-abstract">%%% item abstract format=markdown %%%</div>%%% endif %%%</li>
 %%% loop end %%%
 </ul>
 %%% else %%%

@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2016, 2018-2022, 2024 Gustaf Mossakowski
+# @copyright Copyright © 2014-2016, 2018-2022, 2024, 2026 Gustaf Mossakowski
 #
 # fields: article_id, identifier, date, time, abstract, filename, source,
 # thumb_extension, direct_link, project_id
@@ -55,15 +55,15 @@
 </a>
 %%% endif %%%
 %%% endif %%%
-</strong><span class="news-date"> –&nbsp;<em>%%% item date wrap_date %%%</em></span></p>
+</strong><span class="news-date"> –&nbsp;<em>%%% item date format=date %%%</em></span></p>
 %%% if subtitle %%%
 %%% unless setting news_subtitle_above %%%
 <p class="news-subtitle">%%% item subtitle %%%</p>
 %%% endif %%%
 %%% endif %%%
-%%% item abstract markdown %%%
+%%% item abstract format=markdown %%%
 %%% if setting news_overview_full_text %%%
-%%% item article markdown %%%
+%%% item article format=markdown %%%
 %%% endif %%%
 %%% if setting news_link_full_text %%%
 </a>

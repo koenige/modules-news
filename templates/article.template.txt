@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/news
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2014-2015, 2018-2022, 2024-2025 Gustaf Mossakowski
+# @copyright Copyright © 2014-2015, 2018-2022, 2024-2026 Gustaf Mossakowski
 #
 <div class="%%% setting news_article_class %%%" itemscope itemtype="https://schema.org/Article">
 %%% if setting news_top %%%
@@ -14,18 +14,18 @@
 %%% if overview_link %%%<a href="%%% item overview_link %%%">%%% text News %%%</a>, %%% endif %%%
 %%% loop categories %%% <span class="%%% item path %%%">%%% item category %%%</span> %%% loop end %%%
 %%% if setting news_top_date %%%
-<em>%%% item date wrap_date %%%</em>
+<em>%%% item date format=date %%%</em>
 %%% endif %%%
 </p>
 %%% if _next_identifier %%%
-<p class="next_news"><a href="%%% item _next_link %%%" title="%%% text Next post: %%% %%% item _next_title wrap_html_escape %%%">→</a></p>
+<p class="next_news"><a href="%%% item _next_link %%%" title="%%% text Next post: %%% %%% item _next_title format=html_escape %%%">→</a></p>
 %%% endif %%%
 %%% if _prev_identifier %%%
-<p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous post: %%% %%% item _prev_title wrap_html_escape %%%">←</a></p>
+<p class="prev_news"><a href="%%% item _prev_link %%%" title="%%% text Previous post: %%% %%% item _prev_title format=html_escape %%%">←</a></p>
 %%% endif %%%
 </div>
 %%% elseif setting news_top_date %%%
-<p class="date" itemprop="datePublished"><em>%%% item date wrap_date %%%</em></p>
+<p class="date" itemprop="datePublished"><em>%%% item date format=date %%%</em></p>
 %%% endif %%%
 
 <article>
@@ -43,7 +43,7 @@
 %%% endif %%%
 %%% if abstract %%%
 <div class="abstract" itemprop="abstract">
-%%% item abstract markdown %%%
+%%% item abstract format=markdown %%%
 </div>
 %%% endif %%%
 
@@ -65,7 +65,7 @@
 
 %%% if article %%%
 <div class="articletext">
-%%% item article markdown %%%
+%%% item article format=markdown %%%
 </div>
 %%% endif %%%
 
@@ -94,7 +94,7 @@
 <h2>%%% text Events %%%</h2>
 <ul class="article_events">
 %%% loop events %%%
-<li><span class="date">%%% item duration wrap_date %%%</span>%%% item time_begin " %s" %%%%%% item time_end "–%s" %%%
+<li><span class="date">%%% item duration format=date %%%</span>%%% item time_begin " %s" %%%%%% item time_end "–%s" %%%
 %%% if time_begin | time_end %%% %%% text h %%%%%% endif %%%: <a href="%%% path events_event identifier %%%">%%% item event %%%</a></li>
 %%% loop end %%%
 </ul>
@@ -107,8 +107,8 @@
 <h2>%%% text Share article %%%</h2>
 <ul>
 <li><a href="https://www.facebook.com/sharer/sharer.php?u=%%% setting protocol %%%%3A//%%% setting hostname %%%%%% path news_article identifier %%%%3Futm_source%3Dfacebook%26utm_medium%3Dsocial%26utm_campaign%3Dshare">%%% text Facebook %%%</a></li>
-<li><a href="https://x.com/intent/post?text=%%% item abstract rawurlencode %%%&url=%%% setting protocol %%%%3A//%%% setting hostname %%%%%% path news_article identifier %%%%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dshare">%%% text Twitter %%%</a></li>
-<li><a href="mailto:?&amp;subject=%%% item title rawurlencode %%%&amp;body=%%% item abstract rawurlencode %%%%0A%0A%%% text Read on: %%%%0A%%% setting protocol %%%%3A//%%% setting hostname %%%%%% path news_article identifier %%%%3Futm_source=%%% setting utm_source %%%%26utm_medium=email%26utm_campaign=share">%%% text E-Mail %%%</a></li>
+<li><a href="https://x.com/intent/post?text=%%% item abstract format=rawurlencode %%%&url=%%% setting protocol %%%%3A//%%% setting hostname %%%%%% path news_article identifier %%%%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dshare">%%% text Twitter %%%</a></li>
+<li><a href="mailto:?&amp;subject=%%% item title format=rawurlencode %%%&amp;body=%%% item abstract format=rawurlencode %%%%0A%0A%%% text Read on: %%%%0A%%% setting protocol %%%%3A//%%% setting hostname %%%%%% path news_article identifier %%%%3Futm_source=%%% setting utm_source %%%%26utm_medium=email%26utm_campaign=share">%%% text E-Mail %%%</a></li>
 </ul>
 </div>
 %%% endif %%%
