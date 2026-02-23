@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2014-2015, 2017-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2014-2015, 2017-2024, 2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -104,7 +104,7 @@ $zz['fields'][4]['hide_in_list'] = true;
 $zz['fields'][4]['typo_cleanup'] = true;
 $zz['fields'][4]['replace_substrings'] = wrap_setting('replace_substrings');
 
-if (in_array('newsletters', wrap_setting('modules'))) {
+if (wrap_package('newsletters')) {
 	$zz['fields'][5]['title'] = 'Newsletter Lead';
 	$zz['fields'][5]['field_name'] = 'newsletter_lead';
 	$zz['fields'][5]['type'] = 'memo';
@@ -190,7 +190,7 @@ $zz['fields'][47] = [];
 $zz['fields'][48] = [];
 $zz['fields'][49] = [];
 
-if (in_array('events', wrap_setting('modules'))) {
+if (wrap_package('events')) {
 	$zz['fields'][22] = zzform_include('articles-events');
 	$zz['fields'][22]['title'] = 'Events';
 	$zz['fields'][22]['type'] = 'subtable';

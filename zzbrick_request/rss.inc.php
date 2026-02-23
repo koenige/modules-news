@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2015-2025 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2015-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -49,7 +49,7 @@ function mod_news_rss() {
 	$rss->image = $image;
 
 	$data = brick_request_data('articles', [], $settings);
-	if (in_array('events', wrap_setting('modules')) AND wrap_setting('rss_with_events')) {
+	if (wrap_package('events') AND wrap_setting('rss_with_events')) {
 		wrap_include('news', 'events');
 		$events = mf_events_in_news('rss');
 		$data = mf_events_in_news_sort($data, $events);

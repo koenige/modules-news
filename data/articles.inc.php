@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2025 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -100,7 +100,7 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 	}
 
 	// contacts
-	if (in_array('contacts', wrap_setting('modules'))) {
+	if (wrap_package('contacts')) {
 		$sql = 'SELECT article_contact_id, article_id, contact_id, contact
 				, IF(categories.parameters LIKE "%%&alias=roles/%%",
 					SUBSTRING_INDEX(SUBSTRING_INDEX(categories.parameters, "&alias=roles/", -1), "&", 1),
