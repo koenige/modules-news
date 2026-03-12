@@ -6,7 +6,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2024, 2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -53,3 +53,6 @@
 /* 2023-09-08-1 */	ALTER TABLE `articles_categories` ADD `property` varchar(255) NULL AFTER `category_id`, CHANGE `sequence` `sequence` tinyint unsigned NULL AFTER `type_category_id`;
 /* 2023-10-08-1 */	ALTER TABLE `articles_contacts` ADD `role` varchar(255) NULL AFTER `role_category_id`;
 /* 2024-04-07-1 */	UPDATE _settings SET setting_key = 'news_book_path' WHERE setting_key = 'news_books_path';
+/* 2026-03-12-1 */	DELETE FROM _settings WHERE setting_key = 'news_article_path';
+/* 2026-03-12-2 */	DELETE FROM _settings WHERE setting_key = 'news_articles_path';
+/* 2026-03-12-3 */	DELETE FROM _settings WHERE setting_key = 'news_book_path';
