@@ -142,6 +142,7 @@ function mod_news_article($params) {
 		if (wrap_category_id('publications', 'check')
 			AND $category['type_category_id'] === wrap_category_id('publications')) {
 			$article['publication'] = $category['category'];
+			$article['publication_path'] = $category['path'];
 			unset($article['categories'][$category_id]);
 		}
 	}
@@ -181,11 +182,17 @@ function mod_news_article($params) {
 	if (!empty($article['menu_hierarchy']))
 		$page['extra']['menu_hierarchy'] = wrap_menu_hierarchy('news_articles', $article['menu_hierarchy']);
 
-	$page['text'] = wrap_template('article', $article);
 	if (wrap_package('magnificpopup') AND !empty($article['images']))
 		$page['extra']['magnific_popup'] = true;
 	if (!$article['published'])
 		$page['extra']['class'] = 'unpublished';
+	
+	$includes = wrap_include('news');
+	$functions = array_column($includes['functions'], 'function', 'short');
+	if (!empty($functions['article_hook']))
+		return $functions['article_hook']($article, $page);
+
+	$page['text'] = wrap_template('article', $article);
 	return $page;
 }
 
