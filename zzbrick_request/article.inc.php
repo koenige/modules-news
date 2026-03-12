@@ -147,7 +147,7 @@ function mod_news_article($params) {
 	}
 	
 	$page['title'] = $article['title'];
-	$page['breadcrumbs'] = mod_news_article_breadcrumbs();
+	$page['breadcrumbs'] = mod_news_article_breadcrumbs($article['title']);
 	$page['opengraph'] = [
 		'og:type' => 'article',
 		'og:title' => wrap_html_escape(strip_tags($article['title'])),
@@ -181,7 +181,6 @@ function mod_news_article($params) {
 	if (!empty($article['menu_hierarchy']))
 		$page['extra']['menu_hierarchy'] = wrap_menu_hierarchy('news_articles', $article['menu_hierarchy']);
 
-	$page['breadcrumbs'][]['title'] = $article['title'];
 	$page['text'] = wrap_template('article', $article);
 	if (wrap_package('magnificpopup') AND !empty($article['images']))
 		$page['extra']['magnific_popup'] = true;
@@ -195,7 +194,7 @@ function mod_news_article($params) {
  *
  * @return array
  */
-function mod_news_article_breadcrumbs() {
+function mod_news_article_breadcrumbs($title) {
 	global $zz_page;
 	$news_parts = explode('/', $zz_page['db']['parameter']);
 	
@@ -214,5 +213,6 @@ function mod_news_article_breadcrumbs() {
 		$breadcrumb_url .= '/'.$path;
 		$breadcrumbs[] = ['title' => $path, 'url_path' => $breadcrumb_url.'/'];
 	}
+	$breadcrumbs[]['title'] = $title;
 	return $breadcrumbs;
 }
