@@ -87,17 +87,6 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 			}
 		}
 	}
-	foreach ($articles as $lang => $articles_per_lang) {
-		foreach ($articles_per_lang as $article_id => $article) {
-			if (empty($article['publications'])) continue;
-			$publication = reset($article['publications']);
-			$link = wrap_path('news_article['.$publication['path_fragment'].']', $article['identifier'], false);
-			if ($link) {
-				$articles[$lang][$article_id]['guid'] = 
-				$articles[$lang][$article_id]['link'] = $link;
-			}
-		}
-	}
 
 	// contacts
 	if (wrap_package('contacts')) {

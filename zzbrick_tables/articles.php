@@ -64,18 +64,10 @@ $zz['fields'][33] = []; // date_to
 $zz['fields'][3]['title'] = 'Title';
 $zz['fields'][3]['field_name'] = 'title';
 $zz['fields'][3]['type'] = 'text';
-if (is_array(wrap_setting('news_article_path'))) {
-	$zz['fields'][3]['link'] = [
-		'area' => 'news_article[%s]',
-		'area_fields' => ['publication_path'],
-		'fields' => ['identifier']
-	];
-} else {
-	$zz['fields'][3]['link'] = [
-		'area' => 'news_article',
-		'fields' => ['identifier']
-	];
-}
+$zz['fields'][3]['link'] = [
+	'area' => 'news_article',
+	'fields' => ['identifier']
+];
 $zz['fields'][3]['typo_cleanup'] = true;
 $zz['fields'][3]['typo_remove_double_spaces'] = true;
 $zz['fields'][3]['replace_substrings'] = wrap_setting('replace_substrings');

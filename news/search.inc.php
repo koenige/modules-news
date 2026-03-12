@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020, 2022-2025 Gustaf Mossakowski
+ * @copyright Copyright © 2020, 2022-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -49,9 +49,7 @@ function mf_news_search($q) {
 	$articles = wrap_db_fetch($sql, 'article_id');
 	$articles = mf_news_media($articles);
 	foreach ($articles as $article_id => $article) {
-		$article['link'] = wrap_path('news_article['.$article['path'].']', $article['identifier']);
-		if (!$article['link'])
-			$article['link'] = wrap_path('news_article', $article['identifier']);
+		$article['link'] = wrap_path('news_article', $article['identifier']);
 		$data['news'][$article['path']]['articles'][$article_id] = $article;
 	}
 	$data['news'] = array_values($data['news']);
