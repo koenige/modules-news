@@ -146,8 +146,6 @@ function mod_news_article($params) {
 		}
 	}
 	
-	$article['overview_link'] = wrap_path('news_articles');
-	
 	$page['title'] = $article['title'];
 	$tree = explode('/', $article['identifier']);
 	array_pop($tree);

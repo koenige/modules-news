@@ -11,7 +11,7 @@
 %%% if setting news_top %%%
 <div class="newstop">
 <p class="date" itemprop="datePublished">
-%%% if overview_link %%%<a href="%%% item overview_link %%%">%%% text News %%%</a>, %%% endif %%%
+%%% if path news_articles %%%<a href="%%% path news_articles %%%">%%% text News %%%</a>, %%% endif %%%
 %%% loop categories %%% <span class="%%% item path %%%">%%% item category %%%</span> %%% loop end %%%
 %%% if setting news_top_date %%%
 <em>%%% item date format=date %%%</em>
