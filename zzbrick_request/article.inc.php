@@ -18,7 +18,7 @@ function mod_news_article($params) {
 		return brick_format('%%% request articles '.$params[0].' %%%');
 	}
 	// allow year/month/article etc.
-	if (count($params) > 3) return false;
+	if (count($params) > 4) return false;
 
 	$sql = 'SELECT articles.article_id
 			, SUBSTRING_INDEX(categories.path, "/", -1) AS publication_path
@@ -147,14 +147,7 @@ function mod_news_article($params) {
 	}
 	
 	$page['title'] = $article['title'];
-	$tree = explode('/', $article['identifier']);
-	array_pop($tree);
-	$i = count($tree);
-	foreach ($tree as $path) {
-		$url = str_repeat('../', $i);
-		$page['breadcrumbs'][] = ['title' => $path, 'url_path' => $url];
-		$i--;
-	}
+	$page['breadcrumbs'] = mod_news_article_breadcrumbs();
 	$page['opengraph'] = [
 		'og:type' => 'article',
 		'og:title' => wrap_html_escape(strip_tags($article['title'])),
@@ -195,4 +188,31 @@ function mod_news_article($params) {
 	if (!$article['published'])
 		$page['extra']['class'] = 'unpublished';
 	return $page;
+}
+
+/**
+ * get breadcrumbs for news article
+ *
+ * @return array
+ */
+function mod_news_article_breadcrumbs() {
+	global $zz_page;
+	$news_parts = explode('/', $zz_page['db']['parameter']);
+	
+	// do we have URL parts already in breadcrumbs? do not show, but use for URL
+	$url_parts = explode('/', $zz_page['url']['db']);
+	$extra = array_diff(array_reverse($url_parts), array_reverse($news_parts));
+	$extra = array_reverse($extra);
+
+	// remove current page
+	array_pop($news_parts);
+
+	$breadcrumbs = [];
+	$breadcrumb_url = wrap_setting('base');
+	if ($extra) $breadcrumb_url .= '/'.implode('/', $extra);
+	foreach ($news_parts as $path) {
+		$breadcrumb_url .= '/'.$path;
+		$breadcrumbs[] = ['title' => $path, 'url_path' => $breadcrumb_url.'/'];
+	}
+	return $breadcrumbs;
 }
