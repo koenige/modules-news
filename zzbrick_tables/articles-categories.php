@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2010-2011, 2018-2020, 2023 Gustaf Mossakowski
+ * @copyright Copyright © 2010-2011, 2018-2020, 2023, 2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -38,7 +38,7 @@ $zz['fields'][3]['sql'] = 'SELECT category_id, category, main_category_id
 	FROM /*_PREFIX_*/categories ORDER BY category';
 $zz['fields'][3]['display_field'] = 'category';
 $zz['fields'][3]['character_set'] = 'utf8';
-$zz['fields'][3]['add_details'] = sprintf('categories?filter[maincategory]=%d', wrap_category_id('news'));
+$zz['fields'][3]['add_details'] = wrap_path('default_categorytree', 'news');
 $zz['fields'][3]['show_hierarchy'] = 'main_category_id';
 $zz['fields'][3]['show_hierarchy_subtree'] = wrap_category_id('news');
 
