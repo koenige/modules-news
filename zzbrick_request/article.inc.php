@@ -179,8 +179,9 @@ function mod_news_article($params) {
 				$page['meta'][] = ['name' => 'robots', 'content' => 'noindex'];
 			}
 	}
-	if (!empty($article['menu_hierarchy']))
-		$page['extra']['menu_hierarchy'] = wrap_menu_hierarchy('news_articles', $article['menu_hierarchy']);
+	if (!empty($article['menu_hierarchy'])) {
+		$page['extra']['menu_hierarchy'] = wrap_routes_page_ids('news_articles', $article['menu_hierarchy']);
+	}
 
 	if (wrap_package('magnificpopup') AND !empty($article['images']))
 		$page['extra']['magnific_popup'] = true;
