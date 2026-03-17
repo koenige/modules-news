@@ -56,3 +56,4 @@
 /* 2026-03-12-1 */	DELETE FROM _settings WHERE setting_key = 'news_article_path';
 /* 2026-03-12-2 */	DELETE FROM _settings WHERE setting_key = 'news_articles_path';
 /* 2026-03-12-3 */	DELETE FROM _settings WHERE setting_key = 'news_book_path';
+/* 2026-03-17-1 */	DELETE FROM _settings WHERE setting_key = 'news_topimage_image_size';
