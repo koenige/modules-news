@@ -188,10 +188,8 @@ function mod_news_article($params) {
 	if (!$article['published'])
 		$page['extra']['class'] = 'unpublished';
 	
-	$includes = wrap_include('news');
-	$functions = array_column($includes['functions'], 'function', 'short');
-	if (!empty($functions['article_hook']))
-		return $functions['article_hook']($article, $page);
+	if ($article_hooks = wrap_functions(wrap_include('news'), 'article_hook'))
+		return end($article_hooks)['function']($article, $page);
 
 	$page['text'] = wrap_template('article', $article);
 	return $page;
