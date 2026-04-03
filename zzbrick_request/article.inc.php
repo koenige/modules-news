@@ -201,20 +201,21 @@ function mod_news_article($params) {
  * @return array
  */
 function mod_news_article_breadcrumbs($title) {
-	global $zz_page;
 	$news_parts = explode('/', wrap_brick('parameter'));
-	
-	// do we have URL parts already in breadcrumbs? do not show, but use for URL
-	$url_parts = explode('/', $zz_page['url']['db']);
-	$extra = array_diff(array_reverse($url_parts), array_reverse($news_parts));
-	$extra = array_reverse($extra);
-
 	// remove current page
 	array_pop($news_parts);
 
+	$path_prefix = wrap_path_placeholder(wrap_page_field('identifier'), '*');
+	if (substr_count($path_prefix, '*') === 1) {
+		$path_prefix = substr($path_prefix, 0, strpos($path_prefix, '*'));
+	} else {
+		// we cannot handle multiple placeholders here, we do not know
+		// where article identifier sits
+		$path_prefix = '';
+	}
+
 	$breadcrumbs = [];
-	$breadcrumb_url = wrap_setting('base');
-	if ($extra) $breadcrumb_url .= '/'.implode('/', $extra);
+	$breadcrumb_url = wrap_setting('base').$path_prefix;
 	foreach ($news_parts as $path) {
 		$breadcrumb_url .= '/'.$path;
 		$breadcrumbs[] = ['title' => $path, 'url_path' => $breadcrumb_url.'/'];
