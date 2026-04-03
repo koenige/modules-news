@@ -202,7 +202,7 @@ function mod_news_article($params) {
  */
 function mod_news_article_breadcrumbs($title) {
 	global $zz_page;
-	$news_parts = explode('/', $zz_page['db']['parameter']);
+	$news_parts = explode('/', wrap_brick('parameter'));
 	
 	// do we have URL parts already in breadcrumbs? do not show, but use for URL
 	$url_parts = explode('/', $zz_page['url']['db']);
