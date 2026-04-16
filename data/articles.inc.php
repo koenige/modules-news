@@ -40,9 +40,11 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 		, implode(',', $ids), implode(',', $ids)
 	);
 	$articledata = wrap_db_fetch($sql, 'article_id');
-	foreach ($articledata as $article_id => $article) {
-		$articledata[$article_id]['guid'] = 
-		$articledata[$article_id]['link'] = wrap_path('news_article', $article['identifier']);
+	if (wrap_path('news_article', '', ['testing' => 1])) {
+		foreach ($articledata as $article_id => $article) {
+			$articledata[$article_id]['guid'] = 
+			$articledata[$article_id]['link'] = wrap_path('news_article', $article['identifier']);
+		}
 	}
 	foreach ($langs as $lang) {
 		$articles[$lang] = wrap_translate($articledata, 'articles', '', true, $lang);
