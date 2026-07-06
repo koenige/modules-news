@@ -6,11 +6,12 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2018-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2018-2023, 2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
 
+-- articles --
 CREATE TABLE `articles` (
   `article_id` int unsigned NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
@@ -30,6 +31,7 @@ CREATE TABLE `articles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
+-- articles_articles --
 CREATE TABLE `articles_articles` (
   `article_article_id` int unsigned NOT NULL AUTO_INCREMENT,
   `article_id` int unsigned NOT NULL,
@@ -47,6 +49,7 @@ INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'articles_articles', 'article_article_id', 'relation_category_id', 'no-delete');
 
 
+-- articles_categories --
 CREATE TABLE `articles_categories` (
   `article_category_id` int unsigned NOT NULL AUTO_INCREMENT,
   `article_id` int unsigned NOT NULL,
@@ -66,6 +69,7 @@ INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'articles_categories', 'article_category_id', 'type_category_id', 'no-delete');
 
 
+-- articles_contacts --
 CREATE TABLE `articles_contacts` (
   `article_contact_id` int unsigned NOT NULL AUTO_INCREMENT,
   `article_id` int unsigned NOT NULL,
@@ -86,6 +90,7 @@ INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'articles_contacts', 'article_contact_id', 'role_category_id', 'no-delete');
 
 
+-- articles_events --
 CREATE TABLE `articles_events` (
   `article_event_id` int unsigned NOT NULL AUTO_INCREMENT,
   `article_id` int unsigned NOT NULL,
@@ -99,6 +104,8 @@ CREATE TABLE `articles_events` (
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'articles_events', 'article_event_id', 'article_id', 'no-delete');
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'events', 'event_id', (SELECT DATABASE()), 'articles_events', 'article_event_id', 'event_id', 'no-delete');
 
+
+-- articles_media --
 CREATE TABLE `articles_media` (
   `article_medium_id` int unsigned NOT NULL AUTO_INCREMENT,
   `article_id` int unsigned NOT NULL,
@@ -114,6 +121,8 @@ CREATE TABLE `articles_media` (
 
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'articles', 'article_id', (SELECT DATABASE()), 'articles_media', 'article_medium_id', 'article_id', 'no-delete');
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'media', 'medium_id', (SELECT DATABASE()), 'articles_media', 'article_medium_id', 'medium_id', 'no-delete');
+
+INSERT INTO categories (`category`, `description`, `main_category_id`, `path`, `parameters`, `sequence`, `last_update`) VALUES ('Default news overview', NULL, /*_ID categories tags _*/, 'tags/default-articles-overview', '&alias=tags/default-articles-overview', NULL, NOW());
 
 
 -- query SHOW TABLES LIKE 'newsletters' --

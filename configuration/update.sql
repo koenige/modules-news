@@ -57,3 +57,4 @@
 /* 2026-03-12-2 */	DELETE FROM _settings WHERE setting_key = 'news_articles_path';
 /* 2026-03-12-3 */	DELETE FROM _settings WHERE setting_key = 'news_book_path';
 /* 2026-03-17-1 */	DELETE FROM _settings WHERE setting_key = 'news_topimage_image_size';
+/* 2026-07-06-1 */	INSERT INTO categories (`category`, `description`, `main_category_id`, `path`, `parameters`, `sequence`, `last_update`) VALUES ('Default news overview', NULL, /*_ID categories tags _*/, 'tags/default-articles-overview', '&alias=tags/default-articles-overview', NULL, NOW());

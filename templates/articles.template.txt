@@ -27,7 +27,7 @@
 %%% loop start %%%
 <li class="article_%%% loopposition counter %%% article_item%%% unless published %%% unpublished%%% endif %%%" id="news_%%% item identifier %%%">
 %%% loop images_overview 1 %%%
-<p class="news-image %%% item orientation " %s" %%%"><a href="%%% item link %%%" title="%%% item main__title %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%"%%% if setting news_overview_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% endif %%% alt="%%% item title %%%"></a></p>
+<p class="news-image %%% item orientation " %s" %%%%%% if main___default_image %%% default-image%%% endif %%%"><a href="%%% item link %%%" title="%%% item main__title %%%"><img src="%%% setting files_path %%%/%%% item filename %%%.%%% if thumb_extension %%%%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%%%% else %%%%%% item extension %%%%%% endif %%%?v=%%% item version %%%" alt="%%% item title %%%"%%% if thumb_extension & setting news_overview_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_overview_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% endif %%%></a></p>
 %%% loop end %%%
 %%% if setting news_link_full_text %%%
 <a href="%%% item link %%%" title="%%% item title %%%">
