@@ -43,7 +43,7 @@
 %%% endif %%%
 %%% if abstract %%%
 <div class="abstract" itemprop="abstract">
-%%% item abstract format=markdown %%%
+%%% item abstract format=markdown_article %%%
 </div>
 %%% endif %%%
 
@@ -65,7 +65,7 @@
 
 %%% if article %%%
 <div class="articletext">
-%%% item article format=markdown %%%
+%%% item article format=markdown_article %%%
 </div>
 %%% endif %%%
 
