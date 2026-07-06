@@ -77,6 +77,10 @@ function mod_news_articles($params, $settings) {
 		}
 
 	if (!empty($page['title'])) $data['h1'] = $page['title'];
-	$page['text'] = wrap_template($settings['template'] ?? 'articles', $data);
+	$template = $settings['template'] ?? 'articles';
+	if ($template === 'articles' && !empty($has['year']) && wrap_template_file('articles-year', false)) {
+		$template = 'articles-year';
+	}
+	$page['text'] = wrap_template($template, $data);
 	return $page;
 }
