@@ -81,7 +81,10 @@ function mod_news_articles($params, $settings) {
 		wrap_include('news', 'functions');
 		mf_news_url_placeholder_years_write();
 		$data += mf_news_article_years((int) $data['titles']['year'], $settings);
+	} else {
+		$data += mf_news_article_years();
 	}
+	
 	$template = $settings['template'] ?? 'articles';
 	if ($template === 'articles' && !empty($has['year']) && wrap_template_file('articles-year', false)) {
 		$template = 'articles-year';

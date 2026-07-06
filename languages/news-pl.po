@@ -156,6 +156,14 @@ msgstr "Nie ma żadnych artykułów w tej kategorii."
 msgid "This post category does not exist."
 msgstr "Ta kategoria nie istnieje."
 
+#: templates/articles-years.template.txt
+msgid "Archive"
+msgstr "Archiwum"
+
+#: templates/articles-years.template.txt
+msgid "There are no posts in the archive."
+msgstr "W archiwum nie ma żadnych artykułów."
+
 #: templates/article.template.txt
 msgid "Further Information"
 msgstr "Informacje dodatkowe"

@@ -167,6 +167,14 @@ msgstr "Wir haben keine Beiträge in dieser Kategorie."
 msgid "This post category does not exist."
 msgstr "Diese Beitragskategorie existiert nicht."
 
+#: templates/articles-years.template.txt
+msgid "Archive"
+msgstr "Archiv"
+
+#: templates/articles-years.template.txt
+msgid "There are no posts in the archive."
+msgstr "Es gibt keine Beiträge im Archiv."
+
 #: templates/articles.template.txt
 msgid "Read more …"
 msgstr "Mehr lesen …"
