@@ -393,3 +393,7 @@ $zz['conditions'][3]['scope'] = 'record';
 $zz['conditions'][3]['where'] = '/*_PREFIX_*/articles.published = "no"';
 
 $zz['record']['copy'] = true;
+
+$zz['hooks']['after_insert'][] = 'mf_news_url_placeholder_years';
+$zz['hooks']['after_update'][] = 'mf_news_url_placeholder_years';
+$zz['hooks']['after_delete'][] = 'mf_news_url_placeholder_years';
