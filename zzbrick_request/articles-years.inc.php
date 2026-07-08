@@ -27,8 +27,6 @@ function mod_news_articles_years($params, $settings) {
 	if ($params && is_numeric($params[0]))
 		$current_year = (int) $params[0];
 
-	wrap_include('news', 'functions');
-	mf_news_url_placeholder_years_write();
 	$data = mf_news_article_years($current_year, $settings);
 	if (!$data['years'])
 		$data['no_years'] = true;
