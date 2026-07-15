@@ -12,12 +12,18 @@
 %%% loop start %%%
 %%% if filecategory_videos %%%
 <a href="%%% setting files_path %%%/%%% item filename %%%.%%% item extension %%%?v=%%% item version %%%" title="%%% item title format=strip_tags %%%%%% item source format=strip_tags %%%" data-title="%%% item title %%%%%% item source format=html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%">
-<video preload="metadata"%%% if thumb_extension %%% poster="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%"%%% endif %%%>
+%%% if setting news_gallery_fallback %%%
+<span class="newsgallery-fallback" aria-hidden="true">%%% item extension format=strtoupper %%%</span>
+%%% endif %%%
+<video preload="metadata"%%% if setting news_gallery_fallback %%% onerror="this.classList.add('is-broken')"%%% endif %%%%%% if thumb_extension %%% poster="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%"%%% endif %%%>
   <source src="%%% setting files_path %%%/%%% item filename %%%.%%% item extension %%%?v=%%% item version %%%" type="%%% item mime_content_type %%%/%%% item mime_subtype %%%">
 </video></a>
 %%% else %%%
-<a href="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_big_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%" title="%%% item title format=strip_tags %%%%%% item source format=strip_tags %%%" data-title="%%% item title %%%%%% item source format=html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%">
-<img src="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%%"%%% if setting news_gallery_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% endif %%% alt="Bild %%% item title %%%"></a>
+<a href="%%% setting files_path %%%/%%% item filename %%%.%%% if thumb_extension %%%%%% setting news_big_image_size %%%.%%% item thumb_extension %%%%%% else %%%%%% item extension %%%%%% endif %%%?v=%%% item version %%%" title="%%% item title format=strip_tags %%%%%% item source format=strip_tags %%%" data-title="%%% item title %%%%%% item source format=html_escape " (%s)" %%%" class="js-img%%% loopposition uneven " first" %%%">
+%%% if setting news_gallery_fallback %%%
+<span class="newsgallery-fallback" aria-hidden="true">%%% item extension format=strtoupper %%%</span>
+%%% endif %%%
+<img src="%%% setting files_path %%%/%%% item filename %%%.%%% if thumb_extension %%%%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%%%% else %%%%%% item extension %%%%%% endif %%%?v=%%% item version %%%"%%% if setting news_gallery_fallback %%% onerror="this.classList.add('is-broken')"%%% endif %%%%%% if thumb_extension & setting news_gallery_image_size_x2 %%% srcset="%%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size %%%.%%% item thumb_extension %%%?v=%%% item version %%% 1x, %%% setting files_path %%%/%%% item filename %%%.%%% setting news_gallery_image_size_x2 %%%.%%% item thumb_extension %%%?v=%%% item version %%% 2x"%%% endif %%% alt="Bild %%% item title %%%"></a>
 %%% endif %%%
 %%% loop end %%%
 </p>
