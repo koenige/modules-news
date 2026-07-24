@@ -1,347 +1,308 @@
 # news module
-# Translations template
+# Translations
 #
 # Part of »Zugzwang Project«
 # https://www.zugzwang.org/modules/news
 #
-# @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2020-2024 Gustaf Mossakowski
-# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
-#
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: modules/news\n"
-"POT-Creation-Date: \n"
-"Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
+"Project-Id-Version: Zugzwang Project -- news module\n"
+"POT-Creation-Date: 2026-07-24 17:16+0000\n"
+"PO-Revision-Date: \n"
 "Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"PO-Revision-Date: \n"
-"Language: en\n"
 
-#: configuration/access.cfg
-msgid "show news article"
-msgstr ""
-
-#: configuration/access.cfg
-msgid "show news articles (overview)"
-msgstr ""
-
-#: configuration/access.cfg
-msgid "show book presentation"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "path to webpage of an article"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "class for article"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "path to webpage of article list"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "class for articles"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "size of big image linked to in gallery (only if bigger image is available)"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "path to book presentations on website"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "show a link to news categories above article"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "use field news_categories.property to set values for categories"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "show further images as gallery below article"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "default image size for news gallery"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "default image size for news gallery (x2)"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "link full text to article page, not only title and image"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "default image size for news overview"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "default image size for news overview (x2)"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "simple news overview, no links to article pages"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "size in px of image for OpenGraph (Facebook, Twitter)"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "show full text in overview of articles"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "allow to select a different medium than the first in sequence as overview medium for an article"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "show “read more”-link below articles"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "show abstract/lead of news in search results"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "show share links below single article"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "use subtitles for articles (field articles.subtitle)"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "display subtitle above headline"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "display top navigation line above news"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "display date above news if news_top is false"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "show top image in news"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "size in px of default top image above article"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "show links to connected events below news (events module required)"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "replace (case sensitive) substrings with other strings, e. g. for common misspellings"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "copyright holder in RSS feed"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "description of the RSS feed"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "name of editor in RSS feed"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "e-mail address of editor in RSS feed"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "number of entries in the RSS feed"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "format description text of RSS entries (articles and events) as if it were an article on webpage"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "name of webmaster in RSS feed"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "e-mail address of webmaster in RSS feed"
-msgstr ""
-
-#: configuration/settings.cfg
-msgid "include events in RSS feed"
-msgstr ""
-
-#: news/functions.inc.php
-msgid "Overview"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "Share article"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "Read on:"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "by"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "Previous post:"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "Next post:"
-msgstr ""
-
-#: templates/article.template.txt
-msgid "Further Information"
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "Sorry, currently we have no posts."
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "There are no posts in this year."
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "There are no posts in this category."
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "This post category does not exist."
-msgstr ""
-
-#: templates/articles-years.template.txt
-msgid "Archive"
-msgstr ""
-
-#: templates/articles-years.template.txt
-msgid "There are no posts in the archive."
-msgstr ""
-
-#: templates/articles.template.txt
-msgid "Read more …"
-msgstr ""
-
-#: templates/search-news.template.txt
-msgid "No posts were found matching your search."
-msgstr ""
-
-#: zzbrick_request/article.inc.php
-msgid "This post is no longer published."
-msgstr ""
-
-#: zzbrick_tables/articles.php
-msgid "News Articles"
-msgstr ""
-
-#: zzbrick_tables/articles.php
+#: templates/article.template.txt:14
 msgid "News"
 msgstr ""
 
-#: zzbrick_tables/articles.php
-msgid "Post"
+#: templates/article.template.txt:21
+msgid "Next post:"
 msgstr ""
 
-#: zzbrick_tables/articles.php
+#: templates/article.template.txt:24
+msgid "Previous post:"
+msgstr ""
+
+#: templates/article.template.txt:53
+#: templates/article.template.txt:75
+msgid "by"
+msgstr ""
+
+#: templates/article.template.txt:84
+msgid "Further Information"
+msgstr ""
+
+#: templates/article.template.txt:94
+#: zzbrick_tables/articles.php:187
+msgid "Events"
+msgstr ""
+
+#: templates/article.template.txt:98
+msgid "h"
+msgstr ""
+
+#: templates/article.template.txt:107
+msgid "Share article"
+msgstr ""
+
+#: templates/article.template.txt:109
+msgid "Facebook"
+msgstr ""
+
+#: templates/article.template.txt:110
+msgid "X / Twitter"
+msgstr ""
+
+#: templates/article.template.txt:111
+msgid "E-mail"
+msgstr ""
+
+#: templates/article.template.txt:111
+msgid "Read on:"
+msgstr ""
+
+#: templates/articles.template.txt:14
+msgid "There are no posts in this year."
+msgstr ""
+
+#: templates/articles.template.txt:17
+msgid "There are no posts in this category."
+msgstr ""
+
+#: templates/articles.template.txt:20
+msgid "This post category does not exist."
+msgstr ""
+
+#: templates/articles.template.txt:23
+msgid "Sorry, currently we have no posts."
+msgstr ""
+
+#: templates/articles.template.txt:75
+msgid "Read more …"
+msgstr ""
+
+#: templates/articles-years.template.txt:12
+msgid "There are no posts in the archive."
+msgstr ""
+
+#: templates/articles-years.template.txt:15
+msgid "Archive"
+msgstr ""
+
+#: templates/search-news.template.txt:20
+msgid "No posts were found matching your search."
+msgstr ""
+
+#: zzbrick_request/article.inc.php:39
+msgid "This post is no longer published."
+msgstr ""
+
+#: zzbrick_request/articles.inc.php:34
+msgid "News Articles"
+msgstr ""
+
+#: zzbrick_tables/articles.php:16
 msgid "Articles"
 msgstr ""
 
-#: zzbrick_tables/articles.php
-msgid "Article"
+#: zzbrick_tables/articles.php:19
+#: zzbrick_tables/articles-articles.php:19
+#: zzbrick_tables/articles-categories.php:19
+#: zzbrick_tables/articles-contacts.php:19
+#: zzbrick_tables/articles-events.php:19
+#: zzbrick_tables/articles-media.php:19
+msgid "ID"
 msgstr ""
 
-#: zzbrick_tables/articles.php
-msgid "Authors"
-msgstr ""
-
-#: zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php:23
 msgid "Image"
 msgstr ""
 
-#: zzbrick_tables/articles.php
-msgid "Year"
+#: zzbrick_tables/articles.php:46
+msgid "Date"
 msgstr ""
 
-#: zzbrick_tables/articles.php
-msgid "Published"
+#: zzbrick_tables/articles.php:53
+msgid "Time"
 msgstr ""
 
-#: zzbrick_tables/articles.php
-msgid "Identifier"
+#: zzbrick_tables/articles.php:64
+msgid "Title"
 msgstr ""
 
-#: zzbrick_tables/articles.php
-msgid "Show until"
-msgstr ""
-
-#: zzbrick_tables/articles.php
-msgid "Short news, not too long"
-msgstr ""
-
-#: zzbrick_tables/articles.php
-msgid "– none –"
-msgstr ""
-
-#: zzbrick_tables/articles.php
-msgid "Lead"
-msgstr ""
-
-#: zzbrick_tables/articles.php
-msgid "Newsletter Lead"
-msgstr ""
-
-#: zzbrick_tables/articles.php
-msgid "Organisations"
-msgstr ""
-
-#: zzbrick_tables/articles.php
-msgid "Publication"
-msgstr ""
-
-#: zzbrick_tables/articles.php
+#: zzbrick_tables/articles.php:78
 msgid "Subtitle"
 msgstr ""
 
-#: zzbrick_tables/articles-articles.php
-msgid "Linked Articles"
+#: zzbrick_tables/articles.php:88
+msgid "Lead"
 msgstr ""
 
-#: zzbrick_tables/articles-articles.php
-msgid "Main Article"
+#: zzbrick_tables/articles.php:94
+msgid "Short news, not too long"
 msgstr ""
 
-#: zzbrick_tables/articles-categories.php
+#: zzbrick_tables/articles.php:100
+msgid "Newsletter Lead"
+msgstr ""
+
+#: zzbrick_tables/articles.php:112
+msgid "Media"
+msgstr ""
+
+#: zzbrick_tables/articles.php:123
+msgid "Published?"
+msgstr ""
+
+#: zzbrick_tables/articles.php:126
+#: zzbrick_tables/articles.php:308
+#: zzbrick_tables/articles-media.php:83
+msgid "no"
+msgstr ""
+
+#: zzbrick_tables/articles.php:126
+#: zzbrick_tables/articles.php:307
+#: zzbrick_tables/articles-media.php:83
+msgid "yes"
+msgstr ""
+
+#: zzbrick_tables/articles.php:133
 msgid "Categories"
 msgstr ""
 
-#: zzbrick_tables/articles-media.php
-msgid "Media in Articles"
+#: zzbrick_tables/articles.php:151
+msgid "Ext. Link"
 msgstr ""
 
-#: zzbrick_tables/articles-media.php
+#: zzbrick_tables/articles.php:155
+msgid "Link to another website to read on."
+msgstr ""
+
+#: zzbrick_tables/articles.php:160
+#: zzbrick_tables/articles-articles.php:32
+#: zzbrick_tables/articles-categories.php:23
+#: zzbrick_tables/articles-contacts.php:23
+#: zzbrick_tables/articles-events.php:23
+#: zzbrick_tables/articles-media.php:52
+msgid "Article"
+msgstr ""
+
+#: zzbrick_tables/articles.php:200
+#: zzbrick_tables/articles.php:335
+msgid "Publication"
+msgstr ""
+
+#: zzbrick_tables/articles.php:223
+msgid "Identifier"
+msgstr ""
+
+#: zzbrick_tables/articles.php:231
+#: zzbrick_tables/articles-articles.php:74
+#: zzbrick_tables/articles-categories.php:58
+#: zzbrick_tables/articles-contacts.php:61
+msgid "Last update"
+msgstr ""
+
+#: zzbrick_tables/articles.php:235
+msgid "Article type"
+msgstr ""
+
+#: zzbrick_tables/articles.php:283
+msgid "Year"
+msgstr ""
+
+#: zzbrick_tables/articles.php:297
+#: zzbrick_tables/articles-categories.php:35
+#: zzbrick_tables/articles-contacts.php:43
+msgid "Category"
+msgstr ""
+
+#: zzbrick_tables/articles.php:303
+msgid "Published"
+msgstr ""
+
+#: zzbrick_tables/articles-articles.php:16
+msgid "Linked Articles"
+msgstr ""
+
+#: zzbrick_tables/articles-articles.php:23
+#: zzbrick_tables/articles-articles.php:29
+#: zzbrick_tables/articles-categories.php:29
+#: zzbrick_tables/articles-contacts.php:29
+#: zzbrick_tables/articles-media.php:45
 msgid "No."
 msgstr ""
 
-#: zzbrick_tables/articles-media.php
+#: zzbrick_tables/articles-articles.php:24
+#: zzbrick_tables/articles-events.php:31
+msgid "Sequence"
+msgstr ""
+
+#: zzbrick_tables/articles-articles.php:44
+msgid "Relation"
+msgstr ""
+
+#: zzbrick_tables/articles-articles.php:58
+msgid "Main Article"
+msgstr ""
+
+#: zzbrick_tables/articles-categories.php:16
+msgid "Categories of Articles"
+msgstr ""
+
+#: zzbrick_tables/articles-categories.php:45
+msgid "Type category"
+msgstr ""
+
+#: zzbrick_tables/articles-categories.php:54
+msgid "Property"
+msgstr ""
+
+#: zzbrick_tables/articles-contacts.php:16
+msgid "Articles/Contacts"
+msgstr ""
+
+#: zzbrick_tables/articles-contacts.php:35
+msgid "Contact"
+msgstr ""
+
+#: zzbrick_tables/articles-contacts.php:55
+msgid "Role"
+msgstr ""
+
+#: zzbrick_tables/articles-events.php:16
+msgid "Articles/Events"
+msgstr ""
+
+#: zzbrick_tables/articles-events.php:30
+msgid "Seq."
+msgstr ""
+
+#: zzbrick_tables/articles-events.php:36
+msgid "Event"
+msgstr ""
+
+#: zzbrick_tables/articles-media.php:16
+msgid "Media in Articles"
+msgstr ""
+
+#: zzbrick_tables/articles-media.php:23
 msgid "Preview"
+msgstr ""
+
+#: zzbrick_tables/articles-media.php:61
+msgid "Medium"
+msgstr ""
+
+#: zzbrick_tables/articles-media.php:80
+msgid "Overview?"
+msgstr ""
+
+#: zzbrick_tables/articles-media.php:89
+msgid "Updated"
 msgstr ""
