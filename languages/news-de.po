@@ -247,8 +247,8 @@ msgid "Categories of Articles"
 msgstr "Artikelkategorien"
 
 #: zzbrick_tables/articles-categories.php:45
-msgid "Type category"
-msgstr "Typkategorie"
+msgid "Type"
+msgstr "Typ"
 
 #: zzbrick_tables/articles-categories.php:54
 msgid "Property"
