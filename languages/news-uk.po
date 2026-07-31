@@ -256,7 +256,7 @@ msgid "Property"
 msgstr ""
 
 #: zzbrick_tables/articles-contacts.php:16
-msgid "Articles/Contacts"
+msgid "Contacts in Articles"
 msgstr ""
 
 #: zzbrick_tables/articles-contacts.php:35
@@ -268,7 +268,7 @@ msgid "Role"
 msgstr ""
 
 #: zzbrick_tables/articles-events.php:16
-msgid "Articles/Events"
+msgid "Articles on Events"
 msgstr ""
 
 #: zzbrick_tables/articles-events.php:30

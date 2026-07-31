@@ -13,7 +13,7 @@
  */
 
 
-$zz['title'] = 'Articles/Events';
+$zz['title'] = 'Articles on Events';
 $zz['table'] = 'articles_events';
 
 $zz['fields'][1]['title'] = 'ID';

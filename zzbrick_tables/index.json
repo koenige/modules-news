@@ -1,0 +1,20 @@
+{
+    "articles": {
+        "title": "Articles"
+    },
+    "articles_articles": {
+        "title": "Linked Articles"
+    },
+    "articles_categories": {
+        "title": "Categories of Articles"
+    },
+    "articles_contacts": {
+        "title": "Contacts in Articles"
+    },
+    "articles_events": {
+        "title": "Articles on Events"
+    },
+    "articles_media": {
+        "title": "Media in Articles"
+    }
+}
