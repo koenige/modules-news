@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- news module\n"
-"POT-Creation-Date: 2026-07-31 12:13+0000\n"
+"POT-Creation-Date: 2026-08-13 08:29+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -53,149 +53,153 @@ msgid "Class for article"
 msgstr ""
 
 #: configuration/settings.cfg:43
+msgid "Form context: news article contact roles subtable"
+msgstr ""
+
+#: configuration/settings.cfg:47
 msgid "Check page ID for menu hierarchy"
 msgstr ""
 
-#: configuration/settings.cfg:48
+#: configuration/settings.cfg:52
 msgid "Class for articles"
 msgstr ""
 
-#: configuration/settings.cfg:52
+#: configuration/settings.cfg:56
 msgid "Where to show author of news article"
 msgstr ""
 
-#: configuration/settings.cfg:59
+#: configuration/settings.cfg:63
 msgid "Size of big image linked to in gallery (only if bigger image is available)"
 msgstr ""
 
-#: configuration/settings.cfg:64
+#: configuration/settings.cfg:68
 msgid "Show a link to news categories above article"
 msgstr ""
 
-#: configuration/settings.cfg:72
+#: configuration/settings.cfg:76
 msgid "Use field news_categories.property to set values for categories"
 msgstr ""
 
-#: configuration/settings.cfg:77
+#: configuration/settings.cfg:81
 msgid "Show further images as gallery below article"
 msgstr ""
 
-#: configuration/settings.cfg:81
+#: configuration/settings.cfg:85
 msgid "Default image size for news gallery"
 msgstr ""
 
-#: configuration/settings.cfg:86
+#: configuration/settings.cfg:90
 msgid "Default image size for news gallery (x2)"
 msgstr ""
 
-#: configuration/settings.cfg:91
+#: configuration/settings.cfg:95
 msgid "Show a file-type label in the gallery when a preview image or video fails to load"
 msgstr ""
 
-#: configuration/settings.cfg:95
+#: configuration/settings.cfg:99
 msgid "Link full text to article page, not only title and image"
 msgstr ""
 
-#: configuration/settings.cfg:99
+#: configuration/settings.cfg:103
 msgid "Default image size for news overview"
 msgstr ""
 
-#: configuration/settings.cfg:104
+#: configuration/settings.cfg:108
 msgid "Default image size for news overview (x2)"
 msgstr ""
 
-#: configuration/settings.cfg:109
+#: configuration/settings.cfg:113
 msgid "Simple news overview, no links to article pages"
 msgstr ""
 
-#: configuration/settings.cfg:113
+#: configuration/settings.cfg:117
 msgid "Size in px of image for OpenGraph (Facebook, Twitter)"
 msgstr ""
 
-#: configuration/settings.cfg:118
+#: configuration/settings.cfg:122
 msgid "Show full text in overview of articles"
 msgstr ""
 
-#: configuration/settings.cfg:122
+#: configuration/settings.cfg:126
 msgid "Allow to select a different medium than the first in sequence as overview medium for an article"
 msgstr ""
 
-#: configuration/settings.cfg:126
+#: configuration/settings.cfg:130
 msgid "Show “read more”-link below articles"
 msgstr ""
 
-#: configuration/settings.cfg:134
+#: configuration/settings.cfg:138
 msgid "Show abstract/lead of news in search results"
 msgstr ""
 
-#: configuration/settings.cfg:139
+#: configuration/settings.cfg:143
 msgid "Show share links below single article"
 msgstr ""
 
-#: configuration/settings.cfg:144
+#: configuration/settings.cfg:148
 msgid "Use subtitles for articles (field articles.subtitle)"
 msgstr ""
 
-#: configuration/settings.cfg:148
+#: configuration/settings.cfg:152
 msgid "Display subtitle above headline"
 msgstr ""
 
-#: configuration/settings.cfg:152
+#: configuration/settings.cfg:156
 msgid "Display top navigation line above news"
 msgstr ""
 
-#: configuration/settings.cfg:157
+#: configuration/settings.cfg:161
 msgid "Display date above news if news_top is false"
 msgstr ""
 
-#: configuration/settings.cfg:162
+#: configuration/settings.cfg:166
 msgid "Show top image in news"
 msgstr ""
 
-#: configuration/settings.cfg:167
+#: configuration/settings.cfg:171
 msgid "Size in px of default top image above article"
 msgstr ""
 
-#: configuration/settings.cfg:172
+#: configuration/settings.cfg:176
 msgid "Show links to connected events below news (events module required)"
 msgstr ""
 
-#: configuration/settings.cfg:176
+#: configuration/settings.cfg:180
 msgid "Replace (case sensitive) substrings with other strings, e. g. for common misspellings"
 msgstr ""
 
-#: configuration/settings.cfg:180
+#: configuration/settings.cfg:184
 msgid "Copyright holder in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:184
+#: configuration/settings.cfg:188
 msgid "Description of the RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:188
+#: configuration/settings.cfg:192
 msgid "Name of editor in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:192
+#: configuration/settings.cfg:196
 msgid "E-mail address of editor in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:196
+#: configuration/settings.cfg:200
 msgid "Number of entries in the RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:200
+#: configuration/settings.cfg:204
 msgid "Format description text of RSS entries (articles and events) as if it were an article on webpage"
 msgstr ""
 
-#: configuration/settings.cfg:204
+#: configuration/settings.cfg:208
 msgid "Name of webmaster in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:208
+#: configuration/settings.cfg:212
 msgid "E-mail address of webmaster in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:212
+#: configuration/settings.cfg:216
 msgid "Include events in RSS feed"
 msgstr ""
