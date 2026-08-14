@@ -16,7 +16,7 @@
 $zz = zzform_include('articles');
 
 if (wrap_package('contacts')) {
-	$values['roles_restrict_to'] = 'articles';
+	$values['context']['roles'] = 'news_articles';
 	mf_default_categories_restrict($values, 'roles');
 
 	$no = 40;
