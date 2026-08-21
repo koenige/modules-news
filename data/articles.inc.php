@@ -71,7 +71,7 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 			LEFT JOIN categories USING (category_id)
 			WHERE article_id IN (%s)
 			AND type_category_id = /*_ID categories %s _*/
-			AND (ISNULL(parameters) OR parameters NOT LIKE "%%&hidden=1%%")
+			AND categories.published = "yes"
 			ORDER by articles_categories.sequence, categories.sequence, category';
 		$sql = sprintf($sql, implode(',', $ids), $category);
 		$categorydata = wrap_db_fetch($sql, 'article_category_id');
