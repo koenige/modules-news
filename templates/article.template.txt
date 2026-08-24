@@ -50,7 +50,7 @@
 %%% if author %%%
 %%% switch news_author_display %%%
 %%% case above %%%
-<p class="author"><em> – %%% text by %%% %%% loop author %%%%%% loopposition middle ", " %%%%%% loopposition last " & " %%%%%% item contact %%%%%% loop end %%%</em></p>
+<p class="author news-author-above"><em> – %%% text by %%% %%% loop author %%%%%% loopposition middle ", " %%%%%% loopposition last " & " %%%%%% item contact %%%%%% loop end %%%</em></p>
 %%% switch end %%%
 %%% endif %%%
 
@@ -72,7 +72,7 @@
 %%% if author %%%
 %%% switch news_author_display %%%
 %%% case below %%%
-<p class="author"><em>%%% text by %%% %%% loop author %%%%%% loopposition middle ", " %%%%%% loopposition last " & " %%%%%% item contact %%%%%% loop end %%%</em></p>
+<p class="author news-author-below"><em>%%% loop author %%%%%% loopposition middle ", " %%%%%% loopposition last " & " %%%%%% item contact %%%%%% loop end %%%</em></p>
 %%% switch end %%%
 %%% endif %%%
 
