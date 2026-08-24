@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- news module\n"
-"POT-Creation-Date: 2026-08-24 15:52+0000\n"
+"POT-Creation-Date: 2026-08-24 16:02+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -25,7 +25,7 @@ msgid "news module"
 msgstr ""
 
 #: configuration/package.cfg:15
-msgid "News articles, publications, issues"
+msgid "Articles for websites and publications, including periodical issues"
 msgstr ""
 
 #: configuration/routes.cfg:12
