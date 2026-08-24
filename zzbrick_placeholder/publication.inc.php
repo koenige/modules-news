@@ -14,7 +14,7 @@
 
 
 function mod_news_placeholder_publication($brick) {
-	$sql = 'SELECT publication_id, publication, identifier, parameters
+	$sql = 'SELECT publication_id, publication, identifier, parameters, description
 			, IF(distribution = "continuous", 1, NULL) AS continuous_publication
 			, IF(distribution = "issued", 1, NULL) AS issued_publication
 	    FROM publications

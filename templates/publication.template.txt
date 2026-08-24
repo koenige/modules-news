@@ -1,0 +1,24 @@
+# news module
+# HTML template for publication admin header on article and issue forms
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/news
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2026 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+
+<div class="news-publication">
+%%% if description %%%
+<div class="description">
+%%% item description format=markdown %%%
+</div>
+%%% endif %%%
+%%% if issues_path %%%
+<p><a href="%%% item issues_path %%%">%%% text Manage issues of this publication %%%</a></p>
+%%% endif %%%
+%%% if articles_path %%%
+<p><a href="%%% item articles_path %%%">%%% text Manage articles of this publication %%%</a></p>
+%%% endif %%%
+</div>

@@ -123,3 +123,6 @@ $zz['filter'][1]['sql'] = 'SELECT DISTINCT publication_id
 	FROM issues
 	LEFT JOIN publications USING (publication_id)
 	ORDER BY identifier';
+
+$zz['subtitle']['publication_id']['sql'] = $zz['fields'][2]['sql'];
+$zz['subtitle']['publication_id']['var'] = ['publication'];

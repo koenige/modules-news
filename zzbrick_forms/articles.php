@@ -43,6 +43,9 @@ unset($zz['subtitle']['publication_id']);
 unset($zz['add']);
 unset($zz['filter'][5]);
 
+$zz['page']['show'][] = 'publication';
+$zz['vars']['publication'] = $brick['data'];
+
 foreach ($zz['fields'] as $no => $field) {
 	$identifier = zzform_field_identifier($field);
 	if (!$identifier) continue;

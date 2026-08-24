@@ -18,3 +18,6 @@ if (!$brick['data']['issued_publication']) wrap_quit(404, wrap_text('This public
 
 $zz = zzform_include('issues');
 $zz['where']['publication_id'] = $brick['data']['publication_id'];
+$zz['page']['show'][] = 'publication';
+$zz['vars']['publication'] = $brick['data'];
+$zz['vars']['publication']['issues_form'] = 1;

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- news module\n"
-"POT-Creation-Date: 2026-08-24 15:52+0000\n"
+"POT-Creation-Date: 2026-08-24 19:34+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -100,6 +100,14 @@ msgstr ""
 
 #: templates/issues-archive.template.txt:13
 msgid "No issues have been published yet."
+msgstr ""
+
+#: templates/publication.template.txt:19
+msgid "Manage issues of this publication"
+msgstr ""
+
+#: templates/publication.template.txt:22
+msgid "Manage articles of this publication"
 msgstr ""
 
 #: templates/search-news.template.txt:20
