@@ -80,3 +80,5 @@
 /* 2026-08-24-3 */	DELETE FROM categories WHERE category_id = /*_ID categories publications _*/;
 /* 2026-08-24-4 */	UPDATE webpages SET content = REPLACE(content, 'news_hide_publication_categories[]=publications/', 'news_hide_publications[]=') WHERE content LIKE '%news_hide_publication_categories[]=publications/%';
 /* 2026-08-24-5 */	ALTER TABLE `articles` ADD `title_short` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL AFTER `subtitle`;
+/* 2026-08-24-6 */	UPDATE categories SET parameters = REPLACE(parameters, '&articles_description=1', '') WHERE parameters LIKE '%&articles_description=1%';
+/* 2026-08-24-7 */	UPDATE categories SET parameters = REPLACE(parameters, '&articles_author=1', '') WHERE parameters LIKE '%&articles_author=1%';
