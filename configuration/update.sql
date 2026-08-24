@@ -82,3 +82,9 @@
 /* 2026-08-24-5 */	ALTER TABLE `articles` ADD `title_short` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL AFTER `subtitle`;
 /* 2026-08-24-6 */	UPDATE categories SET parameters = REPLACE(parameters, '&articles_description=1', '') WHERE parameters LIKE '%&articles_description=1%';
 /* 2026-08-24-7 */	UPDATE categories SET parameters = REPLACE(parameters, '&articles_author=1', '') WHERE parameters LIKE '%&articles_author=1%';
+/* 2026-08-24-8 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&article=', '&news_article=') WHERE `parameters` LIKE '%&article=%';
+/* 2026-08-24-9 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&lead=', '&news_newsletter_lead=') WHERE `parameters` LIKE '%&lead=%';
+/* 2026-08-24-10 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&categories=', '&news_categories=') WHERE `parameters` LIKE '%&categories=%';
+/* 2026-08-24-11 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&identifier_without_year=', '&news_identifier_without_year=') WHERE `parameters` LIKE '%&identifier_without_year=%';
+/* 2026-08-24-12 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&subtitle=', '&news_subtitle=') WHERE `parameters` LIKE '%&subtitle=%';
+/* 2026-08-24-13 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&media=', '&news_media=') WHERE `parameters` LIKE '%&media=%';

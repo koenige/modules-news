@@ -359,42 +359,42 @@ $zz['filter'][5]['sql'] = sprintf('SELECT DISTINCT publication_id, publication, 
 	ORDER BY identifier', $where_hide);
 
 $zz['conditions'][1]['scope'] = 'record';
-$zz['conditions'][1]['where'] = 'publications.parameters LIKE "%&article=0%"';
+$zz['conditions'][1]['where'] = 'publications.parameters LIKE "%&news_article=0%"';
 $zz['conditions'][1]['add']['sql'] = 'SELECT publication_id
 	FROM /*_PREFIX_*/publications
 	WHERE publication_id = ';
 $zz['conditions'][1]['add']['key_field_name'] = 'publication_id';
 
 $zz['conditions'][2]['scope'] = 'record';
-$zz['conditions'][2]['where'] = 'publications.parameters LIKE "%&lead=0%"';
+$zz['conditions'][2]['where'] = 'publications.parameters LIKE "%&news_newsletter_lead=0%"';
 $zz['conditions'][2]['add']['sql'] = 'SELECT publication_id
 	FROM /*_PREFIX_*/publications
 	WHERE publication_id = ';
 $zz['conditions'][2]['add']['key_field_name'] = 'publication_id';
 
 $zz['conditions'][4]['scope'] = 'record';
-$zz['conditions'][4]['where'] = 'publications.parameters LIKE "%&categories=0%"';
+$zz['conditions'][4]['where'] = 'publications.parameters LIKE "%&news_categories=0%"';
 $zz['conditions'][4]['add']['sql'] = 'SELECT publication_id
 	FROM /*_PREFIX_*/publications
 	WHERE publication_id = ';
 $zz['conditions'][4]['add']['key_field_name'] = 'publication_id';
 
 $zz['conditions'][5]['scope'] = 'record';
-$zz['conditions'][5]['where'] = 'publications.parameters LIKE "%&identifier_without_year=1%"';
+$zz['conditions'][5]['where'] = 'publications.parameters LIKE "%&news_identifier_without_year=1%"';
 $zz['conditions'][5]['add']['sql'] = 'SELECT publication_id
 	FROM /*_PREFIX_*/publications
 	WHERE publication_id = ';
 $zz['conditions'][5]['add']['key_field_name'] = 'publication_id';
 
 $zz['conditions'][6]['scope'] = 'record';
-$zz['conditions'][6]['where'] = 'publications.parameters LIKE "%&subtitle=0%"';
+$zz['conditions'][6]['where'] = 'publications.parameters LIKE "%&news_subtitle=0%"';
 $zz['conditions'][6]['add']['sql'] = 'SELECT publication_id
 	FROM /*_PREFIX_*/publications
 	WHERE publication_id = ';
 $zz['conditions'][6]['add']['key_field_name'] = 'publication_id';
 
 $zz['conditions'][7]['scope'] = 'record';
-$zz['conditions'][7]['where'] = 'publications.parameters LIKE "%&media=0%"';
+$zz['conditions'][7]['where'] = 'publications.parameters LIKE "%&news_media=0%"';
 $zz['conditions'][7]['add']['sql'] = 'SELECT publication_id
 	FROM /*_PREFIX_*/publications
 	WHERE publication_id = ';
