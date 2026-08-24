@@ -26,6 +26,16 @@ foreach ($zz['fields'] as $no => $field) {
 	if (!$identifier) continue;
 
 	switch ($identifier) {
+	case 'title':
+		if (wrap_setting('news_short'))
+			$zz['fields'][$no]['hide_in_list'] = true;
+		break;
+
+	case 'abstract':
+		if (wrap_setting('news_short'))
+			$zz['fields'][$no]['hide_in_list'] = false;
+		break;
+
 	case 'issue_id':
 		if (empty($brick['data']['issued_publication']))
 			unset($zz['fields'][$no]);

@@ -73,6 +73,11 @@ $zz['fields'][3]['typo_remove_double_spaces'] = true;
 $zz['fields'][3]['replace_substrings'] = wrap_setting('replace_substrings');
 $zz['fields'][3]['if'][3]['list_prefix'] = '<del>';
 $zz['fields'][3]['if'][3]['list_suffix'] = '</del>';
+$zz['fields'][3]['if'][8]['type'] = 'identifier';
+$zz['fields'][3]['if'][8]['fields'] = ['date{8,2}', 'date{5,2}', 'date{0,4}', 'title', 'identifier'];
+$zz['fields'][3]['if'][8]['identifier']['exists'] = '-';
+$zz['fields'][3]['if'][8]['identifier']['concat'] = '.';
+$zz['fields'][3]['if'][8]['hide_in_form'] = true;
 
 if (wrap_setting('news_subtitle')) {
 	$zz['fields'][17]['title'] = 'Subtitle';
@@ -92,6 +97,7 @@ if (wrap_setting('news_title_short')) {
 	$zz['fields'][16]['hide_in_list'] = true;
 	$zz['fields'][16]['typo_cleanup'] = true;
 	$zz['fields'][16]['typo_remove_double_spaces'] = true;
+	$zz['fields'][16]['if'][8]['hide_in_form'] = true;
 	$zz['fields'][16]['if'][9]['hide_in_form'] = true;
 }
 
@@ -237,6 +243,8 @@ $zz['fields'][9]['if'][5]['fields'] = ['title_short', 'title', 'identifier'];
 $zz['fields'][9]['identifier']['exists'] = '-';
 $zz['fields'][9]['identifier']['concat'] = '/';
 $zz['fields'][9]['hide_in_list'] = true;
+$zz['fields'][9]['if'][8]['identifier']['prefix'] = 'news/';
+$zz['fields'][9]['if'][8]['fields'] = ['date'];
 
 $zz['fields'][99]['field_name'] = 'last_update';
 $zz['fields'][99]['type'] = 'timestamp';
@@ -389,6 +397,13 @@ $zz['conditions'][7]['add']['sql'] = 'SELECT publication_id
 	FROM /*_PREFIX_*/publications
 	WHERE publication_id = ';
 $zz['conditions'][7]['add']['key_field_name'] = 'publication_id';
+
+$zz['conditions'][8]['scope'] = 'record';
+$zz['conditions'][8]['where'] = 'publications.parameters LIKE "%&news_short=1%"';
+$zz['conditions'][8]['add']['sql'] = 'SELECT publication_id
+	FROM /*_PREFIX_*/publications
+	WHERE publication_id = ';
+$zz['conditions'][8]['add']['key_field_name'] = 'publication_id';
 
 $zz['conditions'][9]['scope'] = 'record';
 $zz['conditions'][9]['where'] = 'publications.parameters LIKE "%&news_title_short=0%"';
