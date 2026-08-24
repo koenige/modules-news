@@ -9,20 +9,22 @@ msgstr ""
 "Project-Id-Version: Zugzwang Project -- news module\n"
 "POT-Creation-Date: 2026-08-24 19:07+0000\n"
 "PO-Revision-Date: \n"
+"Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
 "Language-Team: \n"
-"Language: en\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
 
 #: configuration/access.cfg:21
 msgid "Show preview of unpublished news"
-msgstr ""
+msgstr "Vorschau auf noch nicht veröffentlichte Nachrichten anzeigen"
 
 #: configuration/package.cfg:13
 msgid "news module"
-msgstr ""
+msgstr "Nachrichtenmodul"
 
 #: configuration/package.cfg:15
 msgid "Articles for websites and publications, including periodical issues"
@@ -46,7 +48,7 @@ msgstr ""
 
 #: configuration/routes.cfg:29
 msgid "All articles in one list"
-msgstr ""
+msgstr "Alle Artikel in einer Liste"
 
 #: configuration/routes.cfg:35
 msgid "Annual overview of articles"
@@ -54,7 +56,7 @@ msgstr ""
 
 #: configuration/routes.cfg:41
 msgid "Book presentation"
-msgstr ""
+msgstr "Buchvorstellung"
 
 #: configuration/routes.cfg:46
 msgid "Issue (edition) of an issued publication"
@@ -70,7 +72,7 @@ msgstr ""
 
 #: configuration/routes.cfg:63
 msgid "Manage issues of a publication"
-msgstr ""
+msgstr "Ausgaben einer Publikation verwalten"
 
 #: configuration/routes.cfg:68
 msgid "Manage publications (editorial outlets and series for articles)"
@@ -78,11 +80,11 @@ msgstr ""
 
 #: configuration/routes.cfg:72
 msgid "Publications"
-msgstr ""
+msgstr "Veröffentlichungen"
 
 #: configuration/routes.cfg:73
 msgid "Their articles and issues"
-msgstr ""
+msgstr "Ihre Artikel und Ausgaben"
 
 #: configuration/settings.cfg:21
 msgid "Hide article body field when set to 0"
@@ -121,7 +123,8 @@ msgid "News author is set per default to current user for convenience"
 msgstr ""
 
 #: configuration/settings.cfg:75
-msgid "Size of big image linked to in gallery (only if bigger image is available)"
+msgid ""
+"Size of big image linked to in gallery (only if bigger image is available)"
 msgstr ""
 
 #: configuration/settings.cfg:80
@@ -145,7 +148,9 @@ msgid "Default image size for news gallery (x2)"
 msgstr ""
 
 #: configuration/settings.cfg:106
-msgid "Show a file-type label in the gallery when a preview image or video fails to load"
+msgid ""
+"Show a file-type label in the gallery when a preview image or video fails to "
+"load"
 msgstr ""
 
 #: configuration/settings.cfg:110
@@ -181,7 +186,9 @@ msgid "Show full text in overview of articles"
 msgstr ""
 
 #: configuration/settings.cfg:150
-msgid "Allow to select a different medium than the first in sequence as overview medium for an article"
+msgid ""
+"Allow to select a different medium than the first in sequence as overview "
+"medium for an article"
 msgstr ""
 
 #: configuration/settings.cfg:154
@@ -237,7 +244,9 @@ msgid "Do not show this article category or publication in the archive"
 msgstr ""
 
 #: configuration/settings.cfg:223
-msgid "Replace (case sensitive) substrings with other strings, e. g. for common misspellings"
+msgid ""
+"Replace (case sensitive) substrings with other strings, e. g. for common "
+"misspellings"
 msgstr ""
 
 #: configuration/settings.cfg:227
@@ -261,7 +270,9 @@ msgid "Number of entries in the RSS feed"
 msgstr ""
 
 #: configuration/settings.cfg:247
-msgid "Format description text of RSS entries (articles and events) as if it were an article on webpage"
+msgid ""
+"Format description text of RSS entries (articles and events) as if it were "
+"an article on webpage"
 msgstr ""
 
 #: configuration/settings.cfg:251
@@ -275,3 +286,6 @@ msgstr ""
 #: configuration/settings.cfg:259
 msgid "Include events in RSS feed"
 msgstr ""
+
+#~ msgid "Articles of each publication"
+#~ msgstr "Artikel aller Veröffentlichungen"

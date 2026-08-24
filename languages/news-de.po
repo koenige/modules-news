@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: modules/news\n"
-"POT-Creation-Date: 2026-08-23 22:56+0000\n"
+"POT-Creation-Date: 2026-08-24 15:52+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
 "Language-Team: \n"
@@ -35,7 +35,7 @@ msgstr "Nächster Beitrag:"
 msgid "Previous post:"
 msgstr "Vorheriger Beitrag:"
 
-#: templates/article.template.txt:53 templates/article.template.txt:75
+#: templates/article.template.txt:53
 msgid "by"
 msgstr "von"
 
@@ -43,7 +43,7 @@ msgstr "von"
 msgid "Further Information"
 msgstr "Weitere Informationen"
 
-#: templates/article.template.txt:94 zzbrick_tables/articles.php:192
+#: templates/article.template.txt:94 zzbrick_tables/articles.php:202
 msgid "Events"
 msgstr "Veranstaltungen"
 
@@ -71,23 +71,23 @@ msgstr "E-Mail"
 msgid "Read on:"
 msgstr "Mehr lesen:"
 
-#: templates/articles.template.txt:14
+#: templates/articles.template.txt:11
 msgid "There are no posts in this year."
 msgstr "Wir haben keine Beiträge aus diesem Jahr."
 
-#: templates/articles.template.txt:17
+#: templates/articles.template.txt:14
 msgid "There are no posts in this category."
 msgstr "Wir haben keine Beiträge in dieser Kategorie."
 
-#: templates/articles.template.txt:20
+#: templates/articles.template.txt:17
 msgid "This post category does not exist."
 msgstr "Diese Beitragskategorie existiert nicht."
 
-#: templates/articles.template.txt:23
+#: templates/articles.template.txt:20
 msgid "Sorry, currently we have no posts."
 msgstr "Zur Zeit haben wir keine aktuellen Beiträge."
 
-#: templates/articles.template.txt:75
+#: templates/articles.template.txt:72
 msgid "Read more …"
 msgstr "Mehr lesen …"
 
@@ -111,7 +111,7 @@ msgstr "Es wurden keine Beiträge gefunden, die Ihrer Suche entsprechen."
 msgid "This publication is not split into separate issues."
 msgstr "Diese Publikation ist nicht in einzelne Ausgaben unterteilt."
 
-#: zzbrick_request/article.inc.php:39 zzbrick_request/issue.inc.php:39
+#: zzbrick_request/article.inc.php:36 zzbrick_request/issue.inc.php:40
 msgid "This post is no longer published."
 msgstr "Dieser Beitrag ist nicht mehr veröffentlicht."
 
@@ -119,7 +119,7 @@ msgstr "Dieser Beitrag ist nicht mehr veröffentlicht."
 msgid "News Articles"
 msgstr "Überblick"
 
-#: zzbrick_request/issue.inc.php:97
+#: zzbrick_request/issue.inc.php:101
 msgid "Issue %s"
 msgstr "Ausgabe %s"
 
@@ -187,88 +187,88 @@ msgstr "Kurztitel mit den wichtigsten Begriffen, ohne Jahr. Für Suche und URL"
 msgid "Lead"
 msgstr "Aufmacher"
 
-#: zzbrick_tables/articles.php:99
+#: zzbrick_tables/articles.php:110
 msgid "Short news, not too long"
 msgstr "Kurznachricht, nicht zu lang"
 
-#: zzbrick_tables/articles.php:105
+#: zzbrick_tables/articles.php:116
 msgid "Newsletter Lead"
 msgstr "Newsletter Aufmacher"
 
-#: zzbrick_tables/articles.php:117
+#: zzbrick_tables/articles.php:128
 msgid "Media"
 msgstr "Medien"
 
-#: zzbrick_tables/articles.php:128 zzbrick_tables/issues.php:88
+#: zzbrick_tables/articles.php:139 zzbrick_tables/issues.php:91
 msgid "Published?"
 msgstr "Veröffentlicht?"
 
-#: zzbrick_tables/articles.php:131 zzbrick_tables/articles.php:340
-#: zzbrick_tables/articles-media.php:83 zzbrick_tables/issues.php:91
+#: zzbrick_tables/articles.php:142 zzbrick_tables/articles.php:325
+#: zzbrick_tables/articles-media.php:83 zzbrick_tables/issues.php:94
 msgid "no"
 msgstr "nein"
 
-#: zzbrick_tables/articles.php:131 zzbrick_tables/articles.php:339
-#: zzbrick_tables/articles-media.php:83 zzbrick_tables/issues.php:91
+#: zzbrick_tables/articles.php:142 zzbrick_tables/articles.php:324
+#: zzbrick_tables/articles-media.php:83 zzbrick_tables/issues.php:94
 msgid "yes"
 msgstr "ja"
 
-#: zzbrick_tables/articles.php:138 zzbrick_tables/articles-categories.php
+#: zzbrick_tables/articles.php:149 zzbrick_tables/articles-categories.php
 msgid "Categories"
 msgstr "Kategorien"
 
-#: zzbrick_tables/articles.php:156
+#: zzbrick_tables/articles.php:166
 msgid "Ext. Link"
 msgstr "Ext. Link"
 
-#: zzbrick_tables/articles.php:160
+#: zzbrick_tables/articles.php:170
 msgid "Link to another website to read on."
 msgstr "Link zu einer anderen Website, auf der man weiterlesen kann."
 
-#: zzbrick_tables/articles.php:165 zzbrick_tables/articles-articles.php:32
+#: zzbrick_tables/articles.php:175 zzbrick_tables/articles-articles.php:32
 #: zzbrick_tables/articles-categories.php:23
 #: zzbrick_tables/articles-contacts.php:23
 #: zzbrick_tables/articles-events.php:23 zzbrick_tables/articles-media.php:52
-#: zzbrick_tables/issues.php:63
+#: zzbrick_tables/issues.php:66
 msgid "Article"
 msgstr "Nachricht"
 
-#: zzbrick_tables/articles.php:206 zzbrick_tables/articles.php:229
-#: zzbrick_tables/articles.php:367 zzbrick_tables/issues.php:23
-#: zzbrick_tables/issues.php:114 zzbrick_tables/publications.php:23
+#: zzbrick_tables/articles.php:214 zzbrick_tables/articles.php:352
+#: zzbrick_tables/issues.php:23 zzbrick_tables/issues.php:117
+#: zzbrick_tables/publications.php:23
 msgid "Publication"
 msgstr "Publikation"
 
-#: zzbrick_tables/articles.php:240 zzbrick_tables/issues.php:31
+#: zzbrick_tables/articles.php:225 zzbrick_tables/issues.php:32
 msgid "Issue"
 msgstr "Ausgabe"
 
-#: zzbrick_tables/articles.php:255 zzbrick_tables/issues.php:47
+#: zzbrick_tables/articles.php:239 zzbrick_tables/issues.php:48
 #: zzbrick_tables/publications.php:71
 msgid "Identifier"
 msgstr "Kennung"
 
-#: zzbrick_tables/articles.php:265 zzbrick_tables/articles-articles.php:74
+#: zzbrick_tables/articles.php:250 zzbrick_tables/articles-articles.php:74
 #: zzbrick_tables/articles-categories.php:59
-#: zzbrick_tables/articles-contacts.php:61 zzbrick_tables/issues.php:100
+#: zzbrick_tables/articles-contacts.php:61 zzbrick_tables/issues.php:103
 #: zzbrick_tables/publications.php:79
 msgid "Last update"
 msgstr "Stand"
 
-#: zzbrick_tables/articles.php:269 zzbrick_tables/articles-categories.php:45
+#: zzbrick_tables/articles.php:254 zzbrick_tables/articles-categories.php:45
 msgid "Type"
 msgstr "Typ"
 
-#: zzbrick_tables/articles.php:315
+#: zzbrick_tables/articles.php:300
 msgid "Year"
 msgstr "Jahr"
 
-#: zzbrick_tables/articles.php:329 zzbrick_tables/articles-categories.php:35
+#: zzbrick_tables/articles.php:314 zzbrick_tables/articles-categories.php:35
 #: zzbrick_tables/articles-contacts.php:43
 msgid "Category"
 msgstr "Kategorie"
 
-#: zzbrick_tables/articles.php:335
+#: zzbrick_tables/articles.php:320
 msgid "Published"
 msgstr "Veröffentlicht"
 
@@ -284,7 +284,7 @@ msgid "No."
 msgstr "Nr."
 
 #: zzbrick_tables/articles-articles.php:24
-#: zzbrick_tables/articles-events.php:31 zzbrick_tables/issues.php:84
+#: zzbrick_tables/articles-events.php:31 zzbrick_tables/issues.php:87
 #: zzbrick_tables/publications.php:67
 msgid "Sequence"
 msgstr "Reihenfolge"
@@ -321,7 +321,7 @@ msgstr "Rolle"
 msgid "Articles on Events"
 msgstr "Artikel über Veranstaltungen"
 
-#: zzbrick_tables/articles-events.php:30 zzbrick_tables/issues.php:83
+#: zzbrick_tables/articles-events.php:30 zzbrick_tables/issues.php:86
 #: zzbrick_tables/publications.php:66
 msgid "Seq."
 msgstr "Sort."
@@ -354,27 +354,27 @@ msgstr "Stand"
 msgid "Issues"
 msgstr "Ausgaben"
 
-#: zzbrick_tables/issues.php:40
+#: zzbrick_tables/issues.php:41
 msgid "Issue short"
 msgstr "Kurztitel (Ausgabe)"
 
-#: zzbrick_tables/issues.php:55
+#: zzbrick_tables/issues.php:58
 msgid "Intro"
 msgstr "Einleitung"
 
-#: zzbrick_tables/issues.php:71
+#: zzbrick_tables/issues.php:74
 msgid "Period begin"
 msgstr "Zeitraum Beginn"
 
-#: zzbrick_tables/issues.php:72
+#: zzbrick_tables/issues.php:75
 msgid "Period"
 msgstr "Zeitraum"
 
-#: zzbrick_tables/issues.php:78
+#: zzbrick_tables/issues.php:81
 msgid "Period end"
 msgstr "Zeitraum Ende"
 
-#: zzbrick_tables/issues.php:95
+#: zzbrick_tables/issues.php:98
 msgid "Date published"
 msgstr "Veröffentlichungsdatum"
 
