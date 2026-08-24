@@ -21,15 +21,12 @@ function mod_news_article($params) {
 	if (count($params) > 4) return false;
 
 	$sql = 'SELECT articles.article_id
-			, SUBSTRING_INDEX(categories.path, "/", -1) AS publication_path
+			, publications.identifier AS publication_path
 			, IF(articles.published = "yes", 1, NULL) AS published
 		FROM articles
-		LEFT JOIN articles_categories
-			ON articles_categories.article_id = articles.article_id
-			AND articles_categories.type_category_id = /*_ID categories publications _*/
-		LEFT JOIN categories USING (category_id)
-		WHERE identifier = "%s"
-		ORDER BY date DESC, time DESC, identifier DESC';
+		LEFT JOIN publications USING (publication_id)
+		WHERE articles.identifier = "%s"
+		ORDER BY date DESC, time DESC, articles.identifier DESC';
 	$sql = sprintf($sql
 		, wrap_db_escape(implode('/', $params))
 	);
@@ -105,13 +102,6 @@ function mod_news_article($params) {
 
 	// prev next
 	$article += wrap_get_prevnext_flat($articles, $article['article_id'], false);
-	if (!empty($article['publications'])) {
-		$publication_path = reset($article['publications']);
-		$publication_path = $publication_path['path_fragment'];
-	} else {
-		$publication_path = '';
-	}
-
 	if (!empty($article['_next_identifier'])) {
 		$page['link']['next'][0]['href'] = wrap_path('news_article', $article['_next_identifier'])
 			?? wrap_path('news_article', $article['_next_identifier']);
@@ -138,14 +128,6 @@ function mod_news_article($params) {
 	$article['categories'] = wrap_translate($article['categories'], 'categories');
 	// following translation probably never necessary, therefore inactive
 	// $article['categories'] = wrap_translate($article['categories'], ['type' => 'categories.category'], 'type_category_id');
-	foreach ($article['categories'] as $category_id => $category) {
-		if (wrap_category_id('publications', 'check')
-			AND $category['type_category_id'] === wrap_category_id('publications')) {
-			$article['publication'] = $category['category'];
-			$article['publication_path'] = $category['path'];
-			unset($article['categories'][$category_id]);
-		}
-	}
 	
 	$page['title'] = $article['title'];
 	$page['breadcrumbs'] = mod_news_article_breadcrumbs($article);

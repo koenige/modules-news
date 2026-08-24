@@ -1,0 +1,30 @@
+# news module
+# Publication issues grouped by calendar year (descending years)
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/news
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2026 Gustaf Mossakowski
+#
+
+<div class="news-issues-archive">
+%%% if no_issues %%%
+<p>%%% text No issues have been published yet. %%%</p>
+%%% else %%%
+%%% loop start %%%
+<h2>%%% item archive_year %%%</h2>
+<ul>
+%%% loop issues %%%
+<li>
+%%% if path news_issue identifier %%%
+<a href="%%% path news_issue identifier %%%">%%% item issue %%%</a>
+%%% else %%%
+<span>%%% item issue %%%</span>
+%%% endif %%%
+</li>
+%%% loop end %%%
+</ul>
+%%% loop end %%%
+%%% endif %%%
+</div>

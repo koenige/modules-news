@@ -22,35 +22,29 @@ function mf_news_search($q) {
 	}
 
 	$data['news'] = [];
-	$sql = 'SELECT category_id, category
-			, SUBSTRING_INDEX(path, "/", -1) AS path
-		FROM categories
-		LEFT JOIN articles_categories USING (category_id)
-		WHERE articles_categories.type_category_id = /*_ID categories publications _*/';
-	$publications = wrap_db_fetch($sql, 'category_id');
-	$publications = wrap_translate($publications, 'categories');
+	$sql = 'SELECT publication_id, publication, identifier
+		FROM publications';
+	$publications = wrap_db_fetch($sql, 'publication_id');
+	$publications = wrap_translate($publications, 'publications');
 	foreach ($publications as $publication) {
-		$data['news'][$publication['path']]['publication'] = $publication['category'];
-		$data['news'][$publication['path']]['publication_path'] = $publication['path'];
+		$data['news'][$publication['identifier']]['publication'] = $publication['publication'];
+		$data['news'][$publication['identifier']]['publication_identifier'] = $publication['identifier'];
 	}
 
 	$sql = 'SELECT articles.article_id, date, title, abstract, identifier
-				, category AS publication
-				, SUBSTRING_INDEX(path, "/", -1) AS path
+			, publication
+			, publications.identifier AS publication_identifier
 		FROM articles
-		LEFT JOIN articles_categories
-			ON articles_categories.article_id = articles.article_id
-			AND articles_categories.type_category_id = /*_ID categories publications _*/
-		LEFT JOIN categories USING (category_id)
+		LEFT JOIN publications USING (publication_id)
 		WHERE %s
 		AND published = "yes"
-		ORDER BY categories.sequence, date DESC, time DESC, title';
+		ORDER BY publications.sequence, publications.identifier, date DESC, time DESC, title';
 	$sql = sprintf($sql, implode(' AND ', $where));
 	$articles = wrap_db_fetch($sql, 'article_id');
 	$articles = mf_news_media($articles);
 	foreach ($articles as $article_id => $article) {
 		$article['link'] = wrap_path('news_article', $article['identifier']);
-		$data['news'][$article['path']]['articles'][$article_id] = $article;
+		$data['news'][$article['publication_identifier']]['articles'][$article_id] = $article;
 	}
 	$data['news'] = array_values($data['news']);
 	return $data;

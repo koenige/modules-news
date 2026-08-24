@@ -1,0 +1,33 @@
+# news module
+# HTML template for a publication issue (edition)
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/news
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2026 Gustaf Mossakowski
+#
+
+<div class="news-issue" itemscope itemtype="https://schema.org/PublicationIssue">
+<h1 itemprop="name">%%% item issue %%%</h1>
+%%% if issue_short %%%
+<p class="issue-short" itemprop="alternativeHeadline">%%% item issue_short %%%</p>
+%%% endif %%%
+%%% if period_begin %%%
+<p class="period"><time itemprop="temporalCoverage">%%% item period_begin format=date %%%</time>
+%%% if period_end %%% – <time>%%% item period_end format=date %%%</time>%%% endif %%%</p>
+%%% endif %%%
+%%% if intro %%%
+<div class="intro" itemprop="description">
+%%% item intro format=markdown %%%
+</div>
+%%% endif %%%
+%%% if article %%%
+<div class="article" itemprop="articleBody">
+%%% item article format=markdown %%%
+</div>
+%%% endif %%%
+%%% if date_published %%%
+<p class="date"><time itemprop="datePublished" datetime="%%% item date_published %%%">%%% item date_published format=date %%%</time></p>
+%%% endif %%%
+</div>

@@ -32,7 +32,11 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 			, DATE_FORMAT(articles.last_update, "%%Y-%%m-%%dT%%H:%%i:%%s") AS modified
 			, IF (published = "yes", 1, NULL) AS published
 			%s
+			, /*_PREFIX_*/publications.publication_id
+			, /*_PREFIX_*/publications.publication
+			, /*_PREFIX_*/publications.identifier AS publication_identifier
 		FROM articles
+		LEFT JOIN publications USING (publication_id)
 		WHERE articles.article_id IN (%s)
 		ORDER BY FIELD(articles.article_id, %s)';
 	$sql = sprintf($sql
@@ -56,25 +60,21 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 	$articles = wrap_data_media($articles, $ids, $langs, 'articles');
 
 	// categories
-	$article_categories = [
-		'news' => 'categories',
-		'publications' => 'publications'
-	];
-	foreach ($article_categories as $category => $path) {
-		if (!wrap_category_id($category, 'check')) continue;
+	// categories
+	if (wrap_category_id('news', 'check')) {
 		$sql = 'SELECT article_category_id, article_id, category_id, category
 				, REPLACE(SUBSTRING_INDEX(path, "/", -1), "-", "_") AS path_fragment
 				, path, parameters
 			FROM articles_categories
 			LEFT JOIN categories USING (category_id)
 			WHERE article_id IN (%s)
-			AND type_category_id = /*_ID categories %s _*/
+			AND type_category_id = /*_ID categories news _*/
 			AND categories.published = "yes"
 			ORDER by articles_categories.sequence, categories.sequence, category';
-		$sql = sprintf($sql, implode(',', $ids), $category);
+		$sql = sprintf($sql, implode(',', $ids));
 		$categorydata = wrap_db_fetch($sql, 'article_category_id');
 		foreach ($langs as $lang) {
-			$categories[$lang] = wrap_translate($categorydata, $path, 'category_id', true, $lang);
+			$categories[$lang] = wrap_translate($categorydata, 'categories', 'category_id', true, $lang);
 		}
 		foreach ($categories as $lang => $categories_per_lang) {
 			foreach ($categories_per_lang as $article_category_id => $category) {
@@ -83,7 +83,7 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 					parse_str($category['parameters'], $category['parameters']);
 					$articles[$lang][$category['article_id']]['menu_hierarchy'][] = mf_default_categories_menu_hierarchy($category['parameters'], $category['path']);
 				}
-				$articles[$lang][$category['article_id']][$path][$article_category_id] = $category; 
+				$articles[$lang][$category['article_id']]['categories'][$article_category_id] = $category; 
 			}
 		}
 	}

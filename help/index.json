@@ -1,0 +1,28 @@
+{
+    "publications-parameters": [
+        {
+            "title": "Publications parameters",
+            "language": "en",
+            "package": "news",
+            "identifier": "publications-parameters",
+            "type": "parameters",
+            "audience": [
+                "editor"
+            ],
+            "table": "publications",
+            "parameter_field": "parameters"
+        },
+        {
+            "title": "Publikationen-Parameter",
+            "language": "de",
+            "package": "news",
+            "identifier": "publications-parameters",
+            "type": "parameters",
+            "audience": [
+                "editor"
+            ],
+            "table": "publications",
+            "parameter_field": "parameters"
+        }
+    ]
+}

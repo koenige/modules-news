@@ -20,281 +20,227 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.9\n"
 
-#: templates/article.template.txt:14
-msgid "News"
-msgstr "Nowina"
+#: news/functions.inc.php
+msgid "Overview"
+msgstr "Przegląd"
 
-#: templates/article.template.txt:21
-msgid "Next post:"
-msgstr "Następny wpis:"
-
-#: templates/article.template.txt:24
-msgid "Previous post:"
-msgstr "Poprzedni wpis:"
-
-#: templates/article.template.txt:53 templates/article.template.txt:75
+#: templates/article.template.txt
 msgid "by"
 msgstr "&nbsp;"
 
-#: templates/article.template.txt:84
+#: templates/article.template.txt
+msgid "Previous post:"
+msgstr "Poprzedni wpis:"
+
+#: templates/article.template.txt
+msgid "Next post:"
+msgstr "Następny wpis:"
+
+#: templates/article.template.txt
 msgid "Further Information"
 msgstr "Informacje dodatkowe"
 
-#: templates/article.template.txt:94 zzbrick_tables/articles.php:187
-msgid "Events"
-msgstr ""
-
-#: templates/article.template.txt:98
-msgid "h"
-msgstr ""
-
-#: templates/article.template.txt:107
-msgid "Share article"
-msgstr ""
-
-#: templates/article.template.txt:109
-msgid "Facebook"
-msgstr ""
-
-#: templates/article.template.txt:110
-msgid "X / Twitter"
-msgstr ""
-
-#: templates/article.template.txt:111
-msgid "E-mail"
-msgstr ""
-
-#: templates/article.template.txt:111
-msgid "Read on:"
-msgstr ""
-
-#: templates/articles.template.txt:14
-msgid "There are no posts in this year."
-msgstr "Nie ma żadnych wiadomości."
-
-#: templates/articles.template.txt:17
-msgid "There are no posts in this category."
-msgstr "Nie ma żadnych artykułów w tej kategorii."
-
-#: templates/articles.template.txt:20
-msgid "This post category does not exist."
-msgstr "Ta kategoria nie istnieje."
-
-#: templates/articles.template.txt:23
+#: templates/articles.template.txt
 msgid "Sorry, currently we have no posts."
 msgstr "Przepraszamy, obecnie nie mamy żadnych wiadomości."
 
-#: templates/articles.template.txt:75
-msgid "Read more …"
-msgstr ""
+#: templates/articles.template.txt
+msgid "There are no posts in this year."
+msgstr "Nie ma żadnych wiadomości."
 
-#: templates/articles-years.template.txt:12
-msgid "There are no posts in the archive."
-msgstr "W archiwum nie ma żadnych artykułów."
+#: templates/articles.template.txt
+msgid "There are no posts in this category."
+msgstr "Nie ma żadnych artykułów w tej kategorii."
 
-#: templates/articles-years.template.txt:15
-msgid "Archive"
-msgstr "Archiwum"
+#: templates/articles.template.txt
+msgid "This post category does not exist."
+msgstr "Ta kategoria nie istnieje."
 
-#: templates/search-news.template.txt:20
+#: templates/search-news.template.txt
 msgid "No posts were found matching your search."
 msgstr "Nie znaleziono postów spełniających kryteria wyszukiwania."
 
-#: zzbrick_request/article.inc.php:39
-msgid "This post is no longer published."
-msgstr ""
-
-#: zzbrick_request/articles.inc.php:34
-msgid "News Articles"
-msgstr "Artykuły z nowinami"
-
-#: zzbrick_tables/articles.php:16
-msgid "Articles"
-msgstr "Artykuły"
-
-#: zzbrick_tables/articles.php:19 zzbrick_tables/articles-articles.php:19
-#: zzbrick_tables/articles-categories.php:19
-#: zzbrick_tables/articles-contacts.php:19
-#: zzbrick_tables/articles-events.php:19 zzbrick_tables/articles-media.php:19
-msgid "ID"
-msgstr ""
-
-#: zzbrick_tables/articles.php:23
-msgid "Image"
-msgstr "Obraz"
-
-#: zzbrick_tables/articles.php:46
-msgid "Date"
-msgstr ""
-
-#: zzbrick_tables/articles.php:53
-msgid "Time"
-msgstr ""
-
-#: zzbrick_tables/articles.php:64
-msgid "Title"
-msgstr ""
-
-#: zzbrick_tables/articles.php:78
-msgid "Subtitle"
-msgstr "Podtytuł"
-
-#: zzbrick_tables/articles.php:88
-msgid "Lead"
-msgstr "Lead"
-
-#: zzbrick_tables/articles.php:94
-msgid "Short news, not too long"
-msgstr "Krótkie wiadomości, niezbyt długie"
-
-#: zzbrick_tables/articles.php:100
-msgid "Newsletter Lead"
-msgstr "Lead newslettera"
-
-#: zzbrick_tables/articles.php:112
-msgid "Media"
-msgstr ""
-
-#: zzbrick_tables/articles.php:123
-msgid "Published?"
-msgstr ""
-
-#: zzbrick_tables/articles.php:126 zzbrick_tables/articles.php:308
-#: zzbrick_tables/articles-media.php:83
-msgid "no"
-msgstr ""
-
-#: zzbrick_tables/articles.php:126 zzbrick_tables/articles.php:307
-#: zzbrick_tables/articles-media.php:83
-msgid "yes"
-msgstr ""
-
-#: zzbrick_tables/articles.php:133
-msgid "Categories"
-msgstr "Kategorie"
-
-#: zzbrick_tables/articles.php:151
-msgid "Ext. Link"
-msgstr ""
-
-#: zzbrick_tables/articles.php:155
-msgid "Link to another website to read on."
-msgstr ""
-
-#: zzbrick_tables/articles.php:160 zzbrick_tables/articles-articles.php:32
-#: zzbrick_tables/articles-categories.php:23
-#: zzbrick_tables/articles-contacts.php:23
-#: zzbrick_tables/articles-events.php:23 zzbrick_tables/articles-media.php:52
-msgid "Article"
-msgstr "Artykuł"
-
-#: zzbrick_tables/articles.php:200 zzbrick_tables/articles.php:335
-msgid "Publication"
-msgstr "Publikacje"
-
-#: zzbrick_tables/articles.php:223
-msgid "Identifier"
-msgstr "Identyfikator"
-
-#: zzbrick_tables/articles.php:231 zzbrick_tables/articles-articles.php:74
-#: zzbrick_tables/articles-categories.php:58
-#: zzbrick_tables/articles-contacts.php:61
-msgid "Last update"
-msgstr ""
-
-#: zzbrick_tables/articles.php:235
-msgid "Article type"
-msgstr ""
-
-#: zzbrick_tables/articles.php:283
-msgid "Year"
-msgstr "Rok"
-
-#: zzbrick_tables/articles.php:297 zzbrick_tables/articles-categories.php:35
-#: zzbrick_tables/articles-contacts.php:43
-msgid "Category"
-msgstr ""
-
-#: zzbrick_tables/articles.php:303
-msgid "Published"
-msgstr "Opublikowany"
-
-#: zzbrick_tables/articles-articles.php:16
+#: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
 msgstr "Powiązane artykuły"
 
-#: zzbrick_tables/articles-articles.php:23
-#: zzbrick_tables/articles-articles.php:29
-#: zzbrick_tables/articles-categories.php:29
-#: zzbrick_tables/articles-contacts.php:29 zzbrick_tables/articles-media.php:45
-msgid "No."
-msgstr "nr"
-
-#: zzbrick_tables/articles-articles.php:24
-#: zzbrick_tables/articles-events.php:31
-msgid "Sequence"
-msgstr ""
-
-#: zzbrick_tables/articles-articles.php:44
-msgid "Relation"
-msgstr ""
-
-#: zzbrick_tables/articles-articles.php:58
+#: zzbrick_tables/articles-articles.php
 msgid "Main Article"
 msgstr "Artykuł główny"
 
-#: zzbrick_tables/articles-categories.php:16
-msgid "Categories of Articles"
-msgstr ""
+#: zzbrick_tables/articles-categories.php
+msgid "Categories"
+msgstr "Kategorie"
 
-#: zzbrick_tables/articles-categories.php:45
-msgid "Type"
-msgstr ""
-
-#: zzbrick_tables/articles-categories.php:54
-msgid "Property"
-msgstr ""
-
-#: zzbrick_tables/articles-contacts.php:16
-msgid "Contacts in Articles"
-msgstr ""
-
-#: zzbrick_tables/articles-contacts.php:35
-msgid "Contact"
-msgstr ""
-
-#: zzbrick_tables/articles-contacts.php:55
-msgid "Role"
-msgstr ""
-
-#: zzbrick_tables/articles-events.php:16
-msgid "Articles on Events"
-msgstr ""
-
-#: zzbrick_tables/articles-events.php:30
-msgid "Seq."
-msgstr ""
-
-#: zzbrick_tables/articles-events.php:36
-msgid "Event"
-msgstr ""
-
-#: zzbrick_tables/articles-media.php:16
+#: zzbrick_tables/articles-media.php
 msgid "Media in Articles"
 msgstr "Media w artykułach"
 
-#: zzbrick_tables/articles-media.php:23
+#: zzbrick_tables/articles-media.php
+msgid "No."
+msgstr "nr"
+
+#: zzbrick_tables/articles-media.php
 msgid "Preview"
 msgstr "Podgląd"
 
-#: zzbrick_tables/articles-media.php:61
-msgid "Medium"
-msgstr ""
+#: zzbrick_tables/articles.php
+msgid "News Articles"
+msgstr "Artykuły z nowinami"
 
-#: zzbrick_tables/articles-media.php:80
-msgid "Overview?"
-msgstr "Przegląd?"
+#: zzbrick_tables/articles.php
+msgid "News"
+msgstr "Nowina"
 
-#: zzbrick_tables/articles-media.php:89
-msgid "Updated"
-msgstr ""
+#: zzbrick_tables/articles.php
+msgid "Post"
+msgstr "Post"
+
+#: zzbrick_tables/articles.php
+msgid "Articles"
+msgstr "Artykuły"
+
+#: zzbrick_tables/articles.php
+#: zzbrick_tables/issues.php
+msgid "Article"
+msgstr "Artykuł"
+
+#: zzbrick_tables/articles.php
+msgid "Authors"
+msgstr "Autorzy"
+
+#: zzbrick_tables/articles.php
+msgid "Image"
+msgstr "Obraz"
+
+#: zzbrick_tables/articles.php
+msgid "Year"
+msgstr "Rok"
+
+#: zzbrick_tables/articles.php
+msgid "Published"
+msgstr "Opublikowany"
+
+#: zzbrick_tables/articles.php
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "Identifier"
+msgstr "Identyfikator"
+
+#: zzbrick_tables/articles.php
+msgid "Show until"
+msgstr "Pokaż do"
+
+#: zzbrick_tables/articles.php
+msgid "Short news, not too long"
+msgstr "Krótkie wiadomości, niezbyt długie"
+
+#: zzbrick_tables/articles.php
+msgid "– none –"
+msgstr "– Żadna –"
+
+#: zzbrick_tables/articles.php
+msgid "Lead"
+msgstr "Lead"
+
+#: zzbrick_tables/articles.php
+msgid "Newsletter Lead"
+msgstr "Lead newslettera"
+
+#: zzbrick_tables/articles.php
+msgid "Organisations"
+msgstr "Organizacje"
+
+#: zzbrick_tables/articles.php
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "Publication"
+msgstr "Publikacje"
+
+#: zzbrick_tables/articles.php
+msgid "Subtitle"
+msgstr "Podtytuł"
+
+#: zzbrick_tables/articles.php
+#: zzbrick_tables/issues.php
+msgid "Issue"
+msgstr "Wydanie"
+
+#: zzbrick_tables/issues.php
+msgid "Issue short"
+msgstr "Krótki tytuł wydania"
+
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "ID"
+msgstr "ID"
+
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "Seq."
+msgstr "Kolejność"
+
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "Issues"
+msgstr "Wydania"
+
+#: zzbrick_tables/issues.php
+msgid "Intro"
+msgstr "Wstęp"
+
+#: zzbrick_tables/issues.php
+msgid "Date published"
+msgstr "Data publikacji"
+
+#: zzbrick_tables/issues.php
+msgid "Period begin"
+msgstr "Początek okresu"
+
+#: zzbrick_tables/issues.php
+msgid "Period end"
+msgstr "Koniec okresu"
+
+#: zzbrick_tables/issues.php
+msgid "Published?"
+msgstr "Opublikowane?"
+
+#: zzbrick_tables/issues.php
+msgid "yes"
+msgstr "tak"
+
+#: zzbrick_tables/issues.php
+msgid "no"
+msgstr "nie"
+
+#: zzbrick_tables/publications.php
+msgid "Publications"
+msgstr "Publikacje"
+
+#: zzbrick_tables/publications.php
+msgid "Distribution"
+msgstr "Rodzaj wydawania"
+
+#: zzbrick_tables/publications.php
+msgid "Continuous publication"
+msgstr "Ciągłe (blog)"
+
+#: zzbrick_tables/publications.php
+msgid "Issued publication"
+msgstr "Z numerami (periodyk)"
+
+#: zzbrick_tables/publications.php
+msgid "Description"
+msgstr "Opis"
+
+#: zzbrick_tables/publications.php
+msgid "Publication short"
+msgstr "Krótka nazwa publikacji"
+
+#: zzbrick_tables/publications.php
+msgid "Internal parameters. Change with care."
+msgstr "Parametry wewnętrzne. Zmieniaj ostrożnie."
+
+#: templates/issues-archive.template.txt
+msgid "No issues have been published yet."
+msgstr "Nie opublikowano jeszcze żadnych wydań."

@@ -19,281 +19,227 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.9\n"
 
-#: templates/article.template.txt:14
-msgid "News"
-msgstr "Zprávy"
+#: news/functions.inc.php
+msgid "Overview"
+msgstr "Přehled"
 
-#: templates/article.template.txt:21
-msgid "Next post:"
-msgstr "Následující příspěvek:"
-
-#: templates/article.template.txt:24
-msgid "Previous post:"
-msgstr "Předchozí příspěvek:"
-
-#: templates/article.template.txt:53 templates/article.template.txt:75
+#: templates/article.template.txt
 msgid "by"
 msgstr "od"
 
-#: templates/article.template.txt:84
+#: templates/article.template.txt
+msgid "Previous post:"
+msgstr "Předchozí příspěvek:"
+
+#: templates/article.template.txt
+msgid "Next post:"
+msgstr "Následující příspěvek:"
+
+#: templates/article.template.txt
 msgid "Further Information"
 msgstr "Další informace"
 
-#: templates/article.template.txt:94 zzbrick_tables/articles.php:187
-msgid "Events"
-msgstr ""
-
-#: templates/article.template.txt:98
-msgid "h"
-msgstr ""
-
-#: templates/article.template.txt:107
-msgid "Share article"
-msgstr ""
-
-#: templates/article.template.txt:109
-msgid "Facebook"
-msgstr ""
-
-#: templates/article.template.txt:110
-msgid "X / Twitter"
-msgstr ""
-
-#: templates/article.template.txt:111
-msgid "E-mail"
-msgstr ""
-
-#: templates/article.template.txt:111
-msgid "Read on:"
-msgstr ""
-
-#: templates/articles.template.txt:14
-msgid "There are no posts in this year."
-msgstr "V tomto roce nejsou žádné příspěvky."
-
-#: templates/articles.template.txt:17
-msgid "There are no posts in this category."
-msgstr "V této kategorii nejsou žádné příspěvky."
-
-#: templates/articles.template.txt:20
-msgid "This post category does not exist."
-msgstr "Kategorie tohoto příspěvku neexistuje."
-
-#: templates/articles.template.txt:23
+#: templates/articles.template.txt
 msgid "Sorry, currently we have no posts."
 msgstr "Omlouváme se, v současné době nemáme žádné příspěvky."
 
-#: templates/articles.template.txt:75
-msgid "Read more …"
-msgstr ""
+#: templates/articles.template.txt
+msgid "There are no posts in this year."
+msgstr "V tomto roce nejsou žádné příspěvky."
 
-#: templates/articles-years.template.txt:12
-msgid "There are no posts in the archive."
-msgstr "V archivu nejsou žádné příspěvky."
+#: templates/articles.template.txt
+msgid "There are no posts in this category."
+msgstr "V této kategorii nejsou žádné příspěvky."
 
-#: templates/articles-years.template.txt:15
-msgid "Archive"
-msgstr "Archiv"
+#: templates/articles.template.txt
+msgid "This post category does not exist."
+msgstr "Kategorie tohoto příspěvku neexistuje."
 
-#: templates/search-news.template.txt:20
+#: templates/search-news.template.txt
 msgid "No posts were found matching your search."
 msgstr "Nebyly nalezeny žádné příspěvky odpovídající vašim vyhledávacím kritériím."
 
-#: zzbrick_request/article.inc.php:39
-msgid "This post is no longer published."
-msgstr ""
-
-#: zzbrick_request/articles.inc.php:34
-msgid "News Articles"
-msgstr "Novinky"
-
-#: zzbrick_tables/articles.php:16
-msgid "Articles"
-msgstr "Články"
-
-#: zzbrick_tables/articles.php:19 zzbrick_tables/articles-articles.php:19
-#: zzbrick_tables/articles-categories.php:19
-#: zzbrick_tables/articles-contacts.php:19
-#: zzbrick_tables/articles-events.php:19 zzbrick_tables/articles-media.php:19
-msgid "ID"
-msgstr ""
-
-#: zzbrick_tables/articles.php:23
-msgid "Image"
-msgstr "Obrázek"
-
-#: zzbrick_tables/articles.php:46
-msgid "Date"
-msgstr ""
-
-#: zzbrick_tables/articles.php:53
-msgid "Time"
-msgstr ""
-
-#: zzbrick_tables/articles.php:64
-msgid "Title"
-msgstr ""
-
-#: zzbrick_tables/articles.php:78
-msgid "Subtitle"
-msgstr "Titulky"
-
-#: zzbrick_tables/articles.php:88
-msgid "Lead"
-msgstr ""
-
-#: zzbrick_tables/articles.php:94
-msgid "Short news, not too long"
-msgstr "Krátké zprávy, ne příliš dlouho"
-
-#: zzbrick_tables/articles.php:100
-msgid "Newsletter Lead"
-msgstr ""
-
-#: zzbrick_tables/articles.php:112
-msgid "Media"
-msgstr ""
-
-#: zzbrick_tables/articles.php:123
-msgid "Published?"
-msgstr ""
-
-#: zzbrick_tables/articles.php:126 zzbrick_tables/articles.php:308
-#: zzbrick_tables/articles-media.php:83
-msgid "no"
-msgstr ""
-
-#: zzbrick_tables/articles.php:126 zzbrick_tables/articles.php:307
-#: zzbrick_tables/articles-media.php:83
-msgid "yes"
-msgstr ""
-
-#: zzbrick_tables/articles.php:133
-msgid "Categories"
-msgstr "Rubriky"
-
-#: zzbrick_tables/articles.php:151
-msgid "Ext. Link"
-msgstr ""
-
-#: zzbrick_tables/articles.php:155
-msgid "Link to another website to read on."
-msgstr ""
-
-#: zzbrick_tables/articles.php:160 zzbrick_tables/articles-articles.php:32
-#: zzbrick_tables/articles-categories.php:23
-#: zzbrick_tables/articles-contacts.php:23
-#: zzbrick_tables/articles-events.php:23 zzbrick_tables/articles-media.php:52
-msgid "Article"
-msgstr "Článek"
-
-#: zzbrick_tables/articles.php:200 zzbrick_tables/articles.php:335
-msgid "Publication"
-msgstr "Zveřejnění"
-
-#: zzbrick_tables/articles.php:223
-msgid "Identifier"
-msgstr "Identifikátor"
-
-#: zzbrick_tables/articles.php:231 zzbrick_tables/articles-articles.php:74
-#: zzbrick_tables/articles-categories.php:58
-#: zzbrick_tables/articles-contacts.php:61
-msgid "Last update"
-msgstr ""
-
-#: zzbrick_tables/articles.php:235
-msgid "Article type"
-msgstr ""
-
-#: zzbrick_tables/articles.php:283
-msgid "Year"
-msgstr "Rok"
-
-#: zzbrick_tables/articles.php:297 zzbrick_tables/articles-categories.php:35
-#: zzbrick_tables/articles-contacts.php:43
-msgid "Category"
-msgstr ""
-
-#: zzbrick_tables/articles.php:303
-msgid "Published"
-msgstr "Publikované"
-
-#: zzbrick_tables/articles-articles.php:16
+#: zzbrick_tables/articles-articles.php
 msgid "Linked Articles"
 msgstr "Propojené články:"
 
-#: zzbrick_tables/articles-articles.php:23
-#: zzbrick_tables/articles-articles.php:29
-#: zzbrick_tables/articles-categories.php:29
-#: zzbrick_tables/articles-contacts.php:29 zzbrick_tables/articles-media.php:45
-msgid "No."
-msgstr "Číslo."
-
-#: zzbrick_tables/articles-articles.php:24
-#: zzbrick_tables/articles-events.php:31
-msgid "Sequence"
-msgstr ""
-
-#: zzbrick_tables/articles-articles.php:44
-msgid "Relation"
-msgstr ""
-
-#: zzbrick_tables/articles-articles.php:58
+#: zzbrick_tables/articles-articles.php
 msgid "Main Article"
 msgstr "Hlavní článek"
 
-#: zzbrick_tables/articles-categories.php:16
-msgid "Categories of Articles"
-msgstr ""
+#: zzbrick_tables/articles-categories.php
+msgid "Categories"
+msgstr "Rubriky"
 
-#: zzbrick_tables/articles-categories.php:45
-msgid "Type"
-msgstr ""
-
-#: zzbrick_tables/articles-categories.php:54
-msgid "Property"
-msgstr ""
-
-#: zzbrick_tables/articles-contacts.php:16
-msgid "Contacts in Articles"
-msgstr ""
-
-#: zzbrick_tables/articles-contacts.php:35
-msgid "Contact"
-msgstr ""
-
-#: zzbrick_tables/articles-contacts.php:55
-msgid "Role"
-msgstr ""
-
-#: zzbrick_tables/articles-events.php:16
-msgid "Articles on Events"
-msgstr ""
-
-#: zzbrick_tables/articles-events.php:30
-msgid "Seq."
-msgstr ""
-
-#: zzbrick_tables/articles-events.php:36
-msgid "Event"
-msgstr ""
-
-#: zzbrick_tables/articles-media.php:16
+#: zzbrick_tables/articles-media.php
 msgid "Media in Articles"
 msgstr "Média v článcích"
 
-#: zzbrick_tables/articles-media.php:23
+#: zzbrick_tables/articles-media.php
+msgid "No."
+msgstr "Číslo."
+
+#: zzbrick_tables/articles-media.php
 msgid "Preview"
 msgstr "Náhled"
 
-#: zzbrick_tables/articles-media.php:61
-msgid "Medium"
+#: zzbrick_tables/articles.php
+msgid "News Articles"
+msgstr "Novinky"
+
+#: zzbrick_tables/articles.php
+msgid "News"
+msgstr "Zprávy"
+
+#: zzbrick_tables/articles.php
+msgid "Post"
+msgstr "Příspěvek"
+
+#: zzbrick_tables/articles.php
+msgid "Articles"
+msgstr "Články"
+
+#: zzbrick_tables/articles.php
+#: zzbrick_tables/issues.php
+msgid "Article"
+msgstr "Článek"
+
+#: zzbrick_tables/articles.php
+msgid "Authors"
+msgstr "Autoři"
+
+#: zzbrick_tables/articles.php
+msgid "Image"
+msgstr "Obrázek"
+
+#: zzbrick_tables/articles.php
+msgid "Year"
+msgstr "Rok"
+
+#: zzbrick_tables/articles.php
+msgid "Published"
+msgstr "Publikované"
+
+#: zzbrick_tables/articles.php
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "Identifier"
+msgstr "Identifikátor"
+
+#: zzbrick_tables/articles.php
+msgid "Show until"
+msgstr "Zobrazit do"
+
+#: zzbrick_tables/articles.php
+msgid "Short news, not too long"
+msgstr "Krátké zprávy, ne příliš dlouho"
+
+#: zzbrick_tables/articles.php
+msgid "– none –"
+msgstr "– žádný –"
+
+#: zzbrick_tables/articles.php
+msgid "Lead"
 msgstr ""
 
-#: zzbrick_tables/articles-media.php:80
-msgid "Overview?"
-msgstr "Přehled?"
-
-#: zzbrick_tables/articles-media.php:89
-msgid "Updated"
+#: zzbrick_tables/articles.php
+msgid "Newsletter Lead"
 msgstr ""
+
+#: zzbrick_tables/articles.php
+msgid "Organisations"
+msgstr "Organizace"
+
+#: zzbrick_tables/articles.php
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "Publication"
+msgstr "Zveřejnění"
+
+#: zzbrick_tables/articles.php
+msgid "Subtitle"
+msgstr "Titulky"
+
+#: zzbrick_tables/articles.php
+#: zzbrick_tables/issues.php
+msgid "Issue"
+msgstr "Číslo"
+
+#: zzbrick_tables/issues.php
+msgid "Issue short"
+msgstr "Zkrácený název čísla"
+
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "ID"
+msgstr "ID"
+
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "Seq."
+msgstr "Poř."
+
+#: zzbrick_tables/issues.php
+#: zzbrick_tables/publications.php
+msgid "Issues"
+msgstr "Čísla"
+
+#: zzbrick_tables/issues.php
+msgid "Intro"
+msgstr "Úvod"
+
+#: zzbrick_tables/issues.php
+msgid "Date published"
+msgstr "Datum zveřejnění"
+
+#: zzbrick_tables/issues.php
+msgid "Period begin"
+msgstr "Začátek období"
+
+#: zzbrick_tables/issues.php
+msgid "Period end"
+msgstr "Konec období"
+
+#: zzbrick_tables/issues.php
+msgid "Published?"
+msgstr "Publikováno?"
+
+#: zzbrick_tables/issues.php
+msgid "yes"
+msgstr "ano"
+
+#: zzbrick_tables/issues.php
+msgid "no"
+msgstr "ne"
+
+#: zzbrick_tables/publications.php
+msgid "Publications"
+msgstr "Publikace"
+
+#: zzbrick_tables/publications.php
+msgid "Distribution"
+msgstr "Způsob vydávání"
+
+#: zzbrick_tables/publications.php
+msgid "Continuous publication"
+msgstr "Průběžné (blog)"
+
+#: zzbrick_tables/publications.php
+msgid "Issued publication"
+msgstr "S čísly vydání (periodikum)"
+
+#: zzbrick_tables/publications.php
+msgid "Description"
+msgstr "Popis"
+
+#: zzbrick_tables/publications.php
+msgid "Publication short"
+msgstr "Zkrácený název publikace"
+
+#: zzbrick_tables/publications.php
+msgid "Internal parameters. Change with care."
+msgstr "Interní parametry. Měňte jen pokud víte, co děláte."
+
+#: templates/issues-archive.template.txt
+msgid "No issues have been published yet."
+msgstr "Zatím nebyly zveřejněny žádné výtisky."

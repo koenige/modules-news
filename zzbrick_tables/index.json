@@ -16,5 +16,15 @@
     },
     "articles_media": {
         "title": "Media in Articles"
+    },
+    "issues": {
+        "title": "Issues"
+    },
+    "publications": {
+        "title": "Publications",
+        "parameter_field": "parameters",
+        "audience": [
+            "editor"
+        ]
     }
 }

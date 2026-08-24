@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2020-2025 Gustaf Mossakowski
+ * @copyright Copyright © 2020-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -22,15 +22,9 @@
  */
 function mod_news_get_articles($params = [], $settings = []) {
 	// news categories
-	$news_categories = ['publications', 'news'];
 	$news_categories_ids = [];
-	foreach ($news_categories as $index => $path) {
-		if (!$category_id = wrap_category_id($path, 'check')) {
-			unset($news_categories[$index]);
-			continue;
-		}
-		$news_categories_ids[] = $category_id; 
-	}
+	if ($category_id = wrap_category_id('news', 'check'))
+		$news_categories_ids[] = $category_id;
 	
 	// titles
 	$titles = [];
@@ -47,32 +41,35 @@ function mod_news_get_articles($params = [], $settings = []) {
 	}
 	if ($params) {
 		$param = array_shift($params);
+		if ($publication_id = wrap_id('publications', $param)) {
+			$where[] = sprintf('publication_id = %d', $publication_id);
+			$param = array_shift($params);
+		}
 		
 		// check: is it a category?
 		$i = 0;
 		while (!is_numeric($param)) {
 			$i++;
 			if ($i > 2) break;
-			foreach ($news_categories as $index => $path) {
-				if (!$category_id = wrap_category_id(sprintf('%s/%s', $path, $param), 'check')) continue;
-				$join[] = sprintf(' LEFT JOIN articles_categories ac_%s
-					ON articles.article_id = ac_%s.article_id
-					AND ac_%s.type_category_id = /*_ID categories %s _*/
-					LEFT JOIN categories categories_%s
-						ON categories_%s.category_id = ac_%s.category_id
-				', $path, $path, $path, $path, $path, $path, $path);
-				$where[] = sprintf('ac_%s.category_id = %d', $path, $category_id);
-				$titles['category'] = $path.'/'.$param;
-				$param = array_shift($params); // allow another parameter
-				
-				$sql = 'SELECT parameters
-					FROM /*_PREFIX_*/categories
-					WHERE category_id = %d';
-				$sql = sprintf($sql, $category_id);
-				$news_category_parameters = wrap_db_fetch($sql, '', 'single value');
-				wrap_setting_from_table('news', $news_category_parameters);
-				break;
-			}
+			
+			if (!$category_id = wrap_category_id(sprintf('news/%s', $param), 'check')) continue;
+			$join[] = ' LEFT JOIN articles_categories
+				ON articles.article_id = articles_categories.article_id
+				AND articles_categories.type_category_id = /*_ID categories news _*/
+				LEFT JOIN categories
+					ON articles_categories.category_id = categories.category_id
+			';
+			$where[] = sprintf('articles_categories.category_id = %d', $category_id);
+			$titles['category'] = 'news/'.$param;
+			$param = array_shift($params); // allow another parameter
+			
+			$sql = 'SELECT parameters
+				FROM /*_PREFIX_*/categories
+				WHERE category_id = %d';
+			$sql = sprintf($sql, $category_id);
+			$news_category_parameters = wrap_db_fetch($sql, '', 'single value');
+			wrap_setting_from_table('news', $news_category_parameters);
+			break;
 		}
 		if (is_numeric($param)) {
 			$where[] = sprintf('YEAR(date) = %d', $param);
@@ -86,19 +83,9 @@ function mod_news_get_articles($params = [], $settings = []) {
 		}
 		if ($params) return false; // wrong parameter count, illegal parameters
 	}
-	if (!empty($settings['hide_no_archive']) AND $news_categories) {
-		// hide_no_archive can be set per news category or publication
-		$sql = 'SELECT article_id
-			FROM articles
-			JOIN articles_categories USING (article_id)
-			JOIN categories USING (category_id)
-			WHERE main_category_id IN (%s)
-			AND parameters LIKE "%%&no_archive=1%%"';
-		$sql = sprintf($sql, implode(',', $news_categories_ids));
-		$hidden_article_ids = wrap_db_fetch($sql, 'article_id', 'single value');
-		if ($hidden_article_ids)
-			$where[] = sprintf('articles.article_id NOT IN (%s)', implode(',', $hidden_article_ids));
-	}
+	$hidden_article_ids = mf_news_hidden_article_ids($settings);
+	if ($hidden_article_ids)
+		$where[] = sprintf('articles.article_id NOT IN (%s)', implode(',', $hidden_article_ids));
 
 	// Articles
 	$sql = 'SELECT articles.article_id

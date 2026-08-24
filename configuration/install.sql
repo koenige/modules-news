@@ -25,11 +25,18 @@ CREATE TABLE `articles` (
   `article` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `identifier` varchar(64) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `published` enum('yes','no') CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT 'yes',
+  `publication_id` int unsigned DEFAULT NULL,
+  `issue_id` int unsigned DEFAULT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`article_id`),
   UNIQUE KEY `identifier` (`identifier`),
-  KEY `published` (`published`)
+  KEY `published` (`published`),
+  KEY `publication_id` (`publication_id`),
+  KEY `issue_id` (`issue_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'publications', 'publication_id', (SELECT DATABASE()), 'articles', 'article_id', 'publication_id', 'no-delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'issues', 'issue_id', (SELECT DATABASE()), 'articles', 'article_id', 'issue_id', 'no-delete');
 
 
 -- articles_articles --
@@ -124,6 +131,46 @@ INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'media', 'medium_id', (SELECT DATABASE()), 'articles_media', 'article_medium_id', 'medium_id', 'no-delete');
 
 INSERT INTO categories (`category`, `description`, `main_category_id`, `path`, `parameters`, `sequence`, `last_update`) VALUES ('Default news overview', NULL, /*_ID categories tags _*/, 'tags/default-articles-overview', '&alias=tags/default-articles-overview', NULL, NOW());
+
+-- issues --
+CREATE TABLE `issues` (
+  `issue_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `publication_id` int unsigned NOT NULL,
+  `issue` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `issue_short` varchar(31) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `identifier` varchar(64) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `intro` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `article` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `period_begin` date DEFAULT NULL,
+  `period_end` date DEFAULT NULL,
+  `sequence` tinyint unsigned DEFAULT NULL,
+  `published` enum('yes','no') CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT 'yes',
+  `date_published` date DEFAULT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`issue_id`),
+  UNIQUE KEY `publication_identifier` (`publication_id`,`identifier`),
+  KEY `publication_id` (`publication_id`),
+  KEY `period_begin` (`period_begin`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'publications', 'publication_id', (SELECT DATABASE()), 'issues', 'issue_id', 'publication_id', 'delete');
+
+
+-- publications --
+CREATE TABLE `publications` (
+  `publication_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `publication` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `publication_short` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `identifier` varchar(64) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `distribution` enum('continuous','issued') CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT 'continuous',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `sequence` tinyint unsigned DEFAULT NULL,
+  `parameters` varchar(750) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`publication_id`),
+  UNIQUE KEY `identifier` (`identifier`),
+  KEY `sequence` (`sequence`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 -- query SHOW TABLES LIKE 'newsletters' --
