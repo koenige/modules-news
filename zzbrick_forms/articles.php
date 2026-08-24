@@ -49,7 +49,11 @@ if (wrap_package('contacts')) {
 	$values['context']['roles'] = 'news_articles';
 	mf_default_categories_restrict($values, 'roles');
 
-	$no = 40;
-	foreach ($values['roles'] as $role)
-		mf_contacts_contacts_subtable($zz, 'articles', $role, $no++);
+	$no = 39;
+	foreach ($values['roles'] as $role) {
+		mf_contacts_contacts_subtable($zz, 'articles', $role, ++$no);
+		if ($role['path'] === 'author' AND wrap_setting('news_author_is_user'))
+			$zz['fields'][$no]['fielddefs'][0][3]['default'] = $_SESSION['contact'];
+		if ($no === 40) $zz['fields'][$no]['separator_before'] = true;
+	}
 }
