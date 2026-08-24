@@ -208,6 +208,7 @@ if (wrap_package('events')) {
 	$zz['fields'][22]['sql'] .= ' ORDER BY /*_PREFIX_*/articles.date DESC, sequence';
 	$zz['fields'][22]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][22]['fields'][4]['type'] = 'sequence';
+	$zz['fields'][22]['separator'] = true;
 }
 
 $zz['fields'][25]['title'] = 'Publication';
@@ -250,6 +251,7 @@ $zz['fields'][99]['field_name'] = 'last_update';
 $zz['fields'][99]['type'] = 'timestamp';
 $zz['fields'][99]['hide_in_list'] = true;
 
+$zz['fields'][19]['title'] = 'Type';
 $zz['fields'][19]['field_name'] = 'article_type';
 $zz['fields'][19]['type'] = 'display';
 $zz['fields'][19]['exclude_from_search'] = true;
