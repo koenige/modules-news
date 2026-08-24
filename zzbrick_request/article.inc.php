@@ -148,7 +148,7 @@ function mod_news_article($params) {
 	}
 	
 	$page['title'] = $article['title'];
-	$page['breadcrumbs'] = mod_news_article_breadcrumbs($article['title']);
+	$page['breadcrumbs'] = mod_news_article_breadcrumbs($article);
 	$page['opengraph'] = [
 		'og:type' => 'article',
 		'og:title' => wrap_html_escape(strip_tags($article['title'])),
@@ -198,9 +198,10 @@ function mod_news_article($params) {
 /**
  * get breadcrumbs for news article
  *
+ * @param array $article
  * @return array
  */
-function mod_news_article_breadcrumbs($title) {
+function mod_news_article_breadcrumbs($article) {
 	$news_parts = explode('/', wrap_brick('parameter'));
 	// remove current page
 	array_pop($news_parts);
@@ -220,6 +221,6 @@ function mod_news_article_breadcrumbs($title) {
 		$breadcrumb_url .= '/'.$path;
 		$breadcrumbs[] = ['title' => $path, 'url_path' => $breadcrumb_url.'/'];
 	}
-	$breadcrumbs[]['title'] = $title;
+	$breadcrumbs[]['title'] = $article['title_short'] ?? $article['title'];
 	return $breadcrumbs;
 }

@@ -19,6 +19,7 @@ CREATE TABLE `articles` (
   `date_to` date DEFAULT NULL,
   `title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `subtitle` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_short` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `abstract` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `direct_link` varchar(128) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL,
   `article` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,

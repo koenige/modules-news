@@ -25,7 +25,7 @@
 function mf_news_articles_data($ids, $langs, $settings = []) {
 	$sql = 'SELECT article_id
 			, articles.date, articles.time, articles.identifier
-			, articles.abstract, articles.title, articles.subtitle
+			, articles.abstract, articles.title, articles.subtitle, articles.title_short
 			, direct_link
 			, article
 			, DATE_FORMAT(articles.last_update, "%%a, %%d %%b %%Y %%H:%%i:%%s") AS pubDate

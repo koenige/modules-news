@@ -83,7 +83,16 @@ if (wrap_setting('news_subtitle')) {
 	$zz['fields'][17]['if'][6] = [];
 }
 
-$zz['fields'][16] = []; // short title
+if (wrap_setting('news_title_short')) {
+	$zz['fields'][16]['title'] = 'Short title';
+	$zz['fields'][16]['field_name'] = 'title_short';
+	$zz['fields'][16]['type'] = 'text';
+	$zz['fields'][16]['size'] = 24;
+	$zz['fields'][16]['explanation'] = 'Key terms only, no year. For breadcrumbs and URL segments.';
+	$zz['fields'][16]['hide_in_list'] = true;
+	$zz['fields'][16]['typo_cleanup'] = true;
+	$zz['fields'][16]['typo_remove_double_spaces'] = true;
+}
 
 $zz['fields'][4]['title'] = 'Lead';
 $zz['fields'][4]['if'][1]['title'] = 'Post';
@@ -222,8 +231,9 @@ $zz['fields'][15] = []; // publication issue
 
 $zz['fields'][9]['field_name'] = 'identifier';
 $zz['fields'][9]['type'] = 'identifier';
-$zz['fields'][9]['fields'] = ['date{0,4}', 'title', 'identifier'];
-$zz['fields'][9]['if'][5]['fields'] = ['title', 'identifier'];
+$zz['fields'][9]['fields'] = ['date{0,4}', 'title_short', 'title', 'identifier'];
+$zz['fields'][9]['identifier']['ignore_this_if']['title'] = 'title_short';
+$zz['fields'][9]['if'][5]['fields'] = ['title_short', 'title', 'identifier'];
 $zz['fields'][9]['identifier']['exists'] = '-';
 $zz['fields'][9]['identifier']['concat'] = '/';
 $zz['fields'][9]['hide_in_list'] = true;

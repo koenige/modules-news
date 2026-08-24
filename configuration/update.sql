@@ -60,3 +60,4 @@
 /* 2026-07-06-1 */	INSERT INTO categories (`category`, `description`, `main_category_id`, `path`, `parameters`, `sequence`, `last_update`) VALUES ('Default news overview', NULL, /*_ID categories tags _*/, 'tags/default-articles-overview', '&alias=tags/default-articles-overview', NULL, NOW());
 /* 2026-08-14-1 */	UPDATE categories SET parameters = REPLACE(parameters, '&articles=1', '&use_for[news_articles]=1') WHERE parameters LIKE '%&articles=1%';
 /* 2026-08-14-2 */	UPDATE categories SET parameters = REPLACE(parameters, 'if[articles][', 'if[news_articles][') WHERE parameters LIKE '%if[articles][%';
+/* 2026-08-24-5 */	ALTER TABLE `articles` ADD `title_short` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL AFTER `subtitle`;
