@@ -19,3 +19,4 @@
 2026-03-14-2	code	news_articles_path	removed, paths from routes; use wrap_path()
 2026-03-14-3	code	news_book_path	removed, paths from routes; use wrap_path()
 2026-08-14-1	code	&articles=1	use context[news_articles]=1 in category parameters
+2026-08-24-1	code	categories publications	use publications table now
