@@ -88,3 +88,4 @@
 /* 2026-08-24-11 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&identifier_without_year=', '&news_identifier_without_year=') WHERE `parameters` LIKE '%&identifier_without_year=%';
 /* 2026-08-24-12 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&subtitle=', '&news_subtitle=') WHERE `parameters` LIKE '%&subtitle=%';
 /* 2026-08-24-13 */	UPDATE publications SET `parameters` = REPLACE(`parameters`, '&media=', '&news_media=') WHERE `parameters` LIKE '%&media=%';
+/* 2026-09-01-1 */	UPDATE `publications` SET `parameters` = REPLACE(`parameters`, 'alias=publications/', 'alias=') WHERE `parameters` LIKE '%alias=publications/%';

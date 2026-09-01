@@ -13,3 +13,6 @@
 
 -- ids_publications --
 SELECT identifier, publication_id FROM /*_PREFIX_*/publications ORDER BY identifier;
+
+-- ids-aliases_publications --
+SELECT publication_id, parameters FROM /*_PREFIX_*/publications WHERE parameters LIKE '%alias=%';
