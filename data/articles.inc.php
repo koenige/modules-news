@@ -46,7 +46,7 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 	$articledata = wrap_db_fetch($sql, 'article_id');
 	foreach ($articledata as $article_id => $article) {
 		$articledata[$article_id]['guid'] = 
-		$articledata[$article_id]['link'] = wrap_path('news_article', $article['identifier']);
+		$articledata[$article_id]['link'] = wrap_path('news_article', $article['identifier'], ['hide_missing' => true]);
 	}
 	foreach ($langs as $lang) {
 		$articles[$lang] = wrap_translate($articledata, 'articles', '', true, $lang);
