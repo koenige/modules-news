@@ -81,7 +81,9 @@ function mf_news_articles_data($ids, $langs, $settings = []) {
 				$articles[$lang][$category['article_id']][$category['path_fragment']] = true;
 				if ($category['parameters']) {
 					parse_str($category['parameters'], $category['parameters']);
-					$articles[$lang][$category['article_id']]['menu_hierarchy'][] = mf_default_categories_menu_hierarchy($category['parameters'], $category['path']);
+					$path = mf_default_categories_menu_hierarchy($category['parameters'], $category['path']);
+					if ($path)
+						$articles[$lang][$category['article_id']]['menu_hierarchy'][] = $path;
 				}
 				$articles[$lang][$category['article_id']]['categories'][$article_category_id] = $category; 
 			}
