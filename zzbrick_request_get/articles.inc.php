@@ -41,7 +41,7 @@ function mod_news_get_articles($params = [], $settings = []) {
 	}
 	if ($params) {
 		$param = array_shift($params);
-		if ($publication_id = wrap_id('publications', $param)) {
+		if ($publication_id = wrap_id('publications', $param, 'check')) {
 			$where[] = sprintf('publication_id = %d', $publication_id);
 			$param = array_shift($params);
 		}
