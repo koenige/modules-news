@@ -201,7 +201,8 @@ function mod_news_article_breadcrumbs($article) {
 	}
 
 	$breadcrumbs = [];
-	$breadcrumb_url = wrap_setting('base').$path_prefix;
+	// site-relative; wrap_breadcrumbs_link() adds wrap_nav_base() (incl. language)
+	$breadcrumb_url = $path_prefix;
 	foreach ($news_parts as $path) {
 		$breadcrumb_url .= '/'.$path;
 		$breadcrumbs[] = ['title' => $path, 'url_path' => $breadcrumb_url.'/'];

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- news module\n"
-"POT-Creation-Date: 2026-08-24 19:34+0000\n"
+"POT-Creation-Date: 2026-10-03 21:20+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -123,7 +123,7 @@ msgstr ""
 msgid "This post is no longer published."
 msgstr ""
 
-#: zzbrick_request/articles.inc.php:34
+#: zzbrick_request/articles.inc.php:37
 #: zzbrick_tables/articles.php
 msgid "News Articles"
 msgstr ""
