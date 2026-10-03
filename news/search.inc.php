@@ -31,13 +31,13 @@ function mf_news_search($q) {
 		$data['news'][$publication['identifier']]['publication_identifier'] = $publication['identifier'];
 	}
 
-	$sql = 'SELECT articles.article_id, date, title, abstract, identifier
+	$sql = 'SELECT articles.article_id, date, title, abstract, articles.identifier
 			, publication
 			, publications.identifier AS publication_identifier
 		FROM articles
 		LEFT JOIN publications USING (publication_id)
 		WHERE %s
-		AND published = "yes"
+		AND articles.published = "yes"
 		ORDER BY publications.sequence, publications.identifier, date DESC, time DESC, title';
 	$sql = sprintf($sql, implode(' AND ', $where));
 	$articles = wrap_db_fetch($sql, 'article_id');
