@@ -35,6 +35,9 @@ function mod_news_article($params) {
 	if (!wrap_access('news_preview') AND !$article['published'])
 		wrap_quit(410, wrap_text('This post is no longer published.'));
 
+	if ($article['publication_path'])
+		mf_news_publication_placeholder($article['publication_path']);
+
 	$filter = $article['publication_path'] ? [$article['publication_path']] : [];
 	$articles = brick_request_data('articles', $filter);
 	if (empty($articles[$article['article_id']])) return false;

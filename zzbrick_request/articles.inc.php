@@ -14,6 +14,9 @@
 
 
 function mod_news_articles($params, $settings) {
+	// call publication placeholder if not called yet
+	mf_news_publication_placeholder($params[0]);
+
 	$data = brick_request_data('articles', $params, $settings);
 	if (!empty($settings['events_in_news']) AND wrap_package('events')) {
 		wrap_include('news', 'events');

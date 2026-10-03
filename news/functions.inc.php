@@ -72,3 +72,17 @@ function mf_news_hidden_article_ids($settings) {
 		OR publications.parameters LIKE "%&no_archive=1%"';
 	return wrap_db_fetch($sql, 'article_id', 'single value');
 }
+
+/**
+ * check if placeholder function for publication was called
+ *
+ * @param string $identifier
+ */
+function mf_news_publication_placeholder($identifier) {
+	if (function_exists('mod_news_placeholder_publication')) return;
+	if (!$identifier) return;
+	if (is_numeric($identifier)) return; // year
+	if (!wrap_id('publications', $identifier, 'check')) return;
+	brick_file('placeholder', 'publication');
+	mod_news_placeholder_publication(['vars' => [1 => $identifier]]);
+}
