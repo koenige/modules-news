@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- news module\n"
-"POT-Creation-Date: 2026-08-24 20:23+0000\n"
+"POT-Creation-Date: 2026-10-16 23:35+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -240,46 +240,46 @@ msgstr ""
 msgid "Show links to connected events below news (events module required)"
 msgstr ""
 
-#: configuration/settings.cfg:234
+#: configuration/settings.cfg:235
 msgid "Do not show this article category or publication in the archive"
 msgstr ""
 
-#: configuration/settings.cfg:241
+#: configuration/settings.cfg:242
 msgid "Replace (case sensitive) substrings with other strings, e. g. for common misspellings"
 msgstr ""
 
-#: configuration/settings.cfg:245
+#: configuration/settings.cfg:246
 msgid "Copyright holder in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:249
+#: configuration/settings.cfg:250
 msgid "Description of the RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:253
+#: configuration/settings.cfg:254
 msgid "Name of editor in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:257
+#: configuration/settings.cfg:258
 msgid "E-mail address of editor in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:261
+#: configuration/settings.cfg:262
 msgid "Number of entries in the RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:265
+#: configuration/settings.cfg:266
 msgid "Format description text of RSS entries (articles and events) as if it were an article on webpage"
 msgstr ""
 
-#: configuration/settings.cfg:269
+#: configuration/settings.cfg:270
 msgid "Name of webmaster in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:273
+#: configuration/settings.cfg:274
 msgid "E-mail address of webmaster in RSS feed"
 msgstr ""
 
-#: configuration/settings.cfg:277
+#: configuration/settings.cfg:278
 msgid "Include events in RSS feed"
 msgstr ""
