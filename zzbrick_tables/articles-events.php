@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/news
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014, 2018-2019, 2021-2022, 2024 Gustaf Mossakowski
+ * @copyright Copyright © 2014, 2018-2019, 2021-2022, 2024, 2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -45,9 +45,6 @@ $zz['fields'][3]['sql'] = sprintf('SELECT event_id
 	ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
 $zz['fields'][3]['sql_ignores'][] = 'identifier';
 $zz['fields'][3]['display_field'] = 'event';
-$zz['fields'][3]['sql_character_set'][1] = 'utf8';
-$zz['fields'][3]['sql_character_set'][2] = 'utf8';
-$zz['fields'][3]['sql_character_set'][3] = 'latin1';
 $zz['fields'][3]['search'] = sprintf('CONCAT(/*_PREFIX_*/events.event, " (", 
 	DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")")', wrap_placeholder('mysql_date_format'));
 $zz['fields'][3]['character_set'] = 'utf8';

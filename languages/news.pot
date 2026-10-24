@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- news module\n"
-"POT-Creation-Date: 2026-10-03 21:20+0000\n"
+"POT-Creation-Date: 2026-10-24 11:04+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -218,14 +218,14 @@ msgstr ""
 
 #: zzbrick_tables/articles.php:142
 #: zzbrick_tables/articles.php:325
-#: zzbrick_tables/articles-media.php:83
+#: zzbrick_tables/articles-media.php:81
 #: zzbrick_tables/issues.php:94
 msgid "no"
 msgstr ""
 
 #: zzbrick_tables/articles.php:142
 #: zzbrick_tables/articles.php:324
-#: zzbrick_tables/articles-media.php:83
+#: zzbrick_tables/articles-media.php:81
 #: zzbrick_tables/issues.php:94
 msgid "yes"
 msgstr ""
@@ -373,11 +373,11 @@ msgstr ""
 msgid "Medium"
 msgstr ""
 
-#: zzbrick_tables/articles-media.php:80
+#: zzbrick_tables/articles-media.php:78
 msgid "Overview?"
 msgstr ""
 
-#: zzbrick_tables/articles-media.php:89
+#: zzbrick_tables/articles-media.php:87
 msgid "Updated"
 msgstr ""
 
